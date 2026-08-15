@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
+/*
+ * Design system — calm, professional minimal.
+ * Warm neutral surfaces + a single deep-green accent. No gradients, no glow,
+ * no glass. Type does the work; colour is used sparingly and on purpose.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbfbf9;
+  --foreground: #1a1a18;
+  --card: #ffffff;
+  --card-2: #f5f5f1;
+  --border: #e7e6e0;
+  --border-strong: #d4d3ca;
+  --muted: #6b6a63;
+  --accent: #1b6a49;
+  --accent-hover: #145238;
+  --accent-soft: rgba(27, 106, 73, 0.09);
+  --accent-fg: #ffffff;
+  --good: #15803d;
+  --bad: #b91c1c;
+  --shadow: 0 1px 2px rgba(20, 20, 16, 0.04), 0 1px 3px rgba(20, 20, 16, 0.05);
+  --shadow-lg: 0 2px 8px rgba(20, 20, 16, 0.05), 0 14px 34px -16px rgba(20, 20, 16, 0.22);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0c0e0c;
+    --foreground: #e9e9e3;
+    --card: #141613;
+    --card-2: #1a1d18;
+    --border: #262a23;
+    --border-strong: #363b31;
+    --muted: #9a9a90;
+    --accent: #58ba8a;
+    --accent-hover: #6fca9d;
+    --accent-soft: rgba(88, 186, 138, 0.14);
+    --accent-fg: #06130c;
+    --good: #4ade80;
+    --bad: #f87171;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 2px 8px rgba(0, 0, 0, 0.4), 0 16px 34px -16px rgba(0, 0, 0, 0.6);
   }
 }
 
 body {
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Primary action — flat, solid, confident. No gradient. */
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+.btn-primary:active {
+  transform: translateY(0.5px);
+}
+
+/* Secondary / outline action. */
+.btn-outline {
+  border: 1px solid var(--border-strong);
+  background: var(--card);
+  color: var(--foreground);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.card-hover {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.card-hover:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+/* Was a gradient — now a plain accent colour so any legacy usage stays on-brand. */
+.gradient-text {
+  color: var(--accent);
+}
+
+/* Small mono eyebrow / kicker label. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Hairline rule used to structure sections. */
+.rule {
+  height: 1px;
+  background: var(--border);
+}
+
+/* Subtle scroll-reveal — quiet, not showy. */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

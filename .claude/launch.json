@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "iznkit-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "izn.games dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "/Users/igorzagorodnyi/Sites/izn.games", "run", "dev"],
+      "port": 5175,
+      "autoPort": true
+    }
+  ]
+}

@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# izn.tools
 
-## Getting Started
+A bilingual (EN/RU) hub of small, focused web tools — calculators and document
+generators. Each tool is **free to try** and gives a watermarked preview; a small
+**one-time payment** unlocks a clean, branded PDF.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + **React 19** + **Tailwind 4**
+- **@react-pdf/renderer** for server-side PDF generation (Cyrillic via bundled Roboto)
+- Lightweight custom i18n (locale in the path: `/en`, `/ru`)
+- Pluggable payment provider (Stripe / YooKassa) behind a stub
+
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # http://localhost:3000 -> redirects to /en or /ru
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Copy `.env.example` to `.env.local` and set `UNLOCK_SECRET`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  lib/
+    i18n/           locales, Accept-Language detection, EN/RU dictionaries
+    tools/
+      registry.ts   the catalog: sections + tools (drives the home page)
+      invoice/      per-tool data model + calculations (shared by UI and PDF)
+    pdf/            font registration + @react-pdf document templates
+    payments/       PaymentProvider abstraction + signed unlock tokens (HMAC)
+  app/
+    [locale]/       localized layout, hub landing, tool pages
+    api/
+      checkout/     creates a checkout -> returns an unlock token (stub: instant)
+      pdf/invoice/  renders the PDF; watermarked unless a valid unlock token is sent
+  components/        header, footer, language switcher, tool UIs
+  proxy.ts          locale redirect (Next 16 "proxy" convention)
+```
 
-## Learn More
+### The paywall flow
 
-To learn more about Next.js, take a look at the following resources:
+1. User fills a tool; a **live HTML preview** updates instantly (no server call).
+2. **Free preview** -> `POST /api/pdf/invoice` with no token -> watermarked PDF.
+3. **Unlock** -> `POST /api/checkout` -> unlock token -> `POST /api/pdf/invoice`
+   with the token -> clean PDF. Tokens are HMAC-signed and expire in 30 min.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Swapping the `StubProvider` for Stripe/YooKassa means implementing
+`createCheckout` + a webhook that calls `issueUnlock(sku)`. Nothing else changes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Adding a new tool
 
-## Deploy on Vercel
+1. Add an entry to a section in `src/lib/tools/registry.ts` (set `status: "live"`).
+2. Add its strings to `src/lib/i18n/dictionaries.ts`.
+3. Create `src/app/[locale]/tools/<slug>/page.tsx` and a UI component.
+4. For a PDF output, add a template in `src/lib/pdf/` and an API route that
+   gates the clean version behind `verifyUnlock(token, "tool:<slug>")`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The invoice tool is the reference implementation for all of the above.
