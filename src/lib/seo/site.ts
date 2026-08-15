@@ -1,8 +1,16 @@
 import { locales, type Locale } from "@/lib/i18n/config";
 
-export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://iznkit.com"
-).replace(/\/$/, "");
+const FALLBACK_SITE_URL = "https://iznkit.com";
+
+/**
+ * Absolute site origin. Resilient to a missing, empty, or malformed
+ * NEXT_PUBLIC_SITE_URL — an invalid value here would otherwise crash the build
+ * (metadataBase does `new URL(SITE_URL)`). Falls back unless it's a real http(s) URL.
+ */
+export const SITE_URL = (() => {
+  const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? "").trim().replace(/\/$/, "");
+  return /^https?:\/\/[^\s]+$/.test(raw) ? raw : FALLBACK_SITE_URL;
+})();
 
 export const SITE_NAME = "iznkit";
 
