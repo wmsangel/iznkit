@@ -37,8 +37,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/*
+ * Dark palette. Applied when the system prefers dark (unless the user forced
+ * light) and whenever the user explicitly forced dark via the theme toggle.
+ * The token list is shared between both selectors below.
+ */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background: #0c0e0c;
     --foreground: #e9e9e3;
     --card: #141613;
@@ -55,6 +60,24 @@
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 2px 8px rgba(0, 0, 0, 0.4), 0 16px 34px -16px rgba(0, 0, 0, 0.6);
   }
+}
+
+:root[data-theme="dark"] {
+  --background: #0c0e0c;
+  --foreground: #e9e9e3;
+  --card: #141613;
+  --card-2: #1a1d18;
+  --border: #262a23;
+  --border-strong: #363b31;
+  --muted: #9a9a90;
+  --accent: #58ba8a;
+  --accent-hover: #6fca9d;
+  --accent-soft: rgba(88, 186, 138, 0.14);
+  --accent-fg: #06130c;
+  --good: #4ade80;
+  --bad: #f87171;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 2px 8px rgba(0, 0, 0, 0.4), 0 16px 34px -16px rgba(0, 0, 0, 0.6);
 }
 
 body {

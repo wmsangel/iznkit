@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { LangSwitcher } from "./lang-switcher";
+import { ThemeToggle } from "./theme-toggle";
 import { DONATE } from "@/lib/donate";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
@@ -30,6 +31,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           >
             {dict.nav.donate}
           </Link>
+          <ThemeToggle label={dict.nav.theme} />
           <LangSwitcher locale={locale} />
         </nav>
       </div>

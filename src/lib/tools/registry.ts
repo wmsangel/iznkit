@@ -278,6 +278,17 @@ export const sections: SectionDef[] = [
           ru: "QR для ссылки, Wi-Fi или текста.",
         },
       },
+      {
+        slug: "password-generator",
+        status: "live",
+        popular: true,
+        priceCents: 0,
+        title: { en: "Password generator", ru: "Генератор паролей" },
+        blurb: {
+          en: "Strong, random passwords — right in your browser.",
+          ru: "Надёжные случайные пароли — прямо в браузере.",
+        },
+      },
     ],
   },
   {

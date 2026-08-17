@@ -17,15 +17,18 @@ async function loadFonts() {
   ];
 }
 
+const BRAND = "#4faa82"; // on-brand green used across the card
+
 /**
- * Renders a branded social-share image. Uses bundled Noto Sans so Cyrillic
- * titles render correctly (Satori has no system Cyrillic font).
+ * Renders a branded social-share image in the calm iznkit palette. Uses bundled
+ * Noto Sans so Cyrillic titles render correctly (Satori has no system Cyrillic
+ * font). The `accent` argument is accepted for backwards-compatibility but the
+ * card is intentionally single-brand for consistency.
  */
 export async function ogImage({
   title,
   subtitle,
-  accent = "#8b93f8",
-  footer = "Free to try · PDF · EN / RU",
+  footer = "Free right now · EN / RU",
 }: {
   title: string;
   subtitle: string;
@@ -42,7 +45,7 @@ export async function ogImage({
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background: "#0b1020",
+          background: "#0c0e0c",
           fontFamily: "Noto",
           position: "relative",
         }}
@@ -50,11 +53,11 @@ export async function ogImage({
         <div
           style={{
             position: "absolute",
-            top: -160,
-            right: -120,
-            width: 620,
-            height: 620,
-            background: `radial-gradient(circle at center, ${accent}55 0%, transparent 70%)`,
+            top: 0,
+            left: 0,
+            width: 10,
+            height: "100%",
+            background: BRAND,
           }}
         />
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
@@ -62,19 +65,19 @@ export async function ogImage({
             style={{
               width: 52,
               height: 52,
-              borderRadius: 14,
-              background: `linear-gradient(135deg, ${accent}, #a78bfa)`,
+              borderRadius: 12,
+              background: BRAND,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#fff",
+              color: "#06130c",
               fontSize: 24,
               fontWeight: 700,
             }}
           >
             iz
           </div>
-          <div style={{ fontSize: 28, fontWeight: 700, color: "#fff" }}>iznkit</div>
+          <div style={{ fontSize: 28, fontWeight: 700, color: "#e9e9e3" }}>iznkit</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -82,7 +85,7 @@ export async function ogImage({
             style={{
               fontSize: 68,
               fontWeight: 700,
-              color: "#ffffff",
+              color: "#f4f4ef",
               lineHeight: 1.08,
               maxWidth: 960,
             }}
@@ -92,7 +95,7 @@ export async function ogImage({
           <div
             style={{
               fontSize: 30,
-              color: "#9aa6be",
+              color: "#9a9a90",
               marginTop: 26,
               maxWidth: 880,
               lineHeight: 1.35,
@@ -103,8 +106,8 @@ export async function ogImage({
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{ height: 8, width: 72, borderRadius: 4, background: accent }} />
-          <div style={{ fontSize: 22, color: "#9aa6be" }}>{footer}</div>
+          <div style={{ height: 8, width: 72, borderRadius: 4, background: BRAND }} />
+          <div style={{ fontSize: 22, color: "#9a9a90" }}>{footer}</div>
         </div>
       </div>
     ),

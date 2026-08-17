@@ -5,8 +5,8 @@ import { getDictionary } from "@/lib/i18n/dictionaries";
 import { sections } from "@/lib/tools/registry";
 import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/seo/metadata";
-import { Reveal } from "@/components/reveal";
 import { InvoiceMockup } from "@/components/home/mockups";
+import { ToolsExplorer } from "@/components/home/tools-explorer";
 import { TEMPLATES, type InvoiceTemplate } from "@/lib/tools/invoice/templates";
 import { DONATE } from "@/lib/donate";
 
@@ -35,6 +35,18 @@ export default async function HomePage({
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
   const freeLabel = locale === "ru" ? "Бесплатно" : "Free";
+  const explorerSections = sections.map((section) => ({
+    id: section.id,
+    title: section.title[locale],
+    blurb: section.blurb[locale],
+    tools: section.tools.map((tool) => ({
+      slug: tool.slug,
+      title: tool.title[locale],
+      blurb: tool.blurb[locale],
+      live: tool.status === "live",
+      popular: !!tool.popular,
+    })),
+  }));
 
   return (
     <div>
@@ -95,38 +107,18 @@ export default async function HomePage({
       {/* ---------------- Tools catalog ---------------- */}
       <section id="tools" className="scroll-mt-16">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-            {dict.home.sectionsTitle}
-          </h2>
-          <div className="mt-12 space-y-14">
-            {sections.map((section) => (
-              <div key={section.id}>
-                <div className="flex items-baseline gap-3 mb-5 pb-3 border-b border-[var(--border)]">
-                  <h3 className="font-semibold">{section.title[locale]}</h3>
-                  <p className="text-sm text-[var(--muted)]">{section.blurb[locale]}</p>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {section.tools.map((tool, i) => (
-                    <Reveal key={tool.slug} delay={i * 40}>
-                      <ToolCard
-                        locale={locale}
-                        slug={tool.slug}
-                        title={tool.title[locale]}
-                        blurb={tool.blurb[locale]}
-                        live={tool.status === "live"}
-                        popular={!!tool.popular}
-                        freeLabel={freeLabel}
-                        labels={{
-                          popular: dict.home.popular,
-                          soon: dict.home.soon,
-                        }}
-                      />
-                    </Reveal>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          <ToolsExplorer
+            locale={locale}
+            sections={explorerSections}
+            freeLabel={freeLabel}
+            labels={{
+              title: dict.home.sectionsTitle,
+              searchPlaceholder: dict.home.searchPlaceholder,
+              noResults: dict.home.noResults,
+              popular: dict.home.popular,
+              soon: dict.home.soon,
+            }}
+          />
         </div>
       </section>
 
@@ -190,59 +182,6 @@ export default async function HomePage({
         </div>
       </section>
     </div>
-  );
-}
-
-function ToolCard({
-  locale,
-  slug,
-  title,
-  blurb,
-  live,
-  popular,
-  freeLabel,
-  labels,
-}: {
-  locale: Locale;
-  slug: string;
-  title: string;
-  blurb: string;
-  live: boolean;
-  popular: boolean;
-  freeLabel: string;
-  labels: { popular: string; soon: string };
-}) {
-  const inner = (
-    <div
-      className={`card ${live ? "card-hover" : "opacity-70"} rounded-xl p-5 h-full flex flex-col`}
-    >
-      <div className="flex items-start justify-between gap-2">
-        <span className="font-semibold">{title}</span>
-        {popular && live ? (
-          <span className="text-[10px] uppercase tracking-wide rounded-full bg-[var(--accent-soft)] text-[var(--accent)] px-2 py-0.5 font-semibold">
-            {labels.popular}
-          </span>
-        ) : !live ? (
-          <span className="text-[10px] uppercase tracking-wide rounded-full bg-[var(--card-2)] text-[var(--muted)] px-2 py-0.5 font-semibold">
-            {labels.soon}
-          </span>
-        ) : null}
-      </div>
-      <p className="mt-1.5 text-sm text-[var(--muted)] flex-1">{blurb}</p>
-      {live ? (
-        <div className="mt-4 flex items-center justify-between text-sm">
-          <span className="font-medium text-[var(--accent)]">{freeLabel}</span>
-          <span className="text-[var(--muted)]">→</span>
-        </div>
-      ) : null}
-    </div>
-  );
-  return live ? (
-    <Link href={`/${locale}/tools/${slug}`} className="group block h-full">
-      {inner}
-    </Link>
-  ) : (
-    <div className="h-full">{inner}</div>
   );
 }
 
