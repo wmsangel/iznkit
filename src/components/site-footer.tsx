@@ -3,12 +3,22 @@ import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { sections } from "@/lib/tools/registry";
 import { DONATE } from "@/lib/donate";
+import { PROJECTS } from "@/lib/projects";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
   const liveSections = sections
     .map((s) => ({ ...s, live: s.tools.filter((t) => t.status === "live") }))
     .filter((s) => s.live.length > 0);
+
+  const infoLinks = [
+    { href: `/${locale}/about`, label: dict.nav.about },
+    { href: `/${locale}/contact`, label: dict.nav.contact },
+    { href: `/${locale}/projects`, label: dict.nav.projects },
+    { href: `/${locale}/privacy`, label: dict.nav.privacy },
+    { href: `/${locale}/terms`, label: dict.nav.terms },
+    { href: `/${locale}/${DONATE.path}`, label: dict.nav.donate },
+  ];
 
   return (
     <footer className="mt-24 border-t border-[var(--border)]">
@@ -55,9 +65,39 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row gap-2 justify-between text-xs text-[var(--muted)]">
+        {/* More from us — sister projects */}
+        <div className="mt-12 pt-8 border-t border-[var(--border)]">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[var(--foreground)] mb-4">
+            {dict.nav.more}
+          </div>
+          <div className="grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+            {PROJECTS.map((p) => (
+              <a
+                key={p.url}
+                href={p.url}
+                target="_blank"
+                rel="noopener"
+                className="group flex items-baseline gap-2 text-sm"
+              >
+                <span className="font-medium group-hover:text-[var(--accent)] transition-colors">
+                  {p.name}
+                </span>
+                <span className="text-[var(--muted)] truncate">— {p.tagline[locale]}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-xs text-[var(--muted)]">
           <span>© {new Date().getFullYear()} iznkit</span>
-          <span>{dict.brand.tagline}</span>
+          <nav className="flex flex-wrap gap-x-4 gap-y-2">
+            {infoLinks.map((l) => (
+              <Link key={l.href} href={l.href} className="hover:text-[var(--foreground)] transition-colors">
+                {l.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

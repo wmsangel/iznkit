@@ -17,14 +17,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Donate page.
-  for (const locale of locales) {
-    entries.push({
-      url: absUrl(locale, DONATE.path),
-      changeFrequency: "yearly",
-      priority: 0.3,
-      alternates: { languages: languageAlternates(DONATE.path) },
-    });
+  // Donate + static info/legal pages.
+  const staticPaths = [DONATE.path, "about", "contact", "projects", "privacy", "terms"];
+  for (const path of staticPaths) {
+    for (const locale of locales) {
+      entries.push({
+        url: absUrl(locale, path),
+        changeFrequency: "yearly",
+        priority: path === "projects" || path === "about" ? 0.5 : 0.3,
+        alternates: { languages: languageAlternates(path) },
+      });
+    }
   }
 
   // Live tools.

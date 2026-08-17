@@ -14,6 +14,10 @@ export const SITE_URL = (() => {
 
 export const SITE_NAME = "iznkit";
 
+/** Public contact addresses. */
+export const CONTACT_EMAIL = "info@iznkit.com";
+export const ADS_EMAIL = "ads@iznkit.com";
+
 /** OpenGraph locale codes for our UI locales. */
 export const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",
