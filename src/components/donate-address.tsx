@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { DONATE } from "@/lib/donate";
+import { track } from "@/lib/analytics";
 
 export function DonateAddress({
   label,
@@ -18,6 +19,7 @@ export function DonateAddress({
     try {
       await navigator.clipboard.writeText(DONATE.tronAddress);
       setDone(true);
+      track("copy_donate_address", { network: "tron" });
       setTimeout(() => setDone(false), 2000);
     } catch {
       /* clipboard blocked — the address is selectable in the field */

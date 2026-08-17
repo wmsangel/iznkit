@@ -8,6 +8,7 @@ import { CURRENCIES, formatMoney } from "@/lib/format";
 import { computeHourly, emptyHourly, type HourlyData } from "@/lib/tools/hourly/model";
 import { FREE_MODE } from "@/lib/payments/mode";
 import { DONATE } from "@/lib/donate";
+import { track } from "@/lib/analytics";
 
 const SKU = "tool:hourly-rate";
 const STORAGE_KEY = "izn.tools:hourly:draft";
@@ -199,7 +200,10 @@ export function Actions({
         <p className="text-xs text-[var(--muted)]">{t.freeNote}</p>
         <button
           type="button"
-          onClick={onUnlock}
+          onClick={() => {
+            track("download_pdf", { mode: "free" });
+            onUnlock();
+          }}
           disabled={state === "working"}
           className="btn-primary w-full rounded-lg px-4 py-2.5 text-sm font-semibold disabled:opacity-50"
         >
@@ -236,7 +240,10 @@ export function Actions({
         </button>
         <button
           type="button"
-          onClick={onUnlock}
+          onClick={() => {
+            track("download_pdf", { mode: "paid" });
+            onUnlock();
+          }}
           disabled={state === "working"}
           className="btn-primary flex-1 rounded-lg px-4 py-2.5 text-sm font-semibold disabled:opacity-50"
         >

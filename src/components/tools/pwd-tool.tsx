@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { track } from "@/lib/analytics";
 
 const SETS = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -80,6 +81,7 @@ export function PwdTool({ locale }: { locale: Locale }) {
     try {
       await navigator.clipboard.writeText(password);
       setCopied(true);
+      track("copy_password", { length });
       setTimeout(() => setCopied(false), 2000);
     } catch {
       /* clipboard blocked */
