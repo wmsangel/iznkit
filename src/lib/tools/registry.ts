@@ -339,6 +339,28 @@ export const sections: SectionDef[] = [
           ru: "SHA-1, SHA-256, SHA-384 и SHA-512 для любого текста.",
         },
       },
+      {
+        slug: "timestamp",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Unix timestamp converter", ru: "Конвертер Unix-времени" },
+        blurb: {
+          en: "Convert Unix timestamps to dates and back.",
+          ru: "Конвертация Unix-времени в дату и обратно.",
+        },
+      },
+      {
+        slug: "color",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Color converter", ru: "Конвертер цветов" },
+        blurb: {
+          en: "Convert colors between HEX, RGB and HSL.",
+          ru: "Конвертация цветов между HEX, RGB и HSL.",
+        },
+      },
     ],
   },
   {

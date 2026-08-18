@@ -2258,6 +2258,180 @@ const hashContent: Content = {
   },
 };
 
+const timestampContent: Content = {
+  en: {
+    intro:
+      "Convert a Unix timestamp into a human-readable date, or turn a date back into a Unix timestamp — instantly, in your browser. This free converter shows the local time, UTC, ISO 8601 and a relative time, auto-detects seconds vs milliseconds, and gives you the current timestamp live. Nothing is uploaded.",
+    benefits: [
+      "Timestamp → local, UTC, ISO and relative time",
+      "Date → Unix seconds and milliseconds",
+      "Auto-detects seconds vs milliseconds",
+      "Live current timestamp, copyable",
+      "Runs in your browser — nothing uploaded",
+    ],
+    steps: [
+      "Paste a Unix timestamp to see the date.",
+      "Or pick a date to get the timestamp.",
+      "Copy the value you need.",
+    ],
+    faq: [
+      {
+        q: "What is a Unix timestamp?",
+        a: "The number of seconds (or milliseconds) since 1 January 1970 UTC — a compact, timezone-free way to store a moment in time, used across programming and APIs.",
+      },
+      {
+        q: "Seconds or milliseconds?",
+        a: "The tool auto-detects: 10-digit values are read as seconds, 13-digit values as milliseconds. Most back-ends use seconds; JavaScript uses milliseconds.",
+      },
+      {
+        q: "Does it handle time zones?",
+        a: "It shows both your local time and UTC. The timestamp itself is timezone-free; the local display uses your device's zone.",
+      },
+      {
+        q: "Is anything uploaded?",
+        a: "No. Conversion happens entirely in your browser — nothing is sent to a server.",
+      },
+    ],
+    useCases: [
+      "Developers reading timestamps from logs or APIs",
+      "Converting a date to a Unix value for a query",
+      "Checking when an epoch value falls",
+      "Debugging expiry or created-at fields",
+    ],
+    metaExtra:
+      "Free Unix timestamp converter — epoch to date and back, with local, UTC, ISO and relative time.",
+  },
+  ru: {
+    intro:
+      "Переводите Unix-время в понятную дату или дату обратно в Unix-время — мгновенно, в браузере. Этот бесплатный конвертер показывает локальное время, UTC, ISO 8601 и относительное время, авто-определяет секунды или миллисекунды и даёт текущий timestamp вживую. Ничего не загружается.",
+    benefits: [
+      "Время → локальное, UTC, ISO и относительное",
+      "Дата → Unix-секунды и миллисекунды",
+      "Авто-определение секунд/миллисекунд",
+      "Текущий timestamp вживую, с копированием",
+      "Работает в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Вставьте Unix-время, чтобы увидеть дату.",
+      "Или выберите дату, чтобы получить timestamp.",
+      "Скопируйте нужное значение.",
+    ],
+    faq: [
+      {
+        q: "Что такое Unix-время?",
+        a: "Число секунд (или миллисекунд) с 1 января 1970 UTC — компактный способ хранить момент времени без часового пояса, используется в программировании и API.",
+      },
+      {
+        q: "Секунды или миллисекунды?",
+        a: "Инструмент определяет сам: 10-значные значения читаются как секунды, 13-значные — как миллисекунды. Большинство бэкендов используют секунды, JavaScript — миллисекунды.",
+      },
+      {
+        q: "Учитываются ли часовые пояса?",
+        a: "Показываются и локальное время, и UTC. Сам timestamp без пояса; локальное отображение берёт зону вашего устройства.",
+      },
+      {
+        q: "Что-то загружается?",
+        a: "Нет. Конвертация полностью в браузере — ничего не отправляется.",
+      },
+    ],
+    useCases: [
+      "Разработчики — timestamps из логов и API",
+      "Дата в Unix-значение для запроса",
+      "Проверка, когда наступает epoch-значение",
+      "Отладка полей expiry/created-at",
+    ],
+    metaExtra:
+      "Бесплатный конвертер Unix-времени — epoch в дату и обратно, с локальным, UTC, ISO и относительным временем.",
+  },
+};
+
+const colorContent: Content = {
+  en: {
+    intro:
+      "Convert a color between HEX, RGB and HSL — instantly, in your browser. Type any CSS color (a hex code, an rgb() value, or even a name like teal) or pick one visually, and get all three formats plus a live swatch. Nothing is uploaded.",
+    benefits: [
+      "HEX, RGB and HSL from any input",
+      "Accepts hex, rgb(), hsl() and CSS color names",
+      "Visual color picker and a live swatch",
+      "Copy any format in one click",
+      "Runs in your browser — nothing uploaded",
+    ],
+    steps: [
+      "Type a color or open the picker.",
+      "See HEX, RGB and HSL update instantly.",
+      "Copy the format you need.",
+    ],
+    faq: [
+      {
+        q: "Which color formats are supported?",
+        a: "It reads any valid CSS color — hex (#rgb or #rrggbb), rgb()/rgba(), hsl()/hsla() and named colors — and outputs HEX, RGB and HSL.",
+      },
+      {
+        q: "How is HSL calculated?",
+        a: "The color is converted to RGB, then to HSL (hue 0–360°, saturation and lightness as percentages) using the standard formula.",
+      },
+      {
+        q: "Does it support alpha/transparency?",
+        a: "It focuses on the solid color (RGB) for conversion. Alpha isn't included in the HEX/HSL output.",
+      },
+      {
+        q: "Is anything uploaded?",
+        a: "No. The conversion runs entirely in your browser — nothing is sent to a server.",
+      },
+    ],
+    useCases: [
+      "Designers and developers matching brand colors",
+      "Converting a hex code to HSL for tweaks",
+      "Turning a CSS color name into a value",
+      "Building a palette across formats",
+    ],
+    metaExtra:
+      "Free color converter — HEX, RGB and HSL from any CSS color, with a picker and live swatch.",
+  },
+  ru: {
+    intro:
+      "Конвертируйте цвет между HEX, RGB и HSL — мгновенно, в браузере. Введите любой CSS-цвет (hex, значение rgb() или даже имя вроде teal) или выберите пипеткой — и получите все три формата плюс живой образец. Ничего не загружается.",
+    benefits: [
+      "HEX, RGB и HSL из любого ввода",
+      "Принимает hex, rgb(), hsl() и имена CSS-цветов",
+      "Визуальная пипетка и живой образец",
+      "Копирование любого формата в один клик",
+      "Работает в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Введите цвет или откройте пипетку.",
+      "Смотрите, как обновляются HEX, RGB и HSL.",
+      "Скопируйте нужный формат.",
+    ],
+    faq: [
+      {
+        q: "Какие форматы поддерживаются?",
+        a: "Читается любой корректный CSS-цвет — hex (#rgb или #rrggbb), rgb()/rgba(), hsl()/hsla() и именованные цвета — на выходе HEX, RGB и HSL.",
+      },
+      {
+        q: "Как считается HSL?",
+        a: "Цвет переводится в RGB, затем в HSL (тон 0–360°, насыщенность и светлота в процентах) по стандартной формуле.",
+      },
+      {
+        q: "Поддерживается ли прозрачность?",
+        a: "Для конвертации берётся сплошной цвет (RGB). Альфа не входит в вывод HEX/HSL.",
+      },
+      {
+        q: "Что-то загружается?",
+        a: "Нет. Конвертация полностью в браузере — ничего не отправляется.",
+      },
+    ],
+    useCases: [
+      "Дизайнеры и разработчики — подбор брендовых цветов",
+      "Перевод hex в HSL для правок",
+      "Имя CSS-цвета в значение",
+      "Сборка палитры в разных форматах",
+    ],
+    metaExtra:
+      "Бесплатный конвертер цветов — HEX, RGB и HSL из любого CSS-цвета, с пипеткой и живым образцом.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -2287,6 +2461,8 @@ const content: Record<string, Content> = {
   "url-encode": urlContent,
   uuid: uuidContent,
   hash: hashContent,
+  timestamp: timestampContent,
+  color: colorContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
