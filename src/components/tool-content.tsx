@@ -3,8 +3,10 @@ import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { getToolContent } from "@/lib/seo/tool-content";
 import { absUrl, SITE_NAME } from "@/lib/seo/site";
-import { sections } from "@/lib/tools/registry";
+import { sections, getTool } from "@/lib/tools/registry";
 import { FREE_MODE } from "@/lib/payments/mode";
+import { offersFor } from "@/lib/affiliates";
+import { AffiliateSlot } from "@/components/affiliate-slot";
 
 interface Props {
   locale: Locale;
@@ -15,9 +17,9 @@ interface Props {
 }
 
 /**
- * Crawlable long-form content + structured data for a tool page.
- * Renders an intro, benefits, "how it works", and an FAQ, and emits
- * JSON-LD (SoftwareApplication, HowTo, FAQPage, BreadcrumbList).
+ * Crawlable long-form content + structured data for a tool page, plus a
+ * contextual "You may like" partner block. Renders if there's SEO content
+ * and/or affiliate offers for the tool.
  */
 export function ToolContent({
   locale,
@@ -27,111 +29,132 @@ export function ToolContent({
   priceCents,
 }: Props) {
   const content = getToolContent(slug, locale);
-  if (!content) return null;
   const dict = getDictionary(locale);
+  const category = getTool(slug)?.tool.affiliate;
+  const hasAffiliate = offersFor(category).length > 0;
+  if (!content && !hasAffiliate) return null;
+
   const url = absUrl(locale, `tools/${slug}`);
 
-  const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      name: toolTitle,
-      description: toolBlurb,
-      url,
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
-      offers: {
-        "@type": "Offer",
-        price: FREE_MODE ? "0.00" : (priceCents / 100).toFixed(2),
-        priceCurrency: "USD",
-      },
-      publisher: { "@type": "Organization", name: SITE_NAME },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      name: toolTitle,
-      step: content.steps.map((text, i) => ({
-        "@type": "HowToStep",
-        position: i + 1,
-        text,
-      })),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: content.faq.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: SITE_NAME, item: absUrl(locale) },
-        { "@type": "ListItem", position: 2, name: toolTitle, item: url },
-      ],
-    },
-  ];
+  const jsonLd = content
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: toolTitle,
+          description: toolBlurb,
+          url,
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          offers: {
+            "@type": "Offer",
+            price: FREE_MODE ? "0.00" : (priceCents / 100).toFixed(2),
+            priceCurrency: "USD",
+          },
+          publisher: { "@type": "Organization", name: SITE_NAME },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: toolTitle,
+          step: content.steps.map((text, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            text,
+          })),
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: content.faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: SITE_NAME, item: absUrl(locale) },
+            { "@type": "ListItem", position: 2, name: toolTitle, item: url },
+          ],
+        },
+      ]
+    : null;
 
   return (
-    <section className="mt-16 max-w-3xl">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    <section className="mt-16">
+      {content ? (
+        <div className="max-w-3xl">
+          {jsonLd ? (
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+          ) : null}
+
+          <p className="text-[var(--muted)] leading-relaxed">{content.intro}</p>
+
+          <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+            {content.benefits.map((b) => (
+              <li key={b} className="flex gap-2 text-sm">
+                <span className="text-[var(--accent)] mt-0.5">✓</span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+
+          <h2 className="mt-12 text-xl font-semibold">{dict.content.useCases}</h2>
+          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+            {content.useCases.map((u) => (
+              <li
+                key={u}
+                className="rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-sm text-[var(--muted)]"
+              >
+                {u}
+              </li>
+            ))}
+          </ul>
+
+          <h2 className="mt-12 text-xl font-semibold">{dict.content.howItWorks}</h2>
+          <ol className="mt-4 space-y-3">
+            {content.steps.map((step, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="flex-none w-6 h-6 rounded-full bg-[var(--accent)] text-[var(--accent-fg)] text-xs font-bold grid place-items-center">
+                  {i + 1}
+                </span>
+                <span className="text-[var(--muted)]">{step}</span>
+              </li>
+            ))}
+          </ol>
+
+          <h2 className="mt-12 text-xl font-semibold">{dict.content.faq}</h2>
+          <div className="mt-4 divide-y divide-[var(--border)] border-y border-[var(--border)]">
+            {content.faq.map((f) => (
+              <details key={f.q} className="group py-3">
+                <summary className="cursor-pointer font-medium list-none flex justify-between items-center">
+                  {f.q}
+                  <span className="text-[var(--muted)] group-open:rotate-45 transition-transform">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-2 text-sm text-[var(--muted)] leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      <AffiliateSlot
+        locale={locale}
+        category={category}
+        labels={{
+          youMayLike: dict.content.youMayLike,
+          partnerNote: dict.content.partnerNote,
+          partnerLink: dict.content.partnerLink,
+        }}
       />
-
-      <p className="text-[var(--muted)] leading-relaxed">{content.intro}</p>
-
-      <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-        {content.benefits.map((b) => (
-          <li key={b} className="flex gap-2 text-sm">
-            <span className="text-[var(--accent)] mt-0.5">✓</span>
-            <span>{b}</span>
-          </li>
-        ))}
-      </ul>
-
-      <h2 className="mt-12 text-xl font-semibold">{dict.content.useCases}</h2>
-      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-        {content.useCases.map((u) => (
-          <li
-            key={u}
-            className="rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-sm text-[var(--muted)]"
-          >
-            {u}
-          </li>
-        ))}
-      </ul>
-
-      <h2 className="mt-12 text-xl font-semibold">{dict.content.howItWorks}</h2>
-      <ol className="mt-4 space-y-3">
-        {content.steps.map((step, i) => (
-          <li key={i} className="flex gap-3">
-            <span className="flex-none w-6 h-6 rounded-full bg-[var(--accent)] text-[var(--accent-fg)] text-xs font-bold grid place-items-center">
-              {i + 1}
-            </span>
-            <span className="text-[var(--muted)]">{step}</span>
-          </li>
-        ))}
-      </ol>
-
-      <h2 className="mt-12 text-xl font-semibold">{dict.content.faq}</h2>
-      <div className="mt-4 divide-y divide-[var(--border)] border-y border-[var(--border)]">
-        {content.faq.map((f) => (
-          <details key={f.q} className="group py-3">
-            <summary className="cursor-pointer font-medium list-none flex justify-between items-center">
-              {f.q}
-              <span className="text-[var(--muted)] group-open:rotate-45 transition-transform">
-                +
-              </span>
-            </summary>
-            <p className="mt-2 text-sm text-[var(--muted)] leading-relaxed">{f.a}</p>
-          </details>
-        ))}
-      </div>
 
       <RelatedTools locale={locale} currentSlug={slug} />
     </section>
@@ -155,7 +178,7 @@ function RelatedTools({
   if (others.length === 0) return null;
 
   return (
-    <div className="mt-12">
+    <div className="mt-12 max-w-3xl">
       <h2 className="text-xl font-semibold">{dict.content.related}</h2>
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {others.map((tool) => {

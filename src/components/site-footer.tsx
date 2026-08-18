@@ -17,6 +17,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
     { href: `/${locale}/projects`, label: dict.nav.projects },
     { href: `/${locale}/privacy`, label: dict.nav.privacy },
     { href: `/${locale}/terms`, label: dict.nav.terms },
+    { href: `/${locale}/disclosure`, label: dict.nav.disclosure },
     { href: `/${locale}/${DONATE.path}`, label: dict.nav.donate },
   ];
 

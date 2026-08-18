@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Donate + static info/legal pages.
-  const staticPaths = [DONATE.path, "about", "contact", "projects", "privacy", "terms"];
+  const staticPaths = [DONATE.path, "about", "contact", "projects", "privacy", "terms", "disclosure"];
   for (const path of staticPaths) {
     for (const locale of locales) {
       entries.push({

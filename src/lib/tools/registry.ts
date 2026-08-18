@@ -14,6 +14,8 @@ export interface ToolDef {
   popular?: boolean;
   /** one-time unlock price in cents (USD), for display; real pricing handled by payment provider */
   priceCents: number;
+  /** optional affiliate category key (see src/lib/affiliates.ts) for a "You may like" block */
+  affiliate?: string;
 }
 
 export type SectionId =
@@ -22,6 +24,7 @@ export type SectionId =
   | "freelance"
   | "marketing"
   | "ecommerce"
+  | "developer"
   | "utilities"
   | "everyday";
 
@@ -250,6 +253,29 @@ export const sections: SectionDef[] = [
     ],
   },
   {
+    id: "developer",
+    emoji: "⚙️",
+    title: { en: "Developer tools", ru: "Инструменты разработчика" },
+    blurb: {
+      en: "Fast, no-login utilities for everyday coding.",
+      ru: "Быстрые утилиты для повседневной разработки, без входа.",
+    },
+    tools: [
+      {
+        slug: "json-formatter",
+        status: "live",
+        popular: true,
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "JSON formatter", ru: "JSON-форматтер" },
+        blurb: {
+          en: "Format, validate and minify JSON in your browser.",
+          ru: "Форматирование, проверка и минификация JSON в браузере.",
+        },
+      },
+    ],
+  },
+  {
     id: "utilities",
     emoji: "🔧",
     title: { en: "Utilities", ru: "Утилиты" },
@@ -283,6 +309,7 @@ export const sections: SectionDef[] = [
         status: "live",
         popular: true,
         priceCents: 0,
+        affiliate: "password-managers",
         title: { en: "Password generator", ru: "Генератор паролей" },
         blurb: {
           en: "Strong, random passwords — right in your browser.",
