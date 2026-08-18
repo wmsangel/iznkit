@@ -273,6 +273,39 @@ export const sections: SectionDef[] = [
           ru: "Форматирование, проверка и минификация JSON в браузере.",
         },
       },
+      {
+        slug: "base64",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Base64 encoder / decoder", ru: "Base64: кодер и декодер" },
+        blurb: {
+          en: "Encode or decode Base64 text, UTF-8 safe.",
+          ru: "Кодирование и декодирование Base64, с поддержкой UTF-8.",
+        },
+      },
+      {
+        slug: "jwt-decoder",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "JWT decoder", ru: "JWT-декодер" },
+        blurb: {
+          en: "Decode a JWT's header and payload in your browser.",
+          ru: "Декодируйте заголовок и payload JWT в браузере.",
+        },
+      },
+      {
+        slug: "regex-tester",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Regex tester", ru: "Regex-тестер" },
+        blurb: {
+          en: "Test regular expressions with live match highlighting.",
+          ru: "Проверяйте регулярные выражения с подсветкой совпадений.",
+        },
+      },
     ],
   },
   {

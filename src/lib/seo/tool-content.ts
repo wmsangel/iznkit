@@ -1726,6 +1726,273 @@ const jsonFormatter: Content = {
   },
 };
 
+const base64Content: Content = {
+  en: {
+    intro:
+      "Encode text to Base64 or decode Base64 back to text — instantly, in your browser. This free Base64 tool is UTF-8 safe, so accented characters, emoji and Cyrillic round-trip correctly, and it supports URL-safe Base64 (using - and _) for tokens and query strings. Nothing is uploaded; encoding and decoding happen entirely on your device.",
+    benefits: [
+      "Encode and decode with one click",
+      "UTF-8 safe — handles emoji, accents and Cyrillic",
+      "URL-safe option (- and _, no padding)",
+      "Copy the result instantly",
+      "Runs in your browser — nothing uploaded",
+    ],
+    steps: [
+      "Choose Encode or Decode.",
+      "Paste your text or Base64 string.",
+      "Toggle URL-safe if you need it.",
+      "Copy the result.",
+    ],
+    faq: [
+      {
+        q: "What is Base64?",
+        a: "Base64 represents binary data or text as plain ASCII characters. It's used in data URLs, email attachments, JWTs and API payloads where only text is allowed.",
+      },
+      {
+        q: "Is it UTF-8 safe?",
+        a: "Yes. Text is encoded as UTF-8 first, so non-Latin characters, emoji and Cyrillic decode back exactly as you typed them — unlike a plain btoa().",
+      },
+      {
+        q: "What is URL-safe Base64?",
+        a: "A variant that replaces + with - and / with _ and drops the = padding, so the result is safe to use in URLs, filenames and tokens.",
+      },
+      {
+        q: "Is my data uploaded?",
+        a: "No. Everything runs locally in your browser — nothing is sent to a server.",
+      },
+    ],
+    useCases: [
+      "Developers encoding data for a data URL or API",
+      "Decoding a Base64 string from a config or token",
+      "Creating URL-safe tokens",
+      "Anyone inspecting Base64 content quickly",
+    ],
+    metaExtra:
+      "Free Base64 encoder and decoder — UTF-8 and URL-safe, encode or decode instantly in your browser.",
+  },
+  ru: {
+    intro:
+      "Кодируйте текст в Base64 или декодируйте Base64 обратно — мгновенно, в браузере. Этот бесплатный инструмент Base64 корректно работает с UTF-8, поэтому буквы с диакритикой, эмодзи и кириллица преобразуются без потерь, и поддерживает URL-safe Base64 (с - и _) для токенов и query-строк. Ничего не загружается: кодирование и декодирование происходят на вашем устройстве.",
+    benefits: [
+      "Кодирование и декодирование в один клик",
+      "Поддержка UTF-8 — эмодзи, диакритика и кириллица",
+      "URL-safe вариант (- и _, без паддинга)",
+      "Мгновенное копирование результата",
+      "Всё в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Выберите «Кодировать» или «Декодировать».",
+      "Вставьте текст или строку Base64.",
+      "Включите URL-safe, если нужно.",
+      "Скопируйте результат.",
+    ],
+    faq: [
+      {
+        q: "Что такое Base64?",
+        a: "Base64 — способ представить бинарные данные или текст обычными ASCII-символами. Используется в data-URL, вложениях писем, JWT и API там, где допустим только текст.",
+      },
+      {
+        q: "Поддерживается ли UTF-8?",
+        a: "Да. Текст сначала кодируется в UTF-8, поэтому нелатинские символы, эмодзи и кириллица декодируются ровно так, как вы ввели — в отличие от простого btoa().",
+      },
+      {
+        q: "Что такое URL-safe Base64?",
+        a: "Вариант, где + заменён на -, / на _ и убрано выравнивание =, чтобы результат можно было безопасно использовать в URL, именах файлов и токенах.",
+      },
+      {
+        q: "Данные загружаются на сервер?",
+        a: "Нет. Всё работает локально в браузере — ничего не отправляется.",
+      },
+    ],
+    useCases: [
+      "Разработчики — кодирование для data-URL или API",
+      "Декодирование строки Base64 из конфига или токена",
+      "Создание URL-safe токенов",
+      "Все, кто быстро смотрит содержимое Base64",
+    ],
+    metaExtra:
+      "Бесплатный кодер и декодер Base64 — UTF-8 и URL-safe, кодируйте и декодируйте в браузере.",
+  },
+};
+
+const jwtContent: Content = {
+  en: {
+    intro:
+      "Paste a JSON Web Token and instantly see what's inside. This free JWT decoder splits the token and decodes its header and payload from Base64URL into readable JSON, and highlights standard claims like issued-at and expiry in your local time. Decoding is done entirely in your browser — the token never leaves your device.",
+    benefits: [
+      "Header and payload as readable, formatted JSON",
+      "Human-readable issued-at, not-before and expiry",
+      "Expired / valid badge at a glance",
+      "Runs locally — the token is never uploaded",
+      "Copy the header or payload in one click",
+    ],
+    steps: [
+      "Paste your JWT (the eyJ… string).",
+      "Read the decoded header and payload.",
+      "Check the expiry and other claims.",
+      "Copy what you need.",
+    ],
+    faq: [
+      {
+        q: "Does this verify the signature?",
+        a: "No. It decodes the header and payload so you can read them, but it does not verify the signature — that requires the secret or public key, which should never be pasted into a website.",
+      },
+      {
+        q: "Is my token sent anywhere?",
+        a: "No. The token is decoded entirely in your browser; nothing is uploaded, logged or stored.",
+      },
+      {
+        q: "What's inside a JWT?",
+        a: "Three Base64URL parts separated by dots: a header (algorithm and type), a payload (claims like sub, iat, exp), and a signature. This tool shows all three.",
+      },
+      {
+        q: "Why is my token 'expired'?",
+        a: "If the payload has an exp claim in the past, the token is expired. The decoder converts exp to your local time and flags it.",
+      },
+    ],
+    useCases: [
+      "Developers debugging authentication",
+      "Inspecting claims in an API token",
+      "Checking a token's expiry",
+      "Learning how JWTs are structured",
+    ],
+    metaExtra:
+      "Free JWT decoder — read a JSON Web Token's header, payload and claims in your browser (decode only).",
+  },
+  ru: {
+    intro:
+      "Вставьте JSON Web Token и сразу увидите, что внутри. Этот бесплатный JWT-декодер разбивает токен и декодирует его заголовок и payload из Base64URL в читаемый JSON, а также показывает стандартные поля — время выпуска и истечения — в вашем локальном времени. Декодирование происходит полностью в браузере: токен не покидает устройство.",
+    benefits: [
+      "Заголовок и payload как читаемый форматированный JSON",
+      "Понятные «выдан», «действует с» и «истекает»",
+      "Бейдж «истёк / действует» с первого взгляда",
+      "Работает локально — токен не загружается",
+      "Копирование заголовка или payload в один клик",
+    ],
+    steps: [
+      "Вставьте JWT (строку eyJ…).",
+      "Прочитайте декодированные заголовок и payload.",
+      "Проверьте срок действия и другие поля.",
+      "Скопируйте нужное.",
+    ],
+    faq: [
+      {
+        q: "Проверяется ли подпись?",
+        a: "Нет. Инструмент декодирует заголовок и payload для чтения, но не проверяет подпись — для этого нужен секрет или публичный ключ, которые нельзя вставлять на сайтах.",
+      },
+      {
+        q: "Токен куда-то отправляется?",
+        a: "Нет. Токен декодируется полностью в браузере; ничего не загружается, не логируется и не хранится.",
+      },
+      {
+        q: "Что внутри JWT?",
+        a: "Три части Base64URL через точки: заголовок (алгоритм и тип), payload (поля вроде sub, iat, exp) и подпись. Инструмент показывает все три.",
+      },
+      {
+        q: "Почему токен «истёк»?",
+        a: "Если в payload есть поле exp в прошлом — токен истёк. Декодер переводит exp в ваше локальное время и отмечает это.",
+      },
+    ],
+    useCases: [
+      "Разработчики — отладка аутентификации",
+      "Просмотр полей в API-токене",
+      "Проверка срока действия токена",
+      "Изучение структуры JWT",
+    ],
+    metaExtra:
+      "Бесплатный JWT-декодер — читайте заголовок, payload и поля JSON Web Token в браузере (только декодирование).",
+  },
+};
+
+const regexContent: Content = {
+  en: {
+    intro:
+      "Test and debug regular expressions against your own text, with matches highlighted as you type. This free regex tester supports JavaScript flags (g, i, m, s, u, y), shows every match with its position and captured groups, and tells you immediately if your pattern is invalid. It all runs in your browser — nothing is uploaded.",
+    benefits: [
+      "Live match highlighting as you type",
+      "All JavaScript flags: g, i, m, s, u, y",
+      "Match positions and captured groups listed",
+      "Clear error message for an invalid pattern",
+      "Runs in your browser — nothing uploaded",
+    ],
+    steps: [
+      "Type your pattern between the slashes and set flags.",
+      "Paste the text you want to test against.",
+      "See matches highlighted and listed below.",
+      "Refine the pattern until it matches what you want.",
+    ],
+    faq: [
+      {
+        q: "Which regex flavour is this?",
+        a: "JavaScript (ECMAScript) regular expressions — the same engine your browser and Node.js use, including flags g, i, m, s, u and y.",
+      },
+      {
+        q: "What do the flags mean?",
+        a: "g = find all matches, i = case-insensitive, m = ^ and $ match each line, s = dot matches newlines, u = unicode, y = sticky.",
+      },
+      {
+        q: "Does it show capture groups?",
+        a: "Yes. Each match lists its captured groups ($1, $2…) so you can see exactly what your parentheses capture.",
+      },
+      {
+        q: "Is my text uploaded?",
+        a: "No. The pattern runs against your text entirely in the browser — nothing is sent to a server.",
+      },
+    ],
+    useCases: [
+      "Developers writing and debugging a regex",
+      "Testing a validation pattern (email, phone, slug)",
+      "Extracting data with capture groups",
+      "Learning regular expressions by experiment",
+    ],
+    metaExtra:
+      "Free regex tester — test JavaScript regular expressions with live highlighting, groups and flags, in your browser.",
+  },
+  ru: {
+    intro:
+      "Проверяйте и отлаживайте регулярные выражения по своему тексту — совпадения подсвечиваются по мере ввода. Этот бесплатный regex-тестер поддерживает флаги JavaScript (g, i, m, s, u, y), показывает каждое совпадение с позицией и захваченными группами и сразу сообщает, если шаблон некорректен. Всё работает в браузере — ничего не загружается.",
+    benefits: [
+      "Живая подсветка совпадений по мере ввода",
+      "Все флаги JavaScript: g, i, m, s, u, y",
+      "Позиции совпадений и захваченные группы",
+      "Понятное сообщение об ошибке в шаблоне",
+      "Работает в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Введите шаблон между слэшами и задайте флаги.",
+      "Вставьте текст для проверки.",
+      "Смотрите совпадения — подсвечены и в списке.",
+      "Дорабатывайте шаблон до нужного результата.",
+    ],
+    faq: [
+      {
+        q: "Какой это диалект regex?",
+        a: "Регулярные выражения JavaScript (ECMAScript) — тот же движок, что в браузере и Node.js, включая флаги g, i, m, s, u и y.",
+      },
+      {
+        q: "Что значат флаги?",
+        a: "g = все совпадения, i = без учёта регистра, m = ^ и $ по каждой строке, s = точка включает перенос строки, u = юникод, y = «липкий».",
+      },
+      {
+        q: "Показываются ли группы?",
+        a: "Да. У каждого совпадения перечислены захваченные группы ($1, $2…), чтобы видеть, что именно ловят скобки.",
+      },
+      {
+        q: "Мой текст загружается?",
+        a: "Нет. Шаблон применяется к тексту полностью в браузере — ничего не отправляется на сервер.",
+      },
+    ],
+    useCases: [
+      "Разработчики — написание и отладка regex",
+      "Проверка паттерна валидации (email, телефон, slug)",
+      "Извлечение данных группами захвата",
+      "Изучение регулярных выражений на практике",
+    ],
+    metaExtra:
+      "Бесплатный regex-тестер — проверяйте регулярные выражения JavaScript с подсветкой, группами и флагами в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -1749,6 +2016,9 @@ const content: Record<string, Content> = {
   "percentage-calculator": pctCalc,
   "password-generator": passwordGen,
   "json-formatter": jsonFormatter,
+  base64: base64Content,
+  "jwt-decoder": jwtContent,
+  "regex-tester": regexContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
