@@ -306,6 +306,39 @@ export const sections: SectionDef[] = [
           ru: "Проверяйте регулярные выражения с подсветкой совпадений.",
         },
       },
+      {
+        slug: "url-encode",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "URL encoder / decoder", ru: "URL-кодер и декодер" },
+        blurb: {
+          en: "Percent-encode or decode URLs and query strings.",
+          ru: "Кодирование и декодирование URL и query-строк.",
+        },
+      },
+      {
+        slug: "uuid",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "UUID generator", ru: "Генератор UUID" },
+        blurb: {
+          en: "Generate random UUID v4 identifiers in bulk.",
+          ru: "Генерация случайных UUID v4, в том числе списком.",
+        },
+      },
+      {
+        slug: "hash",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Hash generator (SHA)", ru: "Генератор хешей (SHA)" },
+        blurb: {
+          en: "SHA-1, SHA-256, SHA-384 and SHA-512 of any text.",
+          ru: "SHA-1, SHA-256, SHA-384 и SHA-512 для любого текста.",
+        },
+      },
     ],
   },
   {

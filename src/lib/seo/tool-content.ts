@@ -1993,6 +1993,271 @@ const regexContent: Content = {
   },
 };
 
+const urlContent: Content = {
+  en: {
+    intro:
+      "Percent-encode text so it's safe to drop into a URL, or decode an encoded URL back to readable text — instantly, in your browser. This free URL encoder/decoder handles special characters, spaces and non-Latin text (UTF-8), and lets you choose between encoding a single component (encodeURIComponent) or a full URL (encodeURI). Nothing is uploaded.",
+    benefits: [
+      "Encode a component or a full URL",
+      "Decode percent-encoded URLs back to text",
+      "UTF-8 safe — spaces, symbols and Cyrillic",
+      "Copy the result in one click",
+      "Runs in your browser — nothing uploaded",
+    ],
+    steps: [
+      "Choose Encode or Decode.",
+      "Paste your text or encoded URL.",
+      "Pick component or full-URI encoding.",
+      "Copy the result.",
+    ],
+    faq: [
+      {
+        q: "What's the difference between component and full-URI encoding?",
+        a: "Component encoding (encodeURIComponent) escapes everything that isn't allowed in a URL part, including / ? & = — use it for a query value. Full-URI (encodeURI) keeps the URL structure intact — use it for a whole address.",
+      },
+      {
+        q: "Does it handle spaces and Cyrillic?",
+        a: "Yes. Text is treated as UTF-8, so spaces become %20 and non-Latin characters encode and decode back exactly.",
+      },
+      {
+        q: "Is my text uploaded?",
+        a: "No. Encoding and decoding happen entirely in your browser — nothing is sent to a server.",
+      },
+      {
+        q: "Why does decoding fail sometimes?",
+        a: "If the input has a malformed percent sequence (like a lone %), it can't be decoded. Fix or remove it and try again.",
+      },
+    ],
+    useCases: [
+      "Building query strings and API URLs",
+      "Decoding an encoded link from logs or an email",
+      "Escaping user input for a URL",
+      "Debugging why a URL breaks",
+    ],
+    metaExtra:
+      "Free URL encoder and decoder — percent-encode or decode URLs and query strings, UTF-8 safe, in your browser.",
+  },
+  ru: {
+    intro:
+      "Кодируйте текст, чтобы безопасно вставить его в URL, или декодируйте закодированный URL обратно в читаемый вид — мгновенно, в браузере. Этот бесплатный URL-кодер/декодер работает со спецсимволами, пробелами и нелатинским текстом (UTF-8) и позволяет выбрать кодирование одного компонента (encodeURIComponent) или полного URL (encodeURI). Ничего не загружается.",
+    benefits: [
+      "Кодирование компонента или полного URL",
+      "Декодирование процент-кодированных URL в текст",
+      "Поддержка UTF-8 — пробелы, символы и кириллица",
+      "Копирование результата в один клик",
+      "Работает в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Выберите «Кодировать» или «Декодировать».",
+      "Вставьте текст или закодированный URL.",
+      "Выберите кодирование компонента или полного URI.",
+      "Скопируйте результат.",
+    ],
+    faq: [
+      {
+        q: "Чем отличается кодирование компонента от полного URI?",
+        a: "Кодирование компонента (encodeURIComponent) экранирует всё, что недопустимо в части URL, включая / ? & = — используйте для значения query. Полный URI (encodeURI) сохраняет структуру адреса — для целого URL.",
+      },
+      {
+        q: "Работает ли с пробелами и кириллицей?",
+        a: "Да. Текст обрабатывается как UTF-8, поэтому пробелы становятся %20, а нелатинские символы кодируются и декодируются точно.",
+      },
+      {
+        q: "Мой текст загружается?",
+        a: "Нет. Кодирование и декодирование происходят полностью в браузере — ничего не отправляется.",
+      },
+      {
+        q: "Почему декодирование иногда не срабатывает?",
+        a: "Если во вводе есть некорректная процент-последовательность (например, одиночный %), декодировать нельзя. Исправьте или уберите её.",
+      },
+    ],
+    useCases: [
+      "Сборка query-строк и API-URL",
+      "Декодирование ссылки из логов или письма",
+      "Экранирование пользовательского ввода для URL",
+      "Отладка ломающихся URL",
+    ],
+    metaExtra:
+      "Бесплатный URL-кодер и декодер — процентное кодирование URL и query-строк, UTF-8, в браузере.",
+  },
+};
+
+const uuidContent: Content = {
+  en: {
+    intro:
+      "Generate random UUID v4 identifiers — one or a whole batch — instantly in your browser. This free UUID generator uses your browser's cryptographically secure randomness, and lets you copy any single ID or all of them at once, with or without hyphens and in upper or lower case. Nothing is uploaded.",
+    benefits: [
+      "Cryptographically random UUID v4",
+      "Generate up to 100 at once",
+      "Copy one or copy all",
+      "Toggle hyphens and letter case",
+      "Runs in your browser — nothing uploaded",
+    ],
+    steps: [
+      "Choose how many you need.",
+      "Press Generate.",
+      "Toggle hyphens or uppercase if you like.",
+      "Copy one ID or all of them.",
+    ],
+    faq: [
+      {
+        q: "What is a UUID v4?",
+        a: "A universally unique identifier generated from random data. Version 4 UUIDs have 122 random bits, so the chance of a collision is astronomically small — ideal for keys and IDs.",
+      },
+      {
+        q: "Are these secure and random?",
+        a: "Yes. They're generated with crypto.randomUUID(), which uses the browser's cryptographically secure random source.",
+      },
+      {
+        q: "Can I remove the hyphens?",
+        a: "Yes — toggle hyphens off to get a 32-character hex string, and toggle uppercase if your system expects capitals.",
+      },
+      {
+        q: "Is anything uploaded?",
+        a: "No. UUIDs are generated locally in your browser; nothing is sent to a server.",
+      },
+    ],
+    useCases: [
+      "Developers needing unique keys or IDs",
+      "Seeding a database or test data",
+      "Generating API keys or request IDs",
+      "Anyone needing a quick unique identifier",
+    ],
+    metaExtra:
+      "Free UUID generator — create random UUID v4 identifiers in bulk, copy one or all, in your browser.",
+  },
+  ru: {
+    intro:
+      "Генерируйте случайные идентификаторы UUID v4 — по одному или списком — мгновенно в браузере. Этот бесплатный генератор UUID использует криптостойкую случайность браузера и позволяет скопировать любой один ID или все сразу, с дефисами или без, в верхнем или нижнем регистре. Ничего не загружается.",
+    benefits: [
+      "Криптослучайный UUID v4",
+      "До 100 штук за раз",
+      "Копирование одного или всех",
+      "Переключение дефисов и регистра",
+      "Работает в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Выберите, сколько нужно.",
+      "Нажмите «Сгенерировать».",
+      "При желании переключите дефисы или регистр.",
+      "Скопируйте один ID или все.",
+    ],
+    faq: [
+      {
+        q: "Что такое UUID v4?",
+        a: "Универсальный уникальный идентификатор из случайных данных. У версии 4 — 122 случайных бита, поэтому вероятность коллизии астрономически мала — идеально для ключей и ID.",
+      },
+      {
+        q: "Насколько они случайны?",
+        a: "Генерируются через crypto.randomUUID(), использующий криптостойкий источник случайности браузера.",
+      },
+      {
+        q: "Можно убрать дефисы?",
+        a: "Да — выключите дефисы, чтобы получить 32-символьную hex-строку, и включите верхний регистр, если система ожидает заглавные.",
+      },
+      {
+        q: "Что-то загружается?",
+        a: "Нет. UUID генерируются локально в браузере; ничего не отправляется.",
+      },
+    ],
+    useCases: [
+      "Разработчикам — уникальные ключи и ID",
+      "Заполнение БД или тестовых данных",
+      "Генерация API-ключей или request-ID",
+      "Любой быстрый уникальный идентификатор",
+    ],
+    metaExtra:
+      "Бесплатный генератор UUID — случайные UUID v4 списком, копирование одного или всех, в браузере.",
+  },
+};
+
+const hashContent: Content = {
+  en: {
+    intro:
+      "Compute the SHA hash of any text — SHA-1, SHA-256, SHA-384 and SHA-512 at once — right in your browser. This free hash generator uses the browser's built-in Web Crypto, updates as you type, and lets you copy any digest with one click. Your text is hashed locally and never leaves the page.",
+    benefits: [
+      "SHA-1, SHA-256, SHA-384 and SHA-512 together",
+      "Updates live as you type",
+      "Copy any hash in one click",
+      "Uses secure Web Crypto, not a JS shim",
+      "Runs in your browser — nothing uploaded",
+    ],
+    steps: [
+      "Type or paste your text.",
+      "See all four SHA hashes update instantly.",
+      "Copy the digest you need.",
+    ],
+    faq: [
+      {
+        q: "Which hash algorithms are supported?",
+        a: "SHA-1, SHA-256, SHA-384 and SHA-512, computed with the browser's Web Crypto API. MD5 isn't included because browsers don't provide it natively.",
+      },
+      {
+        q: "Is my text uploaded to hash it?",
+        a: "No. Hashing happens entirely in your browser using Web Crypto — nothing is sent to a server.",
+      },
+      {
+        q: "Is SHA-1 safe to use?",
+        a: "SHA-1 is fine as a checksum but is considered weak for security (collisions are feasible). Prefer SHA-256 or stronger for anything security-related.",
+      },
+      {
+        q: "Can I hash a password with this?",
+        a: "You can compute a hash, but a plain SHA is not how you should store passwords — use a slow, salted algorithm like bcrypt or Argon2 for that.",
+      },
+    ],
+    useCases: [
+      "Verifying a file or text checksum",
+      "Generating a digest for an API signature",
+      "Comparing values without storing the original",
+      "Learning how hashing works",
+    ],
+    metaExtra:
+      "Free SHA hash generator — SHA-1, SHA-256, SHA-384 and SHA-512 of any text, computed in your browser.",
+  },
+  ru: {
+    intro:
+      "Считайте SHA-хеш любого текста — SHA-1, SHA-256, SHA-384 и SHA-512 сразу — прямо в браузере. Этот бесплатный генератор хешей использует встроенный Web Crypto, обновляется по мере ввода и позволяет скопировать любой дайджест в один клик. Текст хешируется локально и не покидает страницу.",
+    benefits: [
+      "SHA-1, SHA-256, SHA-384 и SHA-512 вместе",
+      "Обновление по мере ввода",
+      "Копирование любого хеша в один клик",
+      "Использует защищённый Web Crypto, а не JS-заглушку",
+      "Работает в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Введите или вставьте текст.",
+      "Смотрите, как обновляются все четыре SHA-хеша.",
+      "Скопируйте нужный дайджест.",
+    ],
+    faq: [
+      {
+        q: "Какие алгоритмы поддерживаются?",
+        a: "SHA-1, SHA-256, SHA-384 и SHA-512, вычисляются через Web Crypto API браузера. MD5 не включён — браузеры его нативно не предоставляют.",
+      },
+      {
+        q: "Мой текст загружается для хеширования?",
+        a: "Нет. Хеширование происходит полностью в браузере через Web Crypto — ничего не отправляется.",
+      },
+      {
+        q: "Безопасен ли SHA-1?",
+        a: "SHA-1 годится как контрольная сумма, но для безопасности считается слабым (коллизии реальны). Для задач безопасности берите SHA-256 и выше.",
+      },
+      {
+        q: "Можно ли так захешировать пароль?",
+        a: "Хеш посчитать можно, но простой SHA — не способ хранить пароли: для этого используйте медленный алгоритм с солью, вроде bcrypt или Argon2.",
+      },
+    ],
+    useCases: [
+      "Проверка контрольной суммы файла или текста",
+      "Дайджест для подписи API",
+      "Сравнение значений без хранения оригинала",
+      "Изучение принципов хеширования",
+    ],
+    metaExtra:
+      "Бесплатный генератор SHA-хешей — SHA-1, SHA-256, SHA-384 и SHA-512 любого текста, в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -2019,6 +2284,9 @@ const content: Record<string, Content> = {
   base64: base64Content,
   "jwt-decoder": jwtContent,
   "regex-tester": regexContent,
+  "url-encode": urlContent,
+  uuid: uuidContent,
+  hash: hashContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
