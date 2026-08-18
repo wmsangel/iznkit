@@ -1532,6 +1532,200 @@ const pctCalc: Content = {
   },
 };
 
+const passwordGen: Content = {
+  en: {
+    intro:
+      "Create strong, random passwords that are genuinely hard to crack — right in your browser. This free password generator builds a password from the character sets you choose, at the length you set, using your browser's cryptographically secure randomness. Nothing is sent anywhere: the password is generated on your device and never leaves it.",
+    benefits: [
+      "Cryptographically secure randomness (Web Crypto), not Math.random",
+      "Choose length and character sets: upper, lower, numbers, symbols",
+      "Live strength meter with an entropy estimate in bits",
+      "Option to avoid look-alike characters (0/O, 1/l)",
+      "Generated entirely in your browser — nothing is uploaded",
+    ],
+    steps: [
+      "Set the password length with the slider.",
+      "Pick the character sets you want to include.",
+      "Optionally turn on “avoid look-alike characters”.",
+      "Copy your password — a fresh one is a click away.",
+    ],
+    faq: [
+      {
+        q: "How secure are these passwords?",
+        a: "They're generated with the Web Crypto API (crypto.getRandomValues) — the same secure randomness browsers use for cryptography, not the predictable Math.random. With a good length and mixed character sets, that makes them very hard to guess or brute-force.",
+      },
+      {
+        q: "Is my password sent to a server?",
+        a: "No. Everything happens on your device in the browser. The password is never transmitted, logged or stored anywhere by us.",
+      },
+      {
+        q: "How long should my password be?",
+        a: "Longer is stronger. 16+ characters with mixed sets is a solid default; for important accounts use 20 or more. The strength meter shows the entropy so you can see the effect of each change.",
+      },
+      {
+        q: "What is entropy in bits?",
+        a: "It's a measure of how unpredictable a password is — each extra bit doubles the number of possibilities. Roughly, 60 bits is okay, 75+ is strong and 100+ is very strong.",
+      },
+      {
+        q: "Should I use symbols?",
+        a: "Yes, where the site allows them — every extra character set makes a password harder to crack. If a site rejects symbols, add a few more characters to compensate.",
+      },
+    ],
+    useCases: [
+      "Creating a unique password for a new account",
+      "Generating a strong master password for a password manager",
+      "Making Wi-Fi or device passwords that resist guessing",
+      "Anyone who reuses passwords and wants to stop",
+    ],
+    metaExtra:
+      "Free password generator — strong, random passwords with a strength meter, built securely in your browser.",
+  },
+  ru: {
+    intro:
+      "Создавайте надёжные случайные пароли, которые действительно трудно взломать — прямо в браузере. Этот бесплатный генератор паролей собирает пароль из выбранных наборов символов нужной длины, используя криптографически стойкую случайность вашего браузера. Ничего никуда не отправляется: пароль создаётся на вашем устройстве и не покидает его.",
+    benefits: [
+      "Криптостойкая случайность (Web Crypto), а не Math.random",
+      "Выбор длины и наборов: заглавные, строчные, цифры, символы",
+      "Индикатор надёжности с оценкой энтропии в битах",
+      "Опция «избегать похожих символов» (0/O, 1/l)",
+      "Всё в вашем браузере — ничего не загружается",
+    ],
+    steps: [
+      "Задайте длину пароля ползунком.",
+      "Выберите нужные наборы символов.",
+      "При желании включите «избегать похожих символов».",
+      "Скопируйте пароль — новый в один клик.",
+    ],
+    faq: [
+      {
+        q: "Насколько надёжны эти пароли?",
+        a: "Они генерируются через Web Crypto API (crypto.getRandomValues) — той же стойкой случайностью, что браузеры используют для криптографии, а не предсказуемым Math.random. Вместе с достаточной длиной и разными наборами символов их очень трудно угадать или подобрать.",
+      },
+      {
+        q: "Пароль отправляется на сервер?",
+        a: "Нет. Всё происходит на вашем устройстве в браузере. Пароль нигде не передаётся, не логируется и не хранится нами.",
+      },
+      {
+        q: "Какой длины должен быть пароль?",
+        a: "Чем длиннее, тем надёжнее. 16+ символов со смешанными наборами — хороший вариант по умолчанию; для важных аккаунтов берите 20 и больше. Индикатор показывает энтропию, чтобы видеть эффект каждого изменения.",
+      },
+      {
+        q: "Что такое энтропия в битах?",
+        a: "Это мера непредсказуемости пароля — каждый дополнительный бит удваивает число вариантов. Грубо: 60 бит — нормально, 75+ — надёжно, 100+ — очень надёжно.",
+      },
+      {
+        q: "Использовать ли символы?",
+        a: "Да, где сайт разрешает — каждый дополнительный набор усложняет подбор. Если сайт не принимает символы, добавьте несколько символов длины взамен.",
+      },
+    ],
+    useCases: [
+      "Пароль для нового аккаунта",
+      "Надёжный мастер-пароль для менеджера паролей",
+      "Пароли для Wi-Fi и устройств, стойкие к подбору",
+      "Все, кто переиспользует пароли и хочет перестать",
+    ],
+    metaExtra:
+      "Бесплатный генератор паролей — надёжные случайные пароли с индикатором стойкости, безопасно в браузере.",
+  },
+};
+
+const jsonFormatter: Content = {
+  en: {
+    intro:
+      "Format, validate and minify JSON in seconds — right in your browser. Paste messy or minified JSON and this free formatter pretty-prints it with the indentation you choose, or compresses it back to a single line. If the JSON is invalid, it shows you exactly what's wrong. Nothing is uploaded — your data is parsed locally and never leaves the page.",
+    benefits: [
+      "Pretty-print with 2 spaces, 4 spaces or tabs",
+      "Minify JSON back to a compact single line",
+      "Instant validation with a clear error message",
+      "Copy the result in one click",
+      "Runs entirely in your browser — nothing uploaded",
+    ],
+    steps: [
+      "Paste your JSON into the input box.",
+      "Choose your indentation, then press Format (or Minify).",
+      "Fix any error the validator points out.",
+      "Copy the formatted output.",
+    ],
+    faq: [
+      {
+        q: "Is my JSON sent to a server?",
+        a: "No. The JSON is parsed and formatted entirely in your browser using the built-in JSON engine. Nothing is uploaded, logged or stored — it's safe for sensitive data.",
+      },
+      {
+        q: "What does “minify” do?",
+        a: "It removes all unnecessary whitespace and line breaks, producing the smallest valid JSON on a single line — handy for configs, API payloads and reducing size.",
+      },
+      {
+        q: "Why does it say my JSON is invalid?",
+        a: "The formatter uses a strict parser, so it flags issues like trailing commas, single quotes, unquoted keys or missing brackets — and shows the error so you can fix it fast.",
+      },
+      {
+        q: "What's the difference between JSON and a JavaScript object?",
+        a: "JSON is a strict text format: keys and strings must use double quotes, with no trailing commas and no comments. This tool validates against that standard.",
+      },
+      {
+        q: "Is there a size limit?",
+        a: "It handles large documents comfortably since everything runs locally, though very large files depend on your device's memory. For everyday API responses and configs it's instant.",
+      },
+    ],
+    useCases: [
+      "Developers debugging an API response",
+      "Cleaning up a config or export file",
+      "Minifying JSON to shrink a payload",
+      "Validating JSON before pasting it into code",
+    ],
+    metaExtra:
+      "Free JSON formatter — pretty-print, validate and minify JSON in your browser, with clear error messages.",
+  },
+  ru: {
+    intro:
+      "Форматируйте, проверяйте и минифицируйте JSON за секунды — прямо в браузере. Вставьте неаккуратный или сжатый JSON — форматтер красиво отформатирует его с выбранным отступом или свернёт обратно в одну строку. Если JSON некорректен, покажет, что именно не так. Ничего не загружается: данные разбираются локально и не покидают страницу.",
+    benefits: [
+      "Форматирование с 2 пробелами, 4 пробелами или табом",
+      "Минификация JSON в компактную строку",
+      "Мгновенная проверка с понятной ошибкой",
+      "Копирование результата в один клик",
+      "Всё в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Вставьте JSON в поле ввода.",
+      "Выберите отступ и нажмите «Форматировать» (или «Минифицировать»).",
+      "Исправьте ошибку, если валидатор её укажет.",
+      "Скопируйте отформатированный результат.",
+    ],
+    faq: [
+      {
+        q: "JSON отправляется на сервер?",
+        a: "Нет. JSON разбирается и форматируется полностью в браузере встроенным движком JSON. Ничего не загружается, не логируется и не хранится — безопасно для чувствительных данных.",
+      },
+      {
+        q: "Что делает «минификация»?",
+        a: "Убирает все лишние пробелы и переносы строк, оставляя минимальный корректный JSON в одну строку — удобно для конфигов, API и уменьшения размера.",
+      },
+      {
+        q: "Почему пишет, что JSON некорректный?",
+        a: "Форматтер использует строгий парсер и отмечает проблемы вроде висячих запятых, одинарных кавычек, ключей без кавычек или недостающих скобок — и показывает ошибку, чтобы быстро исправить.",
+      },
+      {
+        q: "Чем JSON отличается от объекта JavaScript?",
+        a: "JSON — строгий текстовый формат: ключи и строки только в двойных кавычках, без висячих запятых и комментариев. Инструмент проверяет по этому стандарту.",
+      },
+      {
+        q: "Есть ли ограничение по размеру?",
+        a: "Большие документы обрабатываются легко, так как всё локально, но очень большие файлы зависят от памяти устройства. Для обычных ответов API и конфигов — мгновенно.",
+      },
+    ],
+    useCases: [
+      "Разработчики — отладка ответа API",
+      "Приведение в порядок конфига или экспорта",
+      "Минификация JSON для уменьшения размера",
+      "Проверка JSON перед вставкой в код",
+    ],
+    metaExtra:
+      "Бесплатный JSON-форматтер — форматирование, проверка и минификация JSON в браузере с понятными ошибками.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -1553,6 +1747,8 @@ const content: Record<string, Content> = {
   "loan-calculator": loanCalc,
   "tip-calculator": tipCalc,
   "percentage-calculator": pctCalc,
+  "password-generator": passwordGen,
+  "json-formatter": jsonFormatter,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
