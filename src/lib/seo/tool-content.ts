@@ -115,7 +115,7 @@ const invoice: Content = {
       "Все, кому нужен брендированный счёт без бухгалтерской программы",
     ],
     metaExtra:
-      "Бесплатный онлайн генератор счёта с логотипом, налогом, валютами и мгновенным скачиванием PDF.",
+      "Бесплатный онлайн генератор счёта (инвойса) — создать инвойс с логотипом, налогом, валютами и мгновенно скачать PDF.",
   },
 };
 
@@ -250,7 +250,7 @@ const nda: Content = {
       "Anyone sharing an idea before a formal agreement",
     ],
     metaExtra:
-      "Free NDA generator: one-way or mutual non-disclosure agreement with clear clauses and a signed-ready PDF.",
+      "Free NDA generator, creator and maker — create a one-way or mutual non-disclosure agreement with clear clauses and a signed-ready PDF.",
   },
   ru: {
     intro:
@@ -544,7 +544,7 @@ const tax: Content = {
       "Сравнить режимы до регистрации",
     ],
     metaExtra:
-      "Бесплатная оценка налога фрилансера — налог, «на руки» и эффективная ставка с быстрыми пресетами режимов.",
+      "Калькулятор налога самозанятого и фрилансера — рассчитать онлайн НДФЛ/НПД, сумму «на руки» и эффективную ставку. Бесплатно.",
   },
 };
 

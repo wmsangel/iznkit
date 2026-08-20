@@ -6,11 +6,14 @@ import { DONATE } from "@/lib/donate";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
+  // Build-time timestamp — a freshness hint for crawlers on every deploy.
+  const lastModified = new Date();
 
   // Home page, one entry per locale, cross-linked with hreflang alternates.
   for (const locale of locales) {
     entries.push({
       url: absUrl(locale),
+      lastModified,
       changeFrequency: "weekly",
       priority: 1,
       alternates: { languages: languageAlternates() },
@@ -23,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of locales) {
       entries.push({
         url: absUrl(locale, path),
+        lastModified,
         changeFrequency: "yearly",
         priority: path === "projects" || path === "about" ? 0.5 : 0.3,
         alternates: { languages: languageAlternates(path) },
@@ -38,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       for (const locale of locales) {
         entries.push({
           url: absUrl(locale, path),
+          lastModified,
           changeFrequency: "monthly",
           priority: 0.8,
           alternates: { languages: languageAlternates(path) },
