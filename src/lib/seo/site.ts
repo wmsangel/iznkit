@@ -30,7 +30,15 @@ export function absUrl(locale: Locale, path = ""): string {
   return `${SITE_URL}/${locale}${clean ? `/${clean}` : ""}`;
 }
 
-/** hreflang alternates map for a given path (same path across locales). */
+/**
+ * hreflang alternates map for a given path (same path across locales), plus an
+ * `x-default` pointing at the English version. The x-default tells Google which
+ * URL to treat as the canonical entry point for language selection — without it,
+ * a new multilingual site often gets "duplicate, Google chose a different
+ * canonical" on the localized home pages.
+ */
 export function languageAlternates(path = ""): Record<string, string> {
-  return Object.fromEntries(locales.map((l) => [l, absUrl(l, path)]));
+  const map = Object.fromEntries(locales.map((l) => [l, absUrl(l, path)]));
+  map["x-default"] = absUrl("en", path);
+  return map;
 }
