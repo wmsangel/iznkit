@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo-google-fonts/noto-sans": "^0.4.2",
     "@react-pdf/renderer": "^4.5.1",
+    "@vercel/analytics": "^2.0.1",
     "next": "16.2.12",
     "qrcode": "^1.5.4",
     "react": "19.2.4",
