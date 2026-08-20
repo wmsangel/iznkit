@@ -3,6 +3,7 @@ import { locales } from "@/lib/i18n/config";
 import { sections } from "@/lib/tools/registry";
 import { absUrl, languageAlternates } from "@/lib/seo/site";
 import { DONATE } from "@/lib/donate";
+import { GUIDES } from "@/lib/guides";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -21,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Donate + static info/legal pages.
-  const staticPaths = [DONATE.path, "about", "contact", "projects", "privacy", "terms", "disclosure"];
+  const staticPaths = [DONATE.path, "about", "contact", "projects", "privacy", "terms", "disclosure", "guides"];
   for (const path of staticPaths) {
     for (const locale of locales) {
       entries.push({
@@ -29,6 +30,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified,
         changeFrequency: "yearly",
         priority: path === "projects" || path === "about" ? 0.5 : 0.3,
+        alternates: { languages: languageAlternates(path) },
+      });
+    }
+  }
+
+  // Guides.
+  for (const guide of GUIDES) {
+    const path = `guides/${guide.slug}`;
+    for (const locale of locales) {
+      entries.push({
+        url: absUrl(locale, path),
+        lastModified,
+        changeFrequency: "monthly",
+        priority: 0.6,
         alternates: { languages: languageAlternates(path) },
       });
     }

@@ -19,6 +19,7 @@ const en = {
     projects: "Projects",
     more: "More from us",
     disclosure: "Disclosure",
+    guides: "Guides",
   },
   home: {
     heroTitle: "Handy tools that hand you a clean PDF.",
@@ -906,6 +907,7 @@ const ru: Dictionary = {
     projects: "Проекты",
     more: "Ещё наши проекты",
     disclosure: "Раскрытие",
+    guides: "Гайды",
   },
   home: {
     heroTitle: "Инструменты, которые выдают готовый PDF.",

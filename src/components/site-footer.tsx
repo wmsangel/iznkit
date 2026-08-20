@@ -12,6 +12,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
     .filter((s) => s.live.length > 0);
 
   const infoLinks = [
+    { href: `/${locale}/guides`, label: dict.nav.guides },
     { href: `/${locale}/about`, label: dict.nav.about },
     { href: `/${locale}/contact`, label: dict.nav.contact },
     { href: `/${locale}/projects`, label: dict.nav.projects },

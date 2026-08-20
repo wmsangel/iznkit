@@ -26,6 +26,12 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             {dict.nav.allTools}
           </Link>
           <Link
+            href={`/${locale}/guides`}
+            className="hidden sm:inline text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+          >
+            {dict.nav.guides}
+          </Link>
+          <Link
             href={`/${locale}/${DONATE.path}`}
             className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
           >
