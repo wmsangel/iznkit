@@ -7,8 +7,6 @@ import "./globals.css";
 
 /** Google Analytics 4 measurement id. */
 const GA_ID = "G-PE4C500X45";
-/** Awin publisher id — powers the MasterTag and the ads.txt line. */
-const AWIN_ID = "3044579";
 
 const sans = Inter({
   variable: "--font-geist-sans",
@@ -74,11 +72,6 @@ try{var _c=localStorage.getItem('iznkit:consent');if(_c==='granted'){gtag('conse
 gtag('js', new Date());
 gtag('config', '${GA_ID}');`}
             </Script>
-            {/* Awin MasterTag (affiliate tracking + site verification) */}
-            <Script
-              src={`https://www.dwin1.com/${AWIN_ID}.js`}
-              strategy="afterInteractive"
-            />
           </>
         ) : null}
         <Analytics />

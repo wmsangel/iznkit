@@ -43,12 +43,11 @@ export const AFFILIATES: Record<string, Offer[]> = {
   ],
   "developer-tools": [
     {
-      name: "AccuWebHosting",
-      // LIVE affiliate link (Awin, advertiser 91919, publisher 3047979).
-      url: "https://www.awin1.com/cread.php?awinmid=91919&awinaffid=3047979",
+      name: "Hostinger",
+      url: "https://www.hostinger.com/", // TODO: replace with real affiliate link
       blurb: {
-        en: "Fast SSD cloud & VPS hosting for your projects.",
-        ru: "Быстрый SSD VPS и облачный хостинг для ваших проектов.",
+        en: "Fast, low-cost web hosting for your side projects.",
+        ru: "Быстрый и недорогой хостинг для ваших проектов.",
       },
     },
     {
