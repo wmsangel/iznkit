@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     "A quiet set of calculators and document generators that hand you a clean, branded PDF. Free to use right now.",
   verification: {
     google: "ute90jV2NyS9ys9AOKhz_TDwujA-z4uYBt1EfPkb5NQ",
+    other: {
+      "mitgo-verification": "f217f62a-78d6-4b9d-8872-9e89a536ee3c",
+    },
   },
 };
 
