@@ -7,6 +7,7 @@ import { sections, getTool } from "@/lib/tools/registry";
 import { FREE_MODE } from "@/lib/payments/mode";
 import { offersFor } from "@/lib/affiliates";
 import { AffiliateSlot } from "@/components/affiliate-slot";
+import { getGuideForTool } from "@/lib/guides";
 
 interface Props {
   locale: Locale;
@@ -32,7 +33,8 @@ export function ToolContent({
   const dict = getDictionary(locale);
   const category = getTool(slug)?.tool.affiliate;
   const hasAffiliate = offersFor(category).length > 0;
-  if (!content && !hasAffiliate) return null;
+  const guide = getGuideForTool(slug);
+  if (!content && !hasAffiliate && !guide) return null;
 
   const url = absUrl(locale, `tools/${slug}`);
 
@@ -85,6 +87,23 @@ export function ToolContent({
 
   return (
     <section className="mt-16">
+      {guide ? (
+        <Link
+          href={`/${locale}/guides/${guide.slug}`}
+          className="card card-hover rounded-xl px-4 py-3 mb-10 flex items-center gap-3 max-w-3xl group"
+        >
+          <span className="text-lg">📖</span>
+          <span className="flex-1 min-w-0">
+            <span className="block text-xs uppercase tracking-wide text-[var(--muted)]">
+              {dict.nav.guides}
+            </span>
+            <span className="block font-medium truncate group-hover:text-[var(--accent)] transition-colors">
+              {guide.content[locale].title}
+            </span>
+          </span>
+          <span className="text-[var(--accent)] shrink-0">→</span>
+        </Link>
+      ) : null}
       {content ? (
         <div className="max-w-3xl">
           {jsonLd ? (

@@ -416,3 +416,8 @@ export const GUIDES: Guide[] = [invoiceGuide, ndaGuide, passwordGuide];
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);
 }
+
+/** The guide (if any) that a given tool funnels from — for tool → guide links. */
+export function getGuideForTool(toolSlug: string): Guide | undefined {
+  return GUIDES.find((g) => g.toolSlug === toolSlug);
+}
