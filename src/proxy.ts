@@ -12,7 +12,12 @@ export function proxy(req: NextRequest) {
   const locale = pickLocale(req.headers.get("accept-language"));
   const url = req.nextUrl.clone();
   url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
-  return NextResponse.redirect(url);
+  // Permanent (308) so Google consolidates the bare domain onto the localized
+  // home — fixes "duplicate, Google chose / instead of /en". The target still
+  // varies by language, so mark the response Vary: Accept-Language for caches.
+  const res = NextResponse.redirect(url, 308);
+  res.headers.set("Vary", "Accept-Language");
+  return res;
 }
 
 export const config = {
