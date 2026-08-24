@@ -43,6 +43,15 @@ export const AFFILIATES: Record<string, Offer[]> = {
   ],
   "developer-tools": [
     {
+      name: "AdGuard",
+      // LIVE affiliate link (Mitgo/Takeads, per-sale).
+      url: "https://dhwnh.com/g/xc497owldv330d4f803ca9584d7a68/",
+      blurb: {
+        en: "Block ads and trackers everywhere — plus a fast, private VPN.",
+        ru: "Блокировка рекламы и трекеров везде — плюс быстрый приватный VPN.",
+      },
+    },
+    {
       name: "Hostinger",
       url: "https://www.hostinger.com/", // TODO: replace with real affiliate link
       blurb: {
@@ -56,14 +65,6 @@ export const AFFILIATES: Record<string, Offer[]> = {
       blurb: {
         en: "Simple cloud servers and app hosting for developers.",
         ru: "Простые облачные серверы и хостинг приложений для разработчиков.",
-      },
-    },
-    {
-      name: "NordVPN",
-      url: "https://nordvpn.com/", // TODO: replace with affiliate link
-      blurb: {
-        en: "Private, secure browsing on any network.",
-        ru: "Приватный и защищённый доступ в интернет в любой сети.",
       },
     },
   ],
