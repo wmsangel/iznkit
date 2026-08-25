@@ -411,7 +411,398 @@ const passwordGuide: Guide = {
   },
 };
 
-export const GUIDES: Guide[] = [invoiceGuide, ndaGuide, passwordGuide];
+const freelanceTaxGuide: Guide = {
+  slug: "freelance-tax-explained",
+  toolSlug: "self-employed-tax",
+  updated: "2026-08-23",
+  content: {
+    en: {
+      title: "Freelance and self-employed tax, explained",
+      description:
+        "How freelancers and the self-employed estimate tax and take-home pay — what's taxed, common regimes, and a free calculator.",
+      intro:
+        "When you work for yourself, no one withholds tax for you — you have to estimate it, set money aside, and know your real take-home before you price a job. Here's how self-employed tax works in plain terms, and a free calculator to run your numbers.",
+      sections: [
+        {
+          h: "What gets taxed",
+          p: [
+            "Depending on your country's regime, tax is charged either on your income (your revenue) or on your profit (income minus business expenses). Some regimes tax a flat percentage of turnover; others tax profit at a progressive rate. The regime you're on changes both the rate and what it's applied to.",
+          ],
+        },
+        {
+          h: "Gross, tax, and take-home",
+          p: [
+            "Your take-home is your income minus tax (and minus expenses, if they aren't deductible). The effective rate — tax divided by gross income — is the real share you lose, and it can differ from the headline rate once expenses and thresholds are counted.",
+          ],
+        },
+        {
+          h: "Set money aside as you earn",
+          p: [
+            "Because tax isn't withheld, move a percentage of every payment into a separate account the moment it arrives. Estimating your rate up front tells you exactly how much to hold back so there's no nasty surprise at tax time.",
+          ],
+        },
+        {
+          h: "Price with tax in mind",
+          p: [
+            "Quote rates that leave you the take-home you actually need after tax and expenses — not your gross. Working backwards from your target take-home is the difference between a rate that looks fine and one that pays your bills.",
+          ],
+        },
+        {
+          h: "This is an estimate, not advice",
+          p: [
+            "Rules, thresholds and deductions vary by country and change over time. Use a calculator to plan and to sanity-check a price, but confirm the specifics with an accountant before you rely on a figure.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "How much should I set aside for tax?",
+          a: "Enough to cover your estimated rate — often 10–30% depending on your regime. Estimate it first, then move that share of each payment into savings as it arrives.",
+        },
+        {
+          q: "Is tax on my income or my profit?",
+          a: "It depends on your regime. Some tax turnover (gross income), others tax profit (income minus expenses). The calculator lets you choose which applies.",
+        },
+        {
+          q: "What's the effective tax rate?",
+          a: "Your total tax divided by your gross income — the real percentage you lose, which can differ from the nominal rate once expenses and thresholds apply.",
+        },
+      ],
+      cta: "Estimate your tax free",
+    },
+    ru: {
+      title: "Налог самозанятого и фрилансера: как рассчитать",
+      description:
+        "Как самозанятому и фрилансеру оценить налог и сумму «на руки» — что облагается, режимы (НПД/НДФЛ) и бесплатный калькулятор.",
+      intro:
+        "Когда работаешь на себя, налог за тебя никто не удерживает — его нужно оценить, отложить и знать сумму «на руки» ещё до того, как назвать цену. Ниже — как устроен налог самозанятого простыми словами и бесплатный калькулятор, чтобы посчитать свои цифры.",
+      sections: [
+        {
+          h: "Что облагается налогом",
+          p: [
+            "В зависимости от режима налог берётся либо с дохода (выручки), либо с прибыли (доход минус расходы). Например, НПД (самозанятость) облагает выручку по ставке 4/6%, а НДФЛ — доход по прогрессивной ставке. Режим меняет и ставку, и то, к чему она применяется.",
+          ],
+        },
+        {
+          h: "Доход, налог и «на руки»",
+          p: [
+            "«На руки» — это доход минус налог (и минус расходы, если они не вычитаются). Эффективная ставка — налог, делённый на весь доход — реальная доля, которую вы теряете, и она может отличаться от «номинальной» после учёта расходов и лимитов.",
+          ],
+        },
+        {
+          h: "Откладывайте по мере поступления",
+          p: [
+            "Раз налог не удерживают, откладывайте процент с каждого поступления на отдельный счёт сразу же. Оценка ставки заранее подсказывает, сколько именно держать в резерве, чтобы к сроку уплаты не было сюрпризов.",
+          ],
+        },
+        {
+          h: "Закладывайте налог в цену",
+          p: [
+            "Называйте ставки так, чтобы после налога и расходов оставалась нужная сумма «на руки», а не «грязными». Расчёт от целевой суммы на руки — это разница между ставкой, которая выглядит нормально, и ставкой, которая реально покрывает расходы.",
+          ],
+        },
+        {
+          h: "Это оценка, а не консультация",
+          p: [
+            "Правила, лимиты и вычеты зависят от страны/региона и со временем меняются. Используйте калькулятор для планирования и проверки цены, но детали уточняйте у бухгалтера, прежде чем полагаться на цифру.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Сколько откладывать на налог?",
+          a: "Столько, чтобы покрыть оценённую ставку — часто 4–15% в зависимости от режима. Сначала оцените ставку, затем откладывайте эту долю с каждого поступления.",
+        },
+        {
+          q: "Налог с дохода или с прибыли?",
+          a: "Зависит от режима. Часть режимов облагает выручку (НПД), часть — прибыль (доход минус расходы). В калькуляторе можно выбрать нужный вариант.",
+        },
+        {
+          q: "Что такое эффективная ставка?",
+          a: "Весь налог, делённый на весь доход — реальный процент, который вы теряете; он может отличаться от номинального при учёте расходов и лимитов.",
+        },
+      ],
+      cta: "Рассчитать налог бесплатно",
+    },
+  },
+};
+
+const quoteGuide: Guide = {
+  slug: "how-to-write-a-quote",
+  toolSlug: "quote",
+  updated: "2026-08-23",
+  content: {
+    en: {
+      title: "How to write a quote clients say yes to",
+      description:
+        "What a good quote (estimate) includes, how to price and present it, and how to win the work — plus a free quote generator.",
+      intro:
+        "A quote (or estimate) is your pitch with a price on it. A clear, professional quote makes it easy for a client to say yes — and protects you from scope creep later. Here's what to put in one and how to present it.",
+      sections: [
+        {
+          h: "Quote vs invoice",
+          p: [
+            "A quote proposes a price before the work; an invoice requests payment after it. A good quote states the scope and a valid-until date, so both sides agree on what's included and for how long the price holds.",
+          ],
+        },
+        {
+          h: "What a good quote includes",
+          p: [
+            "Cover the essentials so there's nothing to query:",
+            [
+              "Your details and the client's",
+              "A quote number and the date",
+              "A valid-until date",
+              "Line items with clear descriptions and prices",
+              "Subtotal, any tax, and the total",
+              "The scope of work — and what's excluded",
+              "Payment terms",
+            ],
+          ],
+        },
+        {
+          h: "Price it with confidence",
+          p: [
+            "Quote the value, not just the hours. Break the work into line items so the client sees exactly what they're paying for — a single lump sum with no breakdown is harder to say yes to and easier to haggle down.",
+          ],
+        },
+        {
+          h: "Add a valid-until date",
+          p: [
+            "A quote that expires nudges a decision and protects you if your costs change. Two to four weeks is common. It also gives you a natural, non-pushy reason to follow up.",
+          ],
+        },
+        {
+          h: "Make it easy to accept",
+          p: [
+            "Send a clean PDF, state the next steps, and offer to answer questions. A tidy, branded quote signals you're organised and reliable — which is half the decision.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "What's the difference between a quote and an estimate?",
+          a: "They're often used interchangeably. An estimate is a rough figure that may change; a quote is a firm price. Say which you mean, and add a valid-until date either way.",
+        },
+        {
+          q: "Should a quote include tax?",
+          a: "If you charge VAT or sales tax, show it as a separate line so the total is clear. If you're not registered for it, leave it off.",
+        },
+        {
+          q: "Can I turn a quote into an invoice?",
+          a: "Yes — once the client accepts, reuse the same line items in an invoice to bill them.",
+        },
+      ],
+      cta: "Create a quote free",
+    },
+    ru: {
+      title: "Как составить КП, на которое согласятся",
+      description:
+        "Что должно быть в хорошем коммерческом предложении (КП/смете), как оценить и подать его и как выиграть заказ — плюс бесплатный генератор.",
+      intro:
+        "КП (коммерческое предложение) — это ваша презентация с ценой. Понятное, аккуратное КП облегчает клиенту ответить «да» и защищает вас от расширения объёма позже. Ниже — что в нём указать и как подать.",
+      sections: [
+        {
+          h: "КП и счёт — это разное",
+          p: [
+            "КП предлагает цену до работы; счёт запрашивает оплату после. В хорошем КП указаны объём работ и срок действия — чтобы обе стороны понимали, что входит и как долго держится цена.",
+          ],
+        },
+        {
+          h: "Что должно быть в хорошем КП",
+          p: [
+            "Закройте главное, чтобы не осталось вопросов:",
+            [
+              "Ваши данные и данные клиента",
+              "Номер КП и дата",
+              "Срок действия предложения",
+              "Позиции с понятными описаниями и ценами",
+              "Подытог, налог (если есть) и итог",
+              "Объём работ — и что не входит",
+              "Условия оплаты",
+            ],
+          ],
+        },
+        {
+          h: "Оценивайте уверенно",
+          p: [
+            "Продавайте ценность, а не только часы. Разбейте работу на позиции — клиент видит, за что именно платит. Одна сумма без расшифровки хуже: на неё труднее согласиться и легче поторговаться.",
+          ],
+        },
+        {
+          h: "Добавьте срок действия",
+          p: [
+            "КП, которое истекает, подталкивает к решению и защищает вас при изменении затрат. Обычно 2–4 недели. Заодно это естественный, не навязчивый повод напомнить о себе.",
+          ],
+        },
+        {
+          h: "Упростите согласование",
+          p: [
+            "Отправьте чистый PDF, обозначьте следующие шаги, предложите ответить на вопросы. Аккуратное брендированное КП говорит, что вы организованы и надёжны — а это половина решения.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Чем КП отличается от сметы?",
+          a: "Часто используют как синонимы. Смета — примерная сумма, которая может измениться; КП — фиксированная цена. Уточните, что имеете в виду, и в любом случае добавьте срок действия.",
+        },
+        {
+          q: "Указывать ли налог в КП?",
+          a: "Если вы плательщик НДС — покажите его отдельной строкой, чтобы итог был понятен. Если не зарегистрированы — не указывайте.",
+        },
+        {
+          q: "Можно ли превратить КП в счёт?",
+          a: "Да — после согласия клиента перенесите те же позиции в счёт для выставления оплаты.",
+        },
+      ],
+      cta: "Создать КП бесплатно",
+    },
+  },
+};
+
+const jwtGuide: Guide = {
+  slug: "what-is-a-jwt",
+  toolSlug: "jwt-decoder",
+  updated: "2026-08-23",
+  content: {
+    en: {
+      title: "What is a JWT? A plain-English guide",
+      description:
+        "What a JSON Web Token is, how its three parts work, when to use one, and a free decoder to inspect any token.",
+      intro:
+        "A JWT (JSON Web Token) is a compact, self-contained way to carry claims — like who a user is — between two parties, signed so it can't be tampered with. Here's how it's built and what each part does, with a free decoder to look inside any token.",
+      sections: [
+        {
+          h: "The three parts",
+          p: [
+            "A JWT is three Base64URL parts separated by dots: a header (the signing algorithm and token type), a payload (the claims, like sub, iat and exp), and a signature (which proves the token wasn't changed). Only the signature needs the secret — the header and payload are just encoded.",
+          ],
+        },
+        {
+          h: "Encoded, not encrypted",
+          p: [
+            "This is the part people miss: a JWT's payload is readable by anyone who has the token — it's Base64, not encryption. Never put passwords, secrets or sensitive personal data in a JWT payload.",
+          ],
+        },
+        {
+          h: "Common claims",
+          p: [
+            "Standard fields you'll see in the payload:",
+            [
+              "sub — the subject (usually the user)",
+              "iat — issued-at time",
+              "exp — expiry time",
+              "nbf — not valid before",
+              "iss — the issuer",
+              "aud — the intended audience",
+            ],
+            "iat, exp and nbf are Unix timestamps you can convert to a readable date.",
+          ],
+        },
+        {
+          h: "How signing works",
+          p: [
+            "The server signs the header and payload with a secret (HMAC) or a private key (RSA/EC). Anyone with the matching secret or public key can verify the signature — that's how a server trusts a token it receives without storing anything.",
+          ],
+        },
+        {
+          h: "When to use a JWT",
+          p: [
+            "Stateless authentication and authorization: after login the server issues a signed JWT, the client sends it with each request, and the server verifies it without a database lookup. Keep them short-lived and pair them with refresh tokens.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Is a JWT secure?",
+          a: "The signature makes it tamper-evident, but the payload is readable by anyone holding the token. Use HTTPS, keep tokens short-lived, and never store secrets inside them.",
+        },
+        {
+          q: "Can I trust a decoded JWT?",
+          a: "Decoding only reads the token — it does not verify the signature. To trust a token you must verify its signature with the secret or public key, which you should never paste into a public website.",
+        },
+        {
+          q: "Why is my JWT expired?",
+          a: "If the exp claim is in the past, the token has expired and should be rejected. Convert exp from a Unix timestamp to see the exact time it lapsed.",
+        },
+      ],
+      cta: "Decode a JWT free",
+    },
+    ru: {
+      title: "Что такое JWT? Понятный гайд",
+      description:
+        "Что такое JSON Web Token, как устроены его три части, когда его применять и бесплатный декодер для проверки любого токена.",
+      intro:
+        "JWT (JSON Web Token) — компактный самодостаточный способ передавать «утверждения» (например, кто пользователь) между двумя сторонами, подписанный так, что его нельзя подделать. Ниже — как он устроен и что делает каждая часть, плюс бесплатный декодер, чтобы заглянуть внутрь любого токена.",
+      sections: [
+        {
+          h: "Три части",
+          p: [
+            "JWT — это три части Base64URL через точки: заголовок (алгоритм подписи и тип токена), payload (утверждения — sub, iat, exp) и подпись (доказывает, что токен не меняли). Секрет нужен только для подписи — заголовок и payload просто закодированы.",
+          ],
+        },
+        {
+          h: "Закодировано, а не зашифровано",
+          p: [
+            "Главное, что упускают: payload читается любым, у кого есть токен — это Base64, а не шифрование. Никогда не кладите в payload пароли, секреты или чувствительные персональные данные.",
+          ],
+        },
+        {
+          h: "Частые поля (claims)",
+          p: [
+            "Стандартные поля в payload:",
+            [
+              "sub — субъект (обычно пользователь)",
+              "iat — время выпуска",
+              "exp — время истечения",
+              "nbf — недействителен ранее",
+              "iss — издатель",
+              "aud — целевая аудитория",
+            ],
+            "iat, exp и nbf — это Unix-метки времени, их можно перевести в читаемую дату.",
+          ],
+        },
+        {
+          h: "Как работает подпись",
+          p: [
+            "Сервер подписывает заголовок и payload секретом (HMAC) или приватным ключом (RSA/EC). Любой с подходящим секретом или публичным ключом может проверить подпись — так сервер доверяет полученному токену, ничего не храня.",
+          ],
+        },
+        {
+          h: "Когда применять JWT",
+          p: [
+            "Аутентификация и авторизация без состояния: после входа сервер выдаёт подписанный JWT, клиент шлёт его с каждым запросом, а сервер проверяет без обращения к базе. Держите их короткоживущими и сочетайте с refresh-токенами.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "JWT — это безопасно?",
+          a: "Подпись делает подделку заметной, но payload читается любым, у кого есть токен. Используйте HTTPS, короткое время жизни и никогда не храните секреты внутри.",
+        },
+        {
+          q: "Можно ли доверять декодированному JWT?",
+          a: "Декодирование только читает токен — оно не проверяет подпись. Чтобы доверять токену, нужно проверить подпись секретом или публичным ключом, которые нельзя вставлять на публичном сайте.",
+        },
+        {
+          q: "Почему JWT «истёк»?",
+          a: "Если поле exp в прошлом, токен истёк и должен отклоняться. Переведите exp из Unix-времени, чтобы увидеть точный момент истечения.",
+        },
+      ],
+      cta: "Декодировать JWT бесплатно",
+    },
+  },
+};
+
+export const GUIDES: Guide[] = [
+  invoiceGuide,
+  ndaGuide,
+  passwordGuide,
+  freelanceTaxGuide,
+  quoteGuide,
+  jwtGuide,
+];
 
 export function getGuide(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);

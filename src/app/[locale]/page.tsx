@@ -9,6 +9,8 @@ import { InvoiceMockup } from "@/components/home/mockups";
 import { ToolsExplorer } from "@/components/home/tools-explorer";
 import { TEMPLATES, type InvoiceTemplate } from "@/lib/tools/invoice/templates";
 import { DONATE } from "@/lib/donate";
+import { GUIDES } from "@/lib/guides";
+import { SITE_URL, SITE_NAME } from "@/lib/seo/site";
 
 export async function generateMetadata({
   params,
@@ -35,6 +37,36 @@ export default async function HomePage({
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
   const freeLabel = locale === "ru" ? "Бесплатно" : "Free";
+  const guidesCopy =
+    locale === "ru"
+      ? {
+          title: "Гайды",
+          subtitle: "Короткие практичные статьи — и бесплатный инструмент в конце каждой.",
+          all: "Все гайды",
+          read: "Читать",
+        }
+      : {
+          title: "Guides",
+          subtitle: "Short, practical how-tos — with a free tool at the end of each.",
+          all: "All guides",
+          read: "Read",
+        };
+  const orgJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: SITE_URL,
+      inLanguage: ["en", "ru"],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: `${SITE_URL}/icon.svg`,
+    },
+  ];
   const explorerSections = sections.map((section) => ({
     id: section.id,
     title: section.title[locale],
@@ -50,6 +82,10 @@ export default async function HomePage({
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
       {/* ---------------- Hero ---------------- */}
       <section className="border-b border-[var(--border)]">
         <div className="mx-auto max-w-6xl px-6 pt-16 pb-16 sm:pt-24 sm:pb-20">
@@ -133,6 +169,46 @@ export default async function HomePage({
             {TEMPLATES.map((tpl) => (
               <MiniInvoice key={tpl.id} tpl={tpl} docTitle={dict.invoice.docTitle} locale={locale} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- Guides ---------------- */}
+      <section className="border-t border-[var(--border)]">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="flex items-end justify-between gap-4 flex-wrap">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+                {guidesCopy.title}
+              </h2>
+              <p className="mt-3 text-[var(--muted)] max-w-xl">{guidesCopy.subtitle}</p>
+            </div>
+            <Link
+              href={`/${locale}/guides`}
+              className="text-sm font-medium text-[var(--accent)] hover:underline shrink-0"
+            >
+              {guidesCopy.all} →
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {GUIDES.map((g) => {
+              const body = g.content[locale];
+              return (
+                <Link
+                  key={g.slug}
+                  href={`/${locale}/guides/${g.slug}`}
+                  className="card card-hover rounded-xl p-5 flex flex-col group"
+                >
+                  <span className="font-semibold leading-snug">{body.title}</span>
+                  <span className="mt-2 text-sm text-[var(--muted)] flex-1">
+                    {body.description}
+                  </span>
+                  <span className="mt-4 text-sm font-medium text-[var(--accent)]">
+                    {guidesCopy.read} →
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
