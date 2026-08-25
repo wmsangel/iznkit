@@ -52,11 +52,12 @@ export const AFFILIATES: Record<string, Offer[]> = {
       },
     },
     {
-      name: "Hostinger",
-      url: "https://www.hostinger.com/", // TODO: replace with real affiliate link
+      name: "ProHoster",
+      // LIVE affiliate link (Mitgo/Takeads, per-sale).
+      url: "https://ntzgd.com/g/gaetfoqpj7330d4f803c934d4157fe/",
       blurb: {
-        en: "Fast, low-cost web hosting for your side projects.",
-        ru: "Быстрый и недорогой хостинг для ваших проектов.",
+        en: "Reliable web hosting & VPS from $2.5 — servers worldwide.",
+        ru: "Надёжный хостинг и VPS от $2.5 — серверы по всему миру.",
       },
     },
     {
