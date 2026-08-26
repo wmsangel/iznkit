@@ -18,7 +18,8 @@ export const AFFILIATES: Record<string, Offer[]> = {
   "password-managers": [
     {
       name: "NordPass",
-      url: "https://nordpass.com/", // TODO: replace with affiliate link
+      // LIVE affiliate link (Mitgo/Takeads, per-sale).
+      url: "https://rkdro.com/g/mx19yq7dtc330d4f803c410fff306a/",
       blurb: {
         en: "Store and autofill strong passwords across all your devices.",
         ru: "Хранит и подставляет надёжные пароли на всех устройствах.",
@@ -52,20 +53,30 @@ export const AFFILIATES: Record<string, Offer[]> = {
       },
     },
     {
+      name: "NordVPN",
+      // LIVE affiliate link (Mitgo/Takeads, per-sale).
+      url: "https://qwpeg.com/g/mai1uhgx16330d4f803c004ed038cb/",
+      blurb: {
+        en: "Fast VPN with strong encryption and a strict no-logs policy.",
+        ru: "Быстрый VPN с сильным шифрованием и строгой политикой no-logs.",
+      },
+    },
+    {
+      name: "PureVPN",
+      // LIVE affiliate link (Mitgo/Takeads, per-sale).
+      url: "https://plrvq.com/g/ayvzzawv40330d4f803cdd63dd688c/",
+      blurb: {
+        en: "Budget VPN with 6500+ servers across 78+ countries.",
+        ru: "Бюджетный VPN: 6500+ серверов в 78+ странах.",
+      },
+    },
+    {
       name: "ProHoster",
       // LIVE affiliate link (Mitgo/Takeads, per-sale).
       url: "https://ntzgd.com/g/gaetfoqpj7330d4f803c934d4157fe/",
       blurb: {
         en: "Reliable web hosting & VPS from $2.5 — servers worldwide.",
         ru: "Надёжный хостинг и VPS от $2.5 — серверы по всему миру.",
-      },
-    },
-    {
-      name: "DigitalOcean",
-      url: "https://www.digitalocean.com/", // TODO: replace with affiliate link
-      blurb: {
-        en: "Simple cloud servers and app hosting for developers.",
-        ru: "Простые облачные серверы и хостинг приложений для разработчиков.",
       },
     },
   ],
