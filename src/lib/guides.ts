@@ -795,6 +795,156 @@ const jwtGuide: Guide = {
   },
 };
 
+const hashGuide: Guide = {
+  slug: "what-is-hashing",
+  toolSlug: "hash",
+  updated: "2026-08-26",
+  content: {
+    en: {
+      title: "What is hashing? SHA-256 in plain English",
+      description:
+        "How a hash function works — one-way, fixed-length and deterministic — what SHA-256 is for, and a free tool to hash any text.",
+      intro:
+        "A hash function turns any input — a word, a file, a password — into a short fixed-length string of characters. The same input always gives the same hash, but you can't reverse it back to the original. Here's what that's good for, how the SHA family fits in, and a free tool to hash any text yourself.",
+      sections: [
+        {
+          h: "What a hash actually is",
+          p: [
+            "A hash is a fingerprint of data. Feed in a million-word book or a single letter and a hash function returns a fixed-length value — SHA-256 always returns 64 hex characters, no matter the input size. It's built to be fast to compute one way and practically impossible to reverse.",
+          ],
+        },
+        {
+          h: "Three properties that make it useful",
+          p: [
+            "Every good cryptographic hash has three traits:",
+            [
+              "Deterministic — the same input always produces the same hash",
+              "One-way — you can't work backwards from the hash to the input",
+              "Collision-resistant — it's infeasible to find two inputs with the same hash",
+            ],
+            "Change a single character of the input and the hash changes completely — this is the avalanche effect, and it's why hashes are good at detecting even tiny tampering.",
+          ],
+        },
+        {
+          h: "Hashing is not encryption",
+          p: [
+            "This is the point people mix up. Encryption is two-way: with the key you can decrypt it back to the original. Hashing is one-way — there is no key and no “unhash”. So a hash is for verifying data, not for storing something you need to read back later.",
+          ],
+        },
+        {
+          h: "The SHA family",
+          p: [
+            "SHA (Secure Hash Algorithm) is a family of standard hash functions. SHA-256, SHA-384 and SHA-512 are part of SHA-2 and are the modern default — the number is the output size in bits. SHA-1 is older and considered weak for security use, so treat it as legacy: fine for a non-security checksum, not for anything that must resist attackers.",
+          ],
+        },
+        {
+          h: "What hashing is used for",
+          p: [
+            [
+              "File integrity — publish a checksum so a download can be verified as unmodified",
+              "Password storage — sites store a hash, not your actual password (with a salt, see below)",
+              "Digital signatures and certificates — the data is hashed, then the hash is signed",
+              "Deduplication and quick comparisons — compare short hashes instead of large files",
+            ],
+          ],
+        },
+        {
+          h: "Why passwords need a salt",
+          p: [
+            "Hashing a password plainly isn't enough — attackers precompute hashes of common passwords (rainbow tables) and match them instantly. A salt is a unique random value added to each password before hashing, so identical passwords get different hashes and precomputed tables are useless. Real password systems also use a slow, purpose-built function like bcrypt or Argon2 rather than a plain fast SHA.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Can a hash be reversed?",
+          a: "No — hashing is one-way by design. You can only confirm a guess by hashing it and comparing. So-called “hash decrypters” are just databases of precomputed hashes for common inputs, not actual reversal.",
+        },
+        {
+          q: "Which SHA should I use?",
+          a: "For anything security-related, use SHA-256 or stronger (SHA-384/512). Avoid SHA-1 except for non-security checksums, and never rely on it where an attacker could try to forge a match.",
+        },
+        {
+          q: "Is it safe to hash text on a website?",
+          a: "Hashing itself is safe, but never paste real secrets or passwords into any online tool. Our generator runs in your browser, but the safe habit is to hash only non-sensitive text or test data.",
+        },
+      ],
+      cta: "Hash any text free",
+    },
+    ru: {
+      title: "Что такое хеширование? SHA-256 простыми словами",
+      description:
+        "Как работает хеш-функция — односторонняя, фиксированной длины, детерминированная — зачем нужен SHA-256 и бесплатный инструмент для хеширования текста.",
+      intro:
+        "Хеш-функция превращает любой ввод — слово, файл, пароль — в короткую строку фиксированной длины. Один и тот же ввод всегда даёт один и тот же хеш, но обратно к исходнику его не развернуть. Ниже — зачем это нужно, при чём тут семейство SHA и бесплатный инструмент, чтобы захешировать любой текст самому.",
+      sections: [
+        {
+          h: "Что такое хеш на самом деле",
+          p: [
+            "Хеш — это отпечаток данных. Подайте на вход книгу в миллион слов или одну букву — хеш-функция вернёт значение фиксированной длины: SHA-256 всегда выдаёт 64 hex-символа независимо от размера входа. Он устроен так, чтобы быстро считаться в одну сторону и практически не разворачиваться обратно.",
+          ],
+        },
+        {
+          h: "Три свойства, которые делают его полезным",
+          p: [
+            "У любой хорошей криптографической хеш-функции три черты:",
+            [
+              "Детерминированность — один и тот же ввод всегда даёт один и тот же хеш",
+              "Односторонность — из хеша нельзя восстановить исходный ввод",
+              "Стойкость к коллизиям — практически невозможно найти два входа с одинаковым хешем",
+            ],
+            "Измените один символ входа — и хеш меняется полностью. Это лавинный эффект, из-за него хеши хорошо ловят даже крошечные изменения данных.",
+          ],
+        },
+        {
+          h: "Хеширование — это не шифрование",
+          p: [
+            "Именно здесь чаще всего путаются. Шифрование двустороннее: с ключом можно расшифровать обратно в исходник. Хеширование одностороннее — ключа нет и «расхешировать» нельзя. Поэтому хеш нужен, чтобы проверять данные, а не хранить то, что потом нужно прочитать.",
+          ],
+        },
+        {
+          h: "Семейство SHA",
+          p: [
+            "SHA (Secure Hash Algorithm) — семейство стандартных хеш-функций. SHA-256, SHA-384 и SHA-512 входят в SHA-2 и сегодня являются выбором по умолчанию — число означает длину результата в битах. SHA-1 старше и считается слабым для защиты, поэтому относитесь к нему как к легаси: годится для несекьюрити-контрольной суммы, но не для того, что должно противостоять атакующим.",
+          ],
+        },
+        {
+          h: "Где применяют хеширование",
+          p: [
+            [
+              "Целостность файлов — публикуют контрольную сумму, чтобы проверить, что загрузка не изменена",
+              "Хранение паролей — сайты хранят хеш, а не сам пароль (с солью, см. ниже)",
+              "Цифровые подписи и сертификаты — данные хешируют, а затем подписывают хеш",
+              "Дедупликация и быстрые сравнения — сравнивают короткие хеши вместо больших файлов",
+            ],
+          ],
+        },
+        {
+          h: "Зачем паролю нужна соль",
+          p: [
+            "Просто захешировать пароль недостаточно — атакующие заранее считают хеши популярных паролей (радужные таблицы) и мгновенно находят совпадение. Соль — это уникальное случайное значение, добавляемое к каждому паролю перед хешированием, поэтому одинаковые пароли дают разные хеши, а заранее посчитанные таблицы бесполезны. Настоящие системы хранения паролей используют медленную специализированную функцию — bcrypt или Argon2, а не быстрый обычный SHA.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Можно ли развернуть хеш обратно?",
+          a: "Нет — хеширование одностороннее по замыслу. Догадку можно только проверить: захешировать и сравнить. «Расшифровщики хешей» — это просто базы заранее посчитанных хешей для популярных входов, а не настоящее обращение.",
+        },
+        {
+          q: "Какой SHA выбрать?",
+          a: "Для всего, что связано с безопасностью, — SHA-256 или сильнее (SHA-384/512). SHA-1 — только для несекьюрити-контрольных сумм, и никогда там, где атакующий может попытаться подделать совпадение.",
+        },
+        {
+          q: "Безопасно ли хешировать текст на сайте?",
+          a: "Само хеширование безопасно, но никогда не вставляйте реальные секреты и пароли в онлайн-инструменты. Наш генератор работает у вас в браузере, но безопасная привычка — хешировать только нечувствительный текст или тестовые данные.",
+        },
+      ],
+      cta: "Захешировать текст бесплатно",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
@@ -802,6 +952,7 @@ export const GUIDES: Guide[] = [
   freelanceTaxGuide,
   quoteGuide,
   jwtGuide,
+  hashGuide,
 ];
 
 export function getGuide(slug: string): Guide | undefined {
