@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@/lib/analytics";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
@@ -79,6 +80,7 @@ export function DeliveryTool({ locale }: { locale: Locale }) {
     });
     if (!res.ok) throw new Error(`PDF ${res.status}`);
     const blob = await res.blob();
+    track("tool_use", { tool: "delivery-note", action: "download" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;

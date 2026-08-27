@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@/lib/analytics";
 
 import { useEffect, useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
@@ -59,6 +60,7 @@ export function RentalTool({ locale }: { locale: Locale }) {
     });
     if (!res.ok) throw new Error(`PDF ${res.status}`);
     const blob = await res.blob();
+    track("tool_use", { tool: "rental-yield", action: "download" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
