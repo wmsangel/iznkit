@@ -27,6 +27,9 @@ export function pageMetadata({ locale, path = "", title, description }: PageSeo)
       description,
       url,
       locale: OG_LOCALE[locale],
+      alternateLocale: Object.entries(OG_LOCALE)
+        .filter(([l]) => l !== locale)
+        .map(([, code]) => code),
     },
     twitter: {
       card: "summary_large_image",

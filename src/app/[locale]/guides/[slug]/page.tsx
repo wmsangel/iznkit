@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { pageMetadata } from "@/lib/seo/metadata";
-import { absUrl, SITE_NAME } from "@/lib/seo/site";
+import { absUrl, SITE_NAME, SITE_URL } from "@/lib/seo/site";
 import { GUIDES, getGuide } from "@/lib/guides";
 import { getTool } from "@/lib/tools/registry";
 import { GuideArticle } from "@/components/guide-article";
@@ -60,8 +60,16 @@ export default async function GuidePage({
       datePublished: guide.updated,
       dateModified: guide.updated,
       mainEntityOfPage: url,
-      author: { "@type": "Organization", name: SITE_NAME },
-      publisher: { "@type": "Organization", name: SITE_NAME },
+      url,
+      image: `${url}/opengraph-image`,
+      isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#website` },
+      author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      publisher: {
+        "@type": "Organization",
+        name: SITE_NAME,
+        url: SITE_URL,
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.svg` },
+      },
     },
     {
       "@context": "https://schema.org",

@@ -10,7 +10,7 @@ import { ToolsExplorer } from "@/components/home/tools-explorer";
 import { TEMPLATES, type InvoiceTemplate } from "@/lib/tools/invoice/templates";
 import { DONATE } from "@/lib/donate";
 import { GUIDES } from "@/lib/guides";
-import { SITE_URL, SITE_NAME } from "@/lib/seo/site";
+import { SITE_URL, SITE_NAME, CONTACT_EMAIL } from "@/lib/seo/site";
 
 export async function generateMetadata({
   params,
@@ -51,22 +51,35 @@ export default async function HomePage({
           all: "All guides",
           read: "Read",
         };
-  const orgJsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: SITE_NAME,
-      url: SITE_URL,
-      inLanguage: ["en", "ru"],
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: `${SITE_URL}/icon.svg`,
-    },
-  ];
+  const orgId = `${SITE_URL}/#organization`;
+  const siteId = `${SITE_URL}/#website`;
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE_NAME,
+        url: SITE_URL,
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.svg` },
+        description: dict.home.heroSubtitle,
+        contactPoint: {
+          "@type": "ContactPoint",
+          email: CONTACT_EMAIL,
+          contactType: "customer support",
+          availableLanguage: ["English", "Russian"],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": siteId,
+        name: SITE_NAME,
+        url: SITE_URL,
+        inLanguage: ["en", "ru"],
+        publisher: { "@id": orgId },
+      },
+    ],
+  };
   const explorerSections = sections.map((section) => ({
     id: section.id,
     title: section.title[locale],

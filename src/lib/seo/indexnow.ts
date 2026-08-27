@@ -2,6 +2,7 @@ import { locales } from "@/lib/i18n/config";
 import { sections } from "@/lib/tools/registry";
 import { absUrl } from "@/lib/seo/site";
 import { DONATE } from "@/lib/donate";
+import { GUIDES } from "@/lib/guides";
 
 /**
  * IndexNow key. The matching file `public/<key>.txt` must contain exactly this
@@ -18,6 +19,7 @@ const STATIC_PATHS = [
   "privacy",
   "terms",
   "disclosure",
+  "guides",
 ];
 
 /** Every indexable URL on the site (both locales), matching the sitemap. */
@@ -31,6 +33,9 @@ export function allUrls(): string[] {
       if (tool.status !== "live") continue;
       for (const locale of locales) urls.push(absUrl(locale, `tools/${tool.slug}`));
     }
+  }
+  for (const guide of GUIDES) {
+    for (const locale of locales) urls.push(absUrl(locale, `guides/${guide.slug}`));
   }
   return urls;
 }

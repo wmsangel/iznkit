@@ -26,6 +26,23 @@ export const metadata: Metadata = {
   },
   description:
     "A quiet set of calculators and document generators that hand you a clean, branded PDF. Free to use right now.",
+  applicationName: "iznkit",
+  authors: [{ name: "iznkit" }],
+  creator: "iznkit",
+  publisher: "iznkit",
+  category: "technology",
+  formatDetection: { telephone: false, email: false, address: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   verification: {
     google: "ute90jV2NyS9ys9AOKhz_TDwujA-z4uYBt1EfPkb5NQ",
     other: {
