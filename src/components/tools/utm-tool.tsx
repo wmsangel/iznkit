@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@/lib/analytics";
 
 import { useEffect, useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
@@ -69,6 +70,7 @@ export function UtmTool({ locale }: { locale: Locale }) {
     if (!result) return;
     try {
       await navigator.clipboard.writeText(result);
+      track("tool_use", { tool: "utm-builder", action: "copy" });
       setCopied(true);
       const next = [result, ...recent.filter((r) => r !== result)].slice(0, 8);
       setRecent(next);

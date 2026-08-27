@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import QRCode from "qrcode";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { track } from "@/lib/analytics";
 
 export function QrTool({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
@@ -38,6 +39,7 @@ export function QrTool({ locale }: { locale: Locale }) {
   }, [content, fg, size]);
 
   function download(href: string, name: string) {
+    track("tool_use", { tool: "qr-code", action: "download" });
     const a = document.createElement("a");
     a.href = href;
     a.download = name;

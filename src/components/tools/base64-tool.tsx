@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@/lib/analytics";
 
 import { useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
@@ -44,6 +45,7 @@ export function Base64Tool({ locale }: { locale: Locale }) {
     if (!output) return;
     try {
       await navigator.clipboard.writeText(output);
+      track("tool_use", { tool: "base64", action: "copy" });
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {

@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@/lib/analytics";
 
 import { useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
@@ -54,6 +55,7 @@ export function JwtTool({ locale }: { locale: Locale }) {
   async function copy(which: "header" | "payload", value: unknown) {
     try {
       await navigator.clipboard.writeText(JSON.stringify(value, null, 2));
+      track("tool_use", { tool: "jwt-decoder", action: "copy" });
       setCopied(which);
       setTimeout(() => setCopied(null), 2000);
     } catch {

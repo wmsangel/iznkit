@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@/lib/analytics";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
@@ -116,6 +117,7 @@ export function SigTool({ locale }: { locale: Locale }) {
     } catch {
       try {
         await navigator.clipboard.writeText(html);
+        track("tool_use", { tool: "email-signature", action: "copy" });
         setCopied("rich");
       } catch {
         /* ignore */
@@ -125,6 +127,7 @@ export function SigTool({ locale }: { locale: Locale }) {
   async function copyCode() {
     try {
       await navigator.clipboard.writeText(html);
+      track("tool_use", { tool: "email-signature", action: "copy" });
       setCopied("code");
     } catch {
       /* ignore */

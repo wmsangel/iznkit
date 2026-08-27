@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@/lib/analytics";
 
 import { useEffect, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
@@ -40,6 +41,7 @@ export function HashTool({ locale }: { locale: Locale }) {
   async function copy(algo: Algo, value: string) {
     try {
       await navigator.clipboard.writeText(value);
+      track("tool_use", { tool: "hash", action: "copy" });
       setCopied(algo);
       setTimeout(() => setCopied(null), 2000);
     } catch {

@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@/lib/analytics";
 
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
@@ -42,6 +43,7 @@ export function JsonTool({ locale }: { locale: Locale }) {
     if (!output) return;
     try {
       await navigator.clipboard.writeText(output);
+      track("tool_use", { tool: "json-formatter", action: "copy" });
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {

@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@/lib/analytics";
 
 import { useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
@@ -75,6 +76,7 @@ export function ColorTool({ locale }: { locale: Locale }) {
   async function copy(text: string, key: string) {
     try {
       await navigator.clipboard.writeText(text);
+      track("tool_use", { tool: "color", action: "copy" });
       setCopied(key);
       setTimeout(() => setCopied(null), 2000);
     } catch {
