@@ -29,6 +29,9 @@ export function allUrls(): string[] {
     for (const locale of locales) urls.push(absUrl(locale, path));
   }
   for (const section of sections) {
+    for (const locale of locales) urls.push(absUrl(locale, `tools/${section.id}`));
+  }
+  for (const section of sections) {
     for (const tool of section.tools) {
       if (tool.status !== "live") continue;
       for (const locale of locales) urls.push(absUrl(locale, `tools/${tool.slug}`));

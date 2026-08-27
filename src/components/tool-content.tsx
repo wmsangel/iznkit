@@ -74,14 +74,6 @@ export function ToolContent({
             acceptedAnswer: { "@type": "Answer", text: f.a },
           })),
         },
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: SITE_NAME, item: absUrl(locale) },
-            { "@type": "ListItem", position: 2, name: toolTitle, item: url },
-          ],
-        },
       ]
     : null;
 

@@ -23,6 +23,7 @@ export function ToolsExplorer({
   sections,
   freeLabel,
   labels,
+  initialQuery = "",
 }: {
   locale: Locale;
   sections: ExplorerSection[];
@@ -34,8 +35,9 @@ export function ToolsExplorer({
     popular: string;
     soon: string;
   };
+  initialQuery?: string;
 }) {
-  const [q, setQ] = useState("");
+  const [q, setQ] = useState(initialQuery);
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();

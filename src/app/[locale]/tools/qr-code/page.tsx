@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ToolBreadcrumbs } from "@/components/tool-breadcrumbs";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
@@ -34,7 +34,7 @@ export default async function QrPage({
   const entry = getTool(SLUG);
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
-      <Link href={`/${locale}`} className="text-sm text-[var(--muted)] hover:text-[var(--foreground)]">← {dict.nav.allTools}</Link>
+      <ToolBreadcrumbs locale={locale} slug={SLUG} />
       <div className="mt-4 flex items-center gap-3 flex-wrap">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">{dict.qr.title}</h1>
         <span className="text-xs font-semibold rounded-full bg-[var(--accent-soft)] text-[var(--accent)] px-3 py-1">{dict.qr.free}</span>

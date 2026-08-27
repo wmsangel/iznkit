@@ -49,6 +49,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // Tool category hubs.
+  for (const section of sections) {
+    const path = `tools/${section.id}`;
+    for (const locale of locales) {
+      entries.push({
+        url: absUrl(locale, path),
+        lastModified,
+        changeFrequency: "monthly",
+        priority: 0.7,
+        alternates: { languages: languageAlternates(path) },
+      });
+    }
+  }
+
   // Live tools.
   for (const section of sections) {
     for (const tool of section.tools) {

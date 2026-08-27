@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ToolBreadcrumbs } from "@/components/tool-breadcrumbs";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
@@ -34,7 +34,7 @@ export default async function AdRoiPage({
   const entry = getTool(SLUG);
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
-      <Link href={`/${locale}`} className="text-sm text-[var(--muted)] hover:text-[var(--foreground)]">← {dict.nav.allTools}</Link>
+      <ToolBreadcrumbs locale={locale} slug={SLUG} />
       <h1 className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight">{dict.adroi.title}</h1>
       <p className="mt-2 text-lg text-[var(--muted)] max-w-2xl">{dict.adroi.subtitle}</p>
       <div className="mt-10"><AdRoiTool locale={locale} /></div>

@@ -14,27 +14,37 @@ import { SITE_URL, SITE_NAME, CONTACT_EMAIL } from "@/lib/seo/site";
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
+  const { q } = await searchParams;
   const dict = getDictionary(locale);
-  return pageMetadata({
+  const meta = pageMetadata({
     locale,
     path: "",
     title: `${dict.brand.name} — ${dict.home.heroTitle}`,
     description: dict.home.heroSubtitle,
   });
+  // Search-filtered views (?q=…) share the homepage canonical; keep them out of
+  // the index so query permutations don't dilute it.
+  if (q) meta.robots = { index: false, follow: true };
+  return meta;
 }
 
 export default async function HomePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string }>;
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  const { q } = await searchParams;
   const dict = getDictionary(locale);
   const freeLabel = locale === "ru" ? "Бесплатно" : "Free";
   const guidesCopy =
@@ -77,6 +87,14 @@ export default async function HomePage({
         url: SITE_URL,
         inLanguage: ["en", "ru"],
         publisher: { "@id": orgId },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${SITE_URL}/${locale}?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
     ],
   };
@@ -160,6 +178,7 @@ export default async function HomePage({
             locale={locale}
             sections={explorerSections}
             freeLabel={freeLabel}
+            initialQuery={q ?? ""}
             labels={{
               title: dict.home.sectionsTitle,
               searchPlaceholder: dict.home.searchPlaceholder,
