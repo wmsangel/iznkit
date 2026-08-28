@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "CalcLumen",
-    url: "https://calclumen.com/",
+    url: "https://calclumen.com/en",
     lang: "EN",
     tagline: {
       en: "60+ fast, free calculators for money, health & everyday math.",
@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "CostTrek",
-    url: "https://costtrek.com/",
+    url: "https://costtrek.com/en",
     lang: "EN",
     tagline: {
       en: "Compare the cost of living between cities worldwide.",
@@ -78,11 +78,20 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "24здоровье",
-    url: "https://24zdorovie.com/",
+    url: "https://24zdorovie.com/ru/",
     lang: "RU",
     tagline: {
       en: "Evidence-based health: nutrition, fitness, sleep, mind.",
       ru: "Доказательное здоровье: питание, движение, сон, психика.",
+    },
+  },
+  {
+    name: "Bilimjol",
+    url: "https://bilimjol.com/",
+    lang: "RU",
+    tagline: {
+      en: "Learning exercises for kids — preschool to grade 11, with helper characters.",
+      ru: "Обучающие задания для детей — от садика до 11 класса, с героями-помощниками.",
     },
   },
 ];
