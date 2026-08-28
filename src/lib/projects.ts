@@ -50,6 +50,24 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    name: "IZN Tools",
+    url: "https://izntools.com/",
+    lang: "EN",
+    tagline: {
+      en: "100+ small browser tools — images, JSON, SEO and dev. Nothing uploaded.",
+      ru: "100+ небольших браузерных инструментов — картинки, JSON, SEO и разработка.",
+    },
+  },
+  {
+    name: "TestSweep",
+    url: "https://testsweep.com/",
+    lang: "EN",
+    tagline: {
+      en: "Free in-browser tests for your screen and hardware — nothing to install.",
+      ru: "Бесплатные браузерные тесты экрана и железа — без установки.",
+    },
+  },
+  {
     name: "ДомЭксперт",
     url: "https://prodom-expert.ru/",
     lang: "RU",
