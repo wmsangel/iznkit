@@ -361,6 +361,28 @@ export const sections: SectionDef[] = [
           ru: "Конвертация цветов между HEX, RGB и HSL.",
         },
       },
+      {
+        slug: "text-diff",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Text diff / compare", ru: "Сравнение текста (diff)" },
+        blurb: {
+          en: "Compare two texts and highlight what changed, line by line.",
+          ru: "Сравните два текста и подсветите изменения построчно.",
+        },
+      },
+      {
+        slug: "cron-parser",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Cron expression parser", ru: "Разбор cron-выражения" },
+        blurb: {
+          en: "Explain a cron schedule in plain English and see the next run times.",
+          ru: "Объясните cron-расписание простыми словами и ближайшие запуски.",
+        },
+      },
     ],
   },
   {

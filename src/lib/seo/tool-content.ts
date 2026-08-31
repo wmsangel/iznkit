@@ -2432,6 +2432,184 @@ const colorContent: Content = {
   },
 };
 
+const diffContent: Content = {
+  en: {
+    intro:
+      "Compare two blocks of text and see exactly what changed, line by line. This free online text diff tool highlights added and removed lines instantly, right in your browser — paste an old and a new version of anything (code, config, contracts, copy) and read the changes at a glance. Nothing is uploaded; the comparison runs entirely on your device.",
+    benefits: [
+      "Line-by-line diff with added/removed highlighting",
+      "Live comparison as you paste — no button to press",
+      "A running count of added and removed lines",
+      "Copy the unified diff in one click",
+      "Runs in your browser — nothing is uploaded",
+    ],
+    steps: [
+      "Paste the original text on the left.",
+      "Paste the changed text on the right.",
+      "Read the highlighted differences below.",
+      "Copy the diff if you need to share it.",
+    ],
+    faq: [
+      {
+        q: "What does a text diff show?",
+        a: "It compares two versions of text and marks which lines were added, removed or left unchanged — the same idea as a git diff, but for any text.",
+      },
+      {
+        q: "Does it compare word by word?",
+        a: "The comparison is line-based, which is the clearest view for code, config and documents. A changed line shows as one removed line plus one added line.",
+      },
+      {
+        q: "Is my text uploaded anywhere?",
+        a: "No. The diff is computed locally in your browser — your text never leaves your device.",
+      },
+      {
+        q: "Can I compare code?",
+        a: "Yes. It works well for source code, JSON, YAML, logs, contracts and any plain text — indentation and whitespace are preserved.",
+      },
+    ],
+    useCases: [
+      "Reviewing edits between two versions of a document",
+      "Spotting what changed in a config or JSON file",
+      "Checking a contract revision before signing",
+      "Comparing two snippets of code without git",
+    ],
+    metaExtra:
+      "Free online text diff — compare two texts and highlight added and removed lines instantly, in your browser.",
+  },
+  ru: {
+    intro:
+      "Сравните два фрагмента текста и увидьте построчно, что именно изменилось. Этот бесплатный онлайн-инструмент сравнения текста мгновенно подсвечивает добавленные и удалённые строки прямо в браузере — вставьте старую и новую версию чего угодно (код, конфиг, договор, текст) и оцените изменения с первого взгляда. Ничего не загружается: сравнение выполняется на вашем устройстве.",
+    benefits: [
+      "Построчный diff с подсветкой добавленного/удалённого",
+      "Живое сравнение по мере вставки — без кнопок",
+      "Счётчик добавленных и удалённых строк",
+      "Копирование унифицированного diff в один клик",
+      "Всё в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Вставьте исходный текст слева.",
+      "Вставьте изменённый текст справа.",
+      "Прочитайте подсвеченные различия ниже.",
+      "Скопируйте diff, если нужно поделиться.",
+    ],
+    faq: [
+      {
+        q: "Что показывает сравнение текста?",
+        a: "Оно сравнивает две версии текста и отмечает, какие строки добавлены, удалены или не изменились — как git diff, но для любого текста.",
+      },
+      {
+        q: "Сравнивает ли пословно?",
+        a: "Сравнение построчное — это самый понятный вид для кода, конфигов и документов. Изменённая строка показывается как одна удалённая плюс одна добавленная.",
+      },
+      {
+        q: "Мой текст куда-то загружается?",
+        a: "Нет. Diff вычисляется локально в браузере — ваш текст не покидает устройство.",
+      },
+      {
+        q: "Можно ли сравнивать код?",
+        a: "Да. Подходит для исходного кода, JSON, YAML, логов, договоров и любого текста — отступы и пробелы сохраняются.",
+      },
+    ],
+    useCases: [
+      "Проверка правок между двумя версиями документа",
+      "Поиск изменений в конфиге или JSON-файле",
+      "Сверка редакции договора перед подписанием",
+      "Сравнение двух фрагментов кода без git",
+    ],
+    metaExtra:
+      "Бесплатное онлайн-сравнение текста — сравните два текста и подсветите добавленные и удалённые строки мгновенно, в браузере.",
+  },
+};
+
+const cronContent: Content = {
+  en: {
+    intro:
+      "Paste a cron expression and instantly see what it means in plain English plus the next times it will run. This free cron parser reads the standard five-field format (minute, hour, day-of-month, month, day-of-week) with ranges, lists, steps and names, so you can sanity-check a schedule before you commit it. Everything is computed in your browser.",
+    benefits: [
+      "Plain-English description of the schedule",
+      "The next run times, in your local timezone",
+      "A clear breakdown of all five fields",
+      "Supports ranges, lists, steps and month/day names",
+      "Runs in your browser — nothing is uploaded",
+    ],
+    steps: [
+      "Type or paste your cron expression.",
+      "Read the plain-English schedule.",
+      "Check the next run times below.",
+      "Adjust the fields until it's right.",
+    ],
+    faq: [
+      {
+        q: "What are the five cron fields?",
+        a: "In order: minute (0–59), hour (0–23), day of month (1–31), month (1–12), and day of week (0–6, where 0 and 7 are both Sunday).",
+      },
+      {
+        q: "What do *, - , / and , mean?",
+        a: "* is every value, a-b is a range, */n is every n-th value, and a comma lists specific values. For example */15 in the minute field means every 15 minutes.",
+      },
+      {
+        q: "How are day-of-month and day-of-week combined?",
+        a: "If both are restricted, cron runs when either matches — a well-known quirk. If only one is set, only that one applies.",
+      },
+      {
+        q: "What timezone are the next runs in?",
+        a: "The upcoming run times are shown in your device's local timezone, so they match what you'd expect to see locally.",
+      },
+    ],
+    useCases: [
+      "Double-checking a crontab entry before deploying",
+      "Understanding a schedule someone else wrote",
+      "Learning cron syntax with instant feedback",
+      "Verifying a CI or backup job runs when expected",
+    ],
+    metaExtra:
+      "Free cron expression parser — explain any cron schedule in plain English and preview the next run times.",
+  },
+  ru: {
+    intro:
+      "Вставьте cron-выражение и сразу увидьте, что оно означает простыми словами, плюс ближайшие моменты запуска. Этот бесплатный парсер читает стандартный формат из пяти полей (минута, час, день месяца, месяц, день недели) с диапазонами, списками, шагами и названиями — чтобы проверить расписание до того, как поставить его в работу. Всё считается в браузере.",
+    benefits: [
+      "Описание расписания простыми словами",
+      "Ближайшие запуски в вашем часовом поясе",
+      "Понятный разбор всех пяти полей",
+      "Диапазоны, списки, шаги и названия месяцев/дней",
+      "Всё в браузере — ничего не загружается",
+    ],
+    steps: [
+      "Введите или вставьте cron-выражение.",
+      "Прочитайте расписание простыми словами.",
+      "Проверьте ближайшие запуски ниже.",
+      "Правьте поля, пока не получите нужное.",
+    ],
+    faq: [
+      {
+        q: "Что означают пять полей cron?",
+        a: "По порядку: минута (0–59), час (0–23), день месяца (1–31), месяц (1–12) и день недели (0–6, где 0 и 7 — воскресенье).",
+      },
+      {
+        q: "Что значат *, -, / и ,?",
+        a: "* — любое значение, a-b — диапазон, */n — каждое n-е значение, запятая — список значений. Например, */15 в поле минут — каждые 15 минут.",
+      },
+      {
+        q: "Как сочетаются день месяца и день недели?",
+        a: "Если ограничены оба поля, cron срабатывает, когда совпадает любое из них — известная особенность. Если задано одно — применяется только оно.",
+      },
+      {
+        q: "В каком часовом поясе показаны запуски?",
+        a: "Ближайшие запуски показаны в локальном часовом поясе вашего устройства — так, как вы ожидаете увидеть их у себя.",
+      },
+    ],
+    useCases: [
+      "Проверка строки crontab перед деплоем",
+      "Понимание расписания, написанного другим",
+      "Изучение синтаксиса cron с мгновенной обратной связью",
+      "Проверка, что задача CI или бэкапа запустится вовремя",
+    ],
+    metaExtra:
+      "Бесплатный парсер cron-выражений — объясните любое cron-расписание простыми словами и посмотрите ближайшие запуски.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -2463,6 +2641,8 @@ const content: Record<string, Content> = {
   hash: hashContent,
   timestamp: timestampContent,
   color: colorContent,
+  "text-diff": diffContent,
+  "cron-parser": cronContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
