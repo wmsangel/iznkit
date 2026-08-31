@@ -11,6 +11,8 @@ import {
   emptyTax,
   type TaxData,
 } from "@/lib/tools/tax/model";
+import { ShareLink } from "./share-link";
+import { decodeData, encodeData } from "@/lib/tools/share";
 import { Actions } from "./hourly-tool";
 
 const SKU = "tool:self-employed-tax";
@@ -29,6 +31,13 @@ export function TaxTool({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     try {
+      const shared = new URLSearchParams(window.location.search).get("d");
+      const parsed = shared ? decodeData<TaxData>(shared) : null;
+      if (parsed) {
+        setData({ ...emptyTax(), ...parsed });
+        setHydrated(true);
+        return;
+      }
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) setData({ ...emptyTax(), ...JSON.parse(raw) });
     } catch {
@@ -230,6 +239,7 @@ export function TaxTool({ locale }: { locale: Locale }) {
           <Line label={t.afterTax} value={m(r.afterTax)} />
         </div>
         <Actions t={tt} state={state} price="$3" onFree={onFreePreview} onUnlock={onUnlock} locale={locale} />
+        <ShareLink slug="self-employed-tax" values={{ d: encodeData(data) }} locale={locale} />
       </div>
     </div>
   );

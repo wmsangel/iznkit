@@ -6,6 +6,8 @@ import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { CURRENCIES, formatMoney, formatPercent } from "@/lib/format";
 import { computeUnit, emptyUnit, type UnitData } from "@/lib/tools/unit/model";
+import { ShareLink } from "./share-link";
+import { decodeData, encodeData } from "@/lib/tools/share";
 import { Actions } from "./hourly-tool";
 import { Stat, Line } from "./adroi-tool";
 
@@ -23,6 +25,13 @@ export function UnitTool({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     try {
+      const shared = new URLSearchParams(window.location.search).get("d");
+      const parsed = shared ? decodeData<UnitData>(shared) : null;
+      if (parsed) {
+        setData({ ...emptyUnit(), ...parsed });
+        setHydrated(true);
+        return;
+      }
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) setData({ ...emptyUnit(), ...JSON.parse(raw) });
     } catch {}
@@ -134,6 +143,7 @@ export function UnitTool({ locale }: { locale: Locale }) {
           <Line label={t.breakEvenPrice} value={m(r.breakEvenPrice)} />
         </div>
         <Actions t={tt} state={state} price="$5" onFree={onFreePreview} onUnlock={onUnlock} locale={locale} />
+        <ShareLink slug="unit-economics" values={{ d: encodeData(data) }} locale={locale} />
       </div>
     </div>
   );

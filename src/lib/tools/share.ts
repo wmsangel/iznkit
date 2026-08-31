@@ -36,3 +36,27 @@ export function buildShareUrl(values: Record<string, string | number>): string {
   const qs = sp.toString();
   return `${window.location.origin}${window.location.pathname}${qs ? `?${qs}` : ""}`;
 }
+
+/** UTF-8-safe base64url encode of a JSON-serialisable object (for a ?d= share param). */
+export function encodeData(obj: unknown): string {
+  try {
+    const bytes = new TextEncoder().encode(JSON.stringify(obj));
+    let bin = "";
+    bytes.forEach((b) => (bin += String.fromCharCode(b)));
+    return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  } catch {
+    return "";
+  }
+}
+
+/** Inverse of encodeData; returns null if the string isn't valid. */
+export function decodeData<T>(s: string): T | null {
+  try {
+    const b64 = s.replace(/-/g, "+").replace(/_/g, "/");
+    const bin = atob(b64);
+    const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
+    return JSON.parse(new TextDecoder().decode(bytes)) as T;
+  } catch {
+    return null;
+  }
+}

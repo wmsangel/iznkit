@@ -7,6 +7,8 @@ import { getDictionary } from "@/lib/i18n/dictionaries";
 import { CURRENCIES, formatMoney, formatPercent } from "@/lib/format";
 import { computeAdRoi, emptyAdRoi, type AdRoiData } from "@/lib/tools/adroi/model";
 import { Actions } from "./hourly-tool";
+import { ShareLink } from "./share-link";
+import { decodeData, encodeData } from "@/lib/tools/share";
 
 const SKU = "tool:ad-roi";
 const STORAGE_KEY = "izn.tools:adroi:draft";
@@ -22,6 +24,13 @@ export function AdRoiTool({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     try {
+      const shared = new URLSearchParams(window.location.search).get("d");
+      const parsed = shared ? decodeData<AdRoiData>(shared) : null;
+      if (parsed) {
+        setData({ ...emptyAdRoi(), ...parsed });
+        setHydrated(true);
+        return;
+      }
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) setData({ ...emptyAdRoi(), ...JSON.parse(raw) });
     } catch {}
@@ -126,6 +135,7 @@ export function AdRoiTool({ locale }: { locale: Locale }) {
           <Line label={t.netProfit} value={m(r.netProfit)} />
         </div>
         <Actions t={tt} state={state} price="$3" onFree={onFreePreview} onUnlock={onUnlock} locale={locale} />
+        <ShareLink slug="ad-roi" values={{ d: encodeData(data) }} locale={locale} />
       </div>
     </div>
   );

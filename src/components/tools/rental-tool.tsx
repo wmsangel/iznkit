@@ -11,6 +11,8 @@ import {
   emptyRental,
   type RentalData,
 } from "@/lib/tools/rental/model";
+import { ShareLink } from "./share-link";
+import { decodeData, encodeData } from "@/lib/tools/share";
 
 const SKU = "tool:rental-yield";
 const STORAGE_KEY = "izn.tools:rental:draft";
@@ -28,6 +30,13 @@ export function RentalTool({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     try {
+      const shared = new URLSearchParams(window.location.search).get("d");
+      const parsed = shared ? decodeData<RentalData>(shared) : null;
+      if (parsed) {
+        setData({ ...emptyRental(), ...parsed });
+        setHydrated(true);
+        return;
+      }
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) setData({ ...emptyRental(), ...JSON.parse(raw) });
     } catch {
@@ -218,6 +227,7 @@ export function RentalTool({ locale }: { locale: Locale }) {
           onUnlock={onUnlock}
           locale={locale}
         />
+        <ShareLink slug="rental-yield" values={{ d: encodeData(data) }} locale={locale} />
       </div>
     </div>
   );

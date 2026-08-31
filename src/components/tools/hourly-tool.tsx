@@ -6,6 +6,8 @@ import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { CURRENCIES, formatMoney } from "@/lib/format";
 import { computeHourly, emptyHourly, type HourlyData } from "@/lib/tools/hourly/model";
+import { ShareLink } from "./share-link";
+import { decodeData, encodeData } from "@/lib/tools/share";
 import { FREE_MODE } from "@/lib/payments/mode";
 import { DONATE } from "@/lib/donate";
 import { track } from "@/lib/analytics";
@@ -26,6 +28,13 @@ export function HourlyTool({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     try {
+      const shared = new URLSearchParams(window.location.search).get("d");
+      const parsed = shared ? decodeData<HourlyData>(shared) : null;
+      if (parsed) {
+        setData({ ...emptyHourly(), ...parsed });
+        setHydrated(true);
+        return;
+      }
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) setData({ ...emptyHourly(), ...JSON.parse(raw) });
     } catch {
@@ -164,6 +173,7 @@ export function HourlyTool({ locale }: { locale: Locale }) {
         </div>
 
         <Actions t={tt} state={state} price="$3" onFree={onFreePreview} onUnlock={onUnlock} locale={locale} />
+        <ShareLink slug="hourly-rate" values={{ d: encodeData(data) }} locale={locale} />
       </div>
     </div>
   );
