@@ -4,7 +4,9 @@ import { useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { CURRENCIES, formatMoney, round2 } from "@/lib/format";
-import { Stat, Line } from "./adroi-tool";
+import { Stat } from "./adroi-tool";
+import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
+import { ShareLink } from "./share-link";
 
 export function LoanTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).loan;
@@ -12,6 +14,14 @@ export function LoanTool({ locale }: { locale: Locale }) {
   const [amount, setAmount] = useState(20000);
   const [rate, setRate] = useState(9);
   const [years, setYears] = useState(5);
+
+  useHydrateFromUrl((sp) => {
+    const c = sp.get("cur");
+    if (c) setCurrency(c);
+    setAmount(numParam(sp, "amt", amount));
+    setRate(numParam(sp, "rate", rate));
+    setYears(numParam(sp, "yrs", years));
+  });
 
   const r = useMemo(() => {
     const n = Math.max(1, Math.round(years * 12));
@@ -64,6 +74,11 @@ export function LoanTool({ locale }: { locale: Locale }) {
           <Stat label={t.totalInterest} value={m(r.totalInterest)} />
           <Stat label={t.totalPaid} value={m(r.totalPaid)} />
         </div>
+        <ShareLink
+          slug="loan-calculator"
+          values={{ cur: currency, amt: amount, rate, yrs: years }}
+          locale={locale}
+        />
       </div>
     </div>
   );

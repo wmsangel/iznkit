@@ -4,6 +4,8 @@ import { useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { round2 } from "@/lib/format";
+import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
+import { ShareLink } from "./share-link";
 
 function fmt(n: number): string {
   if (!Number.isFinite(n)) return "—";
@@ -20,6 +22,15 @@ export function PctTool({ locale }: { locale: Locale }) {
   const [from, setFrom] = useState(80);
   const [to, setTo] = useState(100);
 
+  useHydrateFromUrl((sp) => {
+    setOfP(numParam(sp, "ofp", ofP));
+    setOfY(numParam(sp, "ofy", ofY));
+    setWhatA(numParam(sp, "wa", whatA));
+    setWhatB(numParam(sp, "wb", whatB));
+    setFrom(numParam(sp, "from", from));
+    setTo(numParam(sp, "to", to));
+  });
+
   const inputCls = "w-24 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm outline-none focus:border-[var(--accent)]";
   const card = "rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5";
   const num = (v: string) => (v === "" ? 0 : Number(v));
@@ -29,6 +40,7 @@ export function PctTool({ locale }: { locale: Locale }) {
   const changeRes = from !== 0 ? ((to - from) / from) * 100 : NaN;
 
   return (
+    <div className="space-y-5">
     <div className="grid md:grid-cols-3 gap-5">
       <div className={card}>
         <div className="font-semibold mb-4">{t.ofTitle}</div>
@@ -68,6 +80,12 @@ export function PctTool({ locale }: { locale: Locale }) {
           {fmt(changeRes)}%
         </div>
       </div>
+    </div>
+      <ShareLink
+        slug="percentage-calculator"
+        values={{ ofp: ofP, ofy: ofY, wa: whatA, wb: whatB, from, to }}
+        locale={locale}
+      />
     </div>
   );
 }

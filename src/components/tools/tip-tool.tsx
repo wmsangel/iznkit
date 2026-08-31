@@ -5,6 +5,8 @@ import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { CURRENCIES, formatMoney, round2 } from "@/lib/format";
 import { Stat } from "./adroi-tool";
+import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
+import { ShareLink } from "./share-link";
 
 const QUICK = [10, 15, 18, 20];
 
@@ -14,6 +16,14 @@ export function TipTool({ locale }: { locale: Locale }) {
   const [bill, setBill] = useState(60);
   const [pct, setPct] = useState(15);
   const [people, setPeople] = useState(2);
+
+  useHydrateFromUrl((sp) => {
+    const c = sp.get("cur");
+    if (c) setCurrency(c);
+    setBill(numParam(sp, "bill", bill));
+    setPct(numParam(sp, "pct", pct));
+    setPeople(numParam(sp, "people", people));
+  });
 
   const r = useMemo(() => {
     const tip = round2(bill * (pct / 100));
@@ -77,6 +87,11 @@ export function TipTool({ locale }: { locale: Locale }) {
           <Stat label={t.tipAmount} value={m(r.tip)} />
           <Stat label={t.total} value={m(r.total)} />
         </div>
+        <ShareLink
+          slug="tip-calculator"
+          values={{ cur: currency, bill, pct, people }}
+          locale={locale}
+        />
       </div>
     </div>
   );
