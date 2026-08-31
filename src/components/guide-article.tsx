@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 import type { GuideBody } from "@/lib/guides";
+import { AUTHOR } from "@/lib/author";
 
 export function GuideArticle({
   body,
@@ -83,6 +84,21 @@ export function GuideArticle({
           className="btn-primary rounded-lg px-5 py-2.5 text-sm font-medium whitespace-nowrap"
         >
           {body.cta} →
+        </Link>
+      </div>
+
+      {/* Author bio — E-E-A-T */}
+      <div className="mt-10 pt-6 border-t border-[var(--border)]">
+        <div className="text-xs uppercase tracking-wide text-[var(--muted)]">
+          {AUTHOR.aboutLabel[locale]}
+        </div>
+        <div className="mt-2 font-semibold">{AUTHOR.name[locale]}</div>
+        <p className="mt-1 text-sm text-[var(--muted)] leading-relaxed">{AUTHOR.bio[locale]}</p>
+        <Link
+          href={`/${locale}/about`}
+          className="mt-2 inline-block text-sm font-medium text-[var(--accent)] hover:underline"
+        >
+          {locale === "ru" ? "О проекте" : "About iznkit"} →
         </Link>
       </div>
     </article>

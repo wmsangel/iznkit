@@ -945,6 +945,306 @@ const hashGuide: Guide = {
   },
 };
 
+const cronGuide: Guide = {
+  slug: "what-is-a-cron-expression",
+  toolSlug: "cron-parser",
+  updated: "2026-08-31",
+  content: {
+    en: {
+      title: "What is a cron expression? A plain-English guide",
+      description:
+        "How the five cron fields work — with ranges, lists and steps — how to read a schedule, and a free parser that shows the next run times.",
+      intro:
+        "A cron expression is a compact way to describe a repeating schedule — \"every weekday at 9am\", \"every 15 minutes\", \"the 1st of each month\". It's used by cron on Linux, CI pipelines, backups and countless schedulers. Here's how to read and write one, with a free parser that explains any expression and shows when it will next run.",
+      sections: [
+        {
+          h: "The five fields",
+          p: [
+            "A standard cron expression has five fields separated by spaces, in this order:",
+            [
+              "Minute (0–59)",
+              "Hour (0–23)",
+              "Day of month (1–31)",
+              "Month (1–12, or JAN–DEC)",
+              "Day of week (0–6, where 0 and 7 are Sunday, or SUN–SAT)",
+            ],
+            "So 0 9 * * 1-5 means minute 0, hour 9, any day, any month, Monday to Friday — i.e. 9:00 on weekdays.",
+          ],
+        },
+        {
+          h: "Special characters",
+          p: [
+            "Four symbols do most of the work:",
+            [
+              "* — every value (every minute, every day, …)",
+              ", — a list, e.g. 1,15 means the 1st and 15th",
+              "- — a range, e.g. 1-5 means Monday through Friday",
+              "/ — a step, e.g. */15 means every 15th value",
+            ],
+          ],
+        },
+        {
+          h: "Common examples",
+          p: [
+            [
+              "*/5 * * * * — every 5 minutes",
+              "0 * * * * — at the top of every hour",
+              "0 9 * * 1-5 — 9:00 on weekdays",
+              "30 2 1 * * — 02:30 on the 1st of every month",
+              "0 0 * * 0 — midnight every Sunday",
+            ],
+          ],
+        },
+        {
+          h: "The day-of-month / day-of-week quirk",
+          p: [
+            "When both the day-of-month and day-of-week fields are restricted (not *), cron runs when either one matches — not both. For example 0 0 1 * 1 fires on the 1st of the month and on every Monday. If only one of the two is set, only that one applies. This trips up a lot of people, so double-check schedules that set both.",
+          ],
+        },
+        {
+          h: "Check before you deploy",
+          p: [
+            "The safest habit is to preview a schedule before it goes live: read the plain-English description and look at the next few run times. Our free cron parser does exactly that — paste an expression and it shows the schedule and the upcoming runs in your local timezone.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Do all cron systems use five fields?",
+          a: "The classic Unix format is five fields. Some systems add a seconds field at the front (six fields) or a year at the end; check your scheduler's docs. This guide and our parser use the standard five.",
+        },
+        {
+          q: "What timezone does cron use?",
+          a: "Traditionally the server's local time. Many modern schedulers let you set a timezone. Our parser shows the next runs in your device's local timezone.",
+        },
+        {
+          q: "Is 0 or 7 Sunday?",
+          a: "Both. In the day-of-week field, 0 and 7 both mean Sunday, so 0 0 * * 0 and 0 0 * * 7 are the same.",
+        },
+      ],
+      cta: "Parse a cron expression free",
+    },
+    ru: {
+      title: "Что такое cron-выражение? Понятный гайд",
+      description:
+        "Как работают пять полей cron — диапазоны, списки и шаги — как читать расписание, и бесплатный парсер с ближайшими запусками.",
+      intro:
+        "Cron-выражение — компактный способ описать повторяющееся расписание: «каждый будний день в 9 утра», «каждые 15 минут», «1-го числа каждого месяца». Его используют cron в Linux, CI, бэкапы и множество планировщиков. Ниже — как читать и писать такое выражение, плюс бесплатный парсер, который объяснит любое из них и покажет ближайшие запуски.",
+      sections: [
+        {
+          h: "Пять полей",
+          p: [
+            "Стандартное cron-выражение — это пять полей через пробел, в таком порядке:",
+            [
+              "Минута (0–59)",
+              "Час (0–23)",
+              "День месяца (1–31)",
+              "Месяц (1–12 или JAN–DEC)",
+              "День недели (0–6, где 0 и 7 — воскресенье, или SUN–SAT)",
+            ],
+            "Так, 0 9 * * 1-5 означает: минута 0, час 9, любой день, любой месяц, с понедельника по пятницу — то есть 9:00 по будням.",
+          ],
+        },
+        {
+          h: "Специальные символы",
+          p: [
+            "Основную работу делают четыре символа:",
+            [
+              "* — любое значение (каждую минуту, каждый день…)",
+              ", — список, напр. 1,15 — 1-е и 15-е",
+              "- — диапазон, напр. 1-5 — с понедельника по пятницу",
+              "/ — шаг, напр. */15 — каждое 15-е значение",
+            ],
+          ],
+        },
+        {
+          h: "Частые примеры",
+          p: [
+            [
+              "*/5 * * * * — каждые 5 минут",
+              "0 * * * * — в начале каждого часа",
+              "0 9 * * 1-5 — 9:00 по будням",
+              "30 2 1 * * — 02:30 1-го числа каждого месяца",
+              "0 0 * * 0 — полночь каждое воскресенье",
+            ],
+          ],
+        },
+        {
+          h: "Особенность «день месяца / день недели»",
+          p: [
+            "Если ограничены оба поля — и день месяца, и день недели (не *), — cron срабатывает, когда совпадает любое из них, а не оба. Например, 0 0 1 * 1 запустится и 1-го числа месяца, и каждый понедельник. Если задано только одно из двух — применяется только оно. На этом часто ошибаются, поэтому перепроверяйте расписания, где заданы оба поля.",
+          ],
+        },
+        {
+          h: "Проверяйте перед деплоем",
+          p: [
+            "Самая надёжная привычка — проверить расписание до запуска: прочитать описание простыми словами и посмотреть ближайшие запуски. Наш бесплатный парсер cron делает именно это — вставьте выражение, и он покажет расписание и ближайшие запуски в вашем часовом поясе.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Везде ли у cron пять полей?",
+          a: "Классический Unix-формат — пять полей. Некоторые системы добавляют секунды в начале (шесть полей) или год в конце; сверяйтесь с документацией планировщика. Этот гайд и наш парсер используют стандартные пять.",
+        },
+        {
+          q: "В каком часовом поясе работает cron?",
+          a: "Традиционно — по локальному времени сервера. Многие современные планировщики позволяют задать часовой пояс. Наш парсер показывает ближайшие запуски в локальном поясе вашего устройства.",
+        },
+        {
+          q: "Воскресенье — это 0 или 7?",
+          a: "И то, и другое. В поле дня недели 0 и 7 означают воскресенье, поэтому 0 0 * * 0 и 0 0 * * 7 — одно и то же.",
+        },
+      ],
+      cta: "Разобрать cron-выражение бесплатно",
+    },
+  },
+};
+
+const utmGuide: Guide = {
+  slug: "what-is-a-utm-parameter",
+  toolSlug: "utm-builder",
+  updated: "2026-08-31",
+  content: {
+    en: {
+      title: "What is a UTM parameter? A marketer's guide",
+      description:
+        "What UTM parameters are, what each of the five does, naming conventions that keep reports clean, and a free UTM link builder.",
+      intro:
+        "UTM parameters are little tags you add to a link so your analytics can tell where a visitor came from. Add them to a campaign link and reports show exactly which source, channel and campaign drove the click. Here's what each parameter does, how to name them consistently, and a free builder that assembles the link for you.",
+      sections: [
+        {
+          h: "The five UTM parameters",
+          p: [
+            "You append them to a URL after a ? as name=value pairs:",
+            [
+              "utm_source — where the traffic comes from (google, newsletter, twitter)",
+              "utm_medium — the channel type (cpc, email, social, referral)",
+              "utm_campaign — the campaign name (spring_sale, launch)",
+              "utm_term — paid-search keyword (optional)",
+              "utm_content — which link or creative (optional, for A/B tests)",
+            ],
+            "Source, medium and campaign are the three you'll use most; term and content are optional.",
+          ],
+        },
+        {
+          h: "What a tagged link looks like",
+          p: [
+            "A finished link just adds the tags to your normal URL: https://example.com/?utm_source=newsletter&utm_medium=email&utm_campaign=spring_sale. The page loads normally; analytics reads the tags and files the visit under that source, medium and campaign.",
+          ],
+        },
+        {
+          h: "Keep your naming consistent",
+          p: [
+            "UTM values are case-sensitive and reported verbatim, so Email and email become two separate rows. Pick one convention and stick to it:",
+            [
+              "Always lowercase",
+              "Use underscores or hyphens, not spaces",
+              "Keep a shared list of source and medium names",
+              "Be consistent — facebook, not FB one week and Facebook the next",
+            ],
+          ],
+        },
+        {
+          h: "Medium vs source — the common mix-up",
+          p: [
+            "Source is the specific origin (facebook, mailchimp); medium is the broad channel (social, email, cpc). A good rule: medium answers \"what kind of channel?\" and source answers \"which exact place?\". Getting this right keeps your channel reports meaningful.",
+          ],
+        },
+        {
+          h: "Build links without hand-typing",
+          p: [
+            "Typing UTM parameters by hand invites typos that fragment your reports. A builder keeps the format correct and consistent — fill in the fields and copy a clean, trackable link. Our free UTM builder does exactly that.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Do UTM parameters affect SEO?",
+          a: "Not directly, but avoid putting UTM links in your own internal navigation — they can cause duplicate-URL and self-referral issues. Use them on outbound campaign links, and prefer a canonical tag on landing pages.",
+        },
+        {
+          q: "Are UTM values case-sensitive?",
+          a: "Yes. Email and email report as different sources, so stick to one casing — lowercase is the common choice.",
+        },
+        {
+          q: "Which parameters are required?",
+          a: "utm_source is the minimum most tools need, but source + medium + campaign together give you useful reports. term and content are optional.",
+        },
+      ],
+      cta: "Build a UTM link free",
+    },
+    ru: {
+      title: "Что такое UTM-метки? Гайд для маркетолога",
+      description:
+        "Что такое UTM-метки, за что отвечает каждая из пяти, соглашения об именовании для чистых отчётов, и бесплатный генератор ссылок.",
+      intro:
+        "UTM-метки — это небольшие теги, которые вы добавляете к ссылке, чтобы аналитика понимала, откуда пришёл посетитель. Добавьте их к ссылке кампании — и в отчётах видно, какой источник, канал и кампания привели клик. Ниже — за что отвечает каждая метка, как называть их единообразно, и бесплатный генератор, который соберёт ссылку за вас.",
+      sections: [
+        {
+          h: "Пять UTM-меток",
+          p: [
+            "Их добавляют к URL после ? парами name=value:",
+            [
+              "utm_source — откуда трафик (google, newsletter, twitter)",
+              "utm_medium — тип канала (cpc, email, social, referral)",
+              "utm_campaign — название кампании (spring_sale, launch)",
+              "utm_term — ключевое слово платного поиска (необязательно)",
+              "utm_content — какая ссылка или креатив (необязательно, для A/B)",
+            ],
+            "Source, medium и campaign используются чаще всего; term и content — по желанию.",
+          ],
+        },
+        {
+          h: "Как выглядит помеченная ссылка",
+          p: [
+            "Готовая ссылка просто добавляет теги к обычному URL: https://example.com/?utm_source=newsletter&utm_medium=email&utm_campaign=spring_sale. Страница открывается как обычно; аналитика читает теги и относит визит к этому источнику, каналу и кампании.",
+          ],
+        },
+        {
+          h: "Держите именование единообразным",
+          p: [
+            "Значения UTM чувствительны к регистру и попадают в отчёт дословно, поэтому Email и email станут двумя разными строками. Выберите одно соглашение и придерживайтесь его:",
+            [
+              "Всегда нижний регистр",
+              "Подчёркивания или дефисы, а не пробелы",
+              "Ведите общий список имён source и medium",
+              "Будьте последовательны — facebook, а не FB на этой неделе и Facebook на следующей",
+            ],
+          ],
+        },
+        {
+          h: "Medium и source — частая путаница",
+          p: [
+            "Source — это конкретный источник (facebook, mailchimp); medium — широкий канал (social, email, cpc). Простое правило: medium отвечает на вопрос «какой тип канала?», а source — «какое именно место?». Если различать их правильно, отчёты по каналам остаются осмысленными.",
+          ],
+        },
+        {
+          h: "Собирайте ссылки без ручного ввода",
+          p: [
+            "Ручной ввод UTM-меток провоцирует опечатки, которые дробят отчёты. Генератор держит формат корректным и единообразным — заполните поля и скопируйте чистую отслеживаемую ссылку. Наш бесплатный UTM-генератор делает именно это.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Влияют ли UTM-метки на SEO?",
+          a: "Напрямую нет, но не ставьте UTM-ссылки во внутреннюю навигацию сайта — это вызывает проблемы с дублями URL и self-referral. Используйте их на внешних ссылках кампаний и ставьте canonical на посадочных страницах.",
+        },
+        {
+          q: "Чувствительны ли значения UTM к регистру?",
+          a: "Да. Email и email попадут в отчёт как разные источники, поэтому держитесь одного регистра — обычно нижнего.",
+        },
+        {
+          q: "Какие метки обязательны?",
+          a: "Большинству систем достаточно utm_source, но source + medium + campaign вместе дают полезные отчёты. term и content — по желанию.",
+        },
+      ],
+      cta: "Собрать UTM-ссылку бесплатно",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
@@ -953,6 +1253,8 @@ export const GUIDES: Guide[] = [
   quoteGuide,
   jwtGuide,
   hashGuide,
+  cronGuide,
+  utmGuide,
 ];
 
 export function getGuide(slug: string): Guide | undefined {

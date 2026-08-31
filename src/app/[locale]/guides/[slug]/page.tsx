@@ -8,6 +8,7 @@ import { absUrl, SITE_NAME, SITE_URL } from "@/lib/seo/site";
 import { GUIDES, getGuide } from "@/lib/guides";
 import { getTool } from "@/lib/tools/registry";
 import { GuideArticle } from "@/components/guide-article";
+import { AUTHOR } from "@/lib/author";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => GUIDES.map((g) => ({ locale, slug: g.slug })));
@@ -63,7 +64,7 @@ export default async function GuidePage({
       url,
       image: `${url}/opengraph-image`,
       isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#website` },
-      author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      author: { "@type": "Organization", name: AUTHOR.name[locale], url: absUrl(locale, "about") },
       publisher: {
         "@type": "Organization",
         name: SITE_NAME,
@@ -111,7 +112,14 @@ export default async function GuidePage({
       <div className="max-w-2xl mt-6">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">{body.title}</h1>
         <p className="mt-2 text-sm text-[var(--muted)]">
-          {updatedLabel}: {guide.updated}
+          {AUTHOR.byLabel[locale]}{" "}
+          <Link
+            href={`/${locale}/about`}
+            className="text-[var(--foreground)] hover:text-[var(--accent)]"
+          >
+            {AUTHOR.name[locale]}
+          </Link>{" "}
+          · {updatedLabel}: {guide.updated}
         </p>
       </div>
       <div className="mt-2">
