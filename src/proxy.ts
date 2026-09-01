@@ -21,6 +21,11 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  // Run on everything except API routes, Next internals, and static assets.
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|fonts|.*\\..*).*)"],
+  // Only run where a redirect might be needed: paths that DON'T already start
+  // with a locale. Already-localized paths (/en, /en/…, /ru, /ru/…) were a no-op
+  // here anyway, so skipping them cuts Edge Requests on the bulk of traffic.
+  // Also excludes API routes, Next internals, and static assets (anything with a dot).
+  matcher: [
+    "/((?!en$|ru$|en/|ru/|api|_next/static|_next/image|favicon.ico|fonts|.*\\..*).*)",
+  ],
 };

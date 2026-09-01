@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -23,7 +23,6 @@ export function ToolsExplorer({
   sections,
   freeLabel,
   labels,
-  initialQuery = "",
 }: {
   locale: Locale;
   sections: ExplorerSection[];
@@ -35,9 +34,14 @@ export function ToolsExplorer({
     popular: string;
     soon: string;
   };
-  initialQuery?: string;
 }) {
-  const [q, setQ] = useState(initialQuery);
+  const [q, setQ] = useState("");
+
+  // Pre-fill from a shared /?q=… link (client-side, so the page stays static).
+  useEffect(() => {
+    const urlQ = new URLSearchParams(window.location.search).get("q");
+    if (urlQ) setQ(urlQ);
+  }, []);
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();

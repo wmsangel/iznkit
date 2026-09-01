@@ -4,6 +4,10 @@ import { ogImage, size, contentType } from "@/lib/seo/og-image";
 
 export { size, contentType };
 export const alt = "Color converter · iznkit";
+export const dynamic = "force-static";
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "ru" }];
+}
 
 export default async function Image({
   params,
