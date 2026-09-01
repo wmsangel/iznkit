@@ -156,17 +156,17 @@ const invoiceGuide: Guide = {
 const ndaGuide: Guide = {
   slug: "one-way-vs-mutual-nda",
   toolSlug: "nda",
-  updated: "2026-08-18",
+  updated: "2026-09-01",
   content: {
     en: {
-      title: "One-way vs mutual NDA: which do you need?",
+      title: "Unilateral vs mutual NDA: which do you need?",
       description:
-        "A plain-English guide to non-disclosure agreements — one-way vs mutual, the clauses that matter, and how to create one free.",
+        "A plain-English guide to non-disclosure agreements — unilateral (one-way) vs mutual NDA, the clauses that matter, and how to create one free.",
       intro:
-        "An NDA (non-disclosure agreement) is a contract that keeps shared information confidential. The first decision is direction: one-way or mutual. Here is how to choose, what a solid NDA includes, and how to generate a signature-ready one free.",
+        "An NDA (non-disclosure agreement) is a contract that keeps shared information confidential. The first decision is direction: unilateral (one-way) or mutual. Here is how to choose, what a solid NDA includes, and how to generate a signature-ready one free.",
       sections: [
         {
-          h: "One-way NDA",
+          h: "Unilateral (one-way) NDA",
           p: [
             "In a one-way (or unilateral) NDA, one party shares confidential information and the other agrees to protect it. Use it when only you disclose — for example, pitching an idea to a contractor, showing numbers to a potential investor, or handing work to a freelancer.",
           ],
