@@ -2610,6 +2610,93 @@ const cronContent: Content = {
   },
 };
 
+const vatCalc: Content = {
+  en: {
+    intro:
+      "Work out VAT in seconds — add it to a net price, or pull it out of a gross one. Enter the amount and your VAT rate, switch between “add” and “remove”, and see the net, the VAT and the gross at once. Free, no sign-up.",
+    benefits: ["Add VAT to a net amount", "Remove VAT from a gross amount", "Any VAT rate — 20%, 12%, 7.7%…", "Net, VAT and gross side by side", "Free — updates as you type"],
+    steps: ["Enter the amount.", "Set your VAT rate.", "Choose add or remove VAT.", "Read net, VAT and gross."],
+    faq: [
+      { q: "How do I remove VAT from a price?", a: "Switch to “Remove VAT”: the calculator divides the gross by 1 + rate to get the net, and the difference is the VAT. For 20%, net = gross ÷ 1.2." },
+      { q: "What VAT rate should I use?", a: "The standard rate where you trade — for example 20% in the UK, 19% in Germany, 12% in Kyrgyzstan. Enter any rate; the maths is the same." },
+      { q: "Is it free?", a: "Yes, completely free, and it runs in your browser." },
+    ],
+    useCases: ["Invoicing and quotes", "Checking a supplier's VAT line", "Pricing with tax included", "Expense and receipt maths"],
+    metaExtra: "Free VAT calculator — add or remove VAT at any rate and see net, tax and gross.",
+  },
+  ru: {
+    intro:
+      "Посчитайте НДС за секунды — начислите на цену без налога или выделите из цены с налогом. Введите сумму и ставку, переключайте «начислить/выделить» и сразу видите нетто, НДС и брутто. Бесплатно, без регистрации.",
+    benefits: ["Начислить НДС на сумму без налога", "Выделить НДС из суммы с налогом", "Любая ставка — 20%, 12%, 5%…", "Нетто, НДС и брутто рядом", "Бесплатно — пересчёт на лету"],
+    steps: ["Введите сумму.", "Укажите ставку НДС.", "Выберите начислить или выделить.", "Смотрите нетто, НДС и брутто."],
+    faq: [
+      { q: "Как выделить НДС из цены?", a: "Переключитесь на «Выделить НДС»: калькулятор делит сумму с налогом на 1 + ставка, а разница — это НДС. Для 20%: нетто = сумма ÷ 1,2." },
+      { q: "Какую ставку указывать?", a: "Ставку вашей юрисдикции — например 12% в Кыргызстане, 20% в РФ и Великобритании, 19% в Германии. Введите любую — расчёт одинаков." },
+      { q: "Это бесплатно?", a: "Да, полностью бесплатно и работает в браузере." },
+    ],
+    useCases: ["Счета и КП", "Проверка строки НДС у поставщика", "Ценообразование с налогом", "Расчёты по чекам и расходам"],
+    metaExtra: "Бесплатный калькулятор НДС — начислить или выделить НДС по любой ставке: нетто, налог, брутто.",
+  },
+};
+
+const discountCalc: Content = {
+  en: {
+    intro:
+      "See the real price after a discount — and exactly how much you save. Enter the original price and the discount percentage; the final price and your saving update instantly. Free, no sign-up.",
+    benefits: ["Final price after a % off", "How much you save in money", "Works with any price and percentage", "Instant — updates as you type", "Free — no sign-up"],
+    steps: ["Enter the original price.", "Enter the discount percentage.", "Read the final price and saving.", "Copy the link to share the result."],
+    faq: [
+      { q: "How is the discount calculated?", a: "Final price = original × (1 − discount ÷ 100). The saving is the original minus the final price." },
+      { q: "Can I stack two discounts?", a: "Apply them one after another: take the final price from the first discount and enter it as the original for the second. Stacked percentages don't simply add up." },
+      { q: "Is it free?", a: "Yes, completely free." },
+    ],
+    useCases: ["Sales and promotions", "Comparing offers", "Budgeting a purchase", "Reselling and markdowns"],
+    metaExtra: "Free discount calculator — final price after a percentage off and how much you save.",
+  },
+  ru: {
+    intro:
+      "Узнайте реальную цену после скидки — и сколько именно вы экономите. Введите цену без скидки и процент; итоговая цена и экономия считаются мгновенно. Бесплатно, без регистрации.",
+    benefits: ["Цена после скидки в %", "Сколько экономите в деньгах", "Любая цена и процент", "Мгновенно — пересчёт на лету", "Бесплатно — без регистрации"],
+    steps: ["Введите цену без скидки.", "Введите процент скидки.", "Смотрите итоговую цену и экономию.", "Скопируйте ссылку, чтобы поделиться."],
+    faq: [
+      { q: "Как считается скидка?", a: "Итоговая цена = цена × (1 − скидка ÷ 100). Экономия — это цена минус итог." },
+      { q: "Можно ли сложить две скидки?", a: "Применяйте их последовательно: итог первой скидки введите как цену для второй. Проценты скидок не складываются напрямую." },
+      { q: "Это бесплатно?", a: "Да, полностью бесплатно." },
+    ],
+    useCases: ["Распродажи и акции", "Сравнение предложений", "Планирование покупки", "Перепродажа и уценка"],
+    metaExtra: "Бесплатный калькулятор скидки — итоговая цена после процента и размер экономии.",
+  },
+};
+
+const compoundCalc: Content = {
+  en: {
+    intro:
+      "See how money grows when interest earns interest. Enter a starting amount, an annual rate, how long you'll save and an optional monthly deposit — the calculator shows the future value, everything you put in, and the interest on top. Free, no sign-up.",
+    benefits: ["Future value with compound interest", "Add a regular monthly deposit", "Choose the compounding frequency", "Splits contributions vs interest earned", "Free — updates as you type"],
+    steps: ["Enter your starting amount.", "Set the annual rate and number of years.", "Add a monthly deposit and compounding.", "Read the future value and interest."],
+    faq: [
+      { q: "What is compound interest?", a: "Interest calculated on your original amount and on the interest already added. Over time it grows faster than simple interest, which only ever pays on the original." },
+      { q: "Does compounding frequency matter?", a: "Yes — more frequent compounding (monthly or daily vs yearly) earns slightly more at the same rate, because interest is added and starts earning sooner." },
+      { q: "Is this financial advice?", a: "No. It's a maths tool for planning; real returns, fees and tax vary. Confirm figures with a professional before relying on them." },
+    ],
+    useCases: ["Savings goals", "Retirement planning", "Comparing deposit accounts", "Understanding investment growth"],
+    metaExtra: "Free compound interest calculator — future value with regular deposits and any compounding frequency.",
+  },
+  ru: {
+    intro:
+      "Посмотрите, как деньги растут, когда проценты начисляются на проценты. Введите начальную сумму, годовую ставку, срок и, по желанию, ежемесячный взнос — калькулятор покажет итоговую сумму, всё внесённое и проценты сверху. Бесплатно, без регистрации.",
+    benefits: ["Итоговая сумма со сложным процентом", "Регулярный ежемесячный взнос", "Выбор частоты начисления", "Делит взносы и заработанные проценты", "Бесплатно — пересчёт на лету"],
+    steps: ["Введите начальную сумму.", "Задайте ставку и число лет.", "Добавьте взнос и частоту начисления.", "Смотрите итог и проценты."],
+    faq: [
+      { q: "Что такое сложный процент?", a: "Проценты, которые начисляются и на исходную сумму, и на уже добавленные проценты. Со временем растёт быстрее простого процента, который платит только с исходной суммы." },
+      { q: "Важна ли частота начисления?", a: "Да — более частое начисление (ежемесячно или ежедневно против раза в год) при той же ставке даёт чуть больше, потому что проценты добавляются и начинают работать раньше." },
+      { q: "Это финансовый совет?", a: "Нет. Это инструмент для планирования; реальная доходность, комиссии и налоги различаются. Сверяйте цифры со специалистом." },
+    ],
+    useCases: ["Цели по накоплениям", "Планирование пенсии", "Сравнение вкладов", "Понимание роста инвестиций"],
+    metaExtra: "Бесплатный калькулятор сложного процента — итоговая сумма с регулярными взносами и любой частотой начисления.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -2643,6 +2730,9 @@ const content: Record<string, Content> = {
   color: colorContent,
   "text-diff": diffContent,
   "cron-parser": cronContent,
+  "vat-calculator": vatCalc,
+  "discount-calculator": discountCalc,
+  "compound-interest": compoundCalc,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

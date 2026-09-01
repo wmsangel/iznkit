@@ -467,6 +467,37 @@ export const sections: SectionDef[] = [
           ru: "Процент от, изменение и доля — всё сразу.",
         },
       },
+      {
+        slug: "vat-calculator",
+        status: "live",
+        priceCents: 0,
+        title: { en: "VAT calculator", ru: "Калькулятор НДС" },
+        blurb: {
+          en: "Add or remove VAT — net, tax and gross.",
+          ru: "Начислить или выделить НДС — нетто, налог и брутто.",
+        },
+      },
+      {
+        slug: "discount-calculator",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Discount calculator", ru: "Калькулятор скидки" },
+        blurb: {
+          en: "Final price and how much you save.",
+          ru: "Итоговая цена и сколько вы экономите.",
+        },
+      },
+      {
+        slug: "compound-interest",
+        status: "live",
+        popular: true,
+        priceCents: 0,
+        title: { en: "Compound interest calculator", ru: "Сложный процент" },
+        blurb: {
+          en: "Grow savings with interest and regular deposits.",
+          ru: "Рост сбережений с процентом и взносами.",
+        },
+      },
     ],
   },
 ];
