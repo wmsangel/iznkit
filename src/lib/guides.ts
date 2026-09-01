@@ -1245,6 +1245,134 @@ const utmGuide: Guide = {
   },
 };
 
+const compoundGuide: Guide = {
+  slug: "what-is-compound-interest",
+  toolSlug: "compound-interest",
+  updated: "2026-09-01",
+  content: {
+    en: {
+      title: "What is compound interest? A plain-English guide",
+      description:
+        "How compound interest works, why it beats simple interest, the formula, and how compounding frequency and regular deposits grow your money — with a free calculator.",
+      intro:
+        "Compound interest is interest that earns interest. Money left to compound grows faster and faster over time — it's the single most important idea in saving and investing. Here's how it works, the formula behind it, and a free calculator to run your own numbers.",
+      sections: [
+        {
+          h: "Compound vs simple interest",
+          p: [
+            "Simple interest pays only on your original amount. Compound interest pays on the original and on the interest already added, so each period's interest is a little bigger than the last. Over a few years the gap is small; over decades it becomes enormous.",
+          ],
+        },
+        {
+          h: "The formula",
+          p: [
+            "Future value = P × (1 + r/n)^(n·t), where P is the starting amount, r the annual rate as a decimal, n how many times a year interest compounds, and t the number of years. With regular deposits you add the future value of each contribution on top.",
+          ],
+        },
+        {
+          h: "Why compounding frequency matters",
+          p: [
+            "The more often interest is added — monthly or daily rather than once a year — the sooner it starts earning its own interest, so the same headline rate returns a little more. The effect is real but usually small next to the rate and the time.",
+          ],
+        },
+        {
+          h: "Time is the biggest lever",
+          p: [
+            "Because growth compounds, years matter more than almost anything else. Starting earlier — even with smaller amounts — usually beats starting later with more, thanks to the extra compounding periods working in your favour.",
+          ],
+        },
+        {
+          h: "Regular deposits supercharge it",
+          p: [
+            "Adding a fixed amount every month means every deposit starts compounding from the day it lands. A modest monthly contribution over many years often grows to more than the initial lump sum on its own.",
+          ],
+        },
+        {
+          h: "It's a model, not a promise",
+          p: [
+            "Real returns vary, and fees, tax and inflation eat into them. Use the calculator to plan and compare scenarios, but treat the result as an estimate, not a guarantee.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "What's the difference between compound and simple interest?",
+          a: "Simple interest is paid only on your original amount; compound interest is paid on the original plus all the interest already added. Compounding pulls further ahead the longer you leave it.",
+        },
+        {
+          q: "How often should interest compound?",
+          a: "More frequent compounding earns slightly more at the same rate. Many savings accounts compound monthly or daily; the calculator lets you pick a frequency and compare.",
+        },
+        {
+          q: "Does a small monthly deposit really matter?",
+          a: "Yes — every deposit compounds from the day it's added, so regular contributions often grow to more than the starting amount over long periods.",
+        },
+      ],
+      cta: "Try the compound interest calculator",
+    },
+    ru: {
+      title: "Что такое сложный процент? Понятный гайд",
+      description:
+        "Как работает сложный процент, почему он обгоняет простой, формула, и как частота начисления и регулярные взносы растят деньги — плюс бесплатный калькулятор.",
+      intro:
+        "Сложный процент — это проценты, которые начисляются на проценты. Деньги, оставленные под сложный процент, растут со временем всё быстрее — это главная идея в накоплениях и инвестициях. Ниже — как это работает, формула и бесплатный калькулятор для ваших цифр.",
+      sections: [
+        {
+          h: "Сложный процент против простого",
+          p: [
+            "Простой процент начисляется только с исходной суммы. Сложный — с исходной и с уже добавленных процентов, поэтому проценты каждого периода чуть больше предыдущих. За пару лет разрыв мал, за десятилетия — огромен.",
+          ],
+        },
+        {
+          h: "Формула",
+          p: [
+            "Итоговая сумма = P × (1 + r/n)^(n·t), где P — начальная сумма, r — годовая ставка в долях, n — сколько раз в год начисляются проценты, t — число лет. С регулярными взносами добавляется будущая стоимость каждого взноса.",
+          ],
+        },
+        {
+          h: "Почему важна частота начисления",
+          p: [
+            "Чем чаще добавляются проценты — ежемесячно или ежедневно, а не раз в год — тем раньше они начинают приносить свои проценты, поэтому та же ставка даёт чуть больше. Эффект реальный, но обычно небольшой рядом со ставкой и сроком.",
+          ],
+        },
+        {
+          h: "Время — главный рычаг",
+          p: [
+            "Из-за сложного роста годы важнее почти всего остального. Начать раньше — даже с меньшими суммами — обычно выгоднее, чем позже с большими: работает больше периодов начисления.",
+          ],
+        },
+        {
+          h: "Регулярные взносы усиливают эффект",
+          p: [
+            "Фиксированная сумма каждый месяц означает, что каждый взнос начинает расти со дня поступления. Скромный ежемесячный взнос за много лет часто перерастает саму стартовую сумму.",
+          ],
+        },
+        {
+          h: "Это модель, а не обещание",
+          p: [
+            "Реальная доходность колеблется, а комиссии, налоги и инфляция её съедают. Используйте калькулятор для планирования и сравнения сценариев, но считайте результат оценкой, а не гарантией.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Чем сложный процент отличается от простого?",
+          a: "Простой начисляется только с исходной суммы; сложный — с исходной плюс все уже добавленные проценты. Чем дольше держите, тем сильнее сложный уходит в отрыв.",
+        },
+        {
+          q: "Как часто должны начисляться проценты?",
+          a: "Более частое начисление при той же ставке даёт чуть больше. Многие вклады начисляют ежемесячно или ежедневно; в калькуляторе можно выбрать частоту и сравнить.",
+        },
+        {
+          q: "Правда ли важен маленький ежемесячный взнос?",
+          a: "Да — каждый взнос растёт со дня добавления, поэтому регулярные взносы за долгий срок часто дают больше, чем стартовая сумма.",
+        },
+      ],
+      cta: "Открыть калькулятор сложного процента",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
@@ -1255,6 +1383,7 @@ export const GUIDES: Guide[] = [
   hashGuide,
   cronGuide,
   utmGuide,
+  compoundGuide,
 ];
 
 export function getGuide(slug: string): Guide | undefined {
