@@ -2697,6 +2697,64 @@ const compoundCalc: Content = {
   },
 };
 
+const marginCalc: Content = {
+  en: {
+    intro:
+      "Work out profit margin and markup from a cost and a selling price — two numbers people mix up all the time. Enter the cost and the price; the calculator shows the profit, the margin (as a share of the price) and the markup (as a share of the cost). Free, no sign-up.",
+    benefits: ["Profit margin and markup at once", "From any cost and selling price", "See the profit in money too", "Instant — updates as you type", "Free — no sign-up"],
+    steps: ["Enter the cost.", "Enter the selling price.", "Read margin, markup and profit.", "Copy the link to share it."],
+    faq: [
+      { q: "What's the difference between margin and markup?", a: "Margin is profit as a share of the selling price; markup is profit as a share of the cost. A 50% markup on cost is only a 33% margin on price — that's why they're easy to confuse." },
+      { q: "How do I calculate profit margin?", a: "Margin = (price − cost) ÷ price × 100. Subtract cost from price to get profit, then divide by the price." },
+      { q: "Is it free?", a: "Yes, completely free." },
+    ],
+    useCases: ["Pricing products", "Freelance and service rates", "Reselling and retail", "Checking a supplier quote"],
+    metaExtra: "Free margin calculator — profit margin and markup from cost and price, side by side.",
+  },
+  ru: {
+    intro:
+      "Посчитайте маржу и наценку из себестоимости и цены продажи — их постоянно путают. Введите себестоимость и цену; калькулятор покажет прибыль, маржу (доля от цены) и наценку (доля от себестоимости). Бесплатно, без регистрации.",
+    benefits: ["Маржа и наценка сразу", "Из любой себестоимости и цены", "Прибыль в деньгах тоже", "Мгновенно — пересчёт на лету", "Бесплатно — без регистрации"],
+    steps: ["Введите себестоимость.", "Введите цену продажи.", "Смотрите маржу, наценку и прибыль.", "Скопируйте ссылку, чтобы поделиться."],
+    faq: [
+      { q: "Чем маржа отличается от наценки?", a: "Маржа — прибыль как доля от цены продажи; наценка — прибыль как доля от себестоимости. Наценка 50% к себестоимости — это лишь 33% маржи от цены, поэтому их легко спутать." },
+      { q: "Как посчитать маржу?", a: "Маржа = (цена − себестоимость) ÷ цена × 100. Вычтите себестоимость из цены — получите прибыль, затем разделите на цену." },
+      { q: "Это бесплатно?", a: "Да, полностью бесплатно." },
+    ],
+    useCases: ["Ценообразование товаров", "Ставки фрилансера и услуг", "Перепродажа и розница", "Проверка КП поставщика"],
+    metaExtra: "Бесплатный калькулятор маржи — маржа и наценка из себестоимости и цены рядом.",
+  },
+};
+
+const dateDiffCalc: Content = {
+  en: {
+    intro:
+      "Count the time between two dates — in days, weeks and months, plus a years-months-days breakdown. Pick a start and an end date and read the difference instantly. Free, no sign-up.",
+    benefits: ["Days, weeks and months between dates", "A years-months-days breakdown", "Works with any two dates", "Instant — updates as you pick", "Free — no sign-up"],
+    steps: ["Pick the start date.", "Pick the end date.", "Read the difference.", "Copy the link to share it."],
+    faq: [
+      { q: "How many days are between two dates?", a: "Pick both dates and the calculator counts the exact number of days between them, plus the same span in weeks and months." },
+      { q: "Does it count the end date?", a: "It measures the span from the start date to the end date. Add one day if you need to count both endpoints inclusively." },
+      { q: "Is it free?", a: "Yes, completely free and works in your browser." },
+    ],
+    useCases: ["Deadlines and countdowns", "Notice periods and contracts", "Project timelines", "Counting days until an event"],
+    metaExtra: "Free date difference calculator — days, weeks and months between two dates, with a full breakdown.",
+  },
+  ru: {
+    intro:
+      "Считает время между двумя датами — в днях, неделях и месяцах, плюс разбивка «годы-месяцы-дни». Выберите дату начала и конца — разница считается сразу. Бесплатно, без регистрации.",
+    benefits: ["Дни, недели и месяцы между датами", "Разбивка годы-месяцы-дни", "Любые две даты", "Мгновенно — пересчёт при выборе", "Бесплатно — без регистрации"],
+    steps: ["Выберите дату начала.", "Выберите дату конца.", "Смотрите разницу.", "Скопируйте ссылку, чтобы поделиться."],
+    faq: [
+      { q: "Сколько дней между двумя датами?", a: "Выберите обе даты — калькулятор посчитает точное число дней между ними, а также тот же промежуток в неделях и месяцах." },
+      { q: "Учитывается ли дата конца?", a: "Считается промежуток от даты начала до даты конца. Добавьте один день, если нужно включить обе граничные даты." },
+      { q: "Это бесплатно?", a: "Да, полностью бесплатно и работает в браузере." },
+    ],
+    useCases: ["Дедлайны и обратный отсчёт", "Сроки уведомления и договоры", "Тайминг проектов", "Сколько дней до события"],
+    metaExtra: "Бесплатный калькулятор разницы дат — дни, недели и месяцы между датами с полной разбивкой.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -2733,6 +2791,8 @@ const content: Record<string, Content> = {
   "vat-calculator": vatCalc,
   "discount-calculator": discountCalc,
   "compound-interest": compoundCalc,
+  "margin-calculator": marginCalc,
+  "date-difference": dateDiffCalc,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

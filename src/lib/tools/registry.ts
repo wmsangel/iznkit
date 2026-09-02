@@ -250,6 +250,16 @@ export const sections: SectionDef[] = [
           ru: "Прибыль с продажи по площадкам, с отчётом.",
         },
       },
+      {
+        slug: "margin-calculator",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Margin calculator", ru: "Калькулятор маржи" },
+        blurb: {
+          en: "Profit margin and markup from cost and price.",
+          ru: "Маржа и наценка из себестоимости и цены.",
+        },
+      },
     ],
   },
   {
@@ -496,6 +506,16 @@ export const sections: SectionDef[] = [
         blurb: {
           en: "Grow savings with interest and regular deposits.",
           ru: "Рост сбережений с процентом и взносами.",
+        },
+      },
+      {
+        slug: "date-difference",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Date difference calculator", ru: "Разница дат" },
+        blurb: {
+          en: "Days, weeks and months between two dates.",
+          ru: "Дни, недели и месяцы между двумя датами.",
         },
       },
     ],
