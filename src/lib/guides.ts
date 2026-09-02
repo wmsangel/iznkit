@@ -1373,6 +1373,354 @@ const compoundGuide: Guide = {
   },
 };
 
+const rentalYieldGuide: Guide = {
+  slug: "how-to-calculate-rental-yield",
+  toolSlug: "rental-yield",
+  updated: "2026-09-02",
+  content: {
+    en: {
+      title: "How to calculate rental yield (gross vs net)",
+      description:
+        "What rental yield is, how to work out gross and net yield, what counts as a good yield, and a free calculator to check any property.",
+      intro:
+        "Rental yield tells you how much a property earns in rent relative to its price — the quickest way to compare buy-to-let opportunities. Here's how gross and net yield are calculated, what a healthy number looks like, and a free calculator to run any property.",
+      sections: [
+        {
+          h: "Gross rental yield",
+          p: [
+            "Gross yield = annual rent ÷ property price × 100. It's the headline number and ignores costs, so it's quick for comparing — but it flatters properties with high running costs.",
+          ],
+        },
+        {
+          h: "Net rental yield",
+          p: [
+            "Net yield subtracts running costs — management, maintenance, insurance, vacancy and taxes — before dividing by the price (or by the total cash invested). It's the number that reflects what you actually keep.",
+          ],
+        },
+        {
+          h: "What's a good rental yield?",
+          p: [
+            "It depends on the market: many investors look for 5–8% gross, but a good yield trades off against capital growth and risk. A very high yield can signal a riskier area or property.",
+          ],
+        },
+        {
+          h: "Don't forget vacancy and costs",
+          p: [
+            "A month or two empty each year, plus repairs and fees, can turn a great-looking gross yield into a thin net one. Always stress-test with a realistic vacancy rate.",
+          ],
+        },
+        {
+          h: "Yield vs cash flow vs return",
+          p: [
+            "Yield measures rent against price; cash flow is what's left after the mortgage; cash-on-cash return measures profit against the cash you actually put in. Look at all three before buying.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "What is a good rental yield?",
+          a: "Commonly 5–8% gross, but it varies by city and property. Weigh it against capital growth, risk and your costs — a higher yield often means higher risk.",
+        },
+        {
+          q: "Is rental yield the same as ROI?",
+          a: "No. Yield is annual rent against the property price. ROI (or cash-on-cash return) measures profit against the cash you actually invested, including the mortgage.",
+        },
+        {
+          q: "Should I use gross or net yield?",
+          a: "Gross is fine for a quick comparison; net is what matters for a real decision, because it accounts for your running costs and vacancy.",
+        },
+      ],
+      cta: "Calculate rental yield free",
+    },
+    ru: {
+      title: "Как посчитать доходность аренды (валовая и чистая)",
+      description:
+        "Что такое доходность аренды, как считать валовую и чистую доходность, какая доходность хорошая, и бесплатный калькулятор для любой квартиры.",
+      intro:
+        "Доходность аренды показывает, сколько недвижимость приносит в аренду относительно её цены — самый быстрый способ сравнить объекты под сдачу. Ниже — как считать валовую и чистую доходность, какие цифры нормальны и бесплатный калькулятор.",
+      sections: [
+        {
+          h: "Валовая доходность",
+          p: [
+            "Валовая = годовая аренда ÷ цену объекта × 100. Это «витринная» цифра, она не учитывает расходы — быстро сравнивать, но приукрашивает объекты с большими расходами.",
+          ],
+        },
+        {
+          h: "Чистая доходность",
+          p: [
+            "Чистая вычитает расходы — управление, ремонт, страховку, простой и налоги — до деления на цену (или на вложенные деньги). Это цифра, отражающая то, что реально остаётся.",
+          ],
+        },
+        {
+          h: "Какая доходность хорошая?",
+          p: [
+            "Зависит от рынка: часто ориентируются на 5–8% валовой, но хорошая доходность — компромисс с ростом стоимости и риском. Очень высокая доходность может сигналить о более рисковом объекте.",
+          ],
+        },
+        {
+          h: "Не забудьте про простой и расходы",
+          p: [
+            "Месяц-два пустой квартиры в год плюс ремонт и комиссии превращают красивую валовую доходность в тонкую чистую. Всегда закладывайте реалистичный процент простоя.",
+          ],
+        },
+        {
+          h: "Доходность, денежный поток и возврат",
+          p: [
+            "Доходность — аренда к цене; денежный поток — что остаётся после ипотеки; cash-on-cash — прибыль к реально вложенным деньгам. Смотрите на все три до покупки.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Какая доходность аренды хорошая?",
+          a: "Часто 5–8% валовой, но зависит от города и объекта. Сопоставляйте с ростом стоимости, риском и расходами — выше доходность обычно означает выше риск.",
+        },
+        {
+          q: "Доходность аренды — это ROI?",
+          a: "Нет. Доходность — годовая аренда к цене объекта. ROI (cash-on-cash) — прибыль к реально вложенным деньгам, с учётом ипотеки.",
+        },
+        {
+          q: "Валовую или чистую использовать?",
+          a: "Валовая годится для быстрого сравнения; чистая важна для реального решения, потому что учитывает расходы и простой.",
+        },
+      ],
+      cta: "Посчитать доходность бесплатно",
+    },
+  },
+};
+
+const unitEconomicsGuide: Guide = {
+  slug: "what-is-unit-economics",
+  toolSlug: "unit-economics",
+  updated: "2026-09-02",
+  content: {
+    en: {
+      title: "What is unit economics? A seller's guide",
+      description:
+        "Unit economics explained for marketplace sellers — profit per unit, margin, break-even price, and a free calculator to model it.",
+      intro:
+        "Unit economics is the profit or loss on a single sale, once every per-unit cost is counted. Get it right and you know whether scaling makes money or burns it. Here's how to work out profit per unit for a marketplace product, and a free calculator to model it.",
+      sections: [
+        {
+          h: "What 'one unit' means",
+          p: [
+            "A unit is one sale of one product. Unit economics asks: after the marketplace commission, fees, logistics, packaging, ads and tax on this one sale, what's left? If it's negative, more sales lose more money.",
+          ],
+        },
+        {
+          h: "The costs to subtract",
+          p: [
+            "From the sell price, subtract cost of goods, marketplace commission, per-unit logistics and packaging, other fees, advertising per unit, and tax on the sale. What remains is profit per unit.",
+          ],
+        },
+        {
+          h: "Margin and ROI",
+          p: [
+            "Margin is profit ÷ sell price (the share of each sale you keep); ROI is profit ÷ cost of goods (how hard your money works). Both describe the same unit from different angles.",
+          ],
+        },
+        {
+          h: "Returns change the picture",
+          p: [
+            "Returned units still cost you shipping and handling. A product with a high return rate has a lower real profit per shipped unit than the headline number suggests.",
+          ],
+        },
+        {
+          h: "Find your break-even price",
+          p: [
+            "The break-even price is where profit per unit hits zero. Price below it and every sale loses money; price above it and each unit contributes. Knowing it protects your margin during promotions.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Why do unit economics matter?",
+          a: "Because scaling multiplies whatever the unit economics are. Positive unit economics mean growth compounds profit; negative means growth compounds losses.",
+        },
+        {
+          q: "What's a healthy profit margin?",
+          a: "It varies by category, but many marketplace sellers aim for a margin that survives a price cut and a normal return rate. Model it rather than guessing.",
+        },
+        {
+          q: "Does the ad cost per unit belong here?",
+          a: "Yes — customer acquisition is a real per-unit cost. Leaving ads out makes the unit look more profitable than it is.",
+        },
+      ],
+      cta: "Model unit economics free",
+    },
+    ru: {
+      title: "Что такое юнит-экономика? Гайд для продавца",
+      description:
+        "Юнит-экономика простыми словами для продавцов маркетплейсов — прибыль с единицы, маржа, точка безубыточности, и бесплатный калькулятор.",
+      intro:
+        "Юнит-экономика — это прибыль или убыток с одной продажи после учёта всех расходов на единицу. Посчитаете верно — поймёте, зарабатывает масштабирование или сжигает деньги. Ниже — как посчитать прибыль с единицы товара на маркетплейсе и бесплатный калькулятор.",
+      sections: [
+        {
+          h: "Что такое «одна единица»",
+          p: [
+            "Единица — одна продажа одного товара. Юнит-экономика спрашивает: после комиссии маркетплейса, сборов, логистики, упаковки, рекламы и налога с этой продажи — что осталось? Если минус, больше продаж — больше убытка.",
+          ],
+        },
+        {
+          h: "Какие расходы вычитать",
+          p: [
+            "Из цены продажи вычтите себестоимость, комиссию маркетплейса, логистику и упаковку на единицу, прочие сборы, рекламу на единицу и налог с продажи. Остаток — прибыль с единицы.",
+          ],
+        },
+        {
+          h: "Маржа и ROI",
+          p: [
+            "Маржа = прибыль ÷ цену продажи (доля с каждой продажи); ROI = прибыль ÷ себестоимость (как работают деньги). Обе описывают одну единицу с разных сторон.",
+          ],
+        },
+        {
+          h: "Возвраты меняют картину",
+          p: [
+            "Возвращённые единицы всё равно стоят доставки и обработки. Товар с высоким процентом возвратов имеет меньшую реальную прибыль на отгруженную единицу, чем кажется.",
+          ],
+        },
+        {
+          h: "Найдите точку безубыточности",
+          p: [
+            "Это цена, при которой прибыль с единицы равна нулю. Ниже — каждая продажа в минус; выше — каждая единица в плюс. Знание точки защищает маржу на акциях.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Почему важна юнит-экономика?",
+          a: "Потому что масштаб умножает то, какая она есть. Плюсовая — рост множит прибыль; минусовая — рост множит убытки.",
+        },
+        {
+          q: "Какая маржа здоровая?",
+          a: "Зависит от категории, но многие продавцы целятся в маржу, которая переживёт снижение цены и обычный процент возвратов. Считайте, а не угадывайте.",
+        },
+        {
+          q: "Учитывать ли рекламу на единицу?",
+          a: "Да — привлечение клиента это реальный расход на единицу. Без рекламы единица выглядит прибыльнее, чем есть.",
+        },
+      ],
+      cta: "Посчитать юнит-экономику",
+    },
+  },
+};
+
+const vatGuide: Guide = {
+  slug: "how-to-calculate-vat",
+  toolSlug: "vat-calculator",
+  updated: "2026-09-02",
+  content: {
+    en: {
+      title: "How to calculate VAT (add and remove)",
+      description:
+        "How VAT works, how to add VAT to a net price and remove it from a gross one, the formulas, and a free VAT calculator.",
+      intro:
+        "VAT (value-added tax) is a percentage added to most goods and services. The two everyday tasks are adding VAT to a net price and pulling it back out of a gross one. Here are both, the simple formulas, and a free calculator.",
+      sections: [
+        {
+          h: "Adding VAT",
+          p: [
+            "To add VAT, multiply the net amount by the rate and add it back: gross = net × (1 + rate). At 20%, a net of 100 becomes a gross of 120, and the VAT is 20.",
+          ],
+        },
+        {
+          h: "Removing VAT",
+          p: [
+            "To find the net inside a VAT-inclusive (gross) price, divide by 1 + rate: net = gross ÷ (1 + rate). At 20%, a gross of 120 gives a net of 100 and VAT of 20. Dividing by 1.2 is the step people forget.",
+          ],
+        },
+        {
+          h: "Common VAT rates",
+          p: [
+            "Rates vary by country — 20% in the UK, 19% in Germany, 12% in Kyrgyzstan — with reduced rates for some goods. Always use the rate that applies where you trade; the maths is identical.",
+          ],
+        },
+        {
+          h: "Net, VAT and gross",
+          p: [
+            "Net is the price before tax, VAT is the tax itself, and gross is what the customer pays. An invoice usually shows all three so both sides can see the breakdown.",
+          ],
+        },
+        {
+          h: "When you charge VAT",
+          p: [
+            "You generally charge VAT only if you're registered for it. If you're not registered you don't add VAT — check the threshold and rules where you operate before deciding.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "How do I remove VAT from a price?",
+          a: "Divide the VAT-inclusive (gross) price by 1 + the rate. At 20%, net = gross ÷ 1.2, and the VAT is the difference.",
+        },
+        {
+          q: "How do I add VAT?",
+          a: "Multiply the net price by 1 + the rate. At 20%, gross = net × 1.2, and the VAT is net × 0.2.",
+        },
+        {
+          q: "What VAT rate should I use?",
+          a: "The standard rate where you sell — for example 20%, 19% or 12%. Enter any rate in the calculator; the formula is the same.",
+        },
+      ],
+      cta: "Add or remove VAT free",
+    },
+    ru: {
+      title: "Как посчитать НДС (начислить и выделить)",
+      description:
+        "Как работает НДС, как начислить НДС на сумму без налога и выделить из суммы с налогом, формулы, и бесплатный калькулятор НДС.",
+      intro:
+        "НДС (налог на добавленную стоимость) — процент, добавляемый к большинству товаров и услуг. Две повседневные задачи — начислить НДС на сумму без налога и выделить его из суммы с налогом. Ниже — обе, простые формулы и бесплатный калькулятор.",
+      sections: [
+        {
+          h: "Начислить НДС",
+          p: [
+            "Чтобы начислить, умножьте сумму без налога на ставку и прибавьте: с налогом = без налога × (1 + ставка). При 20% сумма 100 становится 120, а НДС равен 20.",
+          ],
+        },
+        {
+          h: "Выделить НДС",
+          p: [
+            "Чтобы найти сумму без налога внутри цены с НДС, разделите на 1 + ставка: без налога = с налогом ÷ (1 + ставка). При 20% сумма 120 даёт 100 без налога и 20 НДС. Деление на 1,2 — шаг, который забывают.",
+          ],
+        },
+        {
+          h: "Частые ставки",
+          p: [
+            "Ставки зависят от страны — 12% в Кыргызстане, 20% в РФ и Великобритании, 19% в Германии — плюс пониженные для части товаров. Используйте ставку своей юрисдикции; расчёт одинаков.",
+          ],
+        },
+        {
+          h: "Без НДС, НДС и с НДС",
+          p: [
+            "«Без налога» — цена до налога, «НДС» — сам налог, «с налогом» — то, что платит покупатель. В счёте обычно показывают все три, чтобы обе стороны видели разбивку.",
+          ],
+        },
+        {
+          h: "Когда вы начисляете НДС",
+          p: [
+            "Обычно НДС начисляют, только если вы его плательщик. Если не зарегистрированы — НДС не добавляете. Сверьтесь с порогом и правилами вашей юрисдикции.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Как выделить НДС из цены?",
+          a: "Разделите цену с НДС на 1 + ставка. При 20%: без налога = сумма ÷ 1,2, а НДС — разница.",
+        },
+        {
+          q: "Как начислить НДС?",
+          a: "Умножьте сумму без налога на 1 + ставка. При 20%: с налогом = сумма × 1,2, а НДС = сумма × 0,2.",
+        },
+        {
+          q: "Какую ставку использовать?",
+          a: "Ставку, где продаёте — например 12%, 20% или 19%. Введите любую в калькуляторе; формула та же.",
+        },
+      ],
+      cta: "Начислить или выделить НДС",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
@@ -1384,6 +1732,9 @@ export const GUIDES: Guide[] = [
   cronGuide,
   utmGuide,
   compoundGuide,
+  rentalYieldGuide,
+  unitEconomicsGuide,
+  vatGuide,
 ];
 
 export function getGuide(slug: string): Guide | undefined {
