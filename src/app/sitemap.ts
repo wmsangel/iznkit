@@ -22,14 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Donate + static info/legal pages.
-  const staticPaths = [DONATE.path, "about", "contact", "projects", "privacy", "terms", "disclosure", "guides"];
+  const staticPaths = [DONATE.path, "about", "contact", "projects", "privacy", "terms", "disclosure", "guides", "tools"];
   for (const path of staticPaths) {
     for (const locale of locales) {
       entries.push({
         url: absUrl(locale, path),
         lastModified,
-        changeFrequency: "yearly",
-        priority: path === "projects" || path === "about" ? 0.5 : 0.3,
+        changeFrequency: path === "tools" ? "weekly" : "yearly",
+        priority: path === "tools" ? 0.8 : path === "projects" || path === "about" ? 0.5 : 0.3,
         alternates: { languages: languageAlternates(path) },
       });
     }

@@ -76,6 +76,7 @@ export default async function CategoryPage({
       <Breadcrumbs
         items={[
           { name: SITE_NAME, href: `/${locale}` },
+          { name: dict.nav.allTools, href: `/${locale}/tools` },
           { name: section.title[locale] },
         ]}
         className="mb-4"

@@ -20,6 +20,7 @@ const STATIC_PATHS = [
   "terms",
   "disclosure",
   "guides",
+  "tools",
 ];
 
 /** Every indexable URL on the site (both locales), matching the sitemap. */
