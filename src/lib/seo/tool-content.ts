@@ -2755,6 +2755,64 @@ const dateDiffCalc: Content = {
   },
 };
 
+const ageCalc: Content = {
+  en: {
+    intro:
+      "Find your exact age from your date of birth — in years, months and days, plus the totals in days and weeks and a countdown to your next birthday. Pick your birth date and it updates instantly. Free, no sign-up.",
+    benefits: ["Exact age in years, months and days", "Total days and weeks lived", "Days until your next birthday", "Works for any birth date", "Free — no sign-up"],
+    steps: ["Pick your date of birth.", "Read your age breakdown.", "See totals and your next birthday.", "Use it anywhere."],
+    faq: [
+      { q: "How is age calculated?", a: "From your date of birth to today: full years first, then the leftover months and days. The calculator also totals the whole span in days and weeks." },
+      { q: "Does it account for leap years?", a: "Yes — it counts real calendar days, so leap years are included automatically." },
+      { q: "Is it free?", a: "Yes, completely free and it runs in your browser." },
+    ],
+    useCases: ["Filling in forms and applications", "Checking an exact age in days", "Birthday countdowns", "Eligibility and age limits"],
+    metaExtra: "Free age calculator — your exact age in years, months and days, plus days lived and your next birthday.",
+  },
+  ru: {
+    intro:
+      "Узнайте точный возраст по дате рождения — в годах, месяцах и днях, плюс итоги в днях и неделях и отсчёт до следующего дня рождения. Выберите дату — всё считается сразу. Бесплатно, без регистрации.",
+    benefits: ["Точный возраст: годы, месяцы, дни", "Всего прожито дней и недель", "Дней до следующего дня рождения", "Любая дата рождения", "Бесплатно — без регистрации"],
+    steps: ["Выберите дату рождения.", "Смотрите разбивку возраста.", "Итоги и следующий день рождения.", "Используйте где угодно."],
+    faq: [
+      { q: "Как считается возраст?", a: "От даты рождения до сегодня: сначала полные годы, затем остаток месяцев и дней. Калькулятор также считает весь промежуток в днях и неделях." },
+      { q: "Учитываются ли високосные годы?", a: "Да — считаются реальные календарные дни, поэтому високосные годы учтены автоматически." },
+      { q: "Это бесплатно?", a: "Да, полностью бесплатно и работает в браузере." },
+    ],
+    useCases: ["Заполнение форм и анкет", "Точный возраст в днях", "Отсчёт до дня рождения", "Возрастные ограничения"],
+    metaExtra: "Бесплатный калькулятор возраста — точный возраст в годах, месяцах и днях, прожитые дни и следующий день рождения.",
+  },
+};
+
+const wordCounterContent: Content = {
+  en: {
+    intro:
+      "Count words, characters, sentences, paragraphs and reading time as you type or paste. Everything is worked out live in your browser — nothing is uploaded. Free, no sign-up.",
+    benefits: ["Live word and character counts", "Characters with and without spaces", "Sentences and paragraphs", "Estimated reading time", "Runs in your browser — nothing uploaded"],
+    steps: ["Paste or type your text.", "Watch the counts update live.", "Check words, characters and reading time.", "Edit until it fits your limit."],
+    faq: [
+      { q: "How is reading time estimated?", a: "From the word count at an average reading speed of about 200 words per minute. It's a rough guide, not an exact figure." },
+      { q: "How are words counted?", a: "By splitting the text on spaces and line breaks, so runs of whitespace don't inflate the count." },
+      { q: "Is my text uploaded anywhere?", a: "No. Everything runs locally in your browser; your text never leaves your device." },
+    ],
+    useCases: ["Essays and assignments with a limit", "Social posts and meta descriptions", "Articles and blog drafts", "Any text with a word or character cap"],
+    metaExtra: "Free word counter — live words, characters, sentences and reading time, right in your browser.",
+  },
+  ru: {
+    intro:
+      "Считает слова, символы, предложения, абзацы и время чтения по мере ввода или вставки. Всё считается на лету в браузере — ничего не загружается. Бесплатно, без регистрации.",
+    benefits: ["Слова и символы в реальном времени", "Символы с пробелами и без", "Предложения и абзацы", "Оценка времени чтения", "Работает в браузере — ничего не загружается"],
+    steps: ["Вставьте или введите текст.", "Смотрите, как счётчики обновляются.", "Проверьте слова, символы и время чтения.", "Правьте под нужный лимит."],
+    faq: [
+      { q: "Как оценивается время чтения?", a: "По числу слов при средней скорости около 200 слов в минуту. Это ориентир, а не точная цифра." },
+      { q: "Как считаются слова?", a: "Текст делится по пробелам и переносам строк, поэтому серии пробелов не завышают счёт." },
+      { q: "Мой текст куда-то загружается?", a: "Нет. Всё работает локально в браузере; текст не покидает ваше устройство." },
+    ],
+    useCases: ["Эссе и работы с лимитом", "Посты и meta-описания", "Статьи и черновики", "Любой текст с лимитом слов/символов"],
+    metaExtra: "Бесплатный счётчик слов — слова, символы, предложения и время чтения в реальном времени в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -2793,6 +2851,8 @@ const content: Record<string, Content> = {
   "compound-interest": compoundCalc,
   "margin-calculator": marginCalc,
   "date-difference": dateDiffCalc,
+  "age-calculator": ageCalc,
+  "word-counter": wordCounterContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

@@ -436,6 +436,16 @@ export const sections: SectionDef[] = [
           ru: "Надёжные случайные пароли — прямо в браузере.",
         },
       },
+      {
+        slug: "word-counter",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Word counter", ru: "Счётчик слов" },
+        blurb: {
+          en: "Words, characters, sentences and reading time.",
+          ru: "Слова, символы, предложения и время чтения.",
+        },
+      },
     ],
   },
   {
@@ -516,6 +526,17 @@ export const sections: SectionDef[] = [
         blurb: {
           en: "Days, weeks and months between two dates.",
           ru: "Дни, недели и месяцы между двумя датами.",
+        },
+      },
+      {
+        slug: "age-calculator",
+        status: "live",
+        popular: true,
+        priceCents: 0,
+        title: { en: "Age calculator", ru: "Калькулятор возраста" },
+        blurb: {
+          en: "Your exact age in years, months and days.",
+          ru: "Точный возраст в годах, месяцах и днях.",
         },
       },
     ],
