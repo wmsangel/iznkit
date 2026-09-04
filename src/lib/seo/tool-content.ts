@@ -2871,6 +2871,64 @@ const loremContent: Content = {
   },
 };
 
+const imageSizeContent: Content = {
+  en: {
+    intro:
+      "Check any image's exact dimensions, file size and format in seconds — just pick a file. Everything is read locally in your browser, so your image is never uploaded anywhere. Free, no sign-up.",
+    benefits: ["Exact width and height in pixels", "File size and image format", "Aspect ratio and megapixels", "Works with JPG, PNG, WebP, GIF, SVG…", "Read in your browser — nothing uploaded"],
+    steps: ["Choose an image file.", "See its dimensions and size.", "Read the format and aspect ratio.", "Pick another anytime."],
+    faq: [
+      { q: "Is my image uploaded?", a: "No. The file is read locally in your browser to measure it; it never leaves your device or reaches a server." },
+      { q: "How do I check an image's dimensions?", a: "Pick the file here and the checker reports its width and height in pixels, along with the file size, format, aspect ratio and megapixels." },
+      { q: "What formats work?", a: "Any image your browser can display — JPG, PNG, WebP, GIF, SVG, AVIF and more." },
+    ],
+    useCases: ["Checking upload size limits", "Prepping images for the web", "Verifying photo dimensions", "Design and print prep"],
+    metaExtra: "Free image size checker — dimensions, file size, format, aspect ratio and megapixels, read in your browser.",
+  },
+  ru: {
+    intro:
+      "Узнайте точные размеры, вес и формат любого изображения за секунды — просто выберите файл. Всё читается локально в браузере, изображение никуда не загружается. Бесплатно, без регистрации.",
+    benefits: ["Точная ширина и высота в пикселях", "Вес файла и формат", "Соотношение сторон и мегапиксели", "JPG, PNG, WebP, GIF, SVG…", "Читается в браузере — ничего не загружается"],
+    steps: ["Выберите файл изображения.", "Смотрите размеры и вес.", "Формат и соотношение сторон.", "Выбирайте другое в любой момент."],
+    faq: [
+      { q: "Моё изображение загружается?", a: "Нет. Файл читается локально в браузере для измерения; он не покидает устройство и не уходит на сервер." },
+      { q: "Как проверить размеры изображения?", a: "Выберите файл — инструмент покажет ширину и высоту в пикселях, а также вес, формат, соотношение сторон и мегапиксели." },
+      { q: "Какие форматы работают?", a: "Любые, которые показывает браузер — JPG, PNG, WebP, GIF, SVG, AVIF и другие." },
+    ],
+    useCases: ["Проверка лимитов загрузки", "Подготовка картинок для веба", "Проверка размеров фото", "Подготовка к печати"],
+    metaExtra: "Бесплатная проверка размера изображения — размеры, вес, формат, соотношение сторон и мегапиксели в браузере.",
+  },
+};
+
+const cssGradientContent: Content = {
+  en: {
+    intro:
+      "Build a CSS gradient visually — pick two colours, choose linear or radial, set the angle, and copy the ready CSS. The preview updates as you go. Free, no sign-up.",
+    benefits: ["Linear and radial gradients", "Two colours and an angle", "Live preview", "Copy the CSS with one click", "Free — no sign-up"],
+    steps: ["Pick your two colours.", "Choose linear or radial and the angle.", "Watch the live preview.", "Copy the CSS."],
+    faq: [
+      { q: "How do I make a CSS gradient?", a: "Use the background property with linear-gradient() or radial-gradient(), passing the direction and your colour stops. This tool writes it for you." },
+      { q: "What's the difference between linear and radial?", a: "A linear gradient blends colours along a straight line at the angle you set; a radial gradient blends outward from the centre in a circle." },
+      { q: "Is it free?", a: "Yes, completely free and runs in your browser." },
+    ],
+    useCases: ["Backgrounds and buttons", "Hero sections and cards", "Design prototyping", "Learning CSS gradients"],
+    metaExtra: "Free CSS gradient generator — build a linear or radial gradient with a live preview and copy the CSS.",
+  },
+  ru: {
+    intro:
+      "Соберите CSS-градиент визуально — выберите два цвета, линейный или радиальный тип, задайте угол и скопируйте готовый CSS. Превью обновляется на лету. Бесплатно, без регистрации.",
+    benefits: ["Линейные и радиальные градиенты", "Два цвета и угол", "Живое превью", "Копирование CSS в один клик", "Бесплатно — без регистрации"],
+    steps: ["Выберите два цвета.", "Тип (линейный/радиальный) и угол.", "Смотрите живое превью.", "Скопируйте CSS."],
+    faq: [
+      { q: "Как сделать CSS-градиент?", a: "Свойство background с linear-gradient() или radial-gradient(), указав направление и цветовые точки. Инструмент пишет это за вас." },
+      { q: "Чем линейный отличается от радиального?", a: "Линейный смешивает цвета вдоль прямой под заданным углом; радиальный — от центра наружу по кругу." },
+      { q: "Это бесплатно?", a: "Да, полностью бесплатно и работает в браузере." },
+    ],
+    useCases: ["Фоны и кнопки", "Hero-секции и карточки", "Прототипирование дизайна", "Изучение CSS-градиентов"],
+    metaExtra: "Бесплатный генератор CSS-градиентов — линейный или радиальный градиент с живым превью и копированием CSS.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -2913,6 +2971,8 @@ const content: Record<string, Content> = {
   "word-counter": wordCounterContent,
   "case-converter": caseConverterContent,
   "lorem-ipsum": loremContent,
+  "image-size-checker": imageSizeContent,
+  "css-gradient-generator": cssGradientContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

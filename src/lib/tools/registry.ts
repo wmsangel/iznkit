@@ -415,6 +415,17 @@ export const sections: SectionDef[] = [
           ru: "Текст-заглушка — абзацы, предложения или слова.",
         },
       },
+      {
+        slug: "css-gradient-generator",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "CSS gradient generator", ru: "Генератор CSS-градиентов" },
+        blurb: {
+          en: "Build a gradient and copy the CSS.",
+          ru: "Соберите градиент и скопируйте CSS.",
+        },
+      },
     ],
   },
   {
@@ -466,6 +477,16 @@ export const sections: SectionDef[] = [
         blurb: {
           en: "Words, characters, sentences and reading time.",
           ru: "Слова, символы, предложения и время чтения.",
+        },
+      },
+      {
+        slug: "image-size-checker",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Image size checker", ru: "Проверка размера изображения" },
+        blurb: {
+          en: "Dimensions, file size and format of any image.",
+          ru: "Размеры, вес файла и формат любого изображения.",
         },
       },
     ],
