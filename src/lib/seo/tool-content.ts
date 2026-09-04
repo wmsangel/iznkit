@@ -2813,6 +2813,64 @@ const wordCounterContent: Content = {
   },
 };
 
+const caseConverterContent: Content = {
+  en: {
+    intro:
+      "Convert text between every common case in one place — UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case and kebab-case. Type or paste, then copy the version you need. Everything runs in your browser. Free, no sign-up.",
+    benefits: ["Eight cases from one input", "UPPER, lower, Title and Sentence case", "camelCase, PascalCase, snake_case, kebab-case", "One-click copy for each", "Runs in your browser — nothing uploaded"],
+    steps: ["Type or paste your text.", "See every case at once.", "Copy the one you need.", "Paste it wherever."],
+    faq: [
+      { q: "What's the difference between camelCase and PascalCase?", a: "Both remove spaces and capitalise each word, but camelCase keeps the first letter lowercase (myVariable) while PascalCase capitalises it too (MyVariable)." },
+      { q: "What is Title Case vs Sentence case?", a: "Title Case capitalises the first letter of every word; Sentence case capitalises only the first letter of the whole text." },
+      { q: "Is my text uploaded?", a: "No — the conversion happens locally in your browser; your text never leaves your device." },
+    ],
+    useCases: ["Variable and file names", "Slugs and identifiers", "Headings and titles", "Cleaning up pasted text"],
+    metaExtra: "Free case converter — UPPERCASE, lowercase, Title, Sentence, camelCase, snake_case and kebab-case.",
+  },
+  ru: {
+    intro:
+      "Меняйте регистр текста во все распространённые варианты сразу — ВЕРХНИЙ, нижний, Каждое Слово, Как в предложении, camelCase, PascalCase, snake_case и kebab-case. Введите или вставьте текст и скопируйте нужный вариант. Всё работает в браузере. Бесплатно, без регистрации.",
+    benefits: ["Восемь регистров из одного ввода", "ВЕРХНИЙ, нижний, Title и Sentence", "camelCase, PascalCase, snake_case, kebab-case", "Копирование в один клик для каждого", "Работает в браузере — ничего не загружается"],
+    steps: ["Введите или вставьте текст.", "Смотрите все регистры сразу.", "Скопируйте нужный.", "Вставьте куда угодно."],
+    faq: [
+      { q: "Чем camelCase отличается от PascalCase?", a: "Оба убирают пробелы и делают каждое слово с заглавной, но camelCase оставляет первую букву строчной (myVariable), а PascalCase делает заглавной и её (MyVariable)." },
+      { q: "Title Case и Sentence case — в чём разница?", a: "Title Case делает заглавной первую букву каждого слова; Sentence case — только первую букву всего текста." },
+      { q: "Мой текст загружается?", a: "Нет — преобразование идёт локально в браузере; текст не покидает устройство." },
+    ],
+    useCases: ["Имена переменных и файлов", "Слаги и идентификаторы", "Заголовки", "Чистка вставленного текста"],
+    metaExtra: "Бесплатный конвертер регистра — ВЕРХНИЙ, нижний, Title, Sentence, camelCase, snake_case и kebab-case.",
+  },
+};
+
+const loremContent: Content = {
+  en: {
+    intro:
+      "Generate placeholder “lorem ipsum” text for mockups and layouts — choose paragraphs, sentences or words, and how many. Copy it with one click. Free, no sign-up.",
+    benefits: ["Paragraphs, sentences or words", "Pick exactly how many", "Classic “Lorem ipsum…” start option", "One-click copy", "Free — no sign-up"],
+    steps: ["Choose the unit and amount.", "Generate the text.", "Copy it.", "Drop it into your design."],
+    faq: [
+      { q: "What is lorem ipsum?", a: "Scrambled Latin-like placeholder text used in design and publishing to fill a layout without meaningful words distracting from the visuals." },
+      { q: "Why use placeholder text?", a: "It lets you judge spacing, typography and layout before the real copy is ready, without readers focusing on the words." },
+      { q: "Is it free?", a: "Yes, completely free and generated in your browser." },
+    ],
+    useCases: ["UI and web mockups", "Print and layout drafts", "Typography testing", "Filling a template"],
+    metaExtra: "Free lorem ipsum generator — placeholder text by paragraphs, sentences or words, ready to copy.",
+  },
+  ru: {
+    intro:
+      "Генерируйте текст-заглушку «lorem ipsum» для макетов и вёрстки — выберите абзацы, предложения или слова и их количество. Копируйте в один клик. Бесплатно, без регистрации.",
+    benefits: ["Абзацы, предложения или слова", "Точное количество", "Опция начать с «Lorem ipsum…»", "Копирование в один клик", "Бесплатно — без регистрации"],
+    steps: ["Выберите единицу и количество.", "Сгенерируйте текст.", "Скопируйте.", "Вставьте в макет."],
+    faq: [
+      { q: "Что такое lorem ipsum?", a: "Псевдолатинский текст-заглушка, которым в дизайне и вёрстке заполняют макет, чтобы осмысленные слова не отвлекали от оформления." },
+      { q: "Зачем нужен текст-заглушка?", a: "Он позволяет оценить отступы, типографику и вёрстку до готовности реального текста, не отвлекая на содержание." },
+      { q: "Это бесплатно?", a: "Да, полностью бесплатно и генерируется в браузере." },
+    ],
+    useCases: ["Макеты UI и сайтов", "Черновики печати и вёрстки", "Тесты типографики", "Заполнение шаблона"],
+    metaExtra: "Бесплатный генератор Lorem Ipsum — текст-заглушка абзацами, предложениями или словами, готовый к копированию.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -2853,6 +2911,8 @@ const content: Record<string, Content> = {
   "date-difference": dateDiffCalc,
   "age-calculator": ageCalc,
   "word-counter": wordCounterContent,
+  "case-converter": caseConverterContent,
+  "lorem-ipsum": loremContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

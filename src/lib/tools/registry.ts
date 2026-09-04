@@ -393,6 +393,28 @@ export const sections: SectionDef[] = [
           ru: "Объясните cron-расписание простыми словами и ближайшие запуски.",
         },
       },
+      {
+        slug: "case-converter",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Case converter", ru: "Конвертер регистра" },
+        blurb: {
+          en: "UPPERCASE, lowercase, Title, camelCase, snake_case and more.",
+          ru: "UPPERCASE, lowercase, Title, camelCase, snake_case и другие.",
+        },
+      },
+      {
+        slug: "lorem-ipsum",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Lorem ipsum generator", ru: "Генератор Lorem Ipsum" },
+        blurb: {
+          en: "Placeholder text — paragraphs, sentences or words.",
+          ru: "Текст-заглушка — абзацы, предложения или слова.",
+        },
+      },
     ],
   },
   {
