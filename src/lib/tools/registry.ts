@@ -489,6 +489,16 @@ export const sections: SectionDef[] = [
           ru: "Размеры, вес файла и формат любого изображения.",
         },
       },
+      {
+        slug: "image-file-size",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Image file size calculator", ru: "Калькулятор веса изображения" },
+        blurb: {
+          en: "Estimate file size from dimensions and colour depth.",
+          ru: "Оценка веса из размеров и глубины цвета.",
+        },
+      },
     ],
   },
   {

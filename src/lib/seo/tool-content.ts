@@ -2929,6 +2929,35 @@ const cssGradientContent: Content = {
   },
 };
 
+const imageFileSizeContent: Content = {
+  en: {
+    intro:
+      "Work out how big an image file will be from its dimensions and colour depth. The raw (uncompressed) size is simply pixels × colour depth — this calculator does it for you, plus a rough JPEG estimate. Free, no sign-up.",
+    benefits: ["Uncompressed (raw) file size", "Any width, height and colour depth", "Megapixels and a JPEG estimate", "Instant — updates as you type", "Free — no sign-up"],
+    steps: ["Enter the width and height.", "Pick the colour depth.", "Read the raw size and megapixels.", "Use the JPEG estimate as a guide."],
+    faq: [
+      { q: "How do you calculate an image's file size?", a: "Raw size = width × height × colour depth (in bytes). A 1920×1080 image at 24-bit is 1920 × 1080 × 3 ≈ 5.9 MB uncompressed." },
+      { q: "Why is my real JPG so much smaller?", a: "JPG, PNG and WebP compress the image, often 5–20× smaller than the raw size. The exact figure depends on the content and quality setting." },
+      { q: "What colour depth should I pick?", a: "24-bit (RGB) for most photos, 32-bit (RGBA) when there's transparency, 8-bit for grayscale or indexed images." },
+    ],
+    useCases: ["Estimating storage and bandwidth", "Checking upload limits before exporting", "Comparing formats and resolutions", "Learning how image size works"],
+    metaExtra: "Free image file size calculator — estimate a photo's file size from its dimensions and colour depth, with a JPEG guide.",
+  },
+  ru: {
+    intro:
+      "Посчитайте, сколько будет весить файл изображения, по его размерам и глубине цвета. Вес без сжатия — это просто пиксели × глубина цвета; калькулятор делает это за вас плюс грубая оценка JPEG. Бесплатно, без регистрации.",
+    benefits: ["Вес файла без сжатия (raw)", "Любые ширина, высота и глубина цвета", "Мегапиксели и оценка JPEG", "Мгновенно — пересчёт на лету", "Бесплатно — без регистрации"],
+    steps: ["Введите ширину и высоту.", "Выберите глубину цвета.", "Смотрите вес без сжатия и мегапиксели.", "Оценку JPEG используйте как ориентир."],
+    faq: [
+      { q: "Как посчитать вес изображения?", a: "Вес без сжатия = ширина × высота × глубина цвета (в байтах). Картинка 1920×1080 при 24 битах — это 1920 × 1080 × 3 ≈ 5,9 МБ без сжатия." },
+      { q: "Почему реальный JPG намного меньше?", a: "JPG, PNG и WebP сжимают изображение, часто в 5–20 раз меньше raw. Точная цифра зависит от содержимого и качества." },
+      { q: "Какую глубину цвета выбрать?", a: "24 бита (RGB) для большинства фото, 32 бита (RGBA) при прозрачности, 8 бит для оттенков серого или индексированных." },
+    ],
+    useCases: ["Оценка хранения и трафика", "Проверка лимитов перед экспортом", "Сравнение форматов и разрешений", "Понимание веса изображений"],
+    metaExtra: "Бесплатный калькулятор веса изображения — оценка веса файла по размерам и глубине цвета, с ориентиром JPEG.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -2973,6 +3002,7 @@ const content: Record<string, Content> = {
   "lorem-ipsum": loremContent,
   "image-size-checker": imageSizeContent,
   "css-gradient-generator": cssGradientContent,
+  "image-file-size": imageFileSizeContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
