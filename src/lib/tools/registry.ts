@@ -499,6 +499,16 @@ export const sections: SectionDef[] = [
           ru: "Оценка веса из размеров и глубины цвета.",
         },
       },
+      {
+        slug: "aspect-ratio-calculator",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Aspect ratio calculator", ru: "Калькулятор пропорций" },
+        blurb: {
+          en: "Resize width and height keeping the same ratio.",
+          ru: "Изменение размеров с сохранением пропорций.",
+        },
+      },
     ],
   },
   {

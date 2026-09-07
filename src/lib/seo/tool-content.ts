@@ -2958,6 +2958,35 @@ const imageFileSizeContent: Content = {
   },
 };
 
+const aspectRatioContent: Content = {
+  en: {
+    intro:
+      "Resize an image or video while keeping its proportions. Set the aspect ratio — like 16:9 — then enter a new width to get the matching height, or a new height to get the width. Nothing stretches or squashes. Free, no sign-up.",
+    benefits: ["Keep the exact aspect ratio", "Width → height and height → width", "Simplified ratio (e.g. 16:9)", "Any ratio and any size", "Free — updates as you type"],
+    steps: ["Set the ratio width and height.", "See the simplified ratio.", "Enter a new width for the height.", "Or a new height for the width."],
+    faq: [
+      { q: "What is an aspect ratio?", a: "The proportional relationship between width and height, written width:height — for example 16:9, 4:3 or 1:1. Keeping it fixed stops an image from stretching." },
+      { q: "How do I resize keeping the ratio?", a: "Enter your ratio, then a new width — the calculator returns the height that preserves it (new height = new width × ratio height ÷ ratio width)." },
+      { q: "Is it free?", a: "Yes, completely free and runs in your browser." },
+    ],
+    useCases: ["Resizing images and thumbnails", "Video and screen resolutions", "Cropping to a target ratio", "Responsive design sizing"],
+    metaExtra: "Free aspect ratio calculator — resize width and height while keeping the same ratio (16:9, 4:3, and any custom).",
+  },
+  ru: {
+    intro:
+      "Меняйте размер изображения или видео с сохранением пропорций. Задайте соотношение — например 16:9 — затем введите новую ширину, чтобы получить высоту, или новую высоту для ширины. Ничего не растягивается. Бесплатно, без регистрации.",
+    benefits: ["Сохраняет точное соотношение сторон", "Ширина → высота и высота → ширина", "Упрощённое соотношение (напр. 16:9)", "Любое соотношение и размер", "Бесплатно — пересчёт на лету"],
+    steps: ["Задайте ширину и высоту соотношения.", "Смотрите упрощённое соотношение.", "Введите новую ширину — получите высоту.", "Или новую высоту — получите ширину."],
+    faq: [
+      { q: "Что такое соотношение сторон?", a: "Пропорция ширины к высоте, записывается ширина:высота — например 16:9, 4:3 или 1:1. Сохранение соотношения не даёт изображению растянуться." },
+      { q: "Как изменить размер, сохранив пропорции?", a: "Введите соотношение, затем новую ширину — калькулятор вернёт высоту, сохраняющую пропорцию (новая высота = новая ширина × высота соотношения ÷ ширина соотношения)." },
+      { q: "Это бесплатно?", a: "Да, полностью бесплатно и работает в браузере." },
+    ],
+    useCases: ["Ресайз картинок и превью", "Разрешения видео и экранов", "Кадрирование под нужное соотношение", "Размеры в адаптивной вёрстке"],
+    metaExtra: "Бесплатный калькулятор пропорций — меняйте ширину и высоту с сохранением соотношения (16:9, 4:3 и любое).",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3003,6 +3032,7 @@ const content: Record<string, Content> = {
   "image-size-checker": imageSizeContent,
   "css-gradient-generator": cssGradientContent,
   "image-file-size": imageFileSizeContent,
+  "aspect-ratio-calculator": aspectRatioContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
