@@ -2987,6 +2987,35 @@ const aspectRatioContent: Content = {
   },
 };
 
+const breakEvenContent: Content = {
+  en: {
+    intro:
+      "Find your break-even point — the number of units and the revenue at which sales cover all your costs and you start making a profit. Enter your fixed costs, price per unit and variable cost per unit; the calculator shows the break-even and draws the revenue-vs-cost chart. Free, no sign-up.",
+    benefits: ["Break-even in units and revenue", "Contribution margin per unit", "A revenue vs total-cost chart", "Any prices and costs", "Free — updates as you type"],
+    steps: ["Enter your fixed costs.", "Enter the price and variable cost per unit.", "Read the break-even units and revenue.", "See where the lines cross on the chart."],
+    faq: [
+      { q: "How do you calculate break-even?", a: "Break-even units = fixed costs ÷ (price − variable cost per unit). The bit in brackets is the contribution margin — what each sale adds toward covering your fixed costs." },
+      { q: "What is the contribution margin?", a: "The price of one unit minus its variable cost. It's how much each sale contributes to fixed costs and, after break-even, to profit." },
+      { q: "Why is there no break-even?", a: "If the price is at or below the variable cost per unit, every sale loses money, so you never break even. Raise the price or cut the variable cost." },
+    ],
+    useCases: ["Pricing a product or service", "Planning a launch or campaign", "Deciding a sales target", "Checking if a business idea works"],
+    metaExtra: "Free break-even calculator with a chart — units and revenue to break even from fixed costs, price and variable cost.",
+  },
+  ru: {
+    intro:
+      "Найдите точку безубыточности — сколько единиц и выручки нужно, чтобы продажи покрыли все затраты и вы вышли в плюс. Введите постоянные затраты, цену и переменные затраты на единицу; калькулятор покажет безубыточность и построит график выручки и затрат. Бесплатно, без регистрации.",
+    benefits: ["Безубыточность в штуках и деньгах", "Маржинальная прибыль на единицу", "График выручки и общих затрат", "Любые цены и затраты", "Бесплатно — пересчёт на лету"],
+    steps: ["Введите постоянные затраты.", "Цену и переменные затраты на единицу.", "Смотрите точку безубыточности в штуках и деньгах.", "Где пересекаются линии на графике."],
+    faq: [
+      { q: "Как посчитать точку безубыточности?", a: "Точка безубыточности (шт.) = постоянные затраты ÷ (цена − переменные затраты на единицу). В скобках — маржинальная прибыль: сколько каждая продажа добавляет на покрытие постоянных затрат." },
+      { q: "Что такое маржинальная прибыль?", a: "Цена единицы минус её переменные затраты. Это сколько каждая продажа даёт на постоянные затраты, а после безубыточности — в прибыль." },
+      { q: "Почему нет точки безубыточности?", a: "Если цена не выше переменных затрат на единицу, каждая продажа убыточна, и безубыточности не будет. Поднимите цену или снизьте переменные затраты." },
+    ],
+    useCases: ["Ценообразование товара или услуги", "Планирование запуска или акции", "Постановка цели по продажам", "Проверка бизнес-идеи"],
+    metaExtra: "Бесплатный калькулятор безубыточности с графиком — штуки и выручка для выхода в ноль из постоянных, цены и переменных затрат.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3033,6 +3062,7 @@ const content: Record<string, Content> = {
   "css-gradient-generator": cssGradientContent,
   "image-file-size": imageFileSizeContent,
   "aspect-ratio-calculator": aspectRatioContent,
+  "break-even-calculator": breakEvenContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

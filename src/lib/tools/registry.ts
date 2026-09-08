@@ -260,6 +260,17 @@ export const sections: SectionDef[] = [
           ru: "Маржа и наценка из себестоимости и цены.",
         },
       },
+      {
+        slug: "break-even-calculator",
+        status: "live",
+        popular: true,
+        priceCents: 0,
+        title: { en: "Break-even calculator", ru: "Калькулятор безубыточности" },
+        blurb: {
+          en: "Units and revenue to break even, with a chart.",
+          ru: "Точка безубыточности в штуках и деньгах, с графиком.",
+        },
+      },
     ],
   },
   {
