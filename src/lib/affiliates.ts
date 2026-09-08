@@ -80,6 +80,17 @@ export const AFFILIATES: Record<string, Offer[]> = {
       },
     },
   ],
+  "creative-assets": [
+    {
+      name: "Envato",
+      // LIVE affiliate link (Mitgo/Takeads, per-sale).
+      url: "https://xcdus.com/g/5gu8irreos330d4f803ca186dc55d3/",
+      blurb: {
+        en: "Unlimited templates, fonts, photos, video and music — one subscription.",
+        ru: "Безлимит шаблонов, шрифтов, фото, видео и музыки — одна подписка.",
+      },
+    },
+  ],
 };
 
 export function offersFor(category?: string): Offer[] {

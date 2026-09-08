@@ -375,7 +375,7 @@ export const sections: SectionDef[] = [
         slug: "color",
         status: "live",
         priceCents: 0,
-        affiliate: "developer-tools",
+        affiliate: "creative-assets",
         title: { en: "Color converter", ru: "Конвертер цветов" },
         blurb: {
           en: "Convert colors between HEX, RGB and HSL.",
@@ -419,7 +419,7 @@ export const sections: SectionDef[] = [
         slug: "lorem-ipsum",
         status: "live",
         priceCents: 0,
-        affiliate: "developer-tools",
+        affiliate: "creative-assets",
         title: { en: "Lorem ipsum generator", ru: "Генератор Lorem Ipsum" },
         blurb: {
           en: "Placeholder text — paragraphs, sentences or words.",
@@ -430,7 +430,7 @@ export const sections: SectionDef[] = [
         slug: "css-gradient-generator",
         status: "live",
         priceCents: 0,
-        affiliate: "developer-tools",
+        affiliate: "creative-assets",
         title: { en: "CSS gradient generator", ru: "Генератор CSS-градиентов" },
         blurb: {
           en: "Build a gradient and copy the CSS.",
@@ -452,6 +452,7 @@ export const sections: SectionDef[] = [
         slug: "email-signature",
         status: "live",
         priceCents: 0,
+        affiliate: "creative-assets",
         title: { en: "Email signature", ru: "Подпись для почты" },
         blurb: {
           en: "A clean HTML signature for your team.",
@@ -494,6 +495,7 @@ export const sections: SectionDef[] = [
         slug: "image-size-checker",
         status: "live",
         priceCents: 0,
+        affiliate: "creative-assets",
         title: { en: "Image size checker", ru: "Проверка размера изображения" },
         blurb: {
           en: "Dimensions, file size and format of any image.",
@@ -504,6 +506,7 @@ export const sections: SectionDef[] = [
         slug: "image-file-size",
         status: "live",
         priceCents: 0,
+        affiliate: "creative-assets",
         title: { en: "Image file size calculator", ru: "Калькулятор веса изображения" },
         blurb: {
           en: "Estimate file size from dimensions and colour depth.",
@@ -514,6 +517,7 @@ export const sections: SectionDef[] = [
         slug: "aspect-ratio-calculator",
         status: "live",
         priceCents: 0,
+        affiliate: "creative-assets",
         title: { en: "Aspect ratio calculator", ru: "Калькулятор пропорций" },
         blurb: {
           en: "Resize width and height keeping the same ratio.",
