@@ -1721,9 +1721,142 @@ const vatGuide: Guide = {
   },
 };
 
+const unilateralNdaGuide: Guide = {
+  slug: "what-is-a-unilateral-nda",
+  toolSlug: "nda",
+  updated: "2026-09-09",
+  content: {
+    en: {
+      title: "What is a unilateral NDA?",
+      description:
+        "A unilateral (one-way) NDA explained — what it is, how it works, when to use one, whether it's enforceable, and how to create one free.",
+      intro:
+        "A unilateral NDA — also called a one-way NDA — is a confidentiality agreement where one side shares secret information and the other side promises to protect it. Only one party discloses. Here's exactly what that means, when to use one, and how to generate a signature-ready one free.",
+      sections: [
+        {
+          h: "What a unilateral NDA is",
+          p: [
+            "In a unilateral NDA, one party — the disclosing party — shares confidential information, and the other — the receiving party — agrees to keep it secret and not misuse it. The obligations run one way: only the receiver is bound. It's often just called a one-way NDA.",
+          ],
+        },
+        {
+          h: "When to use one",
+          p: [
+            "Reach for a unilateral NDA whenever only you disclose: pitching an idea to a contractor or agency, sharing figures with a potential investor, onboarding a freelancer or employee, or showing a prototype to a manufacturer. If only your information is at risk, a one-way agreement is enough.",
+          ],
+        },
+        {
+          h: "Unilateral vs mutual — the difference",
+          p: [
+            "In a unilateral NDA only one side shares and is protected. In a mutual (bilateral) NDA both sides share and both are bound. If the other party will also reveal something confidential — a partnership or joint venture, say — use a mutual NDA instead so the protection runs both ways.",
+          ],
+        },
+        {
+          h: "What a unilateral NDA includes",
+          p: [
+            "Whatever the direction, a solid NDA covers the same essentials:",
+            [
+              "The parties — who discloses and who receives",
+              "A clear definition of “confidential information”",
+              "The purpose the information may be used for",
+              "The term — how long confidentiality lasts",
+              "Exclusions — public info, or what the receiver already knew",
+              "Governing law and signature blocks",
+            ],
+          ],
+        },
+        {
+          h: "Is a unilateral NDA legally binding?",
+          p: [
+            "Yes — once both parties sign, a clear and reasonable one-way NDA is enforceable in most jurisdictions, and it usually doesn't need to be notarized. This is general information, not legal advice: for high-stakes or unusual deals, have a qualified lawyer review it.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "What is a unilateral NDA in simple terms?",
+          a: "An agreement where one person shares confidential information and the other promises to keep it secret. Only the receiving side has obligations.",
+        },
+        {
+          q: "What's the difference between a unilateral and mutual NDA?",
+          a: "A unilateral (one-way) NDA protects information flowing in one direction; a mutual NDA protects both parties because both share. Pick mutual when the exchange goes both ways.",
+        },
+        {
+          q: "Is a one-way NDA enforceable?",
+          a: "Yes, when it's clear, reasonable and signed by both parties — in most jurisdictions, usually without a notary. For high-stakes deals, have a lawyer review it.",
+        },
+      ],
+      cta: "Create an NDA free",
+    },
+    ru: {
+      title: "Что такое одностороннее NDA?",
+      description:
+        "Одностороннее NDA простыми словами — что это, как работает, когда применять, имеет ли силу и как создать бесплатно.",
+      intro:
+        "Одностороннее NDA (соглашение о неразглашении) — договор, где одна сторона раскрывает конфиденциальную информацию, а другая обязуется её защищать. Раскрывает только одна сторона. Ниже — что это значит, когда применять и как сгенерировать готовый к подписи документ бесплатно.",
+      sections: [
+        {
+          h: "Что такое одностороннее NDA",
+          p: [
+            "В одностороннем NDA одна сторона — раскрывающая — передаёт конфиденциальную информацию, а другая — получающая — обязуется хранить её в секрете и не использовать во вред. Обязательства односторонние: связана только получающая сторона. Часто его называют просто «одностороннее NDA».",
+          ],
+        },
+        {
+          h: "Когда применять",
+          p: [
+            "Одностороннее NDA подходит, когда раскрываете только вы: показываете идею подрядчику или агентству, цифры инвестору, нанимаете фрилансера или сотрудника, показываете прототип производителю. Если под угрозой только ваша информация — одностороннего соглашения достаточно.",
+          ],
+        },
+        {
+          h: "Одностороннее и взаимное — разница",
+          p: [
+            "В одностороннем раскрывает и защищается одна сторона. Во взаимном (двустороннем) — обе стороны раскрывают и обе связаны. Если вторая сторона тоже раскроет что-то конфиденциальное — например, партнёрство или совместный проект — используйте взаимное NDA, чтобы защита работала в обе стороны.",
+          ],
+        },
+        {
+          h: "Что входит в одностороннее NDA",
+          p: [
+            "Независимо от направления, в надёжном NDA есть одни и те же ключевые пункты:",
+            [
+              "Стороны — кто раскрывает и кто получает",
+              "Чёткое определение «конфиденциальной информации»",
+              "Цель, для которой можно использовать информацию",
+              "Срок — как долго действует конфиденциальность",
+              "Исключения — публичная информация или то, что получатель уже знал",
+              "Применимое право и блоки для подписей",
+            ],
+          ],
+        },
+        {
+          h: "Имеет ли одностороннее NDA юридическую силу?",
+          p: [
+            "Да — после подписания обеими сторонами понятное и разумное одностороннее NDA обязательно в большинстве юрисдикций и обычно не требует нотариуса. Это общая информация, а не юридическая консультация: для крупных или нестандартных сделок покажите документ квалифицированному юристу.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Что такое одностороннее NDA простыми словами?",
+          a: "Договор, где одна сторона делится конфиденциальной информацией, а другая обязуется хранить её в тайне. Обязательства только у получающей стороны.",
+        },
+        {
+          q: "Чем одностороннее NDA отличается от взаимного?",
+          a: "Одностороннее защищает информацию в одну сторону; взаимное защищает обе стороны, потому что делятся оба. Взаимное — когда обмен идёт в обе стороны.",
+        },
+        {
+          q: "Имеет ли силу одностороннее NDA?",
+          a: "Да, если оно понятное, разумное и подписано обеими сторонами — в большинстве юрисдикций, обычно без нотариуса. Для крупных сделок покажите юристу.",
+        },
+      ],
+      cta: "Создать NDA бесплатно",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
+  unilateralNdaGuide,
   passwordGuide,
   freelanceTaxGuide,
   quoteGuide,
