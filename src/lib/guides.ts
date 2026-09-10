@@ -1853,10 +1853,143 @@ const unilateralNdaGuide: Guide = {
   },
 };
 
+const mutualNdaGuide: Guide = {
+  slug: "what-is-a-mutual-nda",
+  toolSlug: "nda",
+  updated: "2026-09-10",
+  content: {
+    en: {
+      title: "What is a mutual NDA?",
+      description:
+        "A mutual (bilateral) NDA explained — what it is, when both sides share, how it differs from a one-way NDA, and how to create one free.",
+      intro:
+        "A mutual NDA — also called a bilateral or two-way NDA — is a confidentiality agreement where both parties share secret information and both promise to protect it. The obligations run both ways. Here's what that means, when you need one, and how to generate a signature-ready one free.",
+      sections: [
+        {
+          h: "What a mutual NDA is",
+          p: [
+            "In a mutual NDA both parties disclose confidential information and both agree to keep the other's secret. Each side is at once a disclosing and a receiving party, so the protections and obligations are symmetrical. It's also called a bilateral or two-way NDA.",
+          ],
+        },
+        {
+          h: "When to use one",
+          p: [
+            "Use a mutual NDA whenever both sides will reveal something confidential: a partnership or joint venture, merger or acquisition talks, two companies integrating products, or any negotiation where each party shows the other sensitive information. When the exchange goes both ways, a mutual NDA is the fair choice.",
+          ],
+        },
+        {
+          h: "Mutual vs unilateral — the difference",
+          p: [
+            "In a mutual NDA both sides share and both are bound. In a unilateral (one-way) NDA only one side discloses and only the receiver is bound. If only your information is at risk, a one-way NDA is simpler; if both sides disclose, use a mutual NDA so the protection is symmetrical.",
+          ],
+        },
+        {
+          h: "What a mutual NDA includes",
+          p: [
+            "A solid mutual NDA covers the same essentials as any NDA:",
+            [
+              "Both parties — each is a discloser and a receiver",
+              "A clear definition of “confidential information”",
+              "The purpose the information may be used for",
+              "The term — how long confidentiality lasts",
+              "Exclusions — public info, or what a party already knew",
+              "Governing law and signature blocks",
+            ],
+          ],
+        },
+        {
+          h: "Is a mutual NDA legally binding?",
+          p: [
+            "Yes — once both parties sign, a clear and reasonable mutual NDA is enforceable in most jurisdictions, and it usually doesn't need to be notarized. This is general information, not legal advice: for high-value or unusual deals, have a qualified lawyer review it.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "What is a mutual NDA in simple terms?",
+          a: "An agreement where both parties share confidential information and both promise to keep the other's secret. The obligations go both ways.",
+        },
+        {
+          q: "When should I use a mutual NDA instead of a one-way one?",
+          a: "When both sides will disclose something confidential — a partnership, joint venture or merger talk. If only you disclose, a one-way NDA is enough.",
+        },
+        {
+          q: "Is a bilateral NDA enforceable?",
+          a: "Yes, when it's clear, reasonable and signed by both parties — usually without a notary. For high-value deals, have a lawyer review it.",
+        },
+      ],
+      cta: "Create an NDA free",
+    },
+    ru: {
+      title: "Что такое взаимное NDA?",
+      description:
+        "Взаимное (двустороннее) NDA простыми словами — что это, когда обе стороны раскрывают, чем отличается от одностороннего и как создать бесплатно.",
+      intro:
+        "Взаимное NDA — также двустороннее — договор, где обе стороны раскрывают конфиденциальную информацию и обе обязуются её защищать. Обязательства в обе стороны. Ниже — что это значит, когда нужно и как сгенерировать готовый к подписи документ бесплатно.",
+      sections: [
+        {
+          h: "Что такое взаимное NDA",
+          p: [
+            "Во взаимном NDA обе стороны передают конфиденциальную информацию и обе обязуются хранить чужой секрет. Каждая сторона одновременно раскрывающая и получающая, поэтому защита и обязательства симметричны. Также называют двусторонним.",
+          ],
+        },
+        {
+          h: "Когда применять",
+          p: [
+            "Взаимное NDA нужно, когда обе стороны раскроют что-то конфиденциальное: партнёрство или совместный проект, переговоры о слиянии или поглощении, интеграция продуктов двух компаний, любые переговоры, где каждая сторона показывает другой чувствительную информацию. Когда обмен идёт в обе стороны — взаимное честнее.",
+          ],
+        },
+        {
+          h: "Взаимное и одностороннее — разница",
+          p: [
+            "Во взаимном раскрывают и связаны обе стороны. В одностороннем раскрывает только одна и связана только получающая. Если под угрозой только ваша информация — проще одностороннее; если раскрывают оба — используйте взаимное, чтобы защита была симметричной.",
+          ],
+        },
+        {
+          h: "Что входит во взаимное NDA",
+          p: [
+            "В надёжном взаимном NDA те же ключевые пункты, что и в любом NDA:",
+            [
+              "Обе стороны — каждая раскрывает и получает",
+              "Чёткое определение «конфиденциальной информации»",
+              "Цель, для которой можно использовать информацию",
+              "Срок — как долго действует конфиденциальность",
+              "Исключения — публичная информация или то, что сторона уже знала",
+              "Применимое право и блоки для подписей",
+            ],
+          ],
+        },
+        {
+          h: "Имеет ли взаимное NDA юридическую силу?",
+          p: [
+            "Да — после подписания обеими сторонами понятное и разумное взаимное NDA обязательно в большинстве юрисдикций и обычно не требует нотариуса. Это общая информация, а не юридическая консультация: для крупных или нестандартных сделок покажите документ квалифицированному юристу.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Что такое взаимное NDA простыми словами?",
+          a: "Договор, где обе стороны делятся конфиденциальной информацией и обе обязуются хранить чужой секрет. Обязательства в обе стороны.",
+        },
+        {
+          q: "Когда взаимное NDA вместо одностороннего?",
+          a: "Когда обе стороны раскроют что-то конфиденциальное — партнёрство, совместный проект, переговоры о слиянии. Если раскрываете только вы — достаточно одностороннего.",
+        },
+        {
+          q: "Имеет ли силу двустороннее NDA?",
+          a: "Да, если оно понятное, разумное и подписано обеими сторонами — обычно без нотариуса. Для крупных сделок покажите юристу.",
+        },
+      ],
+      cta: "Создать NDA бесплатно",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
   unilateralNdaGuide,
+  mutualNdaGuide,
   passwordGuide,
   freelanceTaxGuide,
   quoteGuide,
