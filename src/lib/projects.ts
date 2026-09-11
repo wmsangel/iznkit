@@ -94,4 +94,13 @@ export const PROJECTS: Project[] = [
       ru: "Обучающие задания для детей — от садика до 11 класса, с героями-помощниками.",
     },
   },
+  {
+    name: "Foldout",
+    url: "https://foldoutkit.com/",
+    lang: "EN",
+    tagline: {
+      en: "Website, email and spreadsheet templates with clean, readable code — free versions, $29 Pro.",
+      ru: "Шаблоны сайтов, писем и таблиц с чистым, понятным кодом — бесплатные версии, $29 Pro.",
+    },
+  },
 ];
