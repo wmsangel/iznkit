@@ -79,8 +79,26 @@ export const AFFILIATES: Record<string, Offer[]> = {
         ru: "Надёжный хостинг и VPS от $2.5 — серверы по всему миру.",
       },
     },
+    {
+      name: "Foldout",
+      // Own network product (foldoutkit.com) — cross-promo, not a paid affiliate.
+      url: "https://foldoutkit.com/",
+      blurb: {
+        en: "Clean-code website, email and spreadsheet templates — free versions, $29 Pro.",
+        ru: "Шаблоны сайтов, писем и таблиц с чистым кодом — бесплатные версии, $29 Pro.",
+      },
+    },
   ],
   "creative-assets": [
+    {
+      name: "Foldout",
+      // Own network product (foldoutkit.com) — cross-promo, not a paid affiliate.
+      url: "https://foldoutkit.com/",
+      blurb: {
+        en: "Clean-code website, email and spreadsheet templates — free versions, $29 Pro.",
+        ru: "Шаблоны сайтов, писем и таблиц с чистым кодом — бесплатные версии, $29 Pro.",
+      },
+    },
     {
       name: "Envato",
       // LIVE affiliate link (Mitgo/Takeads, per-sale).
