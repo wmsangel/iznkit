@@ -482,6 +482,17 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "password-strength",
+        status: "live",
+        priceCents: 0,
+        affiliate: "password-managers",
+        title: { en: "Password strength checker", ru: "Проверка надёжности пароля" },
+        blurb: {
+          en: "Test how strong a password is — entropy and crack time.",
+          ru: "Проверка надёжности пароля — энтропия и время взлома.",
+        },
+      },
+      {
         slug: "word-counter",
         status: "live",
         priceCents: 0,

@@ -3016,6 +3016,35 @@ const breakEvenContent: Content = {
   },
 };
 
+const pwdStrengthContent: Content = {
+  en: {
+    intro:
+      "Check how strong a password is before you rely on it. Type or paste it and see the estimated entropy in bits, a rough crack time, and which character types it uses. Everything runs in your browser — the password is never sent anywhere. Free, no sign-up.",
+    benefits: ["Entropy estimate in bits", "Rough time-to-crack", "Character sets used (a–z, A–Z, 0–9, symbols)", "Live strength meter", "Runs in your browser — nothing uploaded"],
+    steps: ["Type or paste your password.", "Read the strength and entropy.", "See the estimated crack time.", "Add length or symbols to improve it."],
+    faq: [
+      { q: "What makes a password strong?", a: "Length and randomness, far more than symbols. Every extra character multiplies the possibilities; a long random password beats a short 'complex' one. Aim for 16+ characters." },
+      { q: "How is the strength estimated?", a: "From entropy: the character-set size and the length give an estimate in bits of how unpredictable the password is. It's a guide — a real attacker's dictionaries and patterns can do better against invented passwords." },
+      { q: "Is my password sent anywhere?", a: "No. Everything is computed locally in your browser; the password never leaves your device." },
+    ],
+    useCases: ["Checking a password before using it", "Teaching good password habits", "Comparing two passwords", "Deciding if a password needs replacing"],
+    metaExtra: "Free password strength checker — entropy, crack-time estimate and character sets, computed in your browser.",
+  },
+  ru: {
+    intro:
+      "Проверьте надёжность пароля, прежде чем на него полагаться. Введите или вставьте его — увидите оценку энтропии в битах, примерное время взлома и какие типы символов используются. Всё считается в браузере, пароль никуда не отправляется. Бесплатно, без регистрации.",
+    benefits: ["Оценка энтропии в битах", "Примерное время взлома", "Наборы символов (a–z, A–Z, 0–9, символы)", "Живой индикатор надёжности", "Работает в браузере — ничего не загружается"],
+    steps: ["Введите или вставьте пароль.", "Смотрите надёжность и энтропию.", "Оцените примерное время взлома.", "Добавьте длину или символы, чтобы усилить."],
+    faq: [
+      { q: "Что делает пароль надёжным?", a: "Длина и случайность — гораздо больше, чем символы. Каждый лишний символ умножает число вариантов; длинный случайный пароль лучше короткого «сложного». Цельтесь в 16+ символов." },
+      { q: "Как оценивается надёжность?", a: "По энтропии: размер набора символов и длина дают оценку в битах, насколько пароль непредсказуем. Это ориентир — словари и шаблоны атакующего справятся лучше против придуманных паролей." },
+      { q: "Мой пароль куда-то отправляется?", a: "Нет. Всё считается локально в браузере; пароль не покидает устройство." },
+    ],
+    useCases: ["Проверка пароля перед использованием", "Обучение хорошим привычкам", "Сравнение двух паролей", "Решение, пора ли менять пароль"],
+    metaExtra: "Бесплатная проверка надёжности пароля — энтропия, оценка времени взлома и наборы символов, прямо в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3063,6 +3092,7 @@ const content: Record<string, Content> = {
   "image-file-size": imageFileSizeContent,
   "aspect-ratio-calculator": aspectRatioContent,
   "break-even-calculator": breakEvenContent,
+  "password-strength": pwdStrengthContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
