@@ -26,6 +26,8 @@ export const config = {
   // here anyway, so skipping them cuts Edge Requests on the bulk of traffic.
   // Also excludes API routes, Next internals, and static assets (anything with a dot).
   matcher: [
-    "/((?!en$|ru$|en/|ru/|api|_next/static|_next/image|favicon.ico|fonts|.*\\..*).*)",
+    // Note: metadata routes with no file extension (apple-icon) must be excluded
+    // explicitly — the `.*\..*` rule only skips paths that contain a dot.
+    "/((?!en$|ru$|en/|ru/|api|apple-icon|_next/static|_next/image|favicon.ico|fonts|.*\\..*).*)",
   ],
 };

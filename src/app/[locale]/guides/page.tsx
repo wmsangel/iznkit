@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { absUrl, SITE_NAME } from "@/lib/seo/site";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { GUIDES } from "@/lib/guides";
 
 const COPY = {
@@ -41,12 +43,35 @@ export default async function GuidesPage({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const c = COPY[locale];
+  const url = absUrl(locale, "guides");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: c.title,
+    description: c.intro,
+    url,
+    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: absUrl(locale) },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: GUIDES.map((g, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: g.content[locale].title,
+        url: absUrl(locale, `guides/${g.slug}`),
+      })),
+    },
+  };
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
-      <Link href={`/${locale}`} className="text-sm text-[var(--muted)] hover:text-[var(--foreground)]">
-        ← {c.home}
-      </Link>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Breadcrumbs
+        items={[{ name: SITE_NAME, href: `/${locale}` }, { name: c.title }]}
+      />
       <div className="mt-6 max-w-2xl">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">{c.title}</h1>
         <p className="mt-4 text-lg text-[var(--muted)] leading-relaxed">{c.intro}</p>

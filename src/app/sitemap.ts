@@ -35,13 +35,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Guides.
+  // Guides — use each guide's own `updated` date so lastmod reflects real
+  // freshness (a re-crawl signal), not just the build time.
   for (const guide of GUIDES) {
     const path = `guides/${guide.slug}`;
+    const updated = new Date(guide.updated);
+    const guideModified = Number.isNaN(updated.getTime()) ? lastModified : updated;
     for (const locale of locales) {
       entries.push({
         url: absUrl(locale, path),
-        lastModified,
+        lastModified: guideModified,
         changeFrequency: "monthly",
         priority: 0.6,
         alternates: { languages: languageAlternates(path) },
