@@ -437,6 +437,17 @@ export const sections: SectionDef[] = [
           ru: "Соберите градиент и скопируйте CSS.",
         },
       },
+      {
+        slug: "json-to-csv",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "JSON to CSV converter", ru: "Конвертер JSON ↔ CSV" },
+        blurb: {
+          en: "Convert JSON to CSV and CSV to JSON in your browser.",
+          ru: "Конвертация JSON в CSV и обратно прямо в браузере.",
+        },
+      },
     ],
   },
   {

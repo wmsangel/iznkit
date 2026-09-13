@@ -3045,6 +3045,35 @@ const pwdStrengthContent: Content = {
   },
 };
 
+const jsonCsvContent: Content = {
+  en: {
+    intro:
+      "Convert data between JSON and CSV in seconds — paste a JSON array of objects to get a CSV table, or paste CSV to get JSON. Everything runs in your browser; nothing is uploaded. Free, no sign-up.",
+    benefits: ["JSON → CSV and CSV → JSON", "Handles quoted fields and commas (RFC 4180)", "Works with any array of objects", "Copy the result in one click", "Runs in your browser — nothing uploaded"],
+    steps: ["Choose a direction (JSON→CSV or CSV→JSON).", "Paste your data.", "See the converted output.", "Copy it."],
+    faq: [
+      { q: "How do I convert JSON to CSV?", a: "Paste a JSON array of objects — each object becomes a row and the keys become the header columns. Nested values are kept as JSON text in the cell." },
+      { q: "How do I convert CSV to JSON?", a: "Switch to CSV → JSON and paste your CSV with a header row; each row becomes an object keyed by the headers. Quoted fields with commas or newlines are handled." },
+      { q: "Is my data uploaded?", a: "No. The conversion runs entirely in your browser; your data never leaves your device." },
+    ],
+    useCases: ["Exporting API data to a spreadsheet", "Importing a spreadsheet into code", "Quick data reshaping", "Cleaning up exports"],
+    metaExtra: "Free JSON to CSV converter (and CSV to JSON) — reshape data in your browser, RFC 4180 quoting, one-click copy.",
+  },
+  ru: {
+    intro:
+      "Конвертируйте данные между JSON и CSV за секунды — вставьте массив JSON-объектов, чтобы получить таблицу CSV, или вставьте CSV, чтобы получить JSON. Всё в браузере, ничего не загружается. Бесплатно, без регистрации.",
+    benefits: ["JSON → CSV и CSV → JSON", "Кавычки и запятые в полях (RFC 4180)", "Любой массив объектов", "Копирование результата в один клик", "Работает в браузере — ничего не загружается"],
+    steps: ["Выберите направление (JSON→CSV или CSV→JSON).", "Вставьте данные.", "Смотрите результат конвертации.", "Скопируйте."],
+    faq: [
+      { q: "Как конвертировать JSON в CSV?", a: "Вставьте массив JSON-объектов — каждый объект станет строкой, а ключи — колонками заголовка. Вложенные значения остаются как JSON-текст в ячейке." },
+      { q: "Как конвертировать CSV в JSON?", a: "Переключитесь на CSV → JSON и вставьте CSV со строкой заголовков; каждая строка станет объектом с ключами из заголовков. Поля в кавычках с запятыми и переносами обрабатываются." },
+      { q: "Мои данные загружаются?", a: "Нет. Конвертация полностью в браузере; данные не покидают устройство." },
+    ],
+    useCases: ["Экспорт данных API в таблицу", "Импорт таблицы в код", "Быстрое переформатирование данных", "Чистка экспортов"],
+    metaExtra: "Бесплатный конвертер JSON в CSV (и CSV в JSON) — переформатирование данных в браузере, кавычки RFC 4180, копирование в клик.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3093,6 +3122,7 @@ const content: Record<string, Content> = {
   "aspect-ratio-calculator": aspectRatioContent,
   "break-even-calculator": breakEvenContent,
   "password-strength": pwdStrengthContent,
+  "json-to-csv": jsonCsvContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
