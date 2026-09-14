@@ -3074,6 +3074,37 @@ const jsonCsvContent: Content = {
   },
 };
 
+const wifiQrContent: Content = {
+  en: {
+    intro:
+      "Create a Wi-Fi QR code that lets anyone join your network by scanning it with a phone camera — no reading out or typing the password. Enter your network name and password, pick your security type, and download the code. Everything runs in your browser; your Wi-Fi details are never uploaded.",
+    benefits: ["Guests connect by scanning — no typing", "WPA/WPA2/WPA3, WEP or open networks", "Works with the built-in iPhone and Android camera", "Download as PNG or SVG to print or share", "Runs in your browser — your password stays on your device"],
+    steps: ["Enter your Wi-Fi network name (SSID).", "Type the password and choose the security type.", "Download the QR code as PNG or SVG.", "Print it or put it where guests can scan it."],
+    faq: [
+      { q: "How do I connect by scanning a Wi-Fi QR code?", a: "Open the camera app on an iPhone (iOS 11+) or a recent Android phone and point it at the code. A prompt to join the network appears — tap it. No separate app is needed." },
+      { q: "Which security type should I choose?", a: "Almost all modern routers use WPA (this also covers WPA2 and WPA3). Choose WEP only for very old networks, or “No password” for an open network." },
+      { q: "Is my Wi-Fi password safe?", a: "Yes. The QR code is generated entirely in your browser and your network name and password are never sent anywhere." },
+      { q: "Can I use this for a hidden network?", a: "Yes — tick “Hidden network” and the code will include the flag phones need to find and join a non-broadcast SSID." },
+    ],
+    useCases: ["A scannable Wi-Fi card for guests at home", "Café, salon or office guest Wi-Fi on a poster", "Airbnb or rental welcome sheet", "Event or meeting-room network access"],
+    metaExtra: "Free Wi-Fi QR code generator — let guests scan to connect, no typing. WPA/WPA2/WPA3, hidden networks, PNG/SVG download, all in your browser.",
+  },
+  ru: {
+    intro:
+      "Создайте Wi-Fi QR-код, чтобы любой мог подключиться к сети, наведя камеру телефона, — не диктуя и не вводя пароль вручную. Укажите имя сети и пароль, выберите тип защиты и скачайте код. Всё работает в браузере; данные вашего Wi-Fi никуда не загружаются.",
+    benefits: ["Гости подключаются сканированием — без ввода", "WPA/WPA2/WPA3, WEP или открытые сети", "Работает со встроенной камерой iPhone и Android", "Скачивание в PNG или SVG для печати", "Работает в браузере — пароль остаётся на вашем устройстве"],
+    steps: ["Введите имя сети Wi-Fi (SSID).", "Укажите пароль и выберите тип защиты.", "Скачайте QR-код в PNG или SVG.", "Распечатайте или разместите там, где гости смогут отсканировать."],
+    faq: [
+      { q: "Как подключиться, отсканировав Wi-Fi QR-код?", a: "Откройте приложение «Камера» на iPhone (iOS 11+) или современном Android и наведите на код. Появится предложение подключиться к сети — нажмите на него. Отдельное приложение не нужно." },
+      { q: "Какой тип защиты выбрать?", a: "Почти все современные роутеры используют WPA (это покрывает и WPA2, и WPA3). WEP выбирайте только для очень старых сетей, а «Без пароля» — для открытой сети." },
+      { q: "Безопасен ли мой пароль от Wi-Fi?", a: "Да. QR-код генерируется полностью в браузере, имя сети и пароль никуда не отправляются." },
+      { q: "Можно ли использовать для скрытой сети?", a: "Да — отметьте «Скрытая сеть», и код будет содержать флаг, который нужен телефонам, чтобы найти и подключиться к сети со скрытым SSID." },
+    ],
+    useCases: ["Карточка Wi-Fi для гостей дома", "Гостевой Wi-Fi кафе, салона или офиса на постере", "Лист-приветствие для Airbnb или аренды", "Доступ к сети на мероприятии или в переговорной"],
+    metaExtra: "Бесплатный генератор Wi-Fi QR-кода — гости сканируют и подключаются без ввода. WPA/WPA2/WPA3, скрытые сети, скачивание PNG/SVG, всё в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3123,6 +3154,7 @@ const content: Record<string, Content> = {
   "break-even-calculator": breakEvenContent,
   "password-strength": pwdStrengthContent,
   "json-to-csv": jsonCsvContent,
+  "wifi-qr-code": wifiQrContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

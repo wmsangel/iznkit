@@ -481,6 +481,16 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "wifi-qr-code",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Wi-Fi QR code generator", ru: "Генератор Wi-Fi QR-кода" },
+        blurb: {
+          en: "Share your Wi-Fi — guests scan to connect, no typing.",
+          ru: "Поделитесь Wi-Fi — гости сканируют и подключаются без ввода.",
+        },
+      },
+      {
         slug: "password-generator",
         status: "live",
         popular: true,
