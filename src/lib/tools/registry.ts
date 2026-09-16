@@ -261,6 +261,16 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "margin-vat",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Margin with VAT calculator", ru: "Калькулятор маржи с НДС" },
+        blurb: {
+          en: "True margin when prices include VAT — VAT stripped out.",
+          ru: "Настоящая маржа, когда цены с НДС — налог вычитается.",
+        },
+      },
+      {
         slug: "break-even-calculator",
         status: "live",
         popular: true,

@@ -3105,6 +3105,37 @@ const wifiQrContent: Content = {
   },
 };
 
+const marginVatContent: Content = {
+  en: {
+    intro:
+      "Figure out your real profit margin when the cost and selling price both include VAT. VAT is pass-through money — you collect it and hand it to the tax office, so it isn't profit. This calculator strips VAT out of both numbers first, then shows the margin, markup and net profit on the ex-VAT amounts, plus the VAT you owe. Everything runs in your browser.",
+    benefits: ["Correct margin on VAT-inclusive prices", "Any VAT rate (12%, 20%, …)", "Shows ex-VAT cost and price", "Shows VAT payable on the value you added", "Share the result with a link"],
+    steps: ["Enter your cost and selling price.", "Set your VAT rate and whether the prices include VAT.", "Read the margin, markup and net profit.", "Check the VAT you'll owe."],
+    faq: [
+      { q: "Why is margin calculated without VAT?", a: "VAT is not your money — you collect it on the sale and remit it to the tax office, and you reclaim the VAT you paid on the cost. Real profit is the difference between the ex-VAT price and the ex-VAT cost, so margin is figured on those." },
+      { q: "How do I remove VAT from a price?", a: "Divide by 1 plus the rate. At 20%, the ex-VAT amount is price ÷ 1.20; at 12% it's price ÷ 1.12. This tool does it for both the cost and the price automatically." },
+      { q: "What does 'VAT payable' mean here?", a: "It's the VAT on the value you added — the VAT charged on the sale minus the VAT you already paid on the cost. That's the amount that goes to the tax office." },
+      { q: "My prices don't include VAT — can I still use this?", a: "Yes. Untick “Prices include VAT” and the cost and price are treated as net figures; the tool then shows the VAT that would be added on top." },
+    ],
+    useCases: ["Pricing goods that are quoted VAT-inclusive", "Checking whether a marketplace price is actually profitable", "Explaining to a client why the margin isn't the markup", "Setting a price to hit a target margin"],
+    metaExtra: "Free margin-with-VAT calculator — the real profit margin when prices include VAT, with markup, ex-VAT amounts and VAT payable. Runs in your browser.",
+  },
+  ru: {
+    intro:
+      "Посчитайте настоящую маржу, когда себестоимость и цена продажи указаны с НДС. НДС — транзитные деньги: вы собираете его с покупателя и отдаёте налоговой, поэтому прибылью он не является. Калькулятор сначала вычитает НДС из обеих сумм, а затем показывает маржу, наценку и чистую прибыль на суммах без НДС, плюс НДС к уплате. Всё работает в браузере.",
+    benefits: ["Правильная маржа на ценах с НДС", "Любая ставка (12%, 20%, …)", "Показывает себестоимость и цену без НДС", "Показывает НДС к уплате с добавленной стоимости", "Ссылка для передачи результата"],
+    steps: ["Введите себестоимость и цену продажи.", "Задайте ставку НДС и отметьте, включён ли НДС в цены.", "Смотрите маржу, наценку и чистую прибыль.", "Проверьте НДС к уплате."],
+    faq: [
+      { q: "Почему маржа считается без НДС?", a: "НДС — не ваши деньги: вы собираете его с продажи и перечисляете в налоговую, а НДС, уплаченный при закупке, принимаете к вычету. Реальная прибыль — это разница между ценой без НДС и себестоимостью без НДС, поэтому маржа считается на них." },
+      { q: "Как вычесть НДС из цены?", a: "Разделите на единицу плюс ставка. При 20% сумма без НДС = цена ÷ 1,20; при 12% = цена ÷ 1,12. Инструмент делает это и для себестоимости, и для цены автоматически." },
+      { q: "Что здесь значит «НДС к уплате»?", a: "Это НДС с добавленной стоимости — НДС, начисленный с продажи, минус НДС, уже уплаченный в себестоимости. Именно эта сумма идёт в налоговую." },
+      { q: "Мои цены без НДС — можно ли пользоваться?", a: "Да. Снимите галочку «Цены с НДС», и себестоимость с ценой берутся как суммы без НДС; тогда инструмент покажет НДС, который добавится сверху." },
+    ],
+    useCases: ["Ценообразование товаров с ценами, указанными с НДС", "Проверка, прибыльна ли цена на маркетплейсе", "Объяснить клиенту, почему маржа — не наценка", "Подбор цены под целевую маржу"],
+    metaExtra: "Бесплатный калькулятор маржи с НДС — настоящая маржа, когда цены с НДС: наценка, суммы без НДС и НДС к уплате. Работает в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3155,6 +3186,7 @@ const content: Record<string, Content> = {
   "password-strength": pwdStrengthContent,
   "json-to-csv": jsonCsvContent,
   "wifi-qr-code": wifiQrContent,
+  "margin-vat": marginVatContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
