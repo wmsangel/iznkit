@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { SiteHeader } from "@/components/site-header";
@@ -114,7 +113,6 @@ gtag('config', '${GA_ID}');`}
             </Script>
           </>
         ) : null}
-        <Analytics />
       </body>
     </html>
   );
