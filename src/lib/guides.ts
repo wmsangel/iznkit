@@ -1985,6 +1985,150 @@ const mutualNdaGuide: Guide = {
   },
 };
 
+const marketplaceUnitGuide: Guide = {
+  slug: "marketplace-unit-economics",
+  toolSlug: "unit-economics",
+  updated: "2026-09-18",
+  content: {
+    en: {
+      title: "Marketplace unit economics: Ozon, Wildberries & Yandex Market",
+      description:
+        "How to calculate unit economics for a marketplace seller — commission, fulfillment, returns and promo, with a worked example and a free calculator.",
+      intro:
+        "Selling on a marketplace changes the maths: the platform takes a commission, charges for fulfillment and storage, and returns quietly eat into every shipped unit. This guide shows how to build a marketplace seller's unit economics — from sell price down to real profit per order — with a worked example and a free calculator to model your own numbers.",
+      sections: [
+        {
+          h: "Why a marketplace is different from your own store",
+          p: [
+            "On your own site you keep the whole price minus cost and shipping. On a marketplace, the platform sits between you and the buyer and takes a cut at several points: a category commission, fulfillment and last-mile logistics, storage, and often a share of promotions. Model all of them or the unit looks far more profitable than it is.",
+          ],
+        },
+        {
+          h: "The commission bite (Ozon, Wildberries, Yandex Market)",
+          p: [
+            "Every marketplace charges a category commission — a percentage of the sale price. It varies widely by category, from a few percent on some electronics to roughly 20–25% on apparel and accessories, and platforms adjust the rates over time.",
+            "Treat the headline commission as just the first fee. Check the exact current percentage for your category in your seller dashboard rather than assuming — then put that number into the calculator's commission field.",
+          ],
+        },
+        {
+          h: "Fulfillment model: who moves the box (FBO vs FBS)",
+          p: [
+            "Under a marketplace-fulfilled model (Ozon FBO, Wildberries's warehouse, Yandex Market FBY) the platform stores and ships your stock and bills you for storage plus per-order logistics. Under a seller-fulfilled model (FBS) you hold the stock and pack each order, but still pay last-mile delivery.",
+            "Either way there's a per-order logistics cost and, for warehouse models, a storage cost that grows the longer stock sits. Weight and package size drive the logistics fee — a heavier or bulkier 'big pack' costs more to move than a small one.",
+          ],
+        },
+        {
+          h: "Returns and the effective cost per order",
+          p: [
+            "A returned item usually still costs you the outbound and return logistics, and sometimes handling or repackaging — even though you keep no revenue on it. So the real cost per shipped unit is higher than a single happy-path order suggests.",
+            "The practical way to model this: take your return rate and spread the round-trip logistics of returned units across the orders that actually sell. A 10% return rate on a low-margin item can be the difference between profit and loss.",
+          ],
+        },
+        {
+          h: "Promotions and discounts eat margin fastest",
+          p: [
+            "Marketplace sales events push you to discount, and the discount comes straight off your margin — commission is charged on the discounted price, but your cost of goods doesn't shrink. Before joining a promo, check your break-even price: the sell price at which profit per unit hits zero. Discount below it and every extra order loses money.",
+          ],
+        },
+        {
+          h: "A worked example",
+          p: [
+            "Say you sell an item for 2,000 with a cost of goods of 900. The category commission is 17% (340), fulfillment and last-mile logistics are 250 per order, packaging 30, ads average 120 per unit, and tax on the sale is 6% (120).",
+            "Add the costs: 900 + 340 + 250 + 30 + 120 + 120 = 1,760. Profit per order is 2,000 − 1,760 = 240, a 12% margin. Now layer a 10% return rate: the round-trip logistics on returned units pulls the real profit down further — which is exactly the kind of adjustment the calculator makes for you.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "What commission does Ozon, Wildberries or Yandex Market take?",
+          a: "It depends entirely on the category and changes over time — anywhere from a few percent to about 20–25%. Always read the current rate for your specific category in the platform's seller dashboard, then model it; don't rely on a single quoted number.",
+        },
+        {
+          q: "Should I include storage and returns in unit economics?",
+          a: "Yes. Storage is a real per-unit cost the longer stock sits, and returns cost you round-trip logistics with no revenue. Leaving either out overstates profit per unit.",
+        },
+        {
+          q: "What's the difference between FBO and FBS?",
+          a: "FBO/FBY means the marketplace stores and ships your stock (you pay storage plus logistics); FBS means you hold and pack stock yourself but still pay last-mile delivery. Both carry a per-order logistics cost to model.",
+        },
+        {
+          q: "How do I find my break-even price?",
+          a: "It's the sell price where profit per unit reaches zero after every fee. Knowing it tells you how deep you can discount in a promotion before each order starts losing money — the calculator reports it for you.",
+        },
+      ],
+      cta: "Model your marketplace unit economics free",
+    },
+    ru: {
+      title: "Юнит-экономика на маркетплейсе: Ozon, Wildberries, Яндекс Маркет",
+      description:
+        "Как посчитать юнит-экономику продавца на маркетплейсе — комиссия, логистика, возвраты и акции, с разбором на числах и бесплатным калькулятором.",
+      intro:
+        "Торговля на маркетплейсе меняет математику: площадка берёт комиссию, берёт плату за логистику и хранение, а возвраты тихо съедают каждую отгруженную единицу. В этом гайде — как собрать юнит-экономику продавца на маркетплейсе от цены продажи до реальной прибыли с заказа, с разбором на числах и бесплатным калькулятором для ваших цифр.",
+      sections: [
+        {
+          h: "Чем маркетплейс отличается от своего магазина",
+          p: [
+            "На своём сайте вы оставляете всю цену за вычетом себестоимости и доставки. На маркетплейсе площадка стоит между вами и покупателем и забирает долю в нескольких точках: комиссия категории, фулфилмент и последняя миля, хранение и часто доля в акциях. Считайте все — иначе единица выглядит намного прибыльнее, чем есть.",
+          ],
+        },
+        {
+          h: "Сколько забирает комиссия (Ozon, Wildberries, Яндекс Маркет)",
+          p: [
+            "Каждый маркетплейс берёт комиссию категории — процент от цены продажи. Она сильно зависит от категории: от нескольких процентов на части электроники до примерно 20–25% на одежде и аксессуарах, и площадки со временем меняют ставки.",
+            "Считайте заявленную комиссию лишь первым сбором. Проверьте точный актуальный процент для вашей категории в личном кабинете продавца, а не берите на память — и подставьте это число в поле комиссии в калькуляторе.",
+          ],
+        },
+        {
+          h: "Модель фулфилмента: кто везёт коробку (FBO или FBS)",
+          p: [
+            "При фулфилменте маркетплейса (Ozon FBO, склад Wildberries, Яндекс Маркет FBY) площадка хранит и отгружает ваш товар и выставляет счёт за хранение плюс логистику на заказ. При модели продавца (FBS) товар держите вы и собираете каждый заказ сами, но за последнюю милю всё равно платите.",
+            "В любом случае есть стоимость логистики на заказ и — для складских моделей — плата за хранение, которая растёт, чем дольше товар лежит. Вес и габарит определяют плату за логистику: тяжёлый или объёмный «крупногабарит» дороже в перевозке, чем маленький.",
+          ],
+        },
+        {
+          h: "Возвраты и эффективная стоимость заказа",
+          p: [
+            "Возвращённый товар обычно всё равно стоит вам логистики туда и обратно, а иногда обработки или переупаковки — при том что выручки по нему нет. Поэтому реальная стоимость на отгруженную единицу выше, чем кажется по одному «удачному» заказу.",
+            "Практично моделировать так: возьмите процент возвратов и разнесите логистику возвращённых единиц туда-обратно на заказы, которые реально продаются. Возврат 10% на низкомаржинальном товаре может быть разницей между прибылью и убытком.",
+          ],
+        },
+        {
+          h: "Акции и скидки съедают маржу быстрее всего",
+          p: [
+            "Распродажи маркетплейса подталкивают к скидке, а скидка идёт прямо из маржи — комиссия берётся с цены со скидкой, но себестоимость не уменьшается. Перед участием в акции проверьте точку безубыточности: цену, при которой прибыль с единицы равна нулю. Скидка ниже неё — каждый заказ в минус.",
+          ],
+        },
+        {
+          h: "Разбор на числах",
+          p: [
+            "Допустим, вы продаёте товар за 2000 при себестоимости 900. Комиссия категории 17% (340), фулфилмент и последняя миля 250 на заказ, упаковка 30, реклама в среднем 120 на единицу, налог с продажи 6% (120).",
+            "Сложите расходы: 900 + 340 + 250 + 30 + 120 + 120 = 1760. Прибыль с заказа 2000 − 1760 = 240, маржа 12%. Теперь добавьте 10% возвратов: логистика возвращённых единиц туда-обратно тянет реальную прибыль ниже — ровно такую поправку калькулятор делает за вас.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Какую комиссию берут Ozon, Wildberries или Яндекс Маркет?",
+          a: "Полностью зависит от категории и меняется со временем — от нескольких процентов до примерно 20–25%. Всегда смотрите актуальную ставку для вашей категории в кабинете продавца и подставляйте её; не полагайтесь на одно названное число.",
+        },
+        {
+          q: "Учитывать ли хранение и возвраты в юнит-экономике?",
+          a: "Да. Хранение — реальный расход на единицу, чем дольше товар лежит, а возвраты стоят логистики туда-обратно без выручки. Без них прибыль с единицы завышена.",
+        },
+        {
+          q: "В чём разница FBO и FBS?",
+          a: "FBO/FBY — маркетплейс хранит и отгружает ваш товар (вы платите хранение плюс логистику); FBS — товар держите и собираете вы сами, но за последнюю милю платите всё равно. В обоих есть логистика на заказ, которую нужно заложить.",
+        },
+        {
+          q: "Как найти точку безубыточности?",
+          a: "Это цена продажи, при которой прибыль с единицы после всех сборов равна нулю. Она показывает, насколько глубоко можно уйти в скидку на акции, прежде чем заказ начнёт приносить убыток — калькулятор считает её за вас.",
+        },
+      ],
+      cta: "Посчитать юнит-экономику маркетплейса",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
@@ -2000,6 +2144,7 @@ export const GUIDES: Guide[] = [
   compoundGuide,
   rentalYieldGuide,
   unitEconomicsGuide,
+  marketplaceUnitGuide,
   vatGuide,
 ];
 
