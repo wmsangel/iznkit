@@ -251,6 +251,19 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "marketplace-payout",
+        status: "live",
+        priceCents: 0,
+        title: {
+          en: "Marketplace payout calculator",
+          ru: "Калькулятор выплаты маркетплейса",
+        },
+        blurb: {
+          en: "What the marketplace keeps and what you get paid.",
+          ru: "Сколько удержит маркетплейс и что придёт на руки.",
+        },
+      },
+      {
         slug: "margin-calculator",
         status: "live",
         priceCents: 0,

@@ -3136,6 +3136,37 @@ const marginVatContent: Content = {
   },
 };
 
+const mpPayoutContent: Content = {
+  en: {
+    intro:
+      "Work out exactly what a marketplace keeps from a sale and what reaches your payout. Enter the sell price, the category commission, per-order logistics and any other fees, and the calculator shows the commission amount, total deductions, your payout and the effective take rate. Everything runs in your browser.",
+    benefits: ["See your payout after commission and fees", "Effective take rate as a single percentage", "Works for Ozon, Wildberries, Yandex Market and others", "Any category commission and logistics cost", "Share the result with a link"],
+    steps: ["Enter the sell price.", "Add the category commission percentage.", "Add per-order logistics and any other fees.", "Read your payout and effective take rate."],
+    faq: [
+      { q: "What is the marketplace take rate?", a: "It's the share of the sell price the marketplace keeps once commission, logistics and other fees are added up — total deductions ÷ sell price. It's the quickest way to compare how much different platforms or categories cost you." },
+      { q: "Is the payout my profit?", a: "No. The payout is what the marketplace pays you before your own cost of goods, advertising and tax. To see actual profit per unit, use the marketplace unit economics calculator." },
+      { q: "Which commission percentage should I enter?", a: "Use the current commission for your specific category from your seller dashboard — rates vary widely by category and change over time." },
+      { q: "Does this cover Ozon, Wildberries and Yandex Market?", a: "Yes. The maths is the same everywhere — enter that platform's commission and logistics for your category and you'll get its payout and take rate." },
+    ],
+    useCases: ["Comparing payout across marketplaces", "Checking a category's take rate before listing", "Sanity-checking a payout report", "Deciding whether a platform is worth it"],
+    metaExtra: "Free marketplace payout calculator — commission, fees and your real payout with the effective take rate. For Ozon, Wildberries, Yandex Market and more.",
+  },
+  ru: {
+    intro:
+      "Посчитайте, сколько маркетплейс удержит с продажи и что дойдёт до вашей выплаты. Введите цену продажи, комиссию категории, логистику на заказ и прочие сборы — калькулятор покажет сумму комиссии, все удержания, вашу выплату и эффективный процент удержания. Всё работает в браузере.",
+    benefits: ["Выплата после комиссии и сборов", "Эффективное удержание одним процентом", "Подходит для Ozon, Wildberries, Яндекс Маркета и других", "Любая комиссия категории и стоимость логистики", "Ссылка для передачи результата"],
+    steps: ["Введите цену продажи.", "Добавьте процент комиссии категории.", "Добавьте логистику на заказ и прочие сборы.", "Смотрите выплату и эффективное удержание."],
+    faq: [
+      { q: "Что такое эффективное удержание маркетплейса?", a: "Это доля цены продажи, которую маркетплейс оставляет себе после суммы комиссии, логистики и прочих сборов — все удержания ÷ цену продажи. Самый быстрый способ сравнить, во сколько обходятся разные площадки или категории." },
+      { q: "Выплата — это моя прибыль?", a: "Нет. Выплата — это то, что маркетплейс переводит вам до вашей себестоимости, рекламы и налога. Чтобы увидеть реальную прибыль с единицы, используйте калькулятор юнит-экономики маркетплейса." },
+      { q: "Какой процент комиссии вводить?", a: "Возьмите актуальную комиссию для вашей конкретной категории из кабинета продавца — ставки сильно зависят от категории и меняются со временем." },
+      { q: "Подходит ли для Ozon, Wildberries и Яндекс Маркета?", a: "Да. Математика везде одинаковая — введите комиссию и логистику этой площадки для вашей категории и получите её выплату и удержание." },
+    ],
+    useCases: ["Сравнение выплаты по маркетплейсам", "Проверка удержания категории до листинга", "Сверка отчёта о выплате", "Решение, стоит ли выходить на площадку"],
+    metaExtra: "Бесплатный калькулятор выплаты маркетплейса — комиссия, сборы и реальная выплата с эффективным удержанием. Для Ozon, Wildberries, Яндекс Маркета и других.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3187,6 +3218,7 @@ const content: Record<string, Content> = {
   "json-to-csv": jsonCsvContent,
   "wifi-qr-code": wifiQrContent,
   "margin-vat": marginVatContent,
+  "marketplace-payout": mpPayoutContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
