@@ -5,6 +5,8 @@
 //   Ezoic keeps the authorized-seller list current. Add any other lines
 //   (AdSense, affiliates) inside Ezoic's Ads.txt Manager — it allows custom lines.
 // - Otherwise, emit a Google AdSense line if NEXT_PUBLIC_ADSENSE_ID is set.
+import { ADSENSE_CLIENT } from "@/lib/ads";
+
 export const dynamic = "force-static";
 
 export function GET() {
@@ -14,7 +16,7 @@ export function GET() {
   }
 
   const lines: string[] = [];
-  const pub = process.env.NEXT_PUBLIC_ADSENSE_ID; // e.g. "ca-pub-1234567890123456"
+  const pub = ADSENSE_CLIENT; // e.g. "ca-pub-1234567890123456"
   if (pub) lines.push(`google.com, ${pub.replace(/^ca-/, "")}, DIRECT, f08c47fec0942fa0`);
 
   const body = lines.length

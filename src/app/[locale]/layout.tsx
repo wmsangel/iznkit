@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ConsentBanner } from "@/components/consent-banner";
 import { SITE_URL } from "@/lib/seo/site";
+import { ADSENSE_CLIENT } from "@/lib/ads";
 import "../globals.css";
 
 /** Google Analytics 4 measurement id. */
@@ -111,6 +112,16 @@ try{var _c=localStorage.getItem('iznkit:consent');if(_c==='granted'){gtag('conse
 gtag('js', new Date());
 gtag('config', '${GA_ID}');`}
             </Script>
+            {/* Google AdSense loader. Site-wide and crawlable for review; no ad
+                units are placed yet, so nothing empty renders during moderation.
+                Personalized ads still respect Consent Mode set above. */}
+            <Script
+              id="adsbygoogle-init"
+              strategy="afterInteractive"
+              async
+              crossOrigin="anonymous"
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+            />
           </>
         ) : null}
         {/* Cloudflare Web Analytics — маячок без кук и без согласия; сайт идёт мимо прокси, поэтому вставляется руками */}
