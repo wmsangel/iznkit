@@ -180,12 +180,21 @@ function RelatedTools({
   currentSlug: string;
 }) {
   const dict = getDictionary(locale);
-  const others = sections
+  // Prefer live tools from the SAME category first — contextual internal links
+  // reinforce the topical cluster (e.g. marketplace tools link to each other),
+  // then backfill with popular live tools from other categories to reach six.
+  const currentSection = sections.find((s) =>
+    s.tools.some((t) => t.slug === currentSlug),
+  );
+  const sameCategory = (currentSection?.tools ?? []).filter(
+    (t) => t.slug !== currentSlug && t.status === "live",
+  );
+  const elsewhere = sections
+    .filter((s) => s !== currentSection)
     .flatMap((s) => s.tools)
-    .filter((t) => t.slug !== currentSlug)
-    // live tools first, then a couple of upcoming ones
-    .sort((a, b) => Number(b.status === "live") - Number(a.status === "live"))
-    .slice(0, 6);
+    .filter((t) => t.status === "live")
+    .sort((a, b) => Number(Boolean(b.popular)) - Number(Boolean(a.popular)));
+  const others = [...sameCategory, ...elsewhere].slice(0, 6);
   if (others.length === 0) return null;
 
   return (
