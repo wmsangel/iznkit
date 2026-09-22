@@ -41,6 +41,15 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    name: "Pawdget",
+    url: "https://pawdget.com/",
+    lang: "EN",
+    tagline: {
+      en: "What a dog or cat really costs — by breed, in your state. Every figure sourced.",
+      ru: "Сколько на самом деле стоит собака или кошка — по породе, в вашем штате. У каждой цифры источник.",
+    },
+  },
+  {
     name: "izn.games",
     url: "https://izngames.com/",
     lang: "EN",
