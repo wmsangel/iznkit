@@ -23,8 +23,10 @@ export async function generateMetadata({
   return pageMetadata({
     locale,
     path: "",
-    title: `${dict.brand.name} — ${dict.home.heroTitle}`,
-    description: dict.home.heroSubtitle,
+    // Keyword-rich, breadth-representing title. The "%s · iznkit" template only
+    // applies to child segments, not this index page, so prefix the brand here.
+    title: `${dict.brand.name} — ${dict.home.metaTitle}`,
+    description: dict.home.metaDescription,
   });
 }
 

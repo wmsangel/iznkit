@@ -22,9 +22,12 @@ const en = {
     guides: "Guides",
   },
   home: {
-    heroTitle: "Handy tools that hand you a clean PDF.",
+    metaTitle: "Free online tools: calculators, converters & generators",
+    metaDescription:
+      "Free browser tools — calculators, unit and format converters, document generators and developer utilities. No sign-up, nothing to install.",
+    heroTitle: "Handy tools, right in your browser.",
     heroSubtitle:
-      "Calculators and document generators — fill a form, watch it render, download a tidy branded PDF. Everything is free to use right now.",
+      "Calculators, converters, document generators and developer utilities — no sign-up, no install. Fill a form, get the result, done. Everything is free right now.",
     browseCta: "Browse tools",
     sectionsTitle: "Explore by category",
     searchPlaceholder: "Search tools…",
@@ -1204,9 +1207,12 @@ const ru: Dictionary = {
     guides: "Гайды",
   },
   home: {
-    heroTitle: "Инструменты, которые выдают готовый PDF.",
+    metaTitle: "Бесплатные онлайн-инструменты: калькуляторы, конвертеры, генераторы",
+    metaDescription:
+      "Бесплатные инструменты в браузере — калькуляторы, конвертеры величин и форматов, генераторы документов и утилиты для разработчиков. Без регистрации и установки.",
+    heroTitle: "Удобные инструменты — прямо в браузере.",
     heroSubtitle:
-      "Калькуляторы и генераторы документов — заполните форму, смотрите живое превью и скачивайте аккуратный брендированный PDF. Сейчас всё бесплатно.",
+      "Калькуляторы, конвертеры, генераторы документов и утилиты для разработчиков — без регистрации и установки. Заполните форму — получите результат. Сейчас всё бесплатно.",
     browseCta: "Смотреть инструменты",
     sectionsTitle: "По категориям",
     searchPlaceholder: "Поиск инструментов…",
