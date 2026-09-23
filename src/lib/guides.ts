@@ -2305,6 +2305,182 @@ const fboVsFbsGuide: Guide = {
   },
 };
 
+const hourlyRateGuide: Guide = {
+  slug: "how-to-set-your-hourly-rate",
+  toolSlug: "hourly-rate",
+  updated: "2026-09-23",
+  content: {
+    en: {
+      title: "How to set your hourly rate as a freelancer",
+      description:
+        "Work out a freelance hourly rate from the income you want to keep — the formula, realistic billable hours, tax and expenses, and when to raise it.",
+      intro:
+        "Most freelancers pick a rate by asking a friend what they charge, then quietly worry about it for the next two years. There is a better way round: start from the money you need to keep, add back everything that gets taken out before it reaches you, and divide by the hours you can actually invoice. That gives you a floor — the number below which the work costs you money — and the market only tells you how far above the floor you can go.",
+      sections: [
+        {
+          h: "Your rate is not your old salary divided by working hours",
+          p: [
+            "The most common mistake is converting an employed salary straight into an hourly number. If you earned 60,000 a year, 40 hours a week looks like roughly 29 an hour, and that feels like a fair starting point. It isn't close.",
+            "An employer was paying for a lot of things that never showed on your payslip: payroll taxes, paid holiday, sick days, equipment, software, the accountant, the office, and all the hours you spent in meetings and training that nobody billed a client for. As a freelancer you pay every one of those out of your rate, and you only get paid for the hours you invoice.",
+            "In practice a freelance rate that matches an employed salary lands two to three times higher than the naive hourly conversion. That is not greed — it is the same money with the hidden costs made visible.",
+          ],
+        },
+        {
+          h: "Start from take-home, then gross it up",
+          p: [
+            "Work backwards in four steps, in this order:",
+            [
+              "Decide the income you want to keep for the year, after tax — this is the only number you should pick emotionally.",
+              "Gross it up for tax: divide by (1 − your tax rate). At a 20% rate, keeping 60,000 means earning 75,000 before tax.",
+              "Add your yearly business expenses on top — software, hardware, accountant, bank fees, insurance, courses. Say 6,000, giving 81,000.",
+              "Add a profit buffer by dividing by (1 − buffer). A 10% buffer turns 81,000 into a 90,000 revenue target.",
+            ],
+            "That final figure is what you must invoice over the year. Divide it by your billable hours and you have your rate. Do the arithmetic once by hand so you trust it, then let the calculator do it every time you change an assumption.",
+          ],
+        },
+        {
+          h: "Billable hours: the number everyone gets wrong",
+          p: [
+            "A full-time year looks like 2,080 hours. Your billable year is nothing like that. Take out holiday, public holidays and a realistic allowance for illness, and you are down to about 46 working weeks. Then take out the work that no client pays for: finding clients, quoting, invoicing and chasing payment, bookkeeping, email, admin, and learning your craft.",
+            "What survives is typically 20–30 billable hours a week for an established solo freelancer — and toward the lower end in your first year, when you spend far more time selling than delivering. Dividing your target by 40 hours instead of 25 understates your rate by more than a third and quietly guarantees you will miss your income goal while working flat out.",
+            "Continuing the example: 25 billable hours over 46 weeks is 1,150 hours a year. A 90,000 target across 1,150 hours is about 78 an hour, or roughly 626 for an eight-hour day. Compare that with the 29 an hour the salary conversion suggested.",
+          ],
+        },
+        {
+          h: "Tax and expenses deserve real numbers",
+          p: [
+            "Use your actual tax situation, not a round guess. The rate that matters is your effective rate — what you really hand over once your regime, thresholds and deductible expenses are taken into account — and it can differ substantially from the headline percentage. If you have a year of history, divide last year's total tax by last year's gross income and use that.",
+            "For expenses, go through twelve months of bank statements rather than working from memory. The recurring subscriptions are easy to forget and add up fast, and one-off purchases like a laptop belong in the yearly figure too, spread over the years you will use it.",
+            "The profit buffer is not padding. It absorbs the slow month, the client who pays sixty days late, the project that overruns your estimate, and the invoice that never gets paid at all. Ten to twenty percent is a sensible range; if your work is project-based and lumpy rather than a steady retainer, sit at the top of it.",
+          ],
+        },
+        {
+          h: "Check the floor against the market",
+          p: [
+            "Your calculated rate is a floor, not a verdict. Once you have it, look at what comparable freelancers in your specialism and region actually charge — job boards, agency rate cards, peers you trust. Three things can happen.",
+            "If the market sits comfortably above your floor, charge the market rate and keep the difference; you have been underpricing. If the market sits close to your floor, your assumptions are realistic and you have your number. If your floor is clearly above what anyone will pay, the rate is not the problem — the inputs are. Either the income goal is ahead of what this specialism supports, the billable hours are too low because too much time goes to unpaid work, or the expenses need trimming. Change one input at a time and watch which one moves the rate most.",
+          ],
+        },
+        {
+          h: "Quote projects, but price them from the hour",
+          p: [
+            "Clients usually prefer a fixed price for a defined piece of work, and a fixed price is often better for you too: it rewards you for getting faster instead of penalising you. Keep the hourly rate anyway as your internal measuring stick. Estimate the hours honestly, add a margin for the parts you cannot see yet, multiply by your rate, and quote that as one number.",
+            "Afterwards, divide what you were paid by the hours it actually took. That effective rate is the most useful figure in your business: it tells you which clients and which kinds of project are worth repeating, and which ones look profitable until you count the hours.",
+            "Then raise the rate deliberately rather than waiting to feel resentful. Recalculate whenever your costs, tax or income goal change, when your calendar is consistently full, or once a year as a matter of routine. Quote new clients at the new rate immediately, give existing clients notice, and remember that a rate you never raise loses value every year to inflation alone.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "How do I calculate my hourly rate?",
+          a: "Take the yearly income you want to keep, divide by (1 − your tax rate) to gross it up, add your yearly business expenses, then divide by (1 − your profit buffer). That is your revenue target. Divide it by your billable hours for the year — billable hours per week times working weeks — and you have your hourly rate.",
+        },
+        {
+          q: "How many billable hours a week should I assume?",
+          a: "Assume 20–30 for an established solo freelancer, and closer to 20 in your first year. Only hours you actually invoice count; selling, quoting, admin, bookkeeping and learning are real work but no client pays for them. Assuming 40 is the fastest way to set a rate that cannot reach your income goal.",
+        },
+        {
+          q: "Should I tell clients my hourly rate?",
+          a: "You don't have to. Many freelancers quote a fixed price per project and keep the hourly rate as an internal benchmark for estimating and for checking profitability afterwards. Where hourly billing is the norm in your field, publishing the rate is fine — just make sure it is the calculated one, not a number that sounds comfortable.",
+        },
+        {
+          q: "What if the rate I calculate is higher than the market?",
+          a: "Treat it as a signal about your inputs rather than proof you must work for less. Check whether the income goal fits what your specialism pays, whether your billable hours are unrealistically low, and whether expenses can come down. If the gap persists, the honest options are to raise the value you deliver, move to better-paying clients, or accept a lower income goal — not to pretend the floor doesn't exist.",
+        },
+        {
+          q: "How often should I raise my rate?",
+          a: "Recalculate at least once a year, and immediately whenever your costs, tax rate or income goal change. A practical trigger: if you are turning work away or booked solid for weeks, your rate is below what the market will bear. Apply the new rate to new clients at once and give existing ones reasonable notice.",
+        },
+      ],
+      cta: "Calculate your hourly rate",
+    },
+    ru: {
+      title: "Как рассчитать часовую ставку фрилансера",
+      description:
+        "Считаем часовую ставку от дохода, который вы хотите оставлять себе: формула, реальные оплачиваемые часы, налог и расходы, когда поднимать ставку.",
+      intro:
+        "Большинство фрилансеров назначают ставку, спросив у знакомого, сколько берёт он, — и потом года два тихо сомневаются в этой цифре. Правильнее идти с другого конца: взять сумму, которую нужно оставить себе, добавить всё, что забирают до того, как деньги дойдут до вас, и поделить на часы, которые реально получается выставлять в счёт. Получится нижняя граница — ставка, ниже которой работа стоит вам денег. А рынок дальше только подсказывает, насколько выше этой границы вы можете подняться.",
+      sections: [
+        {
+          h: "Ставка — это не прежняя зарплата, поделённая на часы",
+          p: [
+            "Самая частая ошибка — перевести зарплату в найме напрямую в часы. Получали 150 000 в месяц, значит при 40 часах в неделю выходит примерно 870 в час, и это кажется честной отправной точкой. Она далека от правды.",
+            "Работодатель платил за многое, чего не было в вашем расчётном листке: взносы, оплачиваемый отпуск, больничные, техника, софт, бухгалтер, офис — и все часы на совещаниях и обучении, которые никто не выставлял клиенту. Фрилансер платит за это из своей ставки, и деньги получает только за те часы, что попали в счёт.",
+            "На практике ставка фрилансера, эквивалентная зарплате в найме, оказывается в два-три раза выше наивного перевода «зарплата делить на часы». Это не жадность — это та же сумма, просто со скрытыми расходами, вынесенными наружу.",
+          ],
+        },
+        {
+          h: "Считайте от «на руки» и поднимайтесь обратно вверх",
+          p: [
+            "Идите назад в четыре шага, именно в таком порядке:",
+            [
+              "Определите доход, который хотите оставлять себе за год после налога, — это единственная цифра, которую можно выбрать «по желанию».",
+              "Поднимите её до дохода до налога: поделите на (1 − ставка налога). При 6% чтобы оставить 1 800 000, нужно заработать около 1 915 000.",
+              "Добавьте годовые расходы на дело — софт, техника, бухгалтер, банк, страховки, обучение. Скажем, 120 000 — итого 2 035 000.",
+              "Добавьте запас прибыли, поделив на (1 − запас). Запас 10% превращает 2 035 000 в цель по выручке около 2 261 000.",
+            ],
+            "Последняя цифра — то, что нужно выставить в счетах за год. Поделите её на оплачиваемые часы, и вы получите ставку. Посчитайте один раз руками, чтобы поверить результату, а дальше пусть калькулятор пересчитывает при каждом изменении вводных.",
+          ],
+        },
+        {
+          h: "Оплачиваемые часы — цифра, где ошибаются все",
+          p: [
+            "Полный рабочий год выглядит как 2 080 часов. Ваш оплачиваемый год не имеет с этим ничего общего. Вычтите отпуск, праздники и разумный запас на болезни — останется примерно 46 рабочих недель. Потом вычтите работу, за которую не платит ни один клиент: поиск заказчиков, сметы и коммерческие предложения, счета и выбивание оплат, учёт, переписка, админка, обучение.",
+            "В остатке у окрепшего фрилансера-одиночки обычно 20–30 оплачиваемых часов в неделю, а в первый год — ближе к нижней границе, потому что времени на продажи уходит гораздо больше, чем на работу. Если поделить цель на 40 часов вместо 25, ставка окажется занижена больше чем на треть — и вы гарантированно не дойдёте до цели по доходу, работая на пределе.",
+            "Продолжим пример: 25 оплачиваемых часов на 46 недель — это 1 150 часов в год. Цель 2 261 000 на 1 150 часов даёт около 1 966 в час, то есть примерно 15 700 за восьмичасовой день. Сравните с 870 в час, которые подсказывал перевод зарплаты.",
+          ],
+        },
+        {
+          h: "Налог и расходы считайте по-настоящему",
+          p: [
+            "Берите свою реальную налоговую ситуацию, а не круглую догадку. Значение имеет эффективная ставка — сколько вы отдаёте на самом деле с учётом режима, лимитов и вычитаемых расходов, — и она может заметно отличаться от номинального процента. Если есть год истории, поделите прошлогодний налог на прошлогоднюю выручку и используйте это число.",
+            "Расходы выпишите из выписки за двенадцать месяцев, а не по памяти. Регулярные подписки легко забыть, а в сумме они набегают быстро; разовые покупки вроде ноутбука тоже входят в годовую цифру — разнесите их на те годы, что будете им пользоваться.",
+            "Запас прибыли — не подушка «на всякий случай ради красоты». Он закрывает простой, клиента, который платит через шестьдесят дней, проект, вылезший за оценку, и счёт, который так и не оплатят. Разумный диапазон — от десяти до двадцати процентов; если работа проектная и неровная, а не ровный ретейнер, держитесь верхней границы.",
+          ],
+        },
+        {
+          h: "Сверьте нижнюю границу с рынком",
+          p: [
+            "Посчитанная ставка — это пол, а не приговор. Получив её, посмотрите, сколько реально берут сопоставимые специалисты в вашей нише и регионе: вакансии и биржи, прайсы агентств, коллеги, которым вы доверяете. Дальше возможны три исхода.",
+            "Если рынок уверенно выше вашего пола — берите рыночную ставку и оставляйте разницу себе: вы недооценивали свою работу. Если рынок рядом с полом — вводные реалистичны, и вы нашли свою цифру. Если пол явно выше того, что кто-либо готов платить, проблема не в ставке, а во вводных: либо цель по доходу опережает то, что даёт эта специализация, либо оплачиваемых часов слишком мало из-за неоплачиваемой возни, либо расходы просят сокращения. Меняйте по одной вводной и смотрите, какая сильнее двигает ставку.",
+          ],
+        },
+        {
+          h: "Продавайте проект, но считайте по часу",
+          p: [
+            "Клиенты обычно предпочитают фиксированную цену за понятный объём работы, и вам это тоже чаще выгодно: фикс награждает за то, что вы работаете быстрее, а не наказывает. Часовую ставку при этом оставьте себе как внутреннюю линейку. Оцените часы честно, добавьте запас на то, чего пока не видно, умножьте на ставку — и назовите одну цифру.",
+            "А после сдачи поделите полученные деньги на фактически потраченные часы. Эта эффективная ставка — самая полезная цифра в вашем деле: она показывает, каких клиентов и какие проекты стоит повторять, а какие выглядят прибыльными, пока не посчитаешь часы.",
+            "Поднимайте ставку осознанно, а не дожидаясь, пока начнёте злиться на работу. Пересчитывайте, когда меняются расходы, налог или цель по доходу, когда календарь стабильно забит — и раз в год просто по расписанию. Новым клиентам называйте новую ставку сразу, действующих предупреждайте заранее, и помните: ставка, которую не поднимают, каждый год дешевеет на одну инфляцию.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Как рассчитать часовую ставку?",
+          a: "Возьмите доход, который хотите оставлять себе за год, поделите на (1 − ставка налога), добавьте годовые расходы на дело и поделите на (1 − запас прибыли). Это ваша цель по выручке. Поделите её на оплачиваемые часы за год — часы в неделю умножить на рабочие недели — и получите часовую ставку.",
+        },
+        {
+          q: "Сколько оплачиваемых часов в неделю закладывать?",
+          a: "Для окрепшего фрилансера-одиночки 20–30, в первый год — ближе к 20. Считаются только часы, которые вы реально выставляете в счёт: продажи, сметы, админка, учёт и обучение — это настоящая работа, но за неё не платит ни один клиент. Заложить 40 — самый быстрый способ назначить ставку, которая физически не доведёт до цели по доходу.",
+        },
+        {
+          q: "Нужно ли называть клиенту часовую ставку?",
+          a: "Не обязательно. Многие фрилансеры называют фиксированную цену за проект, а часовую ставку держат внутренним ориентиром — для оценки и для проверки прибыльности после сдачи. Если в вашей нише почасовая оплата — норма, называть ставку нормально; главное, чтобы это была посчитанная цифра, а не та, которую комфортно произнести.",
+        },
+        {
+          q: "Что делать, если посчитанная ставка выше рынка?",
+          a: "Считайте это сигналом о вводных, а не доказательством, что надо работать дешевле. Проверьте, соответствует ли цель по доходу тому, что платят в вашей специализации, не занижены ли оплачиваемые часы и можно ли сократить расходы. Если разрыв остаётся, честные варианты такие: повышать ценность работы, переходить к клиентам, которые платят больше, или снижать цель по доходу — но не делать вид, что нижней границы не существует.",
+        },
+        {
+          q: "Как часто поднимать ставку?",
+          a: "Пересчитывайте минимум раз в год и сразу же, когда меняются расходы, налоговый режим или цель по доходу. Практический признак: если вы отказываете в заказах или расписаны на недели вперёд, ставка ниже того, что готов платить рынок. Новым клиентам применяйте новую ставку сразу, действующих предупредите в разумный срок.",
+        },
+      ],
+      cta: "Рассчитать свою часовую ставку",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
@@ -2323,6 +2499,7 @@ export const GUIDES: Guide[] = [
   marketplaceUnitGuide,
   fboVsFbsGuide,
   vatGuide,
+  hourlyRateGuide,
 ];
 
 export function getGuide(slug: string): Guide | undefined {
