@@ -2129,6 +2129,182 @@ const marketplaceUnitGuide: Guide = {
   },
 };
 
+const fboVsFbsGuide: Guide = {
+  slug: "fbo-vs-fbs",
+  toolSlug: "marketplace-payout",
+  updated: "2026-09-23",
+  content: {
+    en: {
+      title: "FBO vs FBS: which marketplace fulfillment model costs you less",
+      description:
+        "FBO, FBS and realFBS compared for Ozon, Wildberries and Yandex Market sellers — who stores the stock, which fees each model charges, and how to pick by the numbers.",
+      intro:
+        "Every marketplace seller has to answer the same question before the first shipment: do you send stock into the platform's warehouse and let it handle everything, or keep the goods and pack each order yourself? That choice — FBO or FBS — changes which fees you pay, how fast you can react to demand, and how much cash sits frozen in inventory. This guide compares the two honestly and shows how to decide with your own numbers rather than a rule of thumb.",
+      sections: [
+        {
+          h: "What the abbreviations actually mean",
+          p: [
+            "FBO (Fulfillment by Operator) means you ship stock into the marketplace's warehouse in bulk. From then on the platform stores it, picks and packs each order, delivers it and handles returns. Ozon calls it FBO, Yandex Market calls it FBY, and Wildberries calls it selling from the marketplace warehouse.",
+            "FBS (Fulfillment by Seller) means the stock stays with you. When an order comes in, you pack it, label it and hand it to the marketplace at a drop-off point or pickup — the platform only does the delivery leg. Some platforms also offer realFBS (Ozon) or DBS, where you deliver to the buyer yourself with your own courier or a carrier of your choice.",
+            "The important part is not the acronym but the split of work: FBO buys you the platform's logistics machine, FBS buys you control over your stock.",
+          ],
+        },
+        {
+          h: "Which fees each model charges",
+          p: [
+            "The category commission is charged either way — it's a percentage of the sale price and doesn't depend on who ships the box. What differs is everything around it.",
+            [
+              "FBO adds storage, charged per unit per day for as long as stock sits in the warehouse, plus inbound delivery of your bulk shipment.",
+              "FBO usually has the cheaper per-order logistics, because the platform picks from its own shelf right next to the buyer.",
+              "FBS has no storage fee at the marketplace, but you pay for your own warehouse, packing materials and labour.",
+              "FBS per-order logistics is typically higher and may include a pickup or drop-off fee for getting the parcel into the network.",
+              "Both models charge for returns — outbound plus return logistics on an item that brought in no revenue.",
+            ],
+            "Rates change regularly and differ by category, weight and package size, so read the current tariff in your seller dashboard rather than trusting a number you saw in an article — including this one.",
+          ],
+        },
+        {
+          h: "Where FBO wins",
+          p: [
+            "FBO is the stronger choice for steady, fast-moving items with predictable demand. If a SKU sells daily, storage costs stay low per unit because the stock turns over quickly, and you get the platform's cheaper delivery and often better placement in search and faster delivery badges that lift conversion.",
+            "It also scales without you: a sales spike is the warehouse's problem, not yours. Sellers with a small team and a handful of proven bestsellers usually make more money on FBO simply because nobody has to spend evenings packing boxes.",
+          ],
+        },
+        {
+          h: "Where FBS wins",
+          p: [
+            "FBS is the stronger choice for slow movers, wide catalogues, expensive items and anything seasonal or fragile. Storage is the silent killer on FBO: a SKU that sells once a month accrues warehouse charges every single day it waits, and on a long enough timeline that fee can exceed the profit on the sale.",
+            "FBS also keeps your cash free. Under FBO you commit inventory to a warehouse weeks before it sells; under FBS the stock stays where you can sell it through other channels, discount it, or return it to your supplier. Testing a new product is far cheaper on FBS — you learn whether it sells before you commit a pallet to a warehouse.",
+          ],
+        },
+        {
+          h: "The costs sellers forget",
+          p: [
+            "On FBO, the usual surprises are storage on stock that stopped selling, disposal or removal fees for pulling inventory back out, and the inbound shipment to the warehouse — which for a distant region can be a meaningful cost per unit.",
+            "On FBS, the forgotten costs are your own: rent for the space, packing materials, the time you or an employee spend picking and labelling, and trips to the drop-off point. Sellers frequently compare the marketplace's fee sheet for both models and conclude FBS is cheaper, because they price their own labour at zero.",
+            "Both models punish you for stock-outs and late shipments, and FBS more directly: miss the handover deadline and you risk a penalty and a rating hit that costs you visibility.",
+          ],
+        },
+        {
+          h: "How to decide with numbers, not instinct",
+          p: [
+            "Take one SKU and run it through both models. For each, write down the sell price, the category commission percentage, the per-order logistics you'd actually be charged, and everything else per unit — storage for the days you expect it to sit, packing, your own labour, and the return-rate adjustment.",
+            "Put those two sets of numbers into the payout calculator one at a time and compare what actually lands in your account per sale. Then multiply by the units you realistically expect to sell in a month: a model that's 30 lower per unit but sells twice as fast usually wins.",
+            "Do this per SKU, not once for the whole shop. Most established sellers end up mixed — bestsellers on FBO where turnover is fast, the long tail and new tests on FBS — and that split is the right answer far more often than picking one model for everything.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Is FBO or FBS cheaper?",
+          a: "Neither is cheaper in general — it depends on how fast the item sells. FBO has lower per-order logistics but charges daily storage, so it wins on fast movers; FBS has no marketplace storage but higher per-order cost and your own labour, so it wins on slow movers and expensive or seasonal stock.",
+        },
+        {
+          q: "Can I use FBO and FBS at the same time?",
+          a: "Yes, and most established sellers do. You can run proven bestsellers from the marketplace warehouse and keep the long tail and new products on FBS, sometimes even on the same listing. Decide per SKU based on turnover, not once for the whole catalogue.",
+        },
+        {
+          q: "What is realFBS or DBS?",
+          a: "It's a seller-fulfilled model where you also handle the final delivery to the buyer, using your own courier or a carrier you choose, instead of handing the parcel to the marketplace. It suits bulky goods, local delivery and items the platform's network handles badly, but the delivery quality and deadlines are then your responsibility.",
+        },
+        {
+          q: "Does FBO really improve my ranking?",
+          a: "Marketplaces favour listings that deliver fast, and warehouse stock near the buyer usually delivers fastest, so FBO items often show better delivery badges and convert better. Treat it as a conversion advantage rather than a guaranteed ranking boost — the platforms don't publish the exact weighting.",
+        },
+        {
+          q: "What happens to FBO stock that stops selling?",
+          a: "It keeps accruing storage charges every day it sits, and pulling it back costs a removal or disposal fee. Watch turnover on FBO SKUs and move dead stock out early — storage on a non-selling item is the most common way FBO quietly turns unprofitable.",
+        },
+      ],
+      cta: "Compare your payout under both models",
+    },
+    ru: {
+      title: "FBO или FBS: какая схема работы с маркетплейсом выгоднее",
+      description:
+        "Сравнение FBO, FBS и realFBS для продавцов Ozon, Wildberries и Яндекс Маркета — кто хранит товар, какие сборы берут в каждой схеме и как выбрать по цифрам.",
+      intro:
+        "Любой продавец на маркетплейсе отвечает на один и тот же вопрос до первой поставки: везти товар на склад площадки и отдать ей всю логистику — или держать его у себя и собирать каждый заказ руками? Выбор между FBO и FBS меняет состав расходов, скорость реакции на спрос и объём денег, замороженных в товаре. Разбираем обе схемы честно и показываем, как выбрать по своим числам, а не по общему правилу.",
+      sections: [
+        {
+          h: "Что означают сокращения",
+          p: [
+            "FBO (Fulfillment by Operator) — вы отгружаете товар на склад маркетплейса партией. Дальше площадка хранит его, собирает и упаковывает заказы, доставляет покупателю и принимает возвраты. На Ozon это FBO, на Яндекс Маркете — FBY, на Wildberries — продажа со склада маркетплейса.",
+            "FBS (Fulfillment by Seller) — товар остаётся у вас. Пришёл заказ — вы сами собираете, маркируете и передаёте посылку маркетплейсу в пункте приёма или через забор; площадка берёт на себя только доставку. Есть ещё realFBS (Ozon) и DBS — когда вы довозите заказ до покупателя своей или выбранной вами службой.",
+            "Суть не в аббревиатуре, а в разделении работы: FBO — вы покупаете логистическую машину площадки, FBS — вы оставляете себе контроль над товаром.",
+          ],
+        },
+        {
+          h: "Какие сборы берут в каждой схеме",
+          p: [
+            "Комиссия категории берётся в любом случае — это процент с цены продажи, и он не зависит от того, кто везёт коробку. Отличается всё вокруг неё.",
+            [
+              "В FBO добавляется хранение — плата за единицу за каждый день на складе, плюс доставка вашей партии до склада.",
+              "Логистика заказа в FBO обычно дешевле: площадка берёт товар со своей полки рядом с покупателем.",
+              "В FBS нет платы за хранение на маркетплейсе, но вы платите за свой склад, упаковку и труд.",
+              "Логистика заказа в FBS чаще выше и может включать сбор за забор или сдачу посылки в пункт приёма.",
+              "Возвраты платные в обеих схемах — логистика туда и обратно по товару, который не принёс выручки.",
+            ],
+            "Тарифы регулярно меняются и зависят от категории, веса и габаритов, поэтому смотрите действующие ставки в кабинете продавца, а не цифры из статьи — включая эту.",
+          ],
+        },
+        {
+          h: "Когда выигрывает FBO",
+          p: [
+            "FBO сильнее на стабильных, быстро оборачиваемых товарах с предсказуемым спросом. Если SKU продаётся каждый день, хранение на единицу выходит копеечным за счёт оборачиваемости, а вы получаете более дешёвую доставку площадки и, как правило, лучшие сроки доставки в карточке — а они прямо влияют на конверсию.",
+            "И схема масштабируется без вас: всплеск продаж — проблема склада, а не ваша. Продавцу с маленькой командой и парой проверенных бестселлеров FBO обычно приносит больше просто потому, что никто не упаковывает коробки по вечерам.",
+          ],
+        },
+        {
+          h: "Когда выигрывает FBS",
+          p: [
+            "FBS сильнее на медленных товарах, широком ассортименте, дорогих позициях и всём сезонном или хрупком. Хранение — тихий убийца FBO: SKU, который продаётся раз в месяц, капает складскими расходами каждый день ожидания, и на длинной дистанции эта плата способна превысить прибыль с продажи.",
+            "FBS ещё и не замораживает деньги. В FBO вы отдаёте товар на склад за недели до продажи; в FBS он остаётся там, где его можно продать через другой канал, уценить или вернуть поставщику. Тестировать новинку на FBS гораздо дешевле — вы узнаёте, продаётся ли товар, до того как отвезли на склад целую паллету.",
+          ],
+        },
+        {
+          h: "Расходы, о которых забывают",
+          p: [
+            "В FBO чаще всего недооценивают хранение зависшего товара, платный вывоз или утилизацию при возврате остатков себе и доставку партии до склада — для удалённого региона это заметная сумма на единицу.",
+            "В FBS забывают собственные расходы: аренду, упаковочные материалы, время своё или сотрудника на сборку и маркировку, поездки в пункт приёма. Продавцы часто сравнивают только тарифы маркетплейса по двум схемам и делают вывод, что FBS дешевле, потому что оценивают свой труд в ноль.",
+            "Обе схемы штрафуют за отсутствие товара и срыв сроков, а FBS — напрямее: опоздали с передачей отгрузки, получили штраф и просадку рейтинга, а вместе с ней и показов.",
+          ],
+        },
+        {
+          h: "Как выбрать по цифрам, а не по ощущениям",
+          p: [
+            "Возьмите один SKU и прогоните его по обеим схемам. Для каждой выпишите цену продажи, процент комиссии категории, ту логистику за заказ, которую с вас реально возьмут, и всё остальное на единицу — хранение за ожидаемые дни лежания, упаковку, свой труд и поправку на процент возвратов.",
+            "Подставьте оба набора в калькулятор выплаты по очереди и сравните, сколько на самом деле придёт на счёт с одной продажи. Потом умножьте на реалистичный объём продаж за месяц: схема, дающая на 30 меньше с единицы, но продающая вдвое быстрее, обычно выигрывает.",
+            "Считайте по каждому SKU, а не один раз на весь магазин. У большинства окрепших продавцов схема смешанная — бестселлеры на FBO, где быстрая оборачиваемость, длинный хвост и новые тесты на FBS. Такое разделение оказывается верным ответом куда чаще, чем одна схема на всё.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Что дешевле — FBO или FBS?",
+          a: "В общем случае ни то, ни другое: всё решает скорость продажи. У FBO дешевле логистика заказа, но есть ежедневное хранение — значит, он выигрывает на быстрых товарах. У FBS нет складской платы маркетплейса, но выше стоимость заказа и добавляется ваш труд — значит, он выигрывает на медленных, дорогих и сезонных позициях.",
+        },
+        {
+          q: "Можно ли работать по FBO и FBS одновременно?",
+          a: "Да, и большинство окрепших продавцов так и делает. Проверенные бестселлеры держат на складе маркетплейса, длинный хвост и новинки — на FBS, иногда даже в одной карточке. Решение принимают по каждому SKU исходя из оборачиваемости, а не один раз на весь ассортимент.",
+        },
+        {
+          q: "Что такое realFBS и DBS?",
+          a: "Это схемы продажи со своего склада, где вы ещё и сами довозите заказ до покупателя — своим курьером или выбранной службой, не передавая посылку маркетплейсу. Подходит для крупногабарита, локальной доставки и товаров, которые плохо идут через сеть площадки, но качество и сроки доставки становятся вашей ответственностью.",
+        },
+        {
+          q: "Правда ли, что FBO поднимает карточку в выдаче?",
+          a: "Маркетплейсы продвигают товары с быстрой доставкой, а товар со склада рядом с покупателем едет быстрее всего — поэтому карточки на FBO чаще показывают лучшие сроки и лучше конвертят. Считайте это преимуществом в конверсии, а не гарантированным бустом в ранжировании: точные веса площадки не публикуют.",
+        },
+        {
+          q: "Что будет с товаром на FBO, если он перестал продаваться?",
+          a: "Он продолжит копить плату за хранение каждый день, а вывоз обратно или утилизация будут стоить отдельно. Следите за оборачиваемостью FBO-позиций и убирайте зависший товар заранее: хранение непродающегося SKU — самый частый способ незаметно увести FBO в минус.",
+        },
+      ],
+      cta: "Сравнить выплату по обеим схемам",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
@@ -2145,6 +2321,7 @@ export const GUIDES: Guide[] = [
   rentalYieldGuide,
   unitEconomicsGuide,
   marketplaceUnitGuide,
+  fboVsFbsGuide,
   vatGuide,
 ];
 
