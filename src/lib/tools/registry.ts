@@ -264,6 +264,19 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "marketplace-price",
+        status: "live",
+        priceCents: 0,
+        title: {
+          en: "Marketplace price calculator",
+          ru: "Калькулятор цены для маркетплейса",
+        },
+        blurb: {
+          en: "The sell price that hits your target margin after fees.",
+          ru: "Цена продажи под целевую маржу после всех сборов.",
+        },
+      },
+      {
         slug: "margin-calculator",
         status: "live",
         priceCents: 0,

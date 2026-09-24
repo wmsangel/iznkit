@@ -3167,6 +3167,37 @@ const mpPayoutContent: Content = {
   },
 };
 
+const mpPriceContent: Content = {
+  en: {
+    intro:
+      "Set the price by starting from the profit you want. Enter your cost of goods, the category commission, per-order logistics and the margin you're aiming for, and the calculator returns the sell price that leaves exactly that margin once the marketplace takes its cut. Everything runs in your browser.",
+    benefits: ["Price backwards from a target margin", "Accounts for commission and per-order logistics", "Warns when a margin is unreachable", "Works for Ozon, Wildberries, Yandex Market and others", "Share the result with a link"],
+    steps: ["Enter your cost of goods.", "Add the category commission and logistics per order.", "Set the margin you want.", "Read the sell price to list at."],
+    faq: [
+      { q: "How is the price calculated?", a: "Margin here is profit ÷ sell price. Solving for price gives P = (cost + logistics) ÷ (1 − commission% − margin%). The calculator does this and also shows the resulting profit, commission and markup." },
+      { q: "Why does it say the margin isn't reachable?", a: "If the commission plus your target margin add up to 100% or more, there is no finite price that leaves that margin — every extra ruble of price is eaten by the commission and the margin you're demanding. Lower one of them." },
+      { q: "Which commission should I enter?", a: "Use the current commission for your category from the marketplace's seller dashboard — rates vary by category and change over time." },
+      { q: "Does this include ads and tax?", a: "No — it prices for commission and logistics. To factor in advertising, packaging and tax, model the result in the unit economics calculator." },
+    ],
+    useCases: ["Setting a launch price on a marketplace", "Repricing to protect a target margin", "Checking if a category can hit your margin at all", "Planning a discount floor"],
+    metaExtra: "Free marketplace price calculator — the sell price that hits your target margin after commission and logistics. For Ozon, Wildberries, Yandex Market and more.",
+  },
+  ru: {
+    intro:
+      "Задайте цену, отталкиваясь от нужной прибыли. Введите себестоимость, комиссию категории, логистику на заказ и целевую маржу — калькулятор вернёт цену продажи, при которой после удержаний маркетплейса остаётся ровно эта маржа. Всё работает в браузере.",
+    benefits: ["Цена от целевой маржи", "Учитывает комиссию и логистику на заказ", "Предупреждает, когда маржа недостижима", "Подходит для Ozon, Wildberries, Яндекс Маркета и других", "Ссылка для передачи результата"],
+    steps: ["Введите себестоимость.", "Добавьте комиссию категории и логистику на заказ.", "Задайте нужную маржу.", "Смотрите цену, по которой выставлять товар."],
+    faq: [
+      { q: "Как считается цена?", a: "Маржа здесь — прибыль ÷ цену продажи. Решая относительно цены, получаем P = (себестоимость + логистика) ÷ (1 − комиссия% − маржа%). Калькулятор делает это и показывает прибыль, комиссию и наценку." },
+      { q: "Почему пишет, что маржа недостижима?", a: "Если комиссия плюс целевая маржа дают 100% и больше, конечной цены с такой маржой не существует — каждый лишний рубль цены съедают комиссия и требуемая маржа. Снизьте что-то одно." },
+      { q: "Какую комиссию вводить?", a: "Возьмите актуальную комиссию для вашей категории из кабинета продавца — ставки зависят от категории и меняются со временем." },
+      { q: "Учтены ли реклама и налог?", a: "Нет — цена считается под комиссию и логистику. Чтобы заложить рекламу, упаковку и налог, прогоните результат через калькулятор юнит-экономики." },
+    ],
+    useCases: ["Стартовая цена при выходе на маркетплейс", "Переоценка под защиту целевой маржи", "Проверка, тянет ли категория вашу маржу вообще", "Планирование нижней границы скидки"],
+    metaExtra: "Бесплатный калькулятор цены для маркетплейса — цена продажи под целевую маржу после комиссии и логистики. Для Ozon, Wildberries, Яндекс Маркета и других.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3219,6 +3250,7 @@ const content: Record<string, Content> = {
   "wifi-qr-code": wifiQrContent,
   "margin-vat": marginVatContent,
   "marketplace-payout": mpPayoutContent,
+  "marketplace-price": mpPriceContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
