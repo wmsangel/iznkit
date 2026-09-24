@@ -1221,6 +1221,13 @@ const en = {
     thanks: "Thank you — genuinely. Every tip and every share helps.",
     back: "Back to tools",
   },
+  fab: {
+    aria: "Support and feedback",
+    support: "Support the project",
+    feedback: "Report an issue",
+    mailSubject: "iznkit feedback",
+    mailBody: "What happened, or what could be better?",
+  },
 };
 
 const ru: Dictionary = {
@@ -2441,6 +2448,13 @@ const ru: Dictionary = {
       "Бесплатные онлайн-инструменты — калькуляторы, конвертеры и генераторы документов, без регистрации:",
     thanks: "Спасибо — правда. Любой донат и репост помогают.",
     back: "К инструментам",
+  },
+  fab: {
+    aria: "Поддержка и обратная связь",
+    support: "Поддержать проект",
+    feedback: "Сообщить о проблеме",
+    mailSubject: "iznkit — обратная связь",
+    mailBody: "Что случилось или что можно улучшить?",
   },
 };
 

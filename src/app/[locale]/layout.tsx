@@ -6,6 +6,7 @@ import { isLocale, locales } from "@/lib/i18n/config";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ConsentBanner } from "@/components/consent-banner";
+import { SupportFab } from "@/components/support-fab";
 import { SITE_URL } from "@/lib/seo/site";
 import { ADSENSE_CLIENT } from "@/lib/ads";
 import "../globals.css";
@@ -91,6 +92,7 @@ export default async function LocaleLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter locale={locale} />
         <ConsentBanner locale={locale} />
+        <SupportFab locale={locale} />
         {process.env.NODE_ENV === "production" ? (
           <>
             <Script

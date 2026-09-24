@@ -46,6 +46,12 @@ export function ConsentBanner({ locale }: { locale: Locale }) {
       ad_personalization: v,
       analytics_storage: v,
     });
+    // Let the support FAB (hidden while this banner is up) appear immediately.
+    try {
+      window.dispatchEvent(new Event("iznkit:consent"));
+    } catch {
+      /* ignore */
+    }
     setShow(false);
   }
 
