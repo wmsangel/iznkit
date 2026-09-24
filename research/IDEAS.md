@@ -57,6 +57,30 @@ timestamp, css-gradient, qr, wifi-qr, json-formatter.
 - [ ] «Без регистрации» trust-строка.
 - [ ] Избранное/пиннинг инструментов; PWA «на домашний экран».
 
+## F. Аналитика и инструментация (обвесить метриками — видеть, что популярно)
+Цель: у каждого значимого действия — событие GA4 + (где важно) key event/цель,
+чтобы решать бэклог по фактам (что смотрят, куда жмут, чем пользуются), а не на глаз.
+Всё через существующий `track()` (`src/lib/analytics.ts`); GA прод-only + Consent Mode.
+- [ ] Полное покрытие событий: каждый инструмент шлёт осмысленный `tool_use`
+      (`calculate`/`copy`/`download`/`share`/`generate`). Сейчас часть — только
+      page_view (loan/tip/pct/regex — см. GA4-заметку в памяти). Добить все.
+- [ ] **Клики по аффилиатам** — `affiliate_click {slot, partner, tool}` на ссылках
+      `AffiliateSlot` (`src/components/affiliate-slot.tsx`). Критично: без этого не
+      видно CTR монетизации. Плюс общий `outbound_click` на внешние ссылки.
+- [ ] Внутренняя навигация как события: клики related-tools, tool→guide и guide→tool
+      CTA, category-hub, шаринг (ShareLink уже шлёт `tool_use:share`), FAB
+      (`fab_action` уже есть), донат (`copy_donate_address`/`donate_share` уже есть).
+- [ ] Поиск на сайте: `site_search {has_results}` (длина запроса/был ли результат).
+- [ ] GA4-конфиг (действие владельца в дашборде): зарегистрировать event-scoped
+      custom dimensions `tool`, `action`, `slot`, `partner`; отметить key events
+      (цели): `affiliate_click`, `fab_action=support`, ключевые `tool_use`.
+- [ ] Отчёт/Explore в GA4: топ-инструменты по `tool_use`, разбивка по `action`,
+      CTR аффилиатов, вовлечённость гайдов. Дополняем cf_stats.py (топ-страницы/
+      referrers без cookie-согласия).
+- [ ] Петля решений: раз в период сверять GA (топ tool_use/action) + GSC → двигать
+      бэклог по реальному спросу (усиливать популярное, чинить high-impression/
+      low-CTR). Кормить дневного аналитика.
+
 ## Идеи (свободные)
 
 - (пусто — добавляй сюда)
