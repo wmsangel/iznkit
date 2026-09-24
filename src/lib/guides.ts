@@ -2481,6 +2481,190 @@ const hourlyRateGuide: Guide = {
   },
 };
 
+const marginVatGuide: Guide = {
+  slug: "margin-with-or-without-vat",
+  toolSlug: "margin-vat",
+  updated: "2026-09-24",
+  content: {
+    en: {
+      title: "Is margin calculated with or without VAT?",
+      description:
+        "Margin is calculated on prices without VAT. Why VAT is not your money, when the gross shortcut still works, and where mixing gross and net inflates your margin.",
+      intro:
+        "Short answer: without VAT. Margin measures what your business keeps, and VAT is not yours to keep — you collect it from the customer on the government's behalf and pass it on, minus the VAT you already paid your suppliers. So the honest margin is always worked out on net, ex-VAT figures. The interesting part is when calculating on gross prices gives you the same answer anyway, and when it quietly tells you a flattering lie.",
+      sections: [
+        {
+          h: "Why VAT stays out of margin",
+          p: [
+            "When you sell something for 120 including 20% VAT, 20 of that belongs to the tax authority from the moment the customer pays. When you bought the goods for 60 including VAT, the 10 of VAT inside that cost comes back to you as a credit against what you owe. Neither amount is revenue or cost of your business — they are money passing through it.",
+            "That is why accountants, lenders and marketplaces all read margin on net figures: revenue without VAT, cost without VAT. The formula itself is the familiar one:",
+            [
+              "Profit = net price − net cost",
+              "Margin % = profit ÷ net price × 100",
+              "Markup % = profit ÷ net cost × 100",
+            ],
+            "To get a net figure from a VAT-inclusive one, divide by (1 + VAT rate): 120 ÷ 1.2 = 100. Do not subtract 20% — that gives 96 and understates the net price.",
+          ],
+        },
+        {
+          h: "A worked example",
+          p: [
+            "You buy an item for 60 including 20% VAT and sell it for 120 including VAT.",
+            [
+              "Net cost: 60 ÷ 1.2 = 50",
+              "Net price: 120 ÷ 1.2 = 100",
+              "Profit: 100 − 50 = 50",
+              "Margin: 50 ÷ 100 = 50%; markup: 50 ÷ 50 = 100%",
+              "VAT you actually remit: 20 collected − 10 reclaimed = 10",
+            ],
+            "Notice the profit. Subtracting gross from gross suggests you make 60 per item; you really make 50. The extra 10 is the VAT you owe on the value you added, and a business that plans spending around the gross figure finds out at the next VAT return.",
+          ],
+        },
+        {
+          h: "When the gross shortcut happens to work",
+          p: [
+            "Run the same example on gross prices: (120 − 60) ÷ 120 = 50%. The percentage is identical. That is not a coincidence — when both the price and the cost carry VAT at the same rate, dividing both by 1.2 cancels out in the ratio.",
+            "So the gross shortcut gives the right margin percentage only when all three hold: you are VAT-registered and reclaim input VAT, your supplier charged VAT, and both sides use the same rate. The absolute profit is still overstated by the VAT you owe, so never use gross profit for cash planning, pricing floors or a break-even calculation.",
+          ],
+        },
+        {
+          h: "Where mixing gross and net inflates your margin",
+          p: [
+            "The expensive mistakes happen when one side has VAT and the other doesn't. The most common case: you are VAT-registered and sell with VAT, but buy from a small supplier who is not registered and charges no VAT.",
+            "Say you pay 60 with no VAT and sell for 120 including 20% VAT. The gross shortcut says (120 − 60) ÷ 120 = 50%. The real figures are net price 100, net cost 60, profit 40 and a margin of 40%. Ten points of margin that never existed — on every sale, until someone reconciles the books.",
+            "The mirror case catches small sellers who are not VAT-registered. You cannot reclaim the VAT your supplier charged, so for you it is simply part of the cost: use the full VAT-inclusive purchase price as the cost, and your selling price has no VAT in it. Stripping VAT out of the cost here would flatter the margin in the other direction.",
+          ],
+        },
+        {
+          h: "Different rates on each side",
+          p: [
+            "Rates can differ even when both sides are taxed: goods bought at a reduced rate and sold at the standard rate, or a bundle with mixed items. The gross shortcut breaks again, because the two divisions no longer cancel. Convert each side with its own rate, then compute margin on the two net numbers.",
+            "Rates also change. When a country raises its VAT rate, a seller who keeps the same shelf price absorbs the increase entirely out of margin — worth recalculating the day the new rate applies rather than at the end of the quarter.",
+          ],
+        },
+        {
+          h: "How to use the calculator",
+          p: [
+            "Enter the cost and the selling price, set the VAT rate, and tick the box if both figures include VAT. The calculator converts both to net, then shows margin, markup, profit per unit and the VAT you remit on the difference.",
+            "For a mixed case — say a supplier with no VAT and a selling price with VAT — convert the price to net yourself first (divide by 1 + rate), untick the box, and enter both numbers as net. You can then share the link to the result so a partner or accountant sees exactly the same figures.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Is margin calculated with or without VAT?",
+          a: "Without VAT. VAT is collected for the government and passed on, so it is neither your revenue nor your cost. Calculate margin as (net price − net cost) ÷ net price, where both figures exclude VAT.",
+        },
+        {
+          q: "Why does margin come out the same with and without VAT?",
+          a: "Because when price and cost both include VAT at the same rate, dividing each by (1 + rate) cancels out in the ratio. The percentage matches, but the profit in money does not — the gross figure is overstated by the VAT you owe.",
+        },
+        {
+          q: "How do I remove VAT from a price?",
+          a: "Divide by (1 + VAT rate). At 20%, 120 ÷ 1.2 = 100 net, and the VAT is 20. Subtracting 20% of 120 (giving 96) is a common mistake that understates the net price.",
+        },
+        {
+          q: "I am not VAT-registered — how do I calculate margin?",
+          a: "Use the full price you paid the supplier, VAT included, as your cost, because you cannot reclaim that VAT. Your selling price carries no VAT, so margin is simply (price − full cost) ÷ price.",
+        },
+        {
+          q: "What is the difference between margin and markup?",
+          a: "Both use the same profit, but margin divides it by the selling price and markup divides it by the cost. A 100% markup is a 50% margin. Margin can never reach 100%; markup can be any size.",
+        },
+      ],
+      cta: "Calculate margin with VAT",
+    },
+    ru: {
+      title: "Маржа считается с НДС или без НДС?",
+      description:
+        "Маржу считают без НДС. Почему налог — не ваши деньги, когда расчёт «с НДС» случайно совпадает, и где смешение цен с НДС и без него завышает маржу.",
+      intro:
+        "Короткий ответ: без НДС. Маржа показывает, что остаётся бизнесу, а НДС вам не принадлежит — вы собираете его с покупателя для государства и перечисляете дальше за вычетом налога, который уже заплатили поставщику. Поэтому честная маржа всегда считается на цифрах без НДС. Интересно другое: когда расчёт по ценам с НДС даёт тот же ответ, а когда тихо и приятно врёт.",
+      sections: [
+        {
+          h: "Почему НДС не входит в маржу",
+          p: [
+            "Продали товар за 2 440 рублей с НДС 22% — 440 из них принадлежат бюджету с момента оплаты. Купили его за 1 220 с НДС — 220 входного налога вернутся к вам вычетом из того, что вы должны. Ни то, ни другое не выручка и не себестоимость бизнеса: это деньги, которые проходят через вас транзитом.",
+            "Поэтому бухгалтерия, банки и маркетплейсы смотрят маржу на цифрах без НДС: выручка без налога, себестоимость без налога. Формулы привычные:",
+            [
+              "Прибыль = цена без НДС − себестоимость без НДС",
+              "Маржа % = прибыль ÷ цена без НДС × 100",
+              "Наценка % = прибыль ÷ себестоимость без НДС × 100",
+            ],
+            "Чтобы получить сумму без НДС из суммы с НДС, делите на (1 + ставка): 2 440 ÷ 1,22 = 2 000. Не вычитайте 22% — выйдет 1 903, и цена без налога окажется заниженной.",
+          ],
+        },
+        {
+          h: "Пример расчёта",
+          p: [
+            "Закупка — 1 220 рублей с НДС 22%, продажа — 2 440 рублей с НДС. Ставка 22% действует в России с 2026 года; для своей ситуации подставьте актуальную.",
+            [
+              "Себестоимость без НДС: 1 220 ÷ 1,22 = 1 000",
+              "Цена без НДС: 2 440 ÷ 1,22 = 2 000",
+              "Прибыль: 2 000 − 1 000 = 1 000",
+              "Маржа: 1 000 ÷ 2 000 = 50%; наценка: 1 000 ÷ 1 000 = 100%",
+              "НДС к уплате: 440 начислено − 220 к вычету = 220",
+            ],
+            "Посмотрите на прибыль. Если вычесть «грязную» закупку из «грязной» цены, выйдет 1 220 с единицы, а на деле — 1 000. Лишние 220 — это НДС с добавленной вами стоимости, и бизнес, который планирует траты от «грязной» цифры, узнаёт об этом на ближайшей декларации.",
+          ],
+        },
+        {
+          h: "Когда расчёт с НДС случайно совпадает",
+          p: [
+            "Посчитаем тот же пример по ценам с НДС: (2 440 − 1 220) ÷ 2 440 = 50%. Процент тот же. Это не совпадение: если и цена, и закупка содержат НДС по одной ставке, деление обеих на 1,22 в отношении сокращается.",
+            "Значит, упрощённый расчёт даёт верный процент маржи только при трёх условиях: вы плательщик НДС и принимаете входной налог к вычету, поставщик выставил вам НДС, и ставка с обеих сторон одинаковая. Прибыль в рублях при этом всё равно завышена на сумму налога — не используйте её для планирования денег, минимальной цены или точки безубыточности.",
+          ],
+        },
+        {
+          h: "Где смешение «с НДС» и «без НДС» завышает маржу",
+          p: [
+            "Дорогие ошибки случаются, когда на одной стороне НДС есть, а на другой нет. Самый частый случай: вы на общей системе и продаёте с НДС, а закупаетесь у поставщика на упрощёнке без НДС.",
+            "Закупка 1 000 без НДС, продажа 2 440 с НДС 22%. Упрощённый расчёт даёт (2 440 − 1 000) ÷ 2 440 = 59%. Реальные цифры: цена без НДС 2 000, себестоимость 1 000, прибыль 1 000, маржа 50%. Девять пунктов маржи, которых не существует, — на каждой продаже, пока кто-нибудь не сверит учёт.",
+            "Обратный случай — у продавцов на УСН без НДС. Входной налог к вычету вы не принимаете, поэтому для вас он просто часть себестоимости: берите закупочную цену целиком, с НДС, а цена продажи налога не содержит. Если «очистить» закупку от НДС, маржа окажется завышенной уже в другую сторону. Отдельно проверьте, не стали ли вы плательщиком НДС на упрощёнке из-за роста выручки: тогда на продажах появится налог по пониженной или обычной ставке, и маржу нужно пересчитать.",
+          ],
+        },
+        {
+          h: "Разные ставки на входе и выходе",
+          p: [
+            "Ставки могут различаться, даже когда налог есть с обеих сторон: товар закуплен по ставке 10%, а продаётся по основной, или в наборе смешаны позиции. Упрощённый расчёт снова ломается, потому что деления больше не сокращаются. Переведите каждую сторону в «без НДС» по своей ставке и считайте маржу на двух чистых цифрах.",
+            "Ставки ещё и меняются. Когда основная ставка выросла, продавец, оставивший прежнюю цену на витрине, оплачивает повышение целиком из своей маржи. Пересчитайте в день вступления новой ставки, а не в конце квартала.",
+          ],
+        },
+        {
+          h: "Как пользоваться калькулятором",
+          p: [
+            "Введите закупку и цену продажи, укажите ставку НДС и поставьте галочку, если обе суммы с НДС. Калькулятор переведёт их в «без НДС» и покажет маржу, наценку, прибыль с единицы и НДС к уплате с разницы.",
+            "Для смешанного случая — поставщик без НДС, продажа с НДС — сначала переведите цену продажи в «без НДС» сами (поделите на 1 + ставка), снимите галочку и введите обе суммы как чистые. Результатом можно поделиться ссылкой: партнёр или бухгалтер увидят те же цифры.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Маржа считается с НДС или без?",
+          a: "Без НДС. Налог собирается для бюджета и перечисляется дальше, поэтому это не ваша выручка и не ваша себестоимость. Маржа = (цена без НДС − себестоимость без НДС) ÷ цена без НДС.",
+        },
+        {
+          q: "Почему маржа с НДС и без НДС получается одинаковой?",
+          a: "Потому что если и цена, и закупка содержат НДС по одной ставке, деление обеих на (1 + ставка) в отношении сокращается. Процент совпадает, а прибыль в рублях — нет: «грязная» цифра завышена на сумму налога к уплате.",
+        },
+        {
+          q: "Как выделить НДС из цены?",
+          a: "Поделите сумму на (1 + ставка). При 22%: 2 440 ÷ 1,22 = 2 000 без НДС, налог — 440. Вычитать 22% от 2 440 (получится 1 903) — частая ошибка, занижающая цену без налога.",
+        },
+        {
+          q: "Я на УСН без НДС — как считать маржу?",
+          a: "Берите в себестоимость полную сумму, заплаченную поставщику, вместе с НДС: к вычету вы его не принимаете. Цена продажи налога не содержит, поэтому маржа = (цена − полная закупка) ÷ цена.",
+        },
+        {
+          q: "Чем маржа отличается от наценки?",
+          a: "Прибыль одна и та же, но маржа делит её на цену продажи, а наценка — на себестоимость. Наценка 100% — это маржа 50%. Маржа не может достичь 100%, наценка может быть любой.",
+        },
+      ],
+      cta: "Рассчитать маржу с НДС",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
@@ -2499,6 +2683,7 @@ export const GUIDES: Guide[] = [
   marketplaceUnitGuide,
   fboVsFbsGuide,
   vatGuide,
+  marginVatGuide,
   hourlyRateGuide,
 ];
 
