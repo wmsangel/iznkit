@@ -160,6 +160,7 @@ export function ToolContent({
       <AffiliateSlot
         locale={locale}
         category={category}
+        tool={slug}
         labels={{
           youMayLike: dict.content.youMayLike,
           partnerNote: dict.content.partnerNote,
