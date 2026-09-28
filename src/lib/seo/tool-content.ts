@@ -3198,6 +3198,37 @@ const mpPriceContent: Content = {
   },
 };
 
+const mpCommContent: Content = {
+  en: {
+    intro:
+      "A quick reference to what Ozon, Wildberries and Yandex Market charge sellers by category — as dated ranges from public seller sources, with a link to each marketplace's official page so you can confirm your exact rate. In 2026 all three raised commissions and folded logistics into the fee, so headline rates are high; use this to get a ballpark, then price it properly in a calculator.",
+    benefits: ["Ozon, Wildberries and Yandex Market side by side", "Commission ranges by category, dated and sourced", "Links to each official commission page", "Explains what makes up the fee on each platform", "One click to the payout, price and unit-economics calculators"],
+    steps: ["Find your marketplace and category.", "Read the reference commission range.", "Open the official page to confirm your exact rate.", "Drop the rate into a calculator to price it."],
+    faq: [
+      { q: "Are these the exact commission rates?", a: "No. They are dated reference ranges from public seller sources — the authoritative per-category/per-предмет rate lives in your seller dashboard and changes often. Always verify there before pricing." },
+      { q: "Why are 2026 rates so high?", a: "All three marketplaces restructured pricing in 2026 and folded much of the logistics cost into the commission line, so the headline percentage looks far higher than the historical 15–25%." },
+      { q: "What's the commission on Ozon / Wildberries / Yandex Market?", a: "It depends entirely on the category (Ozon), the предмет (Wildberries) or the placement category and model (Yandex Market). See the ranges above, then confirm your exact rate on the official page linked in each block." },
+      { q: "How do I turn a commission into profit?", a: "Put the rate into the marketplace payout, price or unit-economics calculators — they add logistics, storage and your cost of goods to show the real profit per order." },
+    ],
+    useCases: ["Ballparking fees before listing", "Comparing marketplaces for a product", "Sanity-checking a payout report", "Setting a price that survives the commission"],
+    metaExtra: "Marketplace commission tables — Ozon, Wildberries and Yandex Market seller commissions by category, dated reference ranges with links to the official rates.",
+  },
+  ru: {
+    intro:
+      "Быстрый справочник по комиссиям продавцов Ozon, Wildberries и Яндекс Маркета по категориям — датированные диапазоны из открытых источников продавцов, со ссылкой на официальную страницу каждой площадки, чтобы уточнить свою точную ставку. В 2026 все три подняли комиссии и свернули логистику в комиссию, поэтому цифры высокие; используйте для прикидки, а точную цену считайте в калькуляторе.",
+    benefits: ["Ozon, Wildberries и Яндекс Маркет рядом", "Диапазоны комиссий по категориям, с датой и источником", "Ссылки на официальные страницы комиссий", "Объясняем, из чего складывается комиссия на каждой площадке", "В один клик — к калькуляторам выплаты, цены и юнит-экономики"],
+    steps: ["Найдите площадку и категорию.", "Смотрите ориентировочный диапазон комиссии.", "Откройте официальную страницу и уточните свою точную ставку.", "Подставьте ставку в калькулятор, чтобы посчитать цену."],
+    faq: [
+      { q: "Это точные ставки комиссий?", a: "Нет. Это датированные ориентиры-диапазоны из открытых источников продавцов — авторитетная ставка по категории/предмету в вашем кабинете и часто меняется. Перед ценообразованием всегда сверяйтесь там." },
+      { q: "Почему ставки 2026 такие высокие?", a: "Все три площадки перестроили тарифы в 2026 и свернули значительную часть логистики в комиссию, поэтому процент выглядит намного выше исторических 15–25%." },
+      { q: "Какая комиссия на Ozon / Wildberries / Яндекс Маркете?", a: "Полностью зависит от категории (Ozon), предмета (Wildberries) или категории размещения и модели (Яндекс Маркет). Смотрите диапазоны выше, затем уточните точную ставку на официальной странице по ссылке в каждом блоке." },
+      { q: "Как из комиссии получить прибыль?", a: "Подставьте ставку в калькуляторы выплаты, цены или юнит-экономики — они добавят логистику, хранение и себестоимость и покажут реальную прибыль с заказа." },
+    ],
+    useCases: ["Прикинуть сборы до листинга", "Сравнить площадки под товар", "Сверить отчёт о выплате", "Поставить цену, которая переживёт комиссию"],
+    metaExtra: "Таблицы комиссий маркетплейсов — комиссии продавцов Ozon, Wildberries и Яндекс Маркета по категориям, датированные ориентиры со ссылками на официальные ставки.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3251,6 +3282,7 @@ const content: Record<string, Content> = {
   "margin-vat": marginVatContent,
   "marketplace-payout": mpPayoutContent,
   "marketplace-price": mpPriceContent,
+  "marketplace-commissions": mpCommContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

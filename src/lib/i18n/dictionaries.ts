@@ -819,6 +819,21 @@ const en = {
     unitLink: "Full unit economics →",
     free: "Free · no sign-up",
   },
+  mpComm: {
+    title: "Marketplace commission tables",
+    subtitle: "Reference commission ranges for Ozon, Wildberries and Yandex Market sellers by category — dated, sourced, and linked to the official pages.",
+    disclaimer:
+      "Rates change and are not an official offer. All three marketplaces raised commissions in 2026, folding logistics into the fee, so headline rates look high. The numbers below are reference ranges from public seller sources; your exact rate depends on the category/предмет, fulfillment model, seller level and promos. Always verify in your seller dashboard before pricing — don't decide on this table alone.",
+    asOfLabel: "Data as of",
+    structureLabel: "What makes up the fee",
+    verify: "Official commission page →",
+    calcTitle: "Put a rate into a calculator",
+    ctaPayout: "Payout calculator →",
+    ctaPrice: "Price calculator →",
+    ctaUnit: "Unit economics →",
+    sourcesNote: "Sources: public RU seller references (2026). Reference ranges, not an official offer.",
+    free: "Free · no sign-up",
+  },
   breakEven: {
     title: "Break-even calculator",
     subtitle: "Find the units and revenue where you start making a profit.",
@@ -2045,6 +2060,21 @@ const ru: Dictionary = {
     note: "Маржа здесь — прибыль ÷ цену продажи. Нужно проверить готовую цену? Используйте калькуляторы выплаты и юнит-экономики.",
     payoutLink: "Калькулятор выплаты →",
     unitLink: "Полная юнит-экономика →",
+    free: "Бесплатно · без регистрации",
+  },
+  mpComm: {
+    title: "Таблицы комиссий маркетплейсов",
+    subtitle: "Ориентиры комиссий для продавцов Ozon, Wildberries и Яндекс Маркета по категориям — с датами, источниками и ссылками на официальные страницы.",
+    disclaimer:
+      "Ставки меняются и не являются офертой. В 2026 все три площадки повысили комиссии, свернув логистику в комиссию, поэтому цифры выглядят высокими. Значения ниже — ориентировочные диапазоны из открытых источников продавцов; ваша точная ставка зависит от категории/предмета, модели фулфилмента, уровня продавца и акций. Перед ценообразованием всегда сверяйтесь с личным кабинетом — не решайте только по этой таблице.",
+    asOfLabel: "Данные на",
+    structureLabel: "Из чего складывается комиссия",
+    verify: "Официальная страница комиссий →",
+    calcTitle: "Подставить ставку в калькулятор",
+    ctaPayout: "Калькулятор выплаты →",
+    ctaPrice: "Калькулятор цены →",
+    ctaUnit: "Юнит-экономика →",
+    sourcesNote: "Источники: открытые справочники продавцов РФ (2026). Ориентировочные диапазоны, не оферта.",
     free: "Бесплатно · без регистрации",
   },
   breakEven: {

@@ -277,6 +277,19 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "marketplace-commissions",
+        status: "live",
+        priceCents: 0,
+        title: {
+          en: "Marketplace commission tables",
+          ru: "Таблицы комиссий маркетплейсов",
+        },
+        blurb: {
+          en: "Ozon, Wildberries & Yandex Market commissions by category.",
+          ru: "Комиссии Ozon, Wildberries и Яндекс Маркета по категориям.",
+        },
+      },
+      {
         slug: "margin-calculator",
         status: "live",
         priceCents: 0,
