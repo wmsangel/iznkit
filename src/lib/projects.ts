@@ -112,4 +112,31 @@ export const PROJECTS: Project[] = [
       ru: "Шаблоны сайтов, писем и таблиц с чистым, понятным кодом — бесплатные версии, $29 Pro.",
     },
   },
+  {
+    name: "OCRSnip",
+    url: "https://ocrsnip.com/",
+    lang: "EN",
+    tagline: {
+      en: "Documents in your browser — statements to Excel, images to text, tables to tables. Nothing uploaded.",
+      ru: "Документы в браузере — выписки в Excel, картинки в текст, таблицы в таблицы. Ничего не загружается.",
+    },
+  },
+  {
+    name: "FoundADay",
+    url: "https://foundaday.com/",
+    lang: "RU/EN",
+    tagline: {
+      en: "One interesting find a day — one thing per category, curated.",
+      ru: "Находка дня — по одной интересной вещи в каждой рубрике.",
+    },
+  },
+  {
+    name: "Dasha Motion",
+    url: "https://dasha-motion.com/",
+    lang: "RU/EN",
+    tagline: {
+      en: "Motion designer portfolio — iGaming creatives, 2D animation, AI.",
+      ru: "Портфолио моушн-дизайнера — iGaming-креативы, 2D-анимация, AI.",
+    },
+  },
 ];
