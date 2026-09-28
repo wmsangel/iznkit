@@ -81,6 +81,35 @@ timestamp, css-gradient, qr, wifi-qr, json-formatter.
       бэклог по реальному спросу (усиливать популярное, чинить high-impression/
       low-CTR). Кормить дневного аналитика.
 
+## Данные поиска — снимок GSC/Bing (2026-09-28)
+
+Владелец прислал скрины. Действовать по РЕАЛЬНОМУ спросу.
+
+**Google (3 мес, 186 запросов) — кластер NDA = топ по показам, но CTR=0 (главная возможность):**
+- `mutual nda vs unilateral nda` 72 показа · `unilateral nda vs mutual nda` 71 ·
+  `mutual vs unilateral non disclosure agreement` 51 · `mutual vs unilateral nda` 49 ·
+  `unilateral vs mutual nda` 46 · `nda generator` 42 · `what is a unilateral nda` 35 ·
+  `mnda vs nda` 32 · `one way vs two way nda` 30. Клики по всем = 0.
+- Это наши гайды one-way-vs-mutual-nda / what-is-a-unilateral-nda / what-is-a-mutual-nda
+  + инструмент nda. Спрос и ранжирование ЕСТЬ, клики НЕТ → CTR/позиции.
+- [ ] **CTR-аудит NDA-кластера** (высокий приоритет): в GSC посмотреть среднюю ПОЗИЦИЮ
+      по этим запросам (на скрине только клики/показы). Если стр.2 — качать ранжирование
+      (внутр. ссылки, глубина, сравнительная таблица mutual↔unilateral, FAQ под точные
+      запросы). Если стр.1 с 0 CTR — переписать title/description гайдов и nda-генератора
+      под эти формулировки («mutual vs unilateral NDA», «one-way vs two-way»), добавить
+      сравнительную таблицу для rich-snippet. Проверить, что nda-генератор ранжируется
+      по `nda generator` (42 показа) и у него цепляющий сниппет.
+- [ ] RU-ниша из Bing: `nda для питча игры издателю шаблон россия` — гайд/пресет NDA
+      для питча игры издателю (пересекается с izn.games-аудиторией).
+
+**Bing — подтверждает маркетплейс-кластер (мелко, позиции 1–3, 0 кликов):**
+`ozon seller marketplace analytics services unit economics`, `marketplace commission
+per item vs per order unit economics`, `unit economics marketplace buyout rate logistics
+returns formula`, `...yandex market seller commission`. → усиливает приоритет A
+(маркетплейс-таблицы). `freelance taxes explained simply` — наш freelance-tax гайд.
+
+Вывод: сначала выжать УЖЕ ранжирующийся NDA-кластер (CTR), это дешевле нового контента.
+
 ## Идеи (свободные)
 
 - (пусто — добавляй сюда)
