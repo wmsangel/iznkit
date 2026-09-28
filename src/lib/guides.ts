@@ -159,9 +159,9 @@ const ndaGuide: Guide = {
   updated: "2026-09-01",
   content: {
     en: {
-      title: "Unilateral vs mutual NDA: which do you need?",
+      title: "Mutual vs unilateral NDA: what's the difference?",
       description:
-        "A plain-English guide to non-disclosure agreements — unilateral (one-way) vs mutual NDA, the clauses that matter, and how to create one free.",
+        "Mutual (two-way) vs unilateral (one-way) NDA — the real differences, when to use each, mNDA vs NDA, and a free generator to make one in a minute.",
       intro:
         "An NDA (non-disclosure agreement) is a contract that keeps shared information confidential. The first decision is direction: unilateral (one-way) or mutual. Here is how to choose, what a solid NDA includes, and how to generate a signature-ready one free.",
       sections: [
@@ -206,6 +206,18 @@ const ndaGuide: Guide = {
       ],
       faq: [
         {
+          q: "What's the difference between a mutual and a unilateral NDA?",
+          a: "In a unilateral (one-way) NDA only one side shares confidential information and the other must protect it; in a mutual (two-way) NDA both sides share and both must protect. Choose unilateral when only you disclose, mutual when both parties do.",
+        },
+        {
+          q: "Is an mNDA the same as an NDA?",
+          a: "An mNDA is a mutual NDA — the two-way version where both parties disclose. \"NDA\" is the general term and often refers to the one-way (unilateral) form. So every mNDA is an NDA, but not every NDA is mutual.",
+        },
+        {
+          q: "What is a one-way vs a two-way NDA?",
+          a: "\"One-way\" is another name for a unilateral NDA (one discloser) and \"two-way\" for a mutual NDA (both disclose). The clauses are the same — only the direction of the confidentiality obligation changes.",
+        },
+        {
           q: "Can I use an NDA template?",
           a: "Yes — a clear, standard template covers most everyday situations. For unusual or high-value deals, have a lawyer adapt it to your needs.",
         },
@@ -221,9 +233,9 @@ const ndaGuide: Guide = {
       cta: "Create an NDA free",
     },
     ru: {
-      title: "Одностороннее и взаимное NDA: какое нужно вам?",
+      title: "Взаимное и одностороннее NDA: в чём разница?",
       description:
-        "Понятный гайд по соглашениям о неразглашении — одностороннее и взаимное NDA, какие пункты важны и как создать документ бесплатно.",
+        "Взаимное (двустороннее) и одностороннее NDA — в чём разница, когда какое нужно, mNDA и NDA, и бесплатный генератор, чтобы сделать документ за минуту.",
       intro:
         "NDA (соглашение о неразглашении) — это договор, который сохраняет переданную информацию конфиденциальной. Первый выбор — направление: одностороннее или взаимное. Ниже — как выбрать, что должно быть в хорошем NDA и как сгенерировать готовый к подписи документ бесплатно.",
       sections: [
@@ -267,6 +279,18 @@ const ndaGuide: Guide = {
         },
       ],
       faq: [
+        {
+          q: "Чем взаимное NDA отличается от одностороннего?",
+          a: "В одностороннем NDA информацию раскрывает только одна сторона, а другая обязана её защищать; во взаимном — раскрывают и защищают обе. Одностороннее — когда раскрываете только вы, взаимное — когда обе стороны.",
+        },
+        {
+          q: "mNDA и NDA — это одно и то же?",
+          a: "mNDA — это взаимное NDA, двусторонняя версия, где раскрывают обе стороны. «NDA» — общий термин и часто означает одностороннюю форму. То есть любое mNDA — это NDA, но не каждое NDA взаимное.",
+        },
+        {
+          q: "Что такое одностороннее и двустороннее NDA?",
+          a: "«Одностороннее» — то же, что унилатеральное (раскрывает один), «двустороннее» — то же, что взаимное (раскрывают оба). Пункты те же, меняется лишь направление обязательства о неразглашении.",
+        },
         {
           q: "Можно ли использовать шаблон NDA?",
           a: "Да — понятный стандартный шаблон покрывает большинство повседневных ситуаций. Для нестандартных или дорогих сделок попросите юриста адаптировать его под вас.",
