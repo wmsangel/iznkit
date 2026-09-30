@@ -497,6 +497,28 @@ export const sections: SectionDef[] = [
           ru: "Конвертация JSON в CSV и обратно прямо в браузере.",
         },
       },
+      {
+        slug: "json-to-types",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "JSON to TypeScript & Go", ru: "JSON → типы TypeScript и Go" },
+        blurb: {
+          en: "Generate TypeScript interfaces or Go structs from JSON.",
+          ru: "Интерфейсы TypeScript или структуры Go из JSON.",
+        },
+      },
+      {
+        slug: "yaml-json",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "YAML ↔ JSON converter", ru: "Конвертер YAML ↔ JSON" },
+        blurb: {
+          en: "Convert YAML to JSON and JSON to YAML in your browser.",
+          ru: "Конвертация YAML в JSON и обратно прямо в браузере.",
+        },
+      },
     ],
   },
   {

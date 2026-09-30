@@ -3229,6 +3229,68 @@ const mpCommContent: Content = {
   },
 };
 
+const jsonTypesContent: Content = {
+  en: {
+    intro:
+      "Paste a JSON sample and get ready-to-use TypeScript interfaces or Go structs. The types are inferred in your browser — nested objects become their own named types, and arrays of objects are merged into one shape with optional fields where keys are missing. Nothing is uploaded.",
+    benefits: ["TypeScript interfaces or Go structs", "Named types for nested objects", "Merges arrays of objects, marks optional fields", "Go output includes json struct tags", "Runs in your browser — nothing uploaded"],
+    steps: ["Paste a JSON object or array.", "Pick TypeScript or Go.", "Name the root type if you like.", "Copy the generated types."],
+    faq: [
+      { q: "How does it handle arrays of objects?", a: "It merges every element into one type. A key that appears in some elements but not all becomes optional (a `?` field in TypeScript, `omitempty` in Go)." },
+      { q: "Does it know int vs float in Go?", a: "Yes — a whole number becomes `int` and a decimal becomes `float64`. If an array mixes both, it uses `float64`." },
+      { q: "What about null values?", a: "A null becomes `null` in TypeScript and `interface{}` in Go, since the real type can't be inferred from null alone." },
+      { q: "Is my JSON uploaded?", a: "No. The types are generated entirely in your browser; your data never leaves your device." },
+    ],
+    useCases: ["Typing an API response", "Scaffolding a Go struct from a payload", "Turning a config sample into types", "Sharing a data shape with your team"],
+    metaExtra: "Free JSON to TypeScript and Go converter — generate typed interfaces or structs from a JSON sample in your browser, with optional fields and json tags.",
+  },
+  ru: {
+    intro:
+      "Вставьте пример JSON и получите готовые интерфейсы TypeScript или структуры Go. Типы выводятся в браузере: вложенные объекты становятся отдельными именованными типами, а массивы объектов объединяются в одну форму с необязательными полями там, где ключи есть не везде. Ничего не загружается.",
+    benefits: ["Интерфейсы TypeScript или структуры Go", "Именованные типы для вложенных объектов", "Объединяет массивы объектов, помечает необязательные поля", "В Go — json-теги структур", "Работает в браузере — ничего не загружается"],
+    steps: ["Вставьте объект или массив JSON.", "Выберите TypeScript или Go.", "При желании задайте имя корневого типа.", "Скопируйте сгенерированные типы."],
+    faq: [
+      { q: "Как обрабатываются массивы объектов?", a: "Все элементы объединяются в один тип. Ключ, который есть в части элементов, становится необязательным (поле `?` в TypeScript, `omitempty` в Go)." },
+      { q: "Различает ли int и float в Go?", a: "Да — целое число становится `int`, дробное — `float64`. Если в массиве смешаны оба, используется `float64`." },
+      { q: "А значения null?", a: "null становится `null` в TypeScript и `interface{}` в Go, потому что по одному null реальный тип определить нельзя." },
+      { q: "Мой JSON загружается?", a: "Нет. Типы генерируются полностью в браузере; данные не покидают устройство." },
+    ],
+    useCases: ["Типизация ответа API", "Заготовка Go-структуры из payload", "Превратить пример конфига в типы", "Поделиться формой данных с командой"],
+    metaExtra: "Бесплатный конвертер JSON в TypeScript и Go — интерфейсы или структуры из примера JSON прямо в браузере, с необязательными полями и json-тегами.",
+  },
+};
+
+const yamlJsonContent: Content = {
+  en: {
+    intro:
+      "Convert YAML to JSON and JSON back to YAML in seconds. Paste YAML to get formatted JSON, or paste JSON to get clean YAML. Everything runs in your browser; nothing is uploaded. Free, no sign-up.",
+    benefits: ["YAML → JSON and JSON → YAML", "Standard YAML 1.2 parsing", "Pretty-printed output", "Copy the result in one click", "Runs in your browser — nothing uploaded"],
+    steps: ["Choose a direction (YAML→JSON or JSON→YAML).", "Paste your data.", "See the converted output.", "Copy it."],
+    faq: [
+      { q: "How do I convert YAML to JSON?", a: "Paste your YAML on the YAML → JSON tab and the formatted JSON appears instantly. Comments and anchors are resolved as part of parsing." },
+      { q: "How do I convert JSON to YAML?", a: "Switch to JSON → YAML and paste valid JSON; you get clean, indented YAML back." },
+      { q: "Which YAML version is supported?", a: "It uses a standard YAML 1.2 parser, so common config files (maps, sequences, scalars, nesting) convert as expected." },
+      { q: "Is my data uploaded?", a: "No. The conversion runs entirely in your browser; your data never leaves your device." },
+    ],
+    useCases: ["Turning a config file into JSON", "Converting an API payload to YAML", "Reading a Docker or CI YAML as JSON", "Quick format switching"],
+    metaExtra: "Free YAML to JSON converter (and JSON to YAML) — standard YAML 1.2, pretty output, one-click copy, all in your browser.",
+  },
+  ru: {
+    intro:
+      "Конвертируйте YAML в JSON и обратно за секунды. Вставьте YAML — получите отформатированный JSON, или вставьте JSON — получите чистый YAML. Всё в браузере, ничего не загружается. Бесплатно, без регистрации.",
+    benefits: ["YAML → JSON и JSON → YAML", "Стандартный разбор YAML 1.2", "Аккуратно отформатированный результат", "Копирование в один клик", "Работает в браузере — ничего не загружается"],
+    steps: ["Выберите направление (YAML→JSON или JSON→YAML).", "Вставьте данные.", "Смотрите результат конвертации.", "Скопируйте."],
+    faq: [
+      { q: "Как конвертировать YAML в JSON?", a: "Вставьте YAML на вкладке YAML → JSON — отформатированный JSON появится сразу. Комментарии и якоря разрешаются при разборе." },
+      { q: "Как конвертировать JSON в YAML?", a: "Переключитесь на JSON → YAML и вставьте корректный JSON — получите чистый YAML с отступами." },
+      { q: "Какая версия YAML поддерживается?", a: "Используется стандартный парсер YAML 1.2, поэтому обычные конфиги (словари, списки, скаляры, вложенность) конвертируются как ожидается." },
+      { q: "Мои данные загружаются?", a: "Нет. Конвертация полностью в браузере; данные не покидают устройство." },
+    ],
+    useCases: ["Превратить конфиг в JSON", "Конвертировать payload API в YAML", "Прочитать Docker- или CI-YAML как JSON", "Быстрая смена формата"],
+    metaExtra: "Бесплатный конвертер YAML в JSON (и JSON в YAML) — стандарт YAML 1.2, аккуратный вывод, копирование в клик, всё в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3278,6 +3340,8 @@ const content: Record<string, Content> = {
   "break-even-calculator": breakEvenContent,
   "password-strength": pwdStrengthContent,
   "json-to-csv": jsonCsvContent,
+  "json-to-types": jsonTypesContent,
+  "yaml-json": yamlJsonContent,
   "wifi-qr-code": wifiQrContent,
   "margin-vat": marginVatContent,
   "marketplace-payout": mpPayoutContent,
