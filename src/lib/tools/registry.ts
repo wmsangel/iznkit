@@ -519,6 +519,28 @@ export const sections: SectionDef[] = [
           ru: "Конвертация YAML в JSON и обратно прямо в браузере.",
         },
       },
+      {
+        slug: "markdown-preview",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Markdown to HTML preview", ru: "Markdown → HTML превью" },
+        blurb: {
+          en: "Write Markdown, see the HTML preview and copy the source.",
+          ru: "Пишите Markdown, смотрите HTML-превью и копируйте исходник.",
+        },
+      },
+      {
+        slug: "image-to-base64",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Image to Base64", ru: "Картинка в Base64" },
+        blurb: {
+          en: "Turn an image into a Base64 data URI — in your browser.",
+          ru: "Превратите картинку в Base64 data-URI — прямо в браузере.",
+        },
+      },
     ],
   },
   {

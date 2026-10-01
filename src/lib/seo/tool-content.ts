@@ -3291,6 +3291,68 @@ const yamlJsonContent: Content = {
   },
 };
 
+const mdPreviewContent: Content = {
+  en: {
+    intro:
+      "Write Markdown and watch it render to HTML live, then copy the generated HTML source. The preview runs in a sandboxed frame, and everything happens in your browser — nothing is uploaded.",
+    benefits: ["Live HTML preview as you type", "Copy the generated HTML source", "Headings, lists, links, tables, code blocks, blockquotes", "Safe sandboxed preview", "Runs in your browser — nothing uploaded"],
+    steps: ["Write or paste Markdown on the left.", "See the rendered preview on the right.", "Switch to the HTML tab for the source.", "Copy the HTML."],
+    faq: [
+      { q: "What Markdown does it support?", a: "Standard Markdown — headings, bold/italic, lists, links, images, tables, fenced code blocks and blockquotes — via a well-known parser." },
+      { q: "Can I get the HTML, not just the preview?", a: "Yes. Switch to the HTML tab to see the generated source and copy it with one click." },
+      { q: "Is it safe to preview arbitrary Markdown?", a: "The preview renders inside a sandboxed frame with scripts disabled, so embedded HTML or scripts can't affect this page." },
+      { q: "Is my text uploaded?", a: "No. The conversion runs entirely in your browser; your Markdown never leaves your device." },
+    ],
+    useCases: ["Previewing a README before committing", "Converting notes to HTML", "Checking how Markdown renders", "Grabbing clean HTML for an email or CMS"],
+    metaExtra: "Free Markdown to HTML preview — live render as you type and copy the generated HTML, all in your browser with a safe sandboxed preview.",
+  },
+  ru: {
+    intro:
+      "Пишите Markdown и смотрите, как он вживую превращается в HTML, затем скопируйте готовый HTML-исходник. Превью рендерится в песочном фрейме, всё происходит в браузере — ничего не загружается.",
+    benefits: ["Живое HTML-превью по мере набора", "Копирование готового HTML-исходника", "Заголовки, списки, ссылки, таблицы, блоки кода, цитаты", "Безопасное превью в песочнице", "Работает в браузере — ничего не загружается"],
+    steps: ["Напишите или вставьте Markdown слева.", "Смотрите готовое превью справа.", "Переключитесь на вкладку HTML за исходником.", "Скопируйте HTML."],
+    faq: [
+      { q: "Какой Markdown поддерживается?", a: "Стандартный Markdown — заголовки, жирный/курсив, списки, ссылки, картинки, таблицы, блоки кода и цитаты — через известный парсер." },
+      { q: "Можно получить HTML, а не только превью?", a: "Да. Переключитесь на вкладку HTML, чтобы увидеть исходник и скопировать его в один клик." },
+      { q: "Безопасно ли превью произвольного Markdown?", a: "Превью рендерится в песочном фрейме с отключёнными скриптами, поэтому встроенный HTML или скрипты не влияют на эту страницу." },
+      { q: "Мой текст загружается?", a: "Нет. Конвертация полностью в браузере; ваш Markdown не покидает устройство." },
+    ],
+    useCases: ["Превью README перед коммитом", "Конвертация заметок в HTML", "Проверить, как отрендерится Markdown", "Забрать чистый HTML для письма или CMS"],
+    metaExtra: "Бесплатное Markdown → HTML превью — живой рендер по мере набора и копирование готового HTML, всё в браузере с безопасным песочным превью.",
+  },
+};
+
+const imgBase64Content: Content = {
+  en: {
+    intro:
+      "Turn an image into a Base64 data URI you can paste straight into CSS or HTML — no more separate image request. Drop a file in and copy the data URI, a CSS background rule, or an <img> tag. The image is read in your browser and never uploaded.",
+    benefits: ["Data URI, CSS, or <img> in one click", "Works with PNG, JPG, SVG, GIF and WebP", "Shows original vs encoded size", "Live preview of the image", "Runs in your browser — nothing uploaded"],
+    steps: ["Drop an image or click to choose one.", "See the preview and the sizes.", "Copy the data URI, CSS rule, or <img> tag.", "Paste it into your code."],
+    faq: [
+      { q: "What is a Base64 data URI?", a: "It's the image encoded as text (data:image/png;base64,…) that you can embed directly in CSS or HTML, so the browser doesn't fetch a separate file." },
+      { q: "When should I inline an image?", a: "Small icons and sprites are good candidates — inlining saves a request. Base64 is about 33% larger than the file, so it's not worth it for big images." },
+      { q: "Which formats work?", a: "Any raster or vector image your browser reads — PNG, JPG, SVG, GIF, WebP and more." },
+      { q: "Is my image uploaded?", a: "No. The file is read locally with your browser's FileReader; it never leaves your device." },
+    ],
+    useCases: ["Inlining an icon into CSS", "Embedding a logo in an HTML email", "Avoiding an extra image request", "Pasting an image into a data file"],
+    metaExtra: "Free image to Base64 converter — turn PNG, JPG, SVG or WebP into a data URI for CSS or HTML, right in your browser. Nothing uploaded.",
+  },
+  ru: {
+    intro:
+      "Превратите картинку в Base64 data-URI, который можно вставить прямо в CSS или HTML — без отдельного запроса за файлом. Перетащите файл и скопируйте data-URI, CSS-правило фона или тег <img>. Картинка читается в браузере и не загружается на сервер.",
+    benefits: ["Data-URI, CSS или <img> в один клик", "PNG, JPG, SVG, GIF и WebP", "Показывает размер оригинала и кодированного", "Живое превью картинки", "Работает в браузере — ничего не загружается"],
+    steps: ["Перетащите картинку или выберите файл.", "Смотрите превью и размеры.", "Скопируйте data-URI, CSS-правило или тег <img>.", "Вставьте в свой код."],
+    faq: [
+      { q: "Что такое Base64 data-URI?", a: "Это картинка, закодированная как текст (data:image/png;base64,…), которую можно встроить прямо в CSS или HTML, чтобы браузер не запрашивал отдельный файл." },
+      { q: "Когда стоит встраивать картинку?", a: "Мелкие иконки и спрайты — хорошие кандидаты: встраивание экономит запрос. Base64 примерно на 33% больше файла, так что для крупных картинок невыгодно." },
+      { q: "Какие форматы подходят?", a: "Любая растровая или векторная картинка, которую читает браузер — PNG, JPG, SVG, GIF, WebP и другие." },
+      { q: "Моя картинка загружается?", a: "Нет. Файл читается локально через FileReader браузера; он не покидает устройство." },
+    ],
+    useCases: ["Встроить иконку в CSS", "Вставить логотип в HTML-письмо", "Избежать лишнего запроса за картинкой", "Вставить картинку в файл данных"],
+    metaExtra: "Бесплатный конвертер картинки в Base64 — PNG, JPG, SVG или WebP в data-URI для CSS или HTML, прямо в браузере. Ничего не загружается.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3342,6 +3404,8 @@ const content: Record<string, Content> = {
   "json-to-csv": jsonCsvContent,
   "json-to-types": jsonTypesContent,
   "yaml-json": yamlJsonContent,
+  "markdown-preview": mdPreviewContent,
+  "image-to-base64": imgBase64Content,
   "wifi-qr-code": wifiQrContent,
   "margin-vat": marginVatContent,
   "marketplace-payout": mpPayoutContent,
