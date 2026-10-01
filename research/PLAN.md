@@ -27,6 +27,8 @@ https://claude.ai/artifact/P1M9RNDoboLWMo9gFLu6HP
 
 **✅ Недавно закрыто:** JSON → TypeScript/Go · YAML ↔ JSON (30.09) · Markdown → HTML preview · Image → Base64 (01.10, commit 70f798b).
 
+- **SEO: canonical главной** — Google выбрал `https://iznkit.com/` вместо нашего `https://iznkit.com/en`, корень отдаёт дубль контента: 301 `/` → `/en` (или явный x-default) либо сделать корень каноническим; сверить hreflang. (SEO, 2026-10-01)
+
 1. **Инструментация §F (один проход)** — M, §F. Доразметить `tool_use` там, где сейчас только page_view (loan/tip/pct/regex) + `outbound_click` + клики related/CTA + `site_search`. Даёт «что реально используют». (affiliate_click уже сделан.)
 2. **Контекстные do-follow ссылки §G** — S, ⛔ ТОЛЬКО ПОСЛЕ ОК ВЛАДЕЛЬЦА. json-to-csv → ocrsnip.com; hourly-rate → costtrek.com (по одной, в теле, естественным анкором). Карта — в §G.
 3. **SQL formatter / beautifier** — S, §B.
