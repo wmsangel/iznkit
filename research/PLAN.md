@@ -27,6 +27,7 @@ https://claude.ai/artifact/P1M9RNDoboLWMo9gFLu6HP
 
 **✅ Недавно закрыто:** JSON → TypeScript/Go · YAML ↔ JSON (30.09) · Markdown → HTML preview · Image → Base64 (01.10, commit 70f798b).
 
+- **SEO: быстрая победа `/ru/tools/compound-interest`** — 44 показа за 7 дней, поз. 11.1, 0 кликов («сложный процент калькулятор» поз. 12, «калькулятор сложного процента по месяцам» поз. 6.3): добавить «по месяцам» в title/description, помесячную таблицу начислений, ссылки на калькулятор из гайда `what-is-compound-interest` и смежных финансовых инструментов. (SEO, 2026-10-02)
 - **SEO: canonical главной** — Google выбрал `https://iznkit.com/` вместо нашего `https://iznkit.com/en`, корень отдаёт дубль контента: 301 `/` → `/en` (или явный x-default) либо сделать корень каноническим; сверить hreflang. (SEO, 2026-10-01)
 
 1. **Инструментация §F (один проход)** — M, §F. Доразметить `tool_use` там, где сейчас только page_view (loan/tip/pct/regex) + `outbound_click` + клики related/CTA + `site_search`. Даёт «что реально используют». (affiliate_click уже сделан.)
