@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { useToolUsed } from "@/lib/tools/use-tool-used";
 import { round2 } from "@/lib/format";
 import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
 import { ShareLink } from "./share-link";
@@ -14,6 +15,7 @@ function fmt(n: number): string {
 
 export function PctTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).pct;
+  const markUsed = useToolUsed("percentage-calculator");
 
   const [ofP, setOfP] = useState(20);
   const [ofY, setOfY] = useState(150);
@@ -40,7 +42,7 @@ export function PctTool({ locale }: { locale: Locale }) {
   const changeRes = from !== 0 ? ((to - from) / from) * 100 : NaN;
 
   return (
-    <div className="space-y-5">
+    <div onInput={markUsed} className="space-y-5">
     <div className="grid md:grid-cols-3 gap-5">
       <div className={card}>
         <div className="font-semibold mb-4">{t.ofTitle}</div>

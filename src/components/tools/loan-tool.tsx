@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { useToolUsed } from "@/lib/tools/use-tool-used";
 import { CURRENCIES, formatMoney, round2 } from "@/lib/format";
 import { Stat } from "./adroi-tool";
 import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
@@ -10,6 +11,7 @@ import { ShareLink } from "./share-link";
 
 export function LoanTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).loan;
+  const markUsed = useToolUsed("loan-calculator");
   const [currency, setCurrency] = useState("USD");
   const [amount, setAmount] = useState(20000);
   const [rate, setRate] = useState(9);
@@ -40,7 +42,7 @@ export function LoanTool({ locale }: { locale: Locale }) {
   const labelCls = "block text-xs font-medium text-[var(--muted)] mb-1";
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8">
+    <div onInput={markUsed} className="grid lg:grid-cols-2 gap-8">
       <div className="space-y-4">
         <div>
           <label className={labelCls}>{t.currency}</label>

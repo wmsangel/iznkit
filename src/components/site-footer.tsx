@@ -4,6 +4,7 @@ import { getDictionary } from "@/lib/i18n/dictionaries";
 import { sections } from "@/lib/tools/registry";
 import { DONATE } from "@/lib/donate";
 import { PROJECTS } from "@/lib/projects";
+import { TrackedLink } from "@/components/tracked-link";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
@@ -74,18 +75,19 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           </div>
           <div className="grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
             {PROJECTS.map((p) => (
-              <a
+              <TrackedLink
                 key={p.url}
                 href={p.url}
-                target="_blank"
-                rel="noopener"
+                external
+                event="outbound_click"
+                params={{ to: p.name, where: "footer" }}
                 className="group flex items-baseline gap-2 text-sm"
               >
                 <span className="font-medium group-hover:text-[var(--accent)] transition-colors">
                   {p.name}
                 </span>
                 <span className="text-[var(--muted)] truncate">— {p.tagline[locale]}</span>
-              </a>
+              </TrackedLink>
             ))}
           </div>
         </div>

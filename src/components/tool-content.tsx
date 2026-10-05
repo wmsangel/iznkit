@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { getToolContent } from "@/lib/seo/tool-content";
@@ -7,6 +6,7 @@ import { sections, getTool } from "@/lib/tools/registry";
 import { FREE_MODE } from "@/lib/payments/mode";
 import { offersFor } from "@/lib/affiliates";
 import { AffiliateSlot } from "@/components/affiliate-slot";
+import { TrackedLink } from "@/components/tracked-link";
 import { getGuideForTool } from "@/lib/guides";
 
 interface Props {
@@ -80,8 +80,10 @@ export function ToolContent({
   return (
     <section className="mt-16">
       {guide ? (
-        <Link
+        <TrackedLink
           href={`/${locale}/guides/${guide.slug}`}
+          event="guide_click"
+          params={{ from: slug, to: guide.slug }}
           className="card card-hover rounded-xl px-4 py-3 mb-10 flex items-center gap-3 max-w-3xl group"
         >
           <span className="text-lg">📖</span>
@@ -94,7 +96,7 @@ export function ToolContent({
             </span>
           </span>
           <span className="text-[var(--accent)] shrink-0">→</span>
-        </Link>
+        </TrackedLink>
       ) : null}
       {content ? (
         <div className="max-w-3xl">
@@ -222,9 +224,14 @@ function RelatedTools({
             </div>
           );
           return live ? (
-            <Link key={tool.slug} href={`/${locale}/tools/${tool.slug}`}>
+            <TrackedLink
+              key={tool.slug}
+              href={`/${locale}/tools/${tool.slug}`}
+              event="related_click"
+              params={{ from: currentSlug, to: tool.slug }}
+            >
               {card}
-            </Link>
+            </TrackedLink>
           ) : (
             <div key={tool.slug}>{card}</div>
           );

@@ -3,6 +3,7 @@
 import { useMemo, useState, Fragment } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { useToolUsed } from "@/lib/tools/use-tool-used";
 
 interface Match {
   index: number;
@@ -12,6 +13,7 @@ interface Match {
 
 export function RegexTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).regex;
+  const markUsed = useToolUsed("regex-tester");
 
   const [pattern, setPattern] = useState("\\b\\w+@\\w+\\.\\w+\\b");
   const [flags, setFlags] = useState("gi");
@@ -67,7 +69,7 @@ export function RegexTool({ locale }: { locale: Locale }) {
     "rounded-lg border border-[var(--border)] bg-[var(--card)] px-3 py-2 font-mono text-sm outline-none focus:border-[var(--accent)]";
 
   return (
-    <div className="space-y-5 max-w-3xl">
+    <div onInput={markUsed} className="space-y-5 max-w-3xl">
       {/* Pattern + flags */}
       <div>
         <label className="eyebrow mb-2 inline-block">{t.pattern}</label>

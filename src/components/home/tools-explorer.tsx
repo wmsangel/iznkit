@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
+import { track } from "@/lib/analytics";
 
 export interface ExplorerTool {
   slug: string;
@@ -57,6 +58,17 @@ export function ToolsExplorer({
       }))
       .filter((s) => s.tools.length > 0);
   }, [q, sections]);
+
+  // Fire a debounced search event — what people look for on-site is a build signal.
+  useEffect(() => {
+    const term = q.trim().toLowerCase();
+    if (!term) return;
+    const id = setTimeout(() => {
+      const results = filtered.reduce((n, s) => n + s.tools.length, 0);
+      track("site_search", { term: term.slice(0, 80), results });
+    }, 800);
+    return () => clearTimeout(id);
+  }, [q, filtered]);
 
   return (
     <div>
