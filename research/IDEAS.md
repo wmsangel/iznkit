@@ -200,6 +200,12 @@ related-tools (та же категория), футер-сети (другие 
 
 ## Идеи (свободные)
 
+- [§F pass-2, мелочь] Инструментация-проход 1 сделан (05.10): site_search, related/
+  guide/outbound-клики + calculate на loan/tip/pct/regex. Осталось по желанию:
+  `tool_use:calculate` на остальных живых калькуляторах (margin/vat/discount/compound/
+  breakeven/datediff/age/aspectratio/marketplace-payout/price), outbound на странице
+  /projects, cta_click на кнопке гайд→инструмент. Переиспользовать `useToolUsed` +
+  `TrackedLink` — дёшево.
 - [сигнал, 2026-10-02, кросс-сайт] GA по izntools.com: топ-страница — «WebP Converter»
   (обгоняет главную). Конвертация/сжатие картинок = подтверждённый спрос. У iznkit есть
   image-size-checker / image-file-size / image-to-base64, но НЕТ конвертера/сжатия →
