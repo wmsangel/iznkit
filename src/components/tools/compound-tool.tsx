@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
@@ -19,6 +19,7 @@ export function CompoundTool({ locale }: { locale: Locale }) {
   const [years, setYears] = useState(10);
   const [n, setN] = useState(12); // compounds per year
   const [monthly, setMonthly] = useState(200);
+  const [gran, setGran] = useState<"month" | "year">("month");
 
   useHydrateFromUrl((sp) => {
     setPrincipal(numParam(sp, "principal", principal));
@@ -44,6 +45,28 @@ export function CompoundTool({ locale }: { locale: Locale }) {
   const totalContributions = principal + monthly * months;
   const totalInterest = futureValue - totalContributions;
 
+  // Period-by-period schedule, iterated so it reconciles with the closed-form
+  // future value: balance = balance·(1+im) + deposit each month. Cumulative
+  // interest per row = balance − deposited. Capped so the table never explodes.
+  const schedule = useMemo(() => {
+    const rows: { label: number; deposited: number; interest: number; balance: number }[] = [];
+    const totalMonths = Math.max(0, Math.min(months, 1200));
+    let balance = principal;
+    for (let m = 1; m <= totalMonths; m++) {
+      balance = balance * (1 + im) + monthly;
+      if (gran === "month" || m % 12 === 0) {
+        const deposited = principal + monthly * m;
+        rows.push({
+          label: gran === "month" ? m : m / 12,
+          deposited,
+          interest: balance - deposited,
+          balance,
+        });
+      }
+    }
+    return rows;
+  }, [principal, monthly, im, months, gran]);
+
   const num = (v: string) => (v === "" ? 0 : Number(v));
   const inputCls =
     "w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm outline-none focus:border-[var(--accent)]";
@@ -57,7 +80,13 @@ export function CompoundTool({ locale }: { locale: Locale }) {
     { value: 365, label: t.daily },
   ];
 
+  const tabCls = (active: boolean) =>
+    `rounded-md px-3 py-1 text-sm font-medium transition-colors ${
+      active ? "bg-[var(--accent)] text-[var(--accent-fg)]" : "text-[var(--muted)] hover:text-[var(--foreground)]"
+    }`;
+
   return (
+    <div className="space-y-10">
     <div className="grid lg:grid-cols-2 gap-8">
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
@@ -111,6 +140,43 @@ export function CompoundTool({ locale }: { locale: Locale }) {
           locale={locale}
         />
       </div>
+    </div>
+
+    <section>
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <h2 className="text-lg font-semibold">{t.scheduleTitle}</h2>
+        <div className="flex gap-1 rounded-lg border border-[var(--border)] p-1">
+          <button type="button" className={tabCls(gran === "month")} onClick={() => setGran("month")}>
+            {t.byMonth}
+          </button>
+          <button type="button" className={tabCls(gran === "year")} onClick={() => setGran("year")}>
+            {t.byYear}
+          </button>
+        </div>
+      </div>
+      <div className="mt-4 max-h-96 overflow-auto rounded-xl border border-[var(--border)]">
+        <table className="w-full text-sm">
+          <thead className="sticky top-0 bg-[var(--card-2)]">
+            <tr className="text-left border-b border-[var(--border)]">
+              <th className="px-4 py-2.5 font-semibold">{gran === "month" ? t.colMonth : t.colYear}</th>
+              <th className="px-4 py-2.5 font-semibold text-right">{t.colDeposited}</th>
+              <th className="px-4 py-2.5 font-semibold text-right">{t.colInterest}</th>
+              <th className="px-4 py-2.5 font-semibold text-right">{t.colBalance}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {schedule.map((row) => (
+              <tr key={row.label} className="border-b border-[var(--border)] last:border-0">
+                <td className="px-4 py-2 tabular-nums text-[var(--muted)]">{row.label}</td>
+                <td className="px-4 py-2 tabular-nums text-right">{fmt(row.deposited)}</td>
+                <td className="px-4 py-2 tabular-nums text-right text-emerald-500">{fmt(row.interest)}</td>
+                <td className="px-4 py-2 tabular-nums text-right font-medium">{fmt(row.balance)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
     </div>
   );
 }

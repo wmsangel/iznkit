@@ -2680,7 +2680,7 @@ const compoundCalc: Content = {
       { q: "Is this financial advice?", a: "No. It's a maths tool for planning; real returns, fees and tax vary. Confirm figures with a professional before relying on them." },
     ],
     useCases: ["Savings goals", "Retirement planning", "Comparing deposit accounts", "Understanding investment growth"],
-    metaExtra: "Free compound interest calculator — future value with regular deposits and any compounding frequency.",
+    metaExtra: "Free compound interest calculator — future value with regular deposits, any compounding frequency, and a month-by-month growth schedule.",
   },
   ru: {
     intro:
@@ -2693,7 +2693,7 @@ const compoundCalc: Content = {
       { q: "Это финансовый совет?", a: "Нет. Это инструмент для планирования; реальная доходность, комиссии и налоги различаются. Сверяйте цифры со специалистом." },
     ],
     useCases: ["Цели по накоплениям", "Планирование пенсии", "Сравнение вкладов", "Понимание роста инвестиций"],
-    metaExtra: "Калькулятор сложных процентов онлайн: вклад с ежемесячным пополнением и капитализацией (ежемесячно, ежеквартально, раз в год). Итог, взносы и проценты — бесплатно, без регистрации.",
+    metaExtra: "Калькулятор сложного процента по месяцам: рост вклада с ежемесячным пополнением и капитализацией, график начислений по месяцам и годам. Итог, взносы и проценты — бесплатно, без регистрации.",
   },
 };
 
