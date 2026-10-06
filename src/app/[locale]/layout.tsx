@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ConsentBanner } from "@/components/consent-banner";
 import { SupportFab } from "@/components/support-fab";
+import { YandexMetrika } from "@/components/yandex-metrika";
 import { SITE_URL } from "@/lib/seo/site";
 import { ADSENSE_CLIENT } from "@/lib/ads";
 import "../globals.css";
@@ -51,6 +52,7 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "ute90jV2NyS9ys9AOKhz_TDwujA-z4uYBt1EfPkb5NQ",
+    yandex: "d36ff35a574e84e1",
     other: {
       "mitgo-verification": "f217f62a-78d6-4b9d-8872-9e89a536ee3c",
     },
@@ -124,6 +126,8 @@ gtag('config', '${GA_ID}');`}
               crossOrigin="anonymous"
               src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
             />
+            {/* Yandex Metrika — RU analytics; consent-gated (loads unless declined). */}
+            <YandexMetrika />
           </>
         ) : null}
         {/* Cloudflare Web Analytics — маячок без кук и без согласия; сайт идёт мимо прокси, поэтому вставляется руками */}
