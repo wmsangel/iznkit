@@ -5,6 +5,7 @@ import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { HourlyTool } from "@/components/tools/hourly-tool";
 import { ToolContent } from "@/components/tool-content";
+import { TrackedLink } from "@/components/tracked-link";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { getToolContent } from "@/lib/seo/tool-content";
 import { getTool } from "@/lib/tools/registry";
@@ -48,6 +49,21 @@ export default async function HourlyPage({
       <div className="mt-10">
         <HourlyTool locale={locale} />
       </div>
+      <p className="mt-6 max-w-2xl text-sm text-[var(--muted)] leading-relaxed">
+        {locale === "ru"
+          ? "Считаете ставку для клиента из другого города или планируете переезд? "
+          : "Pricing for a client in another city, or planning a move? "}
+        <TrackedLink
+          external
+          href="https://costtrek.com/"
+          event="outbound_click"
+          params={{ to: "CostTrek", where: "hourly-rate" }}
+          className="text-[var(--accent)] hover:underline"
+        >
+          {locale === "ru" ? "Сравните стоимость жизни между городами" : "Compare the cost of living between cities"}
+        </TrackedLink>
+        {locale === "ru" ? " в CostTrek." : " with CostTrek."}
+      </p>
       {entry ? (
         <ToolContent
           locale={locale}

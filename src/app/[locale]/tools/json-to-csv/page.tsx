@@ -5,6 +5,7 @@ import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { JsonCsvTool } from "@/components/tools/jsoncsv-tool";
 import { ToolContent } from "@/components/tool-content";
+import { TrackedLink } from "@/components/tracked-link";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { getToolContent } from "@/lib/seo/tool-content";
 import { getTool } from "@/lib/tools/registry";
@@ -37,6 +38,21 @@ export default async function JsonCsvPage({ params }: { params: Promise<{ locale
       </div>
       <p className="mt-2 text-lg text-[var(--muted)] max-w-2xl">{dict.jsonCsv.subtitle}</p>
       <div className="mt-10"><JsonCsvTool locale={locale} /></div>
+      <p className="mt-6 max-w-2xl text-sm text-[var(--muted)] leading-relaxed">
+        {locale === "ru"
+          ? "Данные застряли в скане или картинке? Сначала "
+          : "Working from a scanned document or an image? First "}
+        <TrackedLink
+          external
+          href="https://ocrsnip.com/"
+          event="outbound_click"
+          params={{ to: "OCRSnip", where: "json-to-csv" }}
+          className="text-[var(--accent)] hover:underline"
+        >
+          {locale === "ru" ? "извлеките таблицу из скана" : "extract the table from a scan"}
+        </TrackedLink>
+        {locale === "ru" ? " — и вставьте готовый CSV сюда." : ", then paste the ready CSV here."}
+      </p>
       {entry ? <ToolContent locale={locale} slug={SLUG} toolTitle={dict.jsonCsv.title} toolBlurb={entry.tool.blurb[locale]} priceCents={entry.tool.priceCents} /> : null}
     </div>
   );
