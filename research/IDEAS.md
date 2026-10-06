@@ -200,6 +200,11 @@ related-tools (та же категория), футер-сети (другие 
 
 ## Идеи (свободные)
 
+- [2026-10-06, buildable] Яндекс.Метрика — счётчика НЕТ (по project-access/iznkit.com.md).
+  Для RU-аудитории пробел: RU-аналитика + сигнал Яндекс.Вебмастеру. ⛔ Нужен ID счётчика
+  (создать в кабинете Метрики, есть общий yandex-token.json). Как будет ID — вставить тег
+  в `layout.tsx` рядом с GA: prod-only + consent-gated (ad/analytics_storage уже в Consent
+  Mode). S-задача.
 - [§F pass-2, мелочь] Инструментация-проход 1 сделан (05.10): site_search, related/
   guide/outbound-клики + calculate на loan/tip/pct/regex. Осталось по желанию:
   `tool_use:calculate` на остальных живых калькуляторах (margin/vat/discount/compound/
