@@ -28,7 +28,7 @@ https://claude.ai/artifact/P1M9RNDoboLWMo9gFLu6HP
 **✅ Недавно закрыто:** JSON → TypeScript/Go · YAML ↔ JSON (30.09) · Markdown → HTML preview · Image → Base64 (01.10) · Инструментация §F — site_search / related / guide / outbound-клики + calculate на loan/tip/pct/regex (05.10, commit 661573e).
 
 - **SEO: быстрая победа `/ru/tools/compound-interest`** — 44 показа за 7 дней, поз. 11.1, 0 кликов («сложный процент калькулятор» поз. 12, «калькулятор сложного процента по месяцам» поз. 6.3): добавить «по месяцам» в title/description, помесячную таблицу начислений, ссылки на калькулятор из гайда `what-is-compound-interest` и смежных финансовых инструментов. (SEO, 2026-10-02)
-- **SEO: canonical главной** — Google выбрал `https://iznkit.com/` вместо нашего `https://iznkit.com/en`, корень отдаёт дубль контента: 301 `/` → `/en` (или явный x-default) либо сделать корень каноническим; сверить hreflang. (SEO, 2026-10-01)
+- ~~**SEO: canonical главной**~~ — РАЗОБРАНО 2026-10-06: конфиг верный (проверено на проде), выбор `/` — косметическое предпочтение Google для главной, не баг; безопасного/действенного фикса нет (детали в IDEAS). НЕ меняем, наблюдаем.
 
 1. **Контекстные do-follow ссылки §G** — S, ⛔ ТОЛЬКО ПОСЛЕ ОК ВЛАДЕЛЬЦА. json-to-csv → ocrsnip.com; hourly-rate → costtrek.com (по одной, в теле, естественным анкором). Карта — в §G.
 2. **SQL formatter / beautifier** — S, §B.
