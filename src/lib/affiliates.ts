@@ -99,6 +99,15 @@ export const AFFILIATES: Record<string, Offer[]> = {
         ru: "Осваивайте востребованные навыки — курсы и сертификаты от ведущих вузов и компаний.",
       },
     },
+    {
+      name: "AbeBooks",
+      // LIVE affiliate link (Indoleads, per-sale).
+      url: "https://z02o.xyz/6ac650643346a",
+      blurb: {
+        en: "Books new, used and rare — from thousands of independent sellers worldwide.",
+        ru: "Книги новые, б/у и редкие — от тысяч независимых продавцов по всему миру.",
+      },
+    },
   ],
   "creative-assets": [
     {
