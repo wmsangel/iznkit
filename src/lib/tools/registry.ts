@@ -168,6 +168,7 @@ export const sections: SectionDef[] = [
         status: "live",
         popular: true,
         priceCents: 300,
+        affiliate: "education",
         title: { en: "Freelance tax estimate", ru: "Налог самозанятого" },
         blurb: {
           en: "Estimate your tax and take-home in seconds.",
@@ -178,6 +179,7 @@ export const sections: SectionDef[] = [
         slug: "hourly-rate",
         status: "live",
         priceCents: 300,
+        affiliate: "education",
         title: { en: "Hourly rate calculator", ru: "Калькулятор ставки" },
         blurb: {
           en: "Work out the rate that hits your income goal.",

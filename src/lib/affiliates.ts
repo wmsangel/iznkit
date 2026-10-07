@@ -89,6 +89,17 @@ export const AFFILIATES: Record<string, Offer[]> = {
       },
     },
   ],
+  education: [
+    {
+      name: "Coursera",
+      // LIVE affiliate link (Indoleads, per-sale).
+      url: "https://trackerpro.org/6ac6504b105d5",
+      blurb: {
+        en: "Learn in-demand skills — courses and certificates from top universities and companies.",
+        ru: "Осваивайте востребованные навыки — курсы и сертификаты от ведущих вузов и компаний.",
+      },
+    },
+  ],
   "creative-assets": [
     {
       name: "Foldout",
