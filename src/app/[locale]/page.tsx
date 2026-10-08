@@ -6,6 +6,7 @@ import { sections } from "@/lib/tools/registry";
 import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { InvoiceMockup } from "@/components/home/mockups";
+import { FeaturedSlot } from "@/components/home/featured-slot";
 import { ToolsExplorer } from "@/components/home/tools-explorer";
 import { TEMPLATES, type InvoiceTemplate } from "@/lib/tools/invoice/templates";
 import { DONATE } from "@/lib/donate";
@@ -39,6 +40,10 @@ export default async function HomePage({
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
   const freeLabel = locale === "ru" ? "Бесплатно" : "Free";
+  const featuredCopy =
+    locale === "ru"
+      ? { eyebrow: "Из iznkit", cta: "Открыть" }
+      : { eyebrow: "From iznkit", cta: "Open" };
   const guidesCopy =
     locale === "ru"
       ? {
@@ -150,6 +155,9 @@ export default async function HomePage({
           </div>
         </div>
       </section>
+
+      {/* ---------------- Featured (house ad, weekly rotation) ---------------- */}
+      <FeaturedSlot locale={locale} eyebrow={featuredCopy.eyebrow} cta={featuredCopy.cta} />
 
       {/* ---------------- Stat strip ---------------- */}
       <section className="border-b border-[var(--border)]">
