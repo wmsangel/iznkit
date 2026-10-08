@@ -190,7 +190,9 @@ export function SchetFakturaDocument({ data, brand }: { data: SfData; brand: str
                 {[it.countryCode, it.country].filter((x) => x && x !== "—").join(" / ") || "—"}
               </Text>
               <Text style={[s.cell, s.c, { width: W.gtd, borderRightWidth: 0, fontSize: 6.8 }]}>
-                {it.customsDecl ? it.customsDecl.replace(/\//g, "/​") : "—"}
+                {/* Global hyphenation is disabled, so long slash-delimited ГТД/РНПТ
+                    numbers can't break mid-token — force a wrap after each slash. */}
+                {it.customsDecl ? it.customsDecl.replace(/\/(?=.)/g, "/\n") : "—"}
               </Text>
             </View>
           ))}
