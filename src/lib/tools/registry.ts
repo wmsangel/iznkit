@@ -58,6 +58,16 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "schet-faktura",
+        status: "live",
+        priceCents: 0,
+        title: { en: "Счёт-фактура (RU VAT invoice)", ru: "Генератор счёта-фактуры" },
+        blurb: {
+          en: "A Russian счёт-фактура PDF in the official 1137 format.",
+          ru: "Счёт-фактура в PDF по официальной форме 1137.",
+        },
+      },
+      {
         slug: "quote",
         status: "live",
         priceCents: 500,

@@ -3417,6 +3417,39 @@ const mpTaxContent: Content = {
   },
 };
 
+const schetFakturaContent: Content = {
+  en: {
+    intro:
+      "Create a Russian счёт-фактура (VAT invoice) in the official Постановление 1137 layout — fill in the seller and buyer with their ИНН/КПП, add line items with their VAT rate, and download a ready PDF to check, sign and issue. Per-line VAT and totals are worked out for you. Everything runs in your browser; the data is only sent to generate the PDF and is not stored. Free, no sign-up.",
+    benefits: ["Official 1137 column layout (graphs 1–11)", "Per-line VAT at 20% / 10% / 0% / exempt", "Seller and buyer with ИНН/КПП, consignor/consignee", "Totals: ex-VAT, VAT and total payable", "Sole-trader mode with ОГРНИП", "Free PDF — no sign-up"],
+    steps: ["Fill in the seller and buyer details.", "Add line items with quantity, price and VAT rate.", "Add the document number, date and currency.", "Download the счёт-фактура PDF."],
+    faq: [
+      { q: "What is a счёт-фактура?", a: "It's the Russian VAT invoice — the tax document a VAT payer issues so the buyer can claim an input-VAT deduction. Its form and mandatory fields are set by Постановление 1137 and article 169 of the Tax Code." },
+      { q: "Which fields does it fill?", a: "Seller and buyer (name, address, ИНН/КПП), consignor and consignee, payment document, currency, and the line-item table with unit, quantity, ex-VAT price, VAT rate and amount, country of origin and customs declaration / РНПТ." },
+      { q: "What about traceability columns 12–14?", a: "Those apply only to traceable goods and are filled separately. The generator produces the standard columns 1–11 that the vast majority of invoices use, and notes this on the document." },
+      { q: "Is it legally exact?", a: "It follows the official layout, but the form is amended periodically. Treat the output as a template to check against the current редакция before you issue it — this is not tax advice." },
+      { q: "Is my data uploaded or stored?", a: "The data is sent once to render the PDF and is not stored. Your draft is kept only in your browser's local storage." },
+    ],
+    useCases: ["Issuing a счёт-фактура as a VAT payer", "A one-off invoice without accounting software", "A template to fill and sign by hand", "Checking the 1137 column layout"],
+    metaExtra: "Free счёт-фактура generator — a Russian VAT invoice PDF in the official Постановление 1137 layout, with per-line VAT and ИНН/КПП. Runs in your browser.",
+  },
+  ru: {
+    intro:
+      "Составьте счёт-фактуру по официальной форме (Постановление 1137): заполните продавца и покупателя с ИНН/КПП, добавьте позиции со ставкой НДС — и скачайте готовый PDF, чтобы проверить, подписать и выставить. НДС по строкам и итоги считаются автоматически. Всё работает в браузере; данные отправляются только для формирования PDF и не сохраняются. Бесплатно, без регистрации.",
+    benefits: ["Официальная форма 1137 (графы 1–11)", "НДС по строке: 20% / 10% / 0% / без НДС", "Продавец и покупатель с ИНН/КПП, грузоотправитель/получатель", "Итоги: без НДС, НДС и всего к оплате", "Режим ИП с ОГРНИП", "Бесплатный PDF — без регистрации"],
+    steps: ["Заполните реквизиты продавца и покупателя.", "Добавьте позиции: количество, цену и ставку НДС.", "Укажите номер, дату и валюту.", "Скачайте счёт-фактуру в PDF."],
+    faq: [
+      { q: "Что такое счёт-фактура?", a: "Это налоговый документ по НДС: его выставляет плательщик НДС, чтобы покупатель мог принять входной налог к вычету. Форма и обязательные реквизиты закреплены Постановлением 1137 и статьёй 169 НК РФ." },
+      { q: "Какие реквизиты заполняются?", a: "Продавец и покупатель (наименование, адрес, ИНН/КПП), грузоотправитель и грузополучатель, платёжный документ, валюта и таблица позиций: единица, количество, цена без НДС, ставка и сумма НДС, страна происхождения и № ГТД / РНПТ." },
+      { q: "А графы прослеживаемости 12–14?", a: "Они нужны только для прослеживаемых товаров и заполняются отдельно. Генератор формирует стандартные графы 1–11, которые используются в подавляющем большинстве счетов-фактур, и указывает это в документе." },
+      { q: "Форма юридически точная?", a: "Соответствует официальной форме, но её периодически обновляют. Воспринимайте результат как шаблон для сверки с действующей редакцией перед выставлением — это не налоговая консультация." },
+      { q: "Мои данные загружаются или сохраняются?", a: "Данные отправляются один раз для формирования PDF и не сохраняются. Черновик хранится только в локальном хранилище вашего браузера." },
+    ],
+    useCases: ["Выставить счёт-фактуру как плательщик НДС", "Разовый документ без бухгалтерской программы", "Шаблон для заполнения и подписи", "Проверить расположение граф формы 1137"],
+    metaExtra: "Бесплатный генератор счёта-фактуры — PDF по официальной форме Постановления 1137, с НДС по строкам и ИНН/КПП. Работает в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3477,6 +3510,7 @@ const content: Record<string, Content> = {
   "marketplace-price": mpPriceContent,
   "marketplace-commissions": mpCommContent,
   "marketplace-taxes": mpTaxContent,
+  "schet-faktura": schetFakturaContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
