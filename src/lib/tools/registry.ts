@@ -543,6 +543,17 @@ export const sections: SectionDef[] = [
           ru: "Превратите картинку в Base64 data-URI — прямо в браузере.",
         },
       },
+      {
+        slug: "sql-formatter",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "SQL formatter & beautifier", ru: "Форматтер SQL" },
+        blurb: {
+          en: "Format and beautify SQL for 10+ dialects — in your browser.",
+          ru: "Форматирование и красивый SQL для 10+ диалектов — в браузере.",
+        },
+      },
     ],
   },
   {

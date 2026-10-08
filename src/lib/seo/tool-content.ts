@@ -3353,6 +3353,37 @@ const imgBase64Content: Content = {
   },
 };
 
+const sqlFormatterContent: Content = {
+  en: {
+    intro:
+      "Paste cramped, one-line or inconsistent SQL and get back clean, indented, readable SQL in seconds. Pick your dialect — PostgreSQL, MySQL, SQL Server, Oracle, BigQuery, Snowflake and more — choose how keywords are cased, and copy the result. Everything runs in your browser; nothing is uploaded. Free, no sign-up.",
+    benefits: ["10+ SQL dialects (PostgreSQL, MySQL, T-SQL, Oracle, BigQuery…)", "Uppercase, lowercase or preserve keywords", "2, 4 or 8-space indentation", "Copy the formatted SQL in one click", "Runs in your browser — nothing uploaded"],
+    steps: ["Paste your SQL on the left.", "Pick the dialect and keyword case.", "Read the formatted SQL on the right.", "Copy it."],
+    faq: [
+      { q: "Which SQL dialects are supported?", a: "Standard SQL plus PostgreSQL, MySQL, MariaDB, SQLite, SQL Server (T-SQL), Oracle (PL/SQL), BigQuery, Snowflake, Redshift and Spark SQL. Pick the one closest to your database for the most accurate formatting." },
+      { q: "Does it change what my query does?", a: "No. It only reformats whitespace, indentation and keyword case — the query logic and identifiers are left exactly as written." },
+      { q: "Can I keep my keyword casing?", a: "Yes. Choose UPPER, lower or Preserve. Preserve leaves SELECT/select exactly as you typed it." },
+      { q: "Is my SQL uploaded?", a: "No. Formatting runs entirely in your browser; your SQL never leaves your device." },
+    ],
+    useCases: ["Cleaning up a query copied from code", "Making a one-line query readable", "Standardising SQL before a code review", "Formatting generated or ORM SQL"],
+    metaExtra: "Free SQL formatter and beautifier — clean, indent and case SQL for PostgreSQL, MySQL, T-SQL, Oracle, BigQuery and more, right in your browser.",
+  },
+  ru: {
+    intro:
+      "Вставьте сжатый, однострочный или неаккуратный SQL — и получите чистый, с отступами, читаемый код за секунды. Выберите диалект — PostgreSQL, MySQL, SQL Server, Oracle, BigQuery, Snowflake и другие, — задайте регистр ключевых слов и скопируйте результат. Всё в браузере, ничего не загружается. Бесплатно, без регистрации.",
+    benefits: ["10+ диалектов SQL (PostgreSQL, MySQL, T-SQL, Oracle, BigQuery…)", "Ключевые слова: ВЕРХНИЙ, нижний или как есть", "Отступ в 2, 4 или 8 пробелов", "Копирование результата в один клик", "Работает в браузере — ничего не загружается"],
+    steps: ["Вставьте SQL слева.", "Выберите диалект и регистр ключевых слов.", "Смотрите отформатированный SQL справа.", "Скопируйте."],
+    faq: [
+      { q: "Какие диалекты SQL поддерживаются?", a: "Стандартный SQL плюс PostgreSQL, MySQL, MariaDB, SQLite, SQL Server (T-SQL), Oracle (PL/SQL), BigQuery, Snowflake, Redshift и Spark SQL. Выберите ближайший к вашей БД для самого точного форматирования." },
+      { q: "Меняется ли при этом сам запрос?", a: "Нет. Меняются только пробелы, отступы и регистр ключевых слов — логика запроса и идентификаторы остаются как есть." },
+      { q: "Можно оставить свой регистр ключевых слов?", a: "Да. Выберите ВЕРХНИЙ, нижний или «Как есть». «Как есть» сохраняет SELECT/select ровно так, как вы ввели." },
+      { q: "Мой SQL загружается?", a: "Нет. Форматирование полностью в браузере; ваш SQL не покидает устройство." },
+    ],
+    useCases: ["Привести в порядок запрос из кода", "Сделать однострочный запрос читаемым", "Стандартизировать SQL перед код-ревью", "Отформатировать сгенерированный или ORM-SQL"],
+    metaExtra: "Бесплатный форматтер и бьютифайер SQL — чистит, расставляет отступы и регистр для PostgreSQL, MySQL, T-SQL, Oracle, BigQuery и других, прямо в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3406,6 +3437,7 @@ const content: Record<string, Content> = {
   "yaml-json": yamlJsonContent,
   "markdown-preview": mdPreviewContent,
   "image-to-base64": imgBase64Content,
+  "sql-formatter": sqlFormatterContent,
   "wifi-qr-code": wifiQrContent,
   "margin-vat": marginVatContent,
   "marketplace-payout": mpPayoutContent,
