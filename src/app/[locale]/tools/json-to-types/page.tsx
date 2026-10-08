@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { JsonToTypesTool } from "@/components/tools/json-to-types-tool";
+import { TrackedLink } from "@/components/tracked-link";
 import { ToolContent } from "@/components/tool-content";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { getToolContent } from "@/lib/seo/tool-content";
@@ -37,6 +38,21 @@ export default async function JsonToTypesPage({ params }: { params: Promise<{ lo
       </div>
       <p className="mt-2 text-lg text-[var(--muted)] max-w-2xl">{dict.jsonTypes.subtitle}</p>
       <div className="mt-10"><JsonToTypesTool locale={locale} /></div>
+      <p className="mt-6 max-w-2xl text-sm text-[var(--muted)] leading-relaxed">
+        {locale === "ru"
+          ? "Нужны другие браузерные утилиты для текста, кодирования и конвертации? "
+          : "Need more browser utilities for text, encoding and conversion? "}
+        <TrackedLink
+          external
+          href="https://izntools.com/"
+          event="outbound_click"
+          params={{ to: "izntools", where: "json-to-types" }}
+          className="text-[var(--accent)] hover:underline"
+        >
+          {locale === "ru" ? "Откройте 100+ инструментов на izntools" : "See 100+ browser tools on izntools"}
+        </TrackedLink>
+        {locale === "ru" ? "." : "."}
+      </p>
       {entry ? <ToolContent locale={locale} slug={SLUG} toolTitle={dict.jsonTypes.title} toolBlurb={entry.tool.blurb[locale]} priceCents={entry.tool.priceCents} /> : null}
     </div>
   );

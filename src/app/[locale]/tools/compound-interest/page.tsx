@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { CompoundTool } from "@/components/tools/compound-tool";
+import { TrackedLink } from "@/components/tracked-link";
 import { ToolContent } from "@/components/tool-content";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { getToolContent } from "@/lib/seo/tool-content";
@@ -37,6 +38,21 @@ export default async function CompoundPage({ params }: { params: Promise<{ local
       </div>
       <p className="mt-2 text-lg text-[var(--muted)] max-w-2xl">{dict.compound.subtitle}</p>
       <div className="mt-10"><CompoundTool locale={locale} /></div>
+      <p className="mt-6 max-w-2xl text-sm text-[var(--muted)] leading-relaxed">
+        {locale === "ru"
+          ? "Нужны и другие повседневные калькуляторы — по финансам, стройке или здоровью? "
+          : "Need other everyday calculators — finance, DIY or health? "}
+        <TrackedLink
+          external
+          href="https://calclumen.com/en"
+          event="outbound_click"
+          params={{ to: "Calclumen", where: "compound-interest" }}
+          className="text-[var(--accent)] hover:underline"
+        >
+          {locale === "ru" ? "Загляните в подборку калькуляторов на Calclumen" : "Browse the calculator collection on Calclumen"}
+        </TrackedLink>
+        {locale === "ru" ? "." : "."}
+      </p>
       {entry ? <ToolContent locale={locale} slug={SLUG} toolTitle={dict.compound.title} toolBlurb={entry.tool.blurb[locale]} priceCents={entry.tool.priceCents} /> : null}
     </div>
   );
