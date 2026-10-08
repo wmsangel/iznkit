@@ -3384,6 +3384,39 @@ const sqlFormatterContent: Content = {
   },
 };
 
+const mpTaxContent: Content = {
+  en: {
+    intro:
+      "Compare what a Russian marketplace seller pays in tax under each regime — УСН «Income» (6%), УСН «Income − Expenses» (15%), АУСН (8% / 20%) and НПД (self-employed, 4% / 6%). Enter your yearly income and documented expenses and the calculator shows the tax and effective rate for each, and highlights the cheapest. The УСН rates are editable because regions set their own. Everything runs in your browser.",
+    benefits: ["All regimes side by side: УСН, АУСН, НПД", "Highlights the cheapest for your numbers", "Editable УСН rates (regional variation)", "Flags the НПД ₽2.4M cap and resale ban", "Notes the 2026 VAT-on-УСН change", "Share the result with a link"],
+    steps: ["Enter your yearly income.", "Add documented expenses (for the «Income − Expenses» regimes).", "Add insurance contributions and adjust the УСН rates if your region differs.", "Read the tax and effective rate per regime; the cheapest is highlighted."],
+    faq: [
+      { q: "Which regimes does it compare?", a: "УСН «Income» and «Income − Expenses», АУСН «Income» and «Income − Expenses», and НПД (self-employed). For each it shows the yearly tax and the effective rate on revenue." },
+      { q: "Why can I edit the УСН rate?", a: "Because regions can lower it — УСН «Income» ranges 1–6% and «Income − Expenses» 5–15% by region. The defaults are the federal 6% and 15%; change them to your region's rate." },
+      { q: "Can a self-employed (НПД) seller work on a marketplace?", a: "Only for goods they make themselves — reselling is not allowed under НПД, and income is capped at ₽2.4M a year. The calculator disables НПД above that cap." },
+      { q: "What about VAT in 2026?", a: "From 2026 a УСН seller whose income passes the VAT-exemption threshold (around ₽20M) also owes VAT. This tool shows the УСН/АУСН tax only and flags when VAT likely applies — check the current threshold and rate." },
+      { q: "Is this tax advice?", a: "No. It's an estimate to compare regimes. Verify the exact rates and eligibility against the Russian Tax Code (НК РФ) or with an accountant." },
+    ],
+    useCases: ["Choosing a tax regime before registering", "Checking whether АУСН beats УСН for your margins", "Seeing if «Income − Expenses» is worth the bookkeeping", "Comparing the tax hit across regimes at your revenue"],
+    metaExtra: "Free marketplace seller tax calculator for Russia — compare УСН, АУСН and НПД, see the cheapest regime, with the 2026 VAT change and НПД limits flagged.",
+  },
+  ru: {
+    intro:
+      "Сравните, сколько налога платит продавец маркетплейса на каждом режиме — УСН «Доходы» (6%), УСН «Доходы − Расходы» (15%), АУСН (8% / 20%) и НПД (самозанятый, 4% / 6%). Введите годовой доход и подтверждённые расходы — калькулятор покажет налог и эффективную ставку по каждому режиму и подсветит самый выгодный. Ставки УСН редактируются: регионы устанавливают свои. Всё работает в браузере.",
+    benefits: ["Все режимы рядом: УСН, АУСН, НПД", "Подсвечивает выгодный для ваших цифр", "Редактируемые ставки УСН (региональные)", "Предупреждает про лимит НПД 2,4 млн ₽ и запрет перепродажи", "Отмечает изменение по НДС на УСН с 2026", "Ссылка для передачи результата"],
+    steps: ["Введите годовой доход.", "Добавьте подтверждённые расходы (для режимов «Доходы − Расходы»).", "Добавьте страховые взносы и при необходимости поправьте ставки УСН под свой регион.", "Смотрите налог и эффективную ставку по режимам; самый выгодный подсвечен."],
+    faq: [
+      { q: "Какие режимы сравниваются?", a: "УСН «Доходы» и «Доходы − Расходы», АУСН «Доходы» и «Доходы − Расходы», а также НПД (самозанятый). По каждому показывается годовой налог и эффективная ставка к доходу." },
+      { q: "Почему ставку УСН можно менять?", a: "Регионы вправе её снижать — УСН «Доходы» бывает 1–6%, «Доходы − Расходы» 5–15%. По умолчанию стоят федеральные 6% и 15%; поставьте ставку своего региона." },
+      { q: "Может ли самозанятый (НПД) торговать на маркетплейсе?", a: "Только товарами собственного производства — перепродажа на НПД запрещена, а доход ограничен 2,4 млн ₽ в год. Выше лимита калькулятор отключает НПД." },
+      { q: "А что с НДС в 2026?", a: "С 2026 продавец на УСН, чей доход превысил порог освобождения от НДС (ориентир — около 20 млн ₽), платит ещё и НДС. Калькулятор считает только налог УСН/АУСН и предупреждает, когда НДС, вероятно, появляется — уточните актуальный порог и ставку." },
+      { q: "Это налоговая консультация?", a: "Нет. Это оценка для сравнения режимов. Точные ставки и право на применение проверяйте по НК РФ или у бухгалтера." },
+    ],
+    useCases: ["Выбрать налоговый режим перед регистрацией", "Проверить, выгоднее ли АУСН, чем УСН, при ваших марже", "Понять, стоит ли «Доходы − Расходы» ради учёта", "Сравнить налоговую нагрузку по режимам при вашей выручке"],
+    metaExtra: "Бесплатный калькулятор налогов для продавца маркетплейса (РФ) — сравнение УСН, АУСН и НПД, самый выгодный режим, с учётом НДС-2026 и лимитов НПД.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3443,6 +3476,7 @@ const content: Record<string, Content> = {
   "marketplace-payout": mpPayoutContent,
   "marketplace-price": mpPriceContent,
   "marketplace-commissions": mpCommContent,
+  "marketplace-taxes": mpTaxContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

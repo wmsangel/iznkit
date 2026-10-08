@@ -292,6 +292,19 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "marketplace-taxes",
+        status: "live",
+        priceCents: 0,
+        title: {
+          en: "Marketplace seller tax calculator (Russia)",
+          ru: "Калькулятор налогов для продавца маркетплейса",
+        },
+        blurb: {
+          en: "Compare УСН, АУСН and НПД tax for a Russian marketplace seller.",
+          ru: "Сравните налог по УСН, АУСН и НПД для продавца маркетплейса.",
+        },
+      },
+      {
         slug: "margin-calculator",
         status: "live",
         priceCents: 0,
