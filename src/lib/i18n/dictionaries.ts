@@ -126,6 +126,7 @@ const en = {
     youMayLike: "You may like",
     partnerNote: "Some links may be partner links —",
     partnerLink: "how this works",
+    trustLine: "Runs entirely in your browser — your data never leaves your device and nothing is stored. No sign-up.",
   },
   tool: {
     tryFree: "Try for free",
@@ -1474,6 +1475,7 @@ const ru: Dictionary = {
     youMayLike: "Вам может пригодиться",
     partnerNote: "Некоторые ссылки — партнёрские,",
     partnerLink: "подробнее",
+    trustLine: "Работает прямо в браузере — данные не покидают ваше устройство и нигде не сохраняются. Без регистрации.",
   },
   tool: {
     tryFree: "Попробовать бесплатно",

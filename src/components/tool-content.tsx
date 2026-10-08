@@ -8,6 +8,7 @@ import { offersFor } from "@/lib/affiliates";
 import { AffiliateSlot } from "@/components/affiliate-slot";
 import { TrackedLink } from "@/components/tracked-link";
 import { getGuideForTool } from "@/lib/guides";
+import { isLocalTool } from "@/lib/tools/local";
 
 interface Props {
   locale: Locale;
@@ -34,7 +35,8 @@ export function ToolContent({
   const category = getTool(slug)?.tool.affiliate;
   const hasAffiliate = offersFor(category).length > 0;
   const guide = getGuideForTool(slug);
-  if (!content && !hasAffiliate && !guide) return null;
+  const showTrust = isLocalTool(slug);
+  if (!content && !hasAffiliate && !guide && !showTrust) return null;
 
   const url = absUrl(locale, `tools/${slug}`);
 
@@ -79,6 +81,12 @@ export function ToolContent({
 
   return (
     <section className="mt-16">
+      {showTrust ? (
+        <p className="mb-10 flex items-center gap-2 text-sm text-[var(--muted)] max-w-3xl rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3">
+          <span aria-hidden className="text-[var(--accent)]">🔒</span>
+          <span>{dict.content.trustLine}</span>
+        </p>
+      ) : null}
       {guide ? (
         <TrackedLink
           href={`/${locale}/guides/${guide.slug}`}

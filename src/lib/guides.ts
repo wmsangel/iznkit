@@ -2689,6 +2689,210 @@ const marginVatGuide: Guide = {
   },
 };
 
+const marketplaceTaxGuide: Guide = {
+  slug: "marketplace-seller-taxes-usn-ausn-npd-2026",
+  toolSlug: "marketplace-taxes",
+  updated: "2026-10-08",
+  content: {
+    en: {
+      title: "Marketplace seller taxes in 2026: УСН, АУСН or НПД",
+      description:
+        "Which tax regime a Russian marketplace seller should choose in 2026 — УСН, АУСН or НПД. Rates, limits, the 2026 VAT change and the mistakes that cost money. Free calculator included.",
+      intro:
+        "If you sell on Ozon, Wildberries or Yandex Market from Russia, your tax regime decides how much of the payout you actually keep. There are three realistic options — УСН, АУСН and НПД — and in 2026 the picture shifted: VAT now reaches some УСН sellers. This guide explains each regime, the limits that rule НПД out for most sellers, and how to compare them on your own numbers. It is an overview, not tax advice — confirm the specifics against the Tax Code (НК РФ) or an accountant.",
+      sections: [
+        {
+          h: "The short version",
+          p: [
+            "Most marketplace sellers land on УСН, because НПД bans resale and АУСН is a regional experiment with its own trade-offs.",
+            [
+              "УСН «Income» (6%) — simplest; best when expenses are low and you can deduct insurance contributions",
+              "УСН «Income − Expenses» (15%) — better when documented costs are a large share of revenue",
+              "АУСН (8% / 20%) — no insurance contributions and no return, but higher rates and regional only",
+              "НПД (4% / 6%) — only for goods you make yourself; reselling is not allowed and income is capped at ₽2.4M",
+            ],
+            "The honest way to choose is to run your real yearly income and expenses through all of them and compare the tax — which is exactly what the calculator does.",
+          ],
+        },
+        {
+          h: "УСН: 6% on income, or 15% on profit",
+          p: [
+            "УСН «Income» taxes your gross revenue at 6%. The key detail sellers forget: a sole trader (ИП) can reduce this tax by the insurance contributions they pay — down to zero if they have no employees, or by up to 50% with employees.",
+            "УСН «Income − Expenses» taxes the difference at 15%, but with a floor: the minimum tax is 1% of income even in a loss-making year. It wins when documented costs (goods, logistics, marketplace commission) are a large share of revenue.",
+            "Both rates are federal defaults. Regions can lower them — «Income» to as little as 1%, «Income − Expenses» to 5% — so check your region's rate before deciding. One more trap: your УСН income is the gross amount the marketplace reports, before it deducts commission and logistics, not the net payout that lands in your account.",
+          ],
+        },
+        {
+          h: "VAT on УСН from 2026 — the big change",
+          p: [
+            "Until recently, УСН sellers simply did not deal with VAT. From 2026 that changed: once your income passes the VAT-exemption threshold, a УСН seller also owes VAT. You then choose between special rates of 5% and 7% with no input-VAT deduction, or the general rate with deductions (the standard VAT rate is 22% in 2026).",
+            "The threshold itself is where sources still disagree — the reform lowered it, and figures around ₽20M are quoted, though some materials still cite ₽60M. Treat the exact number as something to verify for your year, and watch your total turnover across all channels, not just one marketplace.",
+            "The special rates are a multi-year commitment (not less than 12 quarters), so this is a decision to make deliberately, with an accountant, not a toggle to flip. The calculator flags when VAT likely applies but computes the УСН/АУСН tax only.",
+          ],
+        },
+        {
+          h: "АУСН: higher rates, no contributions, no return",
+          p: [
+            "АУСН («Income» 8% or «Income − Expenses» 20%, with a 3% minimum on the profit variant) trades a higher headline rate for two real conveniences: you pay no fixed insurance contributions, and you file no tax return — the tax office calculates the tax from your bank and marketplace data.",
+            "It is a regional experiment, available only where the local law adopted it, with its own limits (income up to ₽60M and up to five employees). For a seller with few deductible costs and the paperwork savings in mind, АУСН «Income» at 8% can beat УСН «Income» at 6% once you account for the contributions you no longer pay — which is exactly the kind of comparison worth running on your numbers.",
+          ],
+        },
+        {
+          h: "НПД: why it rarely fits a marketplace",
+          p: [
+            "НПД (self-employed) has the lowest rates — 4% on sales to individuals, 6% to companies — and no contributions, so it looks attractive. But two rules rule it out for most marketplace sellers.",
+            [
+              "Resale is banned: НПД covers only goods you make yourself, not goods you buy and resell",
+              "Income is capped at ₽2.4M per year — cross it and you lose the status",
+              "You cannot sell goods that require mandatory labelling (Честный Знак), even if you made them",
+            ],
+            "So НПД works for a handmade-goods seller under the cap, and not for a classic reseller. The marketplace now reports self-employed sales to the tax office, and losing the status retroactively means back-taxed income — not a risk worth taking by stretching the rules.",
+          ],
+        },
+        {
+          h: "Common mistakes",
+          p: [
+            [
+              "Forgetting that УСН «Income» tax can be cut by insurance contributions — many ИП overpay here",
+              "Using the net payout instead of gross marketplace revenue as УСН income",
+              "Assuming НПД allows reselling on a marketplace — it does not",
+              "Ignoring the 2026 VAT threshold until turnover has already crossed it",
+              "Taking a region's reduced УСН rate for granted without checking the local law",
+            ],
+          ],
+        },
+        {
+          h: "Choosing with the calculator",
+          p: [
+            "Enter your yearly income and documented expenses, set the УСН rates for your region, and the calculator shows the tax and effective rate under every regime side by side, and highlights the cheapest. Use it to sanity-check before you register or before switching regimes at year-end.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Which tax regime is best for a marketplace seller?",
+          a: "For most sellers who buy and resell goods, УСН — «Income» at 6% when expenses are low, «Income − Expenses» at 15% when they are high. АУСН can win if you value no contributions and no return; НПД only suits handmade goods under ₽2.4M a year.",
+        },
+        {
+          q: "Can a self-employed (НПД) person sell on Ozon or Wildberries?",
+          a: "Only goods they make themselves. Buying goods to resell is not allowed under НПД, income is capped at ₽2.4M a year, and labelled goods are off-limits. A reseller needs ИП on УСН or АУСН.",
+        },
+        {
+          q: "Do marketplace sellers pay VAT in 2026?",
+          a: "УСН sellers above the VAT-exemption threshold do, from 2026 — either 5%/7% without deductions or the general rate with deductions. The threshold was lowered in the reform; verify the current figure for your year and track your total turnover.",
+        },
+        {
+          q: "Is my УСН income the payout or the full price?",
+          a: "The full gross revenue the marketplace reports, before it deducts commission and logistics — not the smaller payout that reaches your account. Tax is calculated on the gross figure.",
+        },
+        {
+          q: "Can I reduce УСН tax with insurance contributions?",
+          a: "On УСН «Income», yes — an ИП with no employees can reduce the tax by their contributions down to zero, or by up to 50% with employees. On «Income − Expenses» the contributions are counted inside expenses instead.",
+        },
+      ],
+      cta: "Compare the regimes in the calculator",
+    },
+    ru: {
+      title: "Налоги продавца маркетплейса в 2026: УСН, АУСН или НПД",
+      description:
+        "Какой налоговый режим выбрать продавцу на Ozon, Wildberries и Яндекс Маркете в 2026 году — УСН, АУСН или НПД. Ставки, лимиты, НДС с 2026 и частые ошибки. С бесплатным калькулятором.",
+      intro:
+        "Если вы продаёте на Ozon, Wildberries или Яндекс Маркете, налоговый режим определяет, сколько из выплаты реально остаётся у вас. Реалистичных вариантов три — УСН, АУСН и НПД, — и в 2026 году картина изменилась: НДС теперь дотягивается до части продавцов на УСН. В гайде разбираем каждый режим, лимиты, из-за которых НПД не подходит большинству, и как сравнить всё на своих цифрах. Это обзор, а не налоговая консультация — детали проверяйте по НК РФ или у бухгалтера.",
+      sections: [
+        {
+          h: "Коротко: кому что подходит",
+          p: [
+            "Большинство продавцов приходят к УСН: на НПД запрещена перепродажа, а АУСН — региональный эксперимент со своими компромиссами.",
+            [
+              "УСН «Доходы» (6%) — проще всего; выгоден при небольших расходах и когда можно вычесть страховые взносы",
+              "УСН «Доходы − Расходы» (15%) — выгоднее, когда подтверждённые затраты — большая доля выручки",
+              "АУСН (8% / 20%) — без страховых взносов и без декларации, но ставки выше и только в своих регионах",
+              "НПД (4% / 6%) — только для товаров собственного производства; перепродажа запрещена, лимит дохода 2,4 млн ₽",
+            ],
+            "Честный способ выбрать — прогнать свой годовой доход и расходы через все режимы и сравнить налог. Ровно это и делает калькулятор.",
+          ],
+        },
+        {
+          h: "УСН: 6% с дохода или 15% с прибыли",
+          p: [
+            "УСН «Доходы» облагает всю выручку по ставке 6%. Деталь, про которую часто забывают: ИП уменьшает этот налог на страховые взносы — вплоть до нуля без сотрудников или до 50% с сотрудниками.",
+            "УСН «Доходы − Расходы» облагает разницу по ставке 15%, но с нижней границей: минимальный налог — 1% от дохода даже в убыточный год. Этот вариант выигрывает, когда подтверждённые затраты (товар, логистика, комиссия маркетплейса) — большая доля выручки.",
+            "Обе ставки — федеральные по умолчанию. Регионы вправе их снижать: «Доходы» — вплоть до 1%, «Доходы − Расходы» — до 5%, поэтому перед решением проверьте ставку своего региона. Ещё одна ловушка: доход на УСН — это вся сумма, которую начисляет маркетплейс, ДО удержания комиссии и логистики, а не выплата, пришедшая на счёт.",
+          ],
+        },
+        {
+          h: "НДС на УСН с 2026 — главное изменение",
+          p: [
+            "Раньше продавцы на УСН с НДС просто не сталкивались. С 2026 года всё изменилось: как только доход превышает порог освобождения, продавец на УСН платит ещё и НДС. Дальше выбор между спецставками 5% и 7% без вычета входного НДС или общей ставкой с вычетами (основная ставка НДС в 2026 году — 22%).",
+            "Сам порог — место, где источники расходятся: реформа его снизила, называют цифры около 20 млн ₽, хотя часть материалов всё ещё указывает 60 млн ₽. Относитесь к точному числу как к тому, что нужно проверить для своего года, и следите за общим оборотом по всем каналам, а не по одному маркетплейсу.",
+            "Спецставки — обязательство на несколько лет (не менее 12 кварталов), так что это решение принимают взвешенно и с бухгалтером, а не переключают туда-сюда. Калькулятор предупреждает, когда НДС, вероятно, появляется, но считает только налог УСН/АУСН.",
+          ],
+        },
+        {
+          h: "АУСН: ставки выше, но без взносов и декларации",
+          p: [
+            "АУСН («Доходы» 8% или «Доходы − Расходы» 20%, с минимумом 3% на варианте с расходами) меняет более высокую ставку на два реальных удобства: вы не платите фиксированные страховые взносы и не сдаёте декларацию — налог считает инспекция по данным банка и маркетплейса.",
+            "Это региональный эксперимент: доступен только там, где принят местный закон, со своими лимитами (доход до 60 млн ₽ и до пяти сотрудников). Для продавца с небольшими вычитаемыми расходами и с учётом экономии на отчётности АУСН «Доходы» 8% может оказаться выгоднее УСН «Доходы» 6%, если учесть взносы, которые больше не платятся, — как раз такое сравнение стоит прогнать на своих цифрах.",
+          ],
+        },
+        {
+          h: "НПД: почему он редко подходит маркетплейсу",
+          p: [
+            "У НПД (самозанятость) самые низкие ставки — 4% при продаже физлицам, 6% юрлицам — и нет взносов, поэтому он выглядит привлекательно. Но два правила выводят его из игры для большинства продавцов.",
+            [
+              "Перепродажа запрещена: НПД — только для товаров собственного производства, а не купленных для перепродажи",
+              "Лимит дохода — 2,4 млн ₽ в год; превысили — теряете статус",
+              "Нельзя продавать товары, подлежащие обязательной маркировке (Честный Знак), даже сделанные вами",
+            ],
+            "Поэтому НПД работает для продавца хендмейда в пределах лимита и не работает для классического реселлера. Маркетплейс теперь передаёт данные о продажах самозанятых в ФНС, а потеря статуса задним числом означает доначисление НДФЛ — не тот риск, ради которого стоит натягивать правила.",
+          ],
+        },
+        {
+          h: "Частые ошибки",
+          p: [
+            [
+              "Забыть, что налог УСН «Доходы» уменьшается на страховые взносы — многие ИП здесь переплачивают",
+              "Считать доходом на УСН выплату, а не всю выручку маркетплейса до удержаний",
+              "Думать, что на НПД можно перепродавать на маркетплейсе — нельзя",
+              "Игнорировать порог НДС-2026, пока оборот уже его не перешёл",
+              "Считать пониженную региональную ставку УСН само собой разумеющейся, не проверив местный закон",
+            ],
+          ],
+        },
+        {
+          h: "Как выбрать с калькулятором",
+          p: [
+            "Введите годовой доход и подтверждённые расходы, задайте ставки УСН для своего региона — калькулятор покажет налог и эффективную ставку по каждому режиму рядом и подсветит самый выгодный. Пользуйтесь им как проверкой перед регистрацией или перед сменой режима в конце года.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Какой налоговый режим лучше для продавца маркетплейса?",
+          a: "Для большинства, кто закупает и перепродаёт товар, — УСН: «Доходы» 6% при небольших расходах, «Доходы − Расходы» 15% при больших. АУСН выигрывает, если важны отсутствие взносов и декларации; НПД подходит только для хендмейда в пределах 2,4 млн ₽ в год.",
+        },
+        {
+          q: "Может ли самозанятый (НПД) продавать на Ozon или Wildberries?",
+          a: "Только товары собственного производства. Закупать для перепродажи на НПД нельзя, доход ограничен 2,4 млн ₽ в год, маркируемые товары под запретом. Реселлеру нужен ИП на УСН или АУСН.",
+        },
+        {
+          q: "Платят ли продавцы маркетплейса НДС в 2026?",
+          a: "Продавцы на УСН выше порога освобождения — да, с 2026: либо 5%/7% без вычетов, либо общая ставка с вычетами. Порог реформа снизила; проверьте актуальное значение для своего года и следите за общим оборотом.",
+        },
+        {
+          q: "Доход на УСН — это выплата или полная цена?",
+          a: "Вся выручка, которую начисляет маркетплейс, до удержания комиссии и логистики, — а не меньшая выплата на счёт. Налог считается с полной суммы.",
+        },
+        {
+          q: "Можно ли уменьшить налог УСН на страховые взносы?",
+          a: "На УСН «Доходы» — да: ИП без сотрудников уменьшает налог на взносы вплоть до нуля, с сотрудниками — до 50%. На «Доходы − Расходы» взносы вместо этого учитываются в расходах.",
+        },
+      ],
+      cta: "Сравнить режимы в калькуляторе",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   ndaGuide,
@@ -2709,6 +2913,7 @@ export const GUIDES: Guide[] = [
   vatGuide,
   marginVatGuide,
   hourlyRateGuide,
+  marketplaceTaxGuide,
 ];
 
 export function getGuide(slug: string): Guide | undefined {
