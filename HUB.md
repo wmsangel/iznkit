@@ -4,6 +4,7 @@
 Акцент: #3a7a6a
 
 ## Документы
+- [Описание проекта](research/SELF-DESCRIPTION.md)
 - [План](research/PLAN.md)
 - [Идеи](research/IDEAS.md)
 - [Реклама и офферы](research/MONETIZATION.md)

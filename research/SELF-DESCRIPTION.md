@@ -1,0 +1,29 @@
+## iznkit
+- **URL:** https://iznkit.com
+- **Languages:** en, ru (path-based `/en` and `/ru`; default en)
+- **One-liner:** A bilingual hub of 60+ free browser-based micro-tools — calculators, converters, developer utilities and one-minute PDF document generators.
+- **What it is:** iznkit is a single site that bundles small, focused web tools across several clusters: business-document generators (invoices, quotes, receipts, NDAs and more that export to PDF), finance and e-commerce calculators, developer utilities and converters, and everyday generators. Most tools run entirely in the browser; the PDF document generators send the form data to a server only to render the file. Each tool has a short companion guide, and the whole site is published in English and Russian.
+- **Who it's for:** Freelancers, small-business owners and marketplace (Ozon/Wildberries/Yandex Market) sellers who need a quick document or calculation, plus developers reaching for a one-off converter or formatter. People arrive from search for a specific task ("make an invoice", "УСН vs АУСН", "format SQL") and leave once it's done.
+- **What you can actually do (features):**
+  - Generate business documents as PDF: invoice, quote/estimate, purchase order, receipt, NDA, delivery note, timesheet, gift certificate, inspection report, and a Russian счёт-фактура (VAT invoice, form 1137)
+  - Run finance calculators: compound interest (with a month-by-month schedule), loan, VAT, margin/markup, discount, percentage, hourly rate, rental yield, ad ROI, date difference, age
+  - Use marketplace-seller tools: unit economics, payout, price, category-commission tables, and a УСН/АУСН/НПД tax-regime comparison
+  - Reach for developer utilities: JSON formatter, JSON→TypeScript/Go, YAML↔JSON, Base64, JWT decoder, regex tester, hash, UUID, cron parser, SQL formatter, Markdown→HTML, image→Base64, text diff
+  - Make everyday things: QR codes (incl. Wi-Fi), password generator/strength check, email signature, UTM builder, CSS gradient, color tools
+  - Share a calculator's result via a link that pre-fills the inputs
+  - Read a short bilingual how-to guide attached to many tools
+- **Why it stands out:** Breadth in one place (60+ tools, each bilingual EN/RU) with no sign-up and no cost. Calculators and developer tools run fully client-side — nothing is uploaded. It also covers Russian-business niches most Western tool hubs skip: a form-1137 счёт-фактура generator and marketplace tax-regime (УСН/АУСН/НПД) comparison, written for RU sellers.
+- **Access:** Free, no sign-up, no account. (The code carries an unlock/price UI for the document generators, but it is currently disabled — every tool is free right now.)
+- **Privacy / data:** Calculators and developer tools run entirely in the browser; inputs aren't uploaded and drafts are kept in the browser's local storage. The PDF document generators POST the form data to a server route only to render the PDF, which is returned with no-store and not persisted; there are no user accounts. Analytics (Google Analytics 4 and Yandex Metrika) are production-only and consent-gated.
+- **Best use cases (examples):**
+  - A freelancer fills in an invoice and downloads a clean PDF in about a minute, no sign-up
+  - A Wildberries/Ozon seller compares УСН, АУСН and НПД on their numbers to see which tax regime is cheapest
+  - A developer pastes messy SQL or JSON and gets it formatted/typed, entirely in the browser
+- **Key pages / entry points:**
+  - https://iznkit.com/en/tools/invoice
+  - https://iznkit.com/ru/tools/schet-faktura
+  - https://iznkit.com/ru/tools/marketplace-taxes
+  - https://iznkit.com/en/guides
+- **Suggested tags/categories:** online-tools, calculators, document-generator, pdf, developer-tools, invoice, marketplace-sellers, russian-business, bilingual, no-signup, free, converters
+- **Short blurb (~40 words):** iznkit is a bilingual (EN/RU) hub of 60+ free, no-sign-up web tools: PDF document generators (invoices, quotes, NDAs, a Russian счёт-фактура), finance and marketplace-seller calculators, and developer utilities. Calculators and dev tools run entirely in your browser.
+- **Do NOT claim:** No user accounts and no working payments or premium tier (the pricing/unlock UI exists in code but is disabled — treat everything as free). Not every tool is fully offline: the PDF document generators send data to a server to render the file, so don't say "nothing ever leaves your browser" for the whole site. A UPD generator and further RU closing documents (ТОРГ-12, акт сверки) are planned but not built yet — don't list them. Tax/marketplace calculators are estimates, not tax or legal advice. No specific traffic, revenue or user-count figures — none are known. No ads are currently shown.
