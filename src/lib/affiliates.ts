@@ -129,6 +129,17 @@ export const AFFILIATES: Record<string, Offer[]> = {
       },
     },
   ],
+  "pdf-tools": [
+    {
+      name: "Wondershare PDFelement",
+      // LIVE affiliate link (Admitad, 30% per-sale, WW incl. RU). Deeplinked to PDFelement.
+      url: "https://kjuzv.com/g/8u3trxihmw330d4f803cef655e4ac9/?ulp=https%3A%2F%2Fpdf.wondershare.com%2F",
+      blurb: {
+        en: "Edit, convert, fill and sign PDFs on any device — a lighter alternative to Acrobat.",
+        ru: "Редактируйте, конвертируйте, заполняйте и подписывайте PDF на любом устройстве — лёгкая замена Acrobat.",
+      },
+    },
+  ],
 };
 
 export function offersFor(category?: string): Offer[] {

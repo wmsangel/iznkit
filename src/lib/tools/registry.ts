@@ -51,6 +51,7 @@ export const sections: SectionDef[] = [
         status: "live",
         popular: true,
         priceCents: 300,
+        affiliate: "pdf-tools",
         title: { en: "Invoice generator", ru: "Генератор счёта" },
         blurb: {
           en: "A polished PDF invoice in under a minute.",
@@ -61,6 +62,7 @@ export const sections: SectionDef[] = [
         slug: "schet-faktura",
         status: "live",
         priceCents: 0,
+        affiliate: "pdf-tools",
         title: { en: "Счёт-фактура (RU VAT invoice)", ru: "Генератор счёта-фактуры" },
         blurb: {
           en: "A Russian счёт-фактура PDF in the official 1137 format.",
@@ -71,6 +73,7 @@ export const sections: SectionDef[] = [
         slug: "quote",
         status: "live",
         priceCents: 500,
+        affiliate: "pdf-tools",
         title: { en: "Quote / estimate", ru: "Смета / КП" },
         blurb: {
           en: "Send a professional quote clients can say yes to.",
@@ -81,6 +84,7 @@ export const sections: SectionDef[] = [
         slug: "purchase-order",
         status: "live",
         priceCents: 300,
+        affiliate: "pdf-tools",
         title: { en: "Purchase order", ru: "Заказ поставщику" },
         blurb: {
           en: "Order from a supplier with a clean PO.",
@@ -91,6 +95,7 @@ export const sections: SectionDef[] = [
         slug: "delivery-note",
         status: "live",
         priceCents: 300,
+        affiliate: "pdf-tools",
         title: { en: "Delivery note", ru: "Товарная накладная" },
         blurb: {
           en: "A clean delivery note with sign-off lines.",
@@ -112,6 +117,7 @@ export const sections: SectionDef[] = [
         slug: "receipt",
         status: "live",
         priceCents: 200,
+        affiliate: "pdf-tools",
         title: { en: "Receipt generator", ru: "Генератор чека" },
         blurb: {
           en: "A clean proof-of-payment receipt in seconds.",
