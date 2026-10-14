@@ -2950,3 +2950,44 @@ export function getGuide(slug: string): Guide | undefined {
 export function getGuideForTool(toolSlug: string): Guide | undefined {
   return GUIDES.find((g) => g.toolSlug === toolSlug);
 }
+
+/**
+ * Internal guide → guide links ("Related guides"), by topical cluster. One central
+ * map so the interlinking is easy to see and keep sane; the page resolves slugs to
+ * the current-locale title. Keep 2–3 per guide, same cluster.
+ */
+const RELATED: Record<string, string[]> = {
+  // NDA cluster
+  "one-way-vs-mutual-nda": ["what-is-a-unilateral-nda", "what-is-a-mutual-nda"],
+  "what-is-a-unilateral-nda": ["one-way-vs-mutual-nda", "what-is-a-mutual-nda"],
+  "what-is-a-mutual-nda": ["one-way-vs-mutual-nda", "what-is-a-unilateral-nda"],
+  // Freelance / documents cluster
+  "how-to-make-an-invoice": ["how-to-write-a-quote", "freelance-tax-explained", "how-to-calculate-vat"],
+  "how-to-write-a-quote": ["how-to-make-an-invoice", "how-to-set-your-hourly-rate", "freelance-tax-explained"],
+  "freelance-tax-explained": ["how-to-set-your-hourly-rate", "how-to-make-an-invoice", "marketplace-seller-taxes-usn-ausn-npd-2026"],
+  "how-to-set-your-hourly-rate": ["freelance-tax-explained", "how-to-write-a-quote", "how-to-make-an-invoice"],
+  // Dev cluster
+  "what-is-a-jwt": ["what-is-hashing", "what-is-a-cron-expression"],
+  "what-is-hashing": ["what-is-a-jwt", "what-is-a-cron-expression"],
+  "what-is-a-cron-expression": ["what-is-a-jwt", "what-is-hashing"],
+  "how-to-create-a-strong-password": ["what-is-hashing"],
+  // Finance calculators
+  "what-is-compound-interest": ["how-to-calculate-rental-yield", "how-to-calculate-vat"],
+  "how-to-calculate-rental-yield": ["what-is-compound-interest"],
+  "how-to-calculate-vat": ["margin-with-or-without-vat", "how-to-make-an-invoice"],
+  "margin-with-or-without-vat": ["how-to-calculate-vat", "what-is-unit-economics"],
+  "what-is-a-utm-parameter": ["what-is-unit-economics", "marketplace-unit-economics"],
+  // Marketplace / e-commerce cluster
+  "what-is-unit-economics": ["marketplace-unit-economics", "margin-with-or-without-vat", "how-to-calculate-vat"],
+  "marketplace-unit-economics": ["fbo-vs-fbs", "what-is-unit-economics", "marketplace-seller-taxes-usn-ausn-npd-2026"],
+  "fbo-vs-fbs": ["marketplace-unit-economics", "marketplace-seller-taxes-usn-ausn-npd-2026"],
+  "marketplace-seller-taxes-usn-ausn-npd-2026": ["marketplace-unit-economics", "fbo-vs-fbs", "freelance-tax-explained"],
+};
+
+/** Related guides for a slug, resolved to {slug, title} in the given locale. */
+export function getRelatedGuides(slug: string, locale: Locale): { slug: string; title: string }[] {
+  return (RELATED[slug] ?? [])
+    .map((s) => getGuide(s))
+    .filter((g): g is Guide => Boolean(g))
+    .map((g) => ({ slug: g.slug, title: g.content[locale].title }));
+}

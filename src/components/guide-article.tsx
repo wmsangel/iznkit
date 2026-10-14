@@ -9,12 +9,16 @@ export function GuideArticle({
   toolHref,
   toolTitle,
   faqLabel,
+  related = [],
+  relatedLabel,
 }: {
   body: GuideBody;
   locale: Locale;
   toolHref: string;
   toolTitle: string;
   faqLabel: string;
+  related?: { href: string; title: string }[];
+  relatedLabel?: string;
 }) {
   return (
     <article className="max-w-2xl">
@@ -105,6 +109,28 @@ export function GuideArticle({
                 </summary>
                 <p className="mt-2 text-sm text-[var(--muted)] leading-relaxed">{f.a}</p>
               </details>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {/* Related guides — internal interlinking */}
+      {related.length ? (
+        <div className="mt-12">
+          <h2 className="text-xl font-semibold tracking-tight">{relatedLabel}</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {related.map((r) => (
+              <Link
+                key={r.href}
+                href={r.href}
+                className="card card-hover rounded-xl px-4 py-3 flex items-center gap-3 group"
+              >
+                <span className="text-lg">📄</span>
+                <span className="flex-1 min-w-0 font-medium leading-snug group-hover:text-[var(--accent)] transition-colors">
+                  {r.title}
+                </span>
+                <span className="text-[var(--accent)] shrink-0">→</span>
+              </Link>
             ))}
           </div>
         </div>

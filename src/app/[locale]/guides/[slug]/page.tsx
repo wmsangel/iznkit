@@ -5,7 +5,7 @@ import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { absUrl, SITE_NAME, SITE_URL } from "@/lib/seo/site";
-import { GUIDES, getGuide } from "@/lib/guides";
+import { GUIDES, getGuide, getRelatedGuides } from "@/lib/guides";
 import { getTool } from "@/lib/tools/registry";
 import { GuideArticle } from "@/components/guide-article";
 import { AmazonBooks } from "@/components/amazon-books";
@@ -130,6 +130,11 @@ export default async function GuidePage({
           toolHref={toolHref}
           toolTitle={toolTitle}
           faqLabel={dict.content.faq}
+          related={getRelatedGuides(slug, locale).map((r) => ({
+            href: `/${locale}/guides/${r.slug}`,
+            title: r.title,
+          }))}
+          relatedLabel={locale === "ru" ? "Связанные гайды" : "Related guides"}
         />
         {locale === "en" ? <AmazonBooks guideSlug={slug} /> : null}
       </div>
