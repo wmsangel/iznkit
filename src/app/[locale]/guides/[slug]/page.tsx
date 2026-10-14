@@ -8,6 +8,7 @@ import { absUrl, SITE_NAME, SITE_URL } from "@/lib/seo/site";
 import { GUIDES, getGuide } from "@/lib/guides";
 import { getTool } from "@/lib/tools/registry";
 import { GuideArticle } from "@/components/guide-article";
+import { AmazonBooks } from "@/components/amazon-books";
 import { AUTHOR } from "@/lib/author";
 
 export function generateStaticParams() {
@@ -130,6 +131,7 @@ export default async function GuidePage({
           toolTitle={toolTitle}
           faqLabel={dict.content.faq}
         />
+        {locale === "en" ? <AmazonBooks guideSlug={slug} /> : null}
       </div>
     </div>
   );

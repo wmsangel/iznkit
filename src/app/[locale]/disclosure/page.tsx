@@ -13,6 +13,7 @@ const COPY = {
     paras: [
       "If you click one of those links and then sign up or buy something, we may earn a commission. It costs you nothing extra: the price you pay is exactly the same as going there directly.",
       "We only suggest tools that we think are genuinely useful and relevant to what you're doing on the page. A commission never changes which tools we recommend or the order they appear in.",
+      "iznkit is a participant in the Amazon Associates Program. As an Amazon Associate, iznkit earns from qualifying purchases; the book links in our guides are Amazon affiliate links, labelled where they appear.",
       "iznkit is free to use, and these partnerships help keep it that way while we're not running ads.",
     ],
     contact: `Questions about this? Email ${CONTACT_EMAIL}.`,
@@ -25,6 +26,7 @@ const COPY = {
     paras: [
       "Если вы перейдёте по такой ссылке и затем зарегистрируетесь или что-то купите, мы можем получить комиссию. Для вас это бесплатно: цена ровно такая же, как при прямом переходе.",
       "Мы предлагаем только те сервисы, которые считаем действительно полезными и уместными для того, что вы делаете на странице. Комиссия не влияет на то, что мы рекомендуем и в каком порядке.",
+      "iznkit участвует в партнёрской программе Amazon Associates. Как участник, iznkit получает комиссию с соответствующих покупок; книжные ссылки в наших гайдах — партнёрские ссылки Amazon и помечены рядом.",
       "iznkit бесплатен, и эти партнёрства помогают сохранять его таким, пока мы не показываем рекламу.",
     ],
     contact: `Вопросы — на ${CONTACT_EMAIL}.`,
