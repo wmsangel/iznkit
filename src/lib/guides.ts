@@ -6,6 +6,8 @@ export interface GuideBody {
   description: string;
   intro: string;
   sections: { h: string; p: (string | string[])[] }[];
+  /** optional at-a-glance comparison table (great for "X vs Y" guides) */
+  table?: { title?: string; headers: string[]; rows: string[][] };
   faq: { q: string; a: string }[];
   /** call-to-action label linking to the related tool */
   cta: string;
@@ -156,7 +158,7 @@ const invoiceGuide: Guide = {
 const ndaGuide: Guide = {
   slug: "one-way-vs-mutual-nda",
   toolSlug: "nda",
-  updated: "2026-09-01",
+  updated: "2026-10-14",
   content: {
     en: {
       title: "Mutual vs unilateral NDA: what's the difference?",
@@ -204,6 +206,18 @@ const ndaGuide: Guide = {
           ],
         },
       ],
+      table: {
+        title: "Unilateral vs mutual NDA at a glance",
+        headers: ["", "Unilateral (one-way)", "Mutual (two-way / mNDA)"],
+        rows: [
+          ["Who discloses", "One party", "Both parties"],
+          ["Who must protect it", "The receiving party only", "Both parties"],
+          ["Best for", "Pitching an idea, hiring a freelancer, showing numbers to an investor", "Partnerships, joint ventures, M&A talks"],
+          ["Fairness", "Favours the discloser", "Balanced — obligations run both ways"],
+          ["Also called", "One-way NDA, NDA", "Bilateral NDA, mNDA, two-way NDA"],
+          ["Clauses", "Same essentials: parties, definition, purpose, term, exclusions, law", "Same essentials — only the direction differs"],
+        ],
+      },
       faq: [
         {
           q: "What's the difference between a mutual and a unilateral NDA?",
@@ -278,6 +292,18 @@ const ndaGuide: Guide = {
           ],
         },
       ],
+      table: {
+        title: "Одностороннее и взаимное NDA — коротко",
+        headers: ["", "Одностороннее (one-way)", "Взаимное (two-way / mNDA)"],
+        rows: [
+          ["Кто раскрывает", "Одна сторона", "Обе стороны"],
+          ["Кто обязан защищать", "Только принимающая сторона", "Обе стороны"],
+          ["Когда подходит", "Показать идею, нанять фрилансера, дать цифры инвестору", "Партнёрства, совместные проекты, сделки M&A"],
+          ["Справедливость", "В пользу раскрывающего", "Сбалансировано — обязательства в обе стороны"],
+          ["Другие названия", "Одностороннее NDA, NDA", "Двустороннее NDA, mNDA, взаимное"],
+          ["Пункты", "Те же: стороны, определение, цель, срок, исключения, право", "Те же — меняется только направление"],
+        ],
+      },
       faq: [
         {
           q: "Чем взаимное NDA отличается от одностороннего?",

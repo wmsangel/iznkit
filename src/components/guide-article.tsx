@@ -51,6 +51,45 @@ export function GuideArticle({
         ))}
       </div>
 
+      {/* At-a-glance comparison table */}
+      {body.table ? (
+        <div className="mt-12">
+          {body.table.title ? (
+            <h2 className="text-xl font-semibold tracking-tight">{body.table.title}</h2>
+          ) : null}
+          <div className="mt-4 overflow-x-auto rounded-xl border border-[var(--border)]">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="bg-[var(--card)]">
+                  {body.table.headers.map((h) => (
+                    <th
+                      key={h}
+                      className="border-b border-[var(--border)] px-4 py-2.5 text-left font-semibold"
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {body.table.rows.map((row, i) => (
+                  <tr key={i} className="border-b border-[var(--border)] last:border-0">
+                    {row.map((cell, j) => (
+                      <td
+                        key={j}
+                        className={`px-4 py-2.5 align-top ${j === 0 ? "font-medium" : "text-[var(--muted)]"}`}
+                      >
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ) : null}
+
       {/* FAQ */}
       {body.faq.length ? (
         <div className="mt-12">
