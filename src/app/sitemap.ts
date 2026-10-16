@@ -5,10 +5,15 @@ import { absUrl, languageAlternates } from "@/lib/seo/site";
 import { DONATE } from "@/lib/donate";
 import { GUIDES } from "@/lib/guides";
 
+// Stable content-baseline date for pages without their own `updated` (tools, hubs,
+// static, home). Using a constant — not `new Date()` — keeps lastmod steady across
+// deploys, so Google keeps trusting it. Bump it when you do a real content pass.
+// Guides carry their own `updated` date and are unaffected.
+const CONTENT_UPDATED = new Date("2026-10-16T00:00:00Z");
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
-  // Build-time timestamp — a freshness hint for crawlers on every deploy.
-  const lastModified = new Date();
+  const lastModified = CONTENT_UPDATED;
 
   // Home page, one entry per locale, cross-linked with hreflang alternates.
   for (const locale of locales) {
