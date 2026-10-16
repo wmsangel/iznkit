@@ -22,6 +22,7 @@ export const SERVER_TOOLS = new Set<string>([
   "unit-economics",
   "schet-faktura",
   "upd",
+  "torg12",
 ]);
 
 /** True when a tool runs purely in the browser (no data sent to a server). */

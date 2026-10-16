@@ -99,7 +99,7 @@ export function lineTotal(it: SfItem): number {
   return round2(lineBase(it) + lineVat(it));
 }
 
-export function computeSfTotals(data: SfData): SfTotals {
+export function computeSfTotals(data: { items: SfItem[] }): SfTotals {
   const base = round2(data.items.reduce((s, it) => s + lineBase(it), 0));
   const vat = round2(data.items.reduce((s, it) => s + lineVat(it), 0));
   const total = round2(data.items.reduce((s, it) => s + lineTotal(it), 0));

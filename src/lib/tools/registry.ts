@@ -81,6 +81,17 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "torg12",
+        status: "live",
+        priceCents: 0,
+        affiliate: "pdf-tools",
+        title: { en: "ТОРГ-12 (goods consignment note)", ru: "Генератор ТОРГ-12" },
+        blurb: {
+          en: "A Russian ТОРГ-12 goods note PDF in the unified form № 132.",
+          ru: "Товарная накладная ТОРГ-12 в PDF по форме № 132.",
+        },
+      },
+      {
         slug: "quote",
         status: "live",
         priceCents: 500,

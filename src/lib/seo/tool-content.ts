@@ -3514,6 +3514,39 @@ const updContent: Content = {
   },
 };
 
+const torg12Content: Content = {
+  en: {
+    intro:
+      "Create a Russian ТОРГ-12 (goods consignment note) in the unified Goskomstat form № 132 — the standard document for releasing and handing over goods. Fill in the consignor, consignee, supplier and payer, add the goods with quantity, price and VAT, and the per-line and total sums are worked out for you. Download a ready PDF to check, sign and issue. Everything runs in your browser. Free, no sign-up.",
+    benefits: ["Unified ТОРГ-12 layout (graphs 1–15)", "Per-line VAT at 20% / 10% / 0% / exempt", "Consignor, consignee, supplier and payer blocks", "Packaging, places and mass columns", "Release and receipt signature blocks", "Free PDF — no sign-up"],
+    steps: ["Fill in the parties (consignor, consignee, supplier, payer).", "Add the goods with quantity, price and VAT.", "Add packaging, places and mass if needed.", "Download the ТОРГ-12 PDF."],
+    faq: [
+      { q: "What is a ТОРГ-12?", a: "It's the Russian unified goods consignment note (form № 132), used to document the sale and handover of goods between a seller and a buyer. It confirms what was shipped and received." },
+      { q: "Which fields does it fill?", a: "Consignor (with ОКПО), consignee, supplier and payer, the goods table (name, code, unit, quantity, price, VAT), packaging/places/mass, totals, and the release and receipt signature blocks including proxy details." },
+      { q: "Is it the same as an invoice or счёт-фактура?", a: "No. ТОРГ-12 is the primary document for the transfer of goods; a счёт-фактура is the VAT document. A УПД combines both — use our УПД generator if you need one document instead of two." },
+      { q: "Is it legally exact?", a: "It follows the unified form, which can be amended. Treat the output as a template to check against the current редакция before you issue it — this is not legal or tax advice." },
+      { q: "Is my data uploaded?", a: "The data is sent once to render the PDF and is not stored. Your draft is kept only in your browser's local storage." },
+    ],
+    useCases: ["Shipping goods with a standard consignment note", "A primary document for a sale of goods", "Confirming handover and receipt with signatures", "A template to fill and sign by hand"],
+    metaExtra: "Free ТОРГ-12 generator — a Russian goods consignment note PDF in the unified Goskomstat form № 132, graphs 1–15 with VAT. Runs in your browser.",
+  },
+  ru: {
+    intro:
+      "Составьте ТОРГ-12 (товарную накладную) по унифицированной форме Госкомстата № 132 — стандартный документ для отпуска и передачи товаров. Заполните грузоотправителя, грузополучателя, поставщика и плательщика, добавьте товары с количеством, ценой и НДС — суммы по строкам и итоги посчитаются автоматически. Скачайте готовый PDF, чтобы проверить, подписать и выставить. Всё работает в браузере. Бесплатно, без регистрации.",
+    benefits: ["Унифицированная форма ТОРГ-12 (графы 1–15)", "НДС по строке: 20% / 10% / 0% / без НДС", "Блоки грузоотправителя, получателя, поставщика, плательщика", "Графы упаковки, мест и массы", "Блоки подписей: отпуск и приёмка груза", "Бесплатный PDF — без регистрации"],
+    steps: ["Заполните стороны (грузоотправитель, получатель, поставщик, плательщик).", "Добавьте товары: количество, цену, НДС.", "При необходимости — упаковку, места, массу.", "Скачайте ТОРГ-12 в PDF."],
+    faq: [
+      { q: "Что такое ТОРГ-12?", a: "Это унифицированная товарная накладная (форма № 132) для оформления продажи и передачи товаров между продавцом и покупателем. Подтверждает, что отгружено и принято." },
+      { q: "Какие реквизиты заполняются?", a: "Грузоотправитель (с ОКПО), грузополучатель, поставщик и плательщик, таблица товаров (наименование, код, единица, количество, цена, НДС), упаковка/места/масса, итоги и блоки подписей отпуска и приёмки, включая данные доверенности." },
+      { q: "Это то же, что счёт или счёт-фактура?", a: "Нет. ТОРГ-12 — первичный документ на передачу товара; счёт-фактура — документ по НДС. УПД объединяет оба — используйте наш генератор УПД, если нужен один документ вместо двух." },
+      { q: "Форма юридически точная?", a: "Соответствует унифицированной форме, которую могут обновлять. Воспринимайте результат как шаблон для сверки с действующей редакцией перед выставлением — это не юридическая и не налоговая консультация." },
+      { q: "Мои данные загружаются?", a: "Данные отправляются один раз для формирования PDF и не сохраняются. Черновик хранится только в локальном хранилище браузера." },
+    ],
+    useCases: ["Отгрузка товара стандартной накладной", "Первичный документ на продажу товара", "Подтверждение передачи и приёмки подписями", "Шаблон для заполнения и подписи"],
+    metaExtra: "Бесплатный генератор ТОРГ-12 — товарная накладная в PDF по унифицированной форме Госкомстата № 132, графы 1–15 с НДС. Работает в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3577,6 +3610,7 @@ const content: Record<string, Content> = {
   "marketplace-taxes": mpTaxContent,
   "schet-faktura": schetFakturaContent,
   upd: updContent,
+  torg12: torg12Content,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
