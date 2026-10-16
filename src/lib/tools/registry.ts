@@ -70,6 +70,17 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "upd",
+        status: "live",
+        priceCents: 0,
+        affiliate: "pdf-tools",
+        title: { en: "УПД (universal transfer document)", ru: "Генератор УПД" },
+        blurb: {
+          en: "A Russian УПД PDF — status 1 (VAT invoice + transfer) or 2.",
+          ru: "УПД в PDF — статус 1 (счёт-фактура + передаточный) или 2.",
+        },
+      },
+      {
         slug: "quote",
         status: "live",
         priceCents: 500,
@@ -581,6 +592,17 @@ export const sections: SectionDef[] = [
         blurb: {
           en: "Format and beautify SQL for 10+ dialects — in your browser.",
           ru: "Форматирование и красивый SQL для 10+ диалектов — в браузере.",
+        },
+      },
+      {
+        slug: "webp-converter",
+        status: "live",
+        affiliate: "developer-tools",
+        priceCents: 0,
+        title: { en: "Image to WebP converter & compressor", ru: "Конвертер картинок в WebP и сжатие" },
+        blurb: {
+          en: "Convert images to WebP, JPEG or PNG and shrink the file — in your browser.",
+          ru: "Конвертация картинок в WebP, JPEG или PNG и сжатие файла — в браузере.",
         },
       },
     ],

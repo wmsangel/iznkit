@@ -3450,6 +3450,70 @@ const schetFakturaContent: Content = {
   },
 };
 
+const webpConverterContent: Content = {
+  en: {
+    intro:
+      "Convert an image to WebP, JPEG or PNG and compress it in one step — right in your browser. Drop a picture in, pick a format, set the quality, and see how much smaller it gets before you download. WebP usually saves 25–35% over JPEG at the same quality. The image is processed on a canvas locally and never uploaded. Free, no sign-up.",
+    benefits: ["Convert to WebP, JPEG or PNG", "Quality slider with live size preview", "Shows how many % smaller the file gets", "Works with PNG, JPG, WebP and GIF frames", "Runs in your browser — nothing uploaded"],
+    steps: ["Drop an image or click to choose one.", "Pick the output format (WebP by default).", "Set the quality and watch the size update.", "Download the converted image."],
+    faq: [
+      { q: "Why convert to WebP?", a: "WebP gives smaller files than JPEG or PNG at the same visual quality — typically 25–35% less — so pages load faster. Every modern browser supports it." },
+      { q: "Does quality affect PNG?", a: "No. PNG is lossless, so the quality slider only applies to WebP and JPEG. For PNG the tool re-encodes without a quality setting." },
+      { q: "Will it make my image larger?", a: "Sometimes — re-encoding an already-optimised or tiny image can add a few bytes. The tool shows the size change so you can tell, and you can lower the quality or keep the original." },
+      { q: "Is my image uploaded?", a: "No. The conversion runs on a canvas in your browser with your own file; it never leaves your device." },
+    ],
+    useCases: ["Shrinking an image for a faster website", "Converting a PNG screenshot to WebP", "Making a JPEG smaller before emailing it", "Getting a WebP version without a desktop app"],
+    metaExtra: "Free image to WebP converter and compressor — convert to WebP, JPEG or PNG with a quality slider and live size preview, all in your browser.",
+  },
+  ru: {
+    intro:
+      "Конвертируйте картинку в WebP, JPEG или PNG и сожмите её за один шаг — прямо в браузере. Перетащите изображение, выберите формат, задайте качество и посмотрите, насколько меньше станет файл, перед скачиванием. WebP обычно экономит 25–35% по сравнению с JPEG при том же качестве. Картинка обрабатывается на canvas локально и не загружается. Бесплатно, без регистрации.",
+    benefits: ["Конвертация в WebP, JPEG или PNG", "Слайдер качества с живым предпросмотром размера", "Показывает, на сколько % меньше стал файл", "Работает с PNG, JPG, WebP и кадрами GIF", "Работает в браузере — ничего не загружается"],
+    steps: ["Перетащите картинку или выберите файл.", "Выберите формат (по умолчанию WebP).", "Задайте качество и следите за размером.", "Скачайте результат."],
+    faq: [
+      { q: "Зачем конвертировать в WebP?", a: "WebP даёт файлы меньше, чем JPEG или PNG, при том же визуальном качестве — обычно на 25–35% — поэтому страницы грузятся быстрее. Его поддерживают все современные браузеры." },
+      { q: "Влияет ли качество на PNG?", a: "Нет. PNG без потерь, поэтому слайдер качества работает только для WebP и JPEG. Для PNG инструмент перекодирует без настройки качества." },
+      { q: "Может ли картинка стать больше?", a: "Иногда — перекодирование уже оптимизированного или крошечного изображения может добавить пару байт. Инструмент показывает изменение размера, так что видно; можно снизить качество или оставить оригинал." },
+      { q: "Моя картинка загружается?", a: "Нет. Конвертация идёт на canvas в вашем браузере с вашим же файлом; он не покидает устройство." },
+    ],
+    useCases: ["Уменьшить картинку для быстрого сайта", "Перевести PNG-скриншот в WebP", "Сжать JPEG перед отправкой по почте", "Получить WebP без десктоп-программы"],
+    metaExtra: "Бесплатный конвертер картинок в WebP и сжатие — конвертация в WebP, JPEG или PNG со слайдером качества и живым размером, всё в браузере.",
+  },
+};
+
+const updContent: Content = {
+  en: {
+    intro:
+      "Create a Russian УПД (universal transfer document) in the form recommended by the Federal Tax Service (letter ММВ-20-3/96@). It combines a счёт-фактура (graphs 1–11) with the primary transfer document — an invoice or act — in one page. Pick status 1 (it doubles as a VAT invoice) or status 2 (transfer only), fill in the parties and line items, add who handed over and who received, and download a ready PDF. Everything runs in your browser. Free, no sign-up.",
+    benefits: ["Status 1 (VAT invoice + transfer) or status 2 (transfer only)", "Official column layout: графы 1–11 + VAT", "Handed-over / received blocks with position, name and dates", "Seller and buyer with ИНН/КПП, sole-trader mode", "Free PDF — no sign-up"],
+    steps: ["Choose the status (1 or 2).", "Fill in the seller, buyer and line items.", "Add the basis, and who handed over / received.", "Download the УПД PDF."],
+    faq: [
+      { q: "What is a УПД?", a: "The universal transfer document combines a счёт-фактура and the primary document (invoice/act) in one form, recommended by the Federal Tax Service. It cuts paperwork: one document instead of two." },
+      { q: "What's the difference between status 1 and 2?", a: "Status 1 serves as both a VAT invoice (счёт-фактура) and a transfer document — for VAT payers. Status 2 is only the transfer document, used when no счёт-фактура is needed (e.g. non-VAT payers)." },
+      { q: "Which fields does it fill?", a: "Seller and buyer with ИНН/КПП, the line-item table (unit, quantity, ex-VAT price, VAT rate and amount, country, customs declaration), the basis of transfer, and the handed-over / received blocks with position, name and dates." },
+      { q: "Is it legally exact?", a: "It follows the recommended form, which is amended over time. Treat the output as a template to check against the current редакция before you issue it — this is not tax advice." },
+      { q: "Is my data uploaded?", a: "The data is sent once to render the PDF and is not stored. Your draft is kept only in your browser's local storage." },
+    ],
+    useCases: ["Issuing one УПД instead of invoice + счёт-фактура", "A transfer act for services (status 2)", "Shipping goods with a combined document", "A template to fill and sign by hand"],
+    metaExtra: "Free УПД generator — a Russian universal transfer document PDF (ФНС form ММВ-20-3/96@), status 1 or 2, графы 1–11 with VAT. Runs in your browser.",
+  },
+  ru: {
+    intro:
+      "Составьте УПД (универсальный передаточный документ) по форме, рекомендованной ФНС (письмо ММВ-20-3/96@). Он объединяет счёт-фактуру (графы 1–11) и первичный передаточный документ — накладную или акт — на одной странице. Выберите статус 1 (заменяет и счёт-фактуру) или статус 2 (только передаточный), заполните стороны и позиции, укажите, кто передал и кто принял, и скачайте готовый PDF. Всё работает в браузере. Бесплатно, без регистрации.",
+    benefits: ["Статус 1 (счёт-фактура + передаточный) или статус 2 (только передаточный)", "Официальные графы 1–11 + НДС", "Блоки «передал» / «принял» с должностью, Ф. И. О. и датами", "Продавец и покупатель с ИНН/КПП, режим ИП", "Бесплатный PDF — без регистрации"],
+    steps: ["Выберите статус (1 или 2).", "Заполните продавца, покупателя и позиции.", "Укажите основание и кто передал / принял.", "Скачайте УПД в PDF."],
+    faq: [
+      { q: "Что такое УПД?", a: "Универсальный передаточный документ объединяет счёт-фактуру и первичку (накладную/акт) в одной форме, рекомендованной ФНС. Экономит бумагу: один документ вместо двух." },
+      { q: "Чем отличаются статус 1 и 2?", a: "Статус 1 — и счёт-фактура, и передаточный документ (для плательщиков НДС). Статус 2 — только передаточный документ, когда счёт-фактура не нужна (например, у неплательщиков НДС)." },
+      { q: "Какие реквизиты заполняются?", a: "Продавец и покупатель с ИНН/КПП, таблица позиций (единица, количество, цена без НДС, ставка и сумма НДС, страна, № ГТД), основание передачи и блоки «передал» / «принял» с должностью, Ф. И. О. и датами." },
+      { q: "Форма юридически точная?", a: "Соответствует рекомендованной форме, которую со временем обновляют. Воспринимайте результат как шаблон для сверки с действующей редакцией перед выставлением — это не налоговая консультация." },
+      { q: "Мои данные загружаются?", a: "Данные отправляются один раз для формирования PDF и не сохраняются. Черновик хранится только в локальном хранилище браузера." },
+    ],
+    useCases: ["Выставить один УПД вместо накладной + счёта-фактуры", "Акт передачи по услугам (статус 2)", "Отгрузка товара единым документом", "Шаблон для заполнения и подписи"],
+    metaExtra: "Бесплатный генератор УПД — универсальный передаточный документ в PDF (форма ФНС ММВ-20-3/96@), статус 1 или 2, графы 1–11 с НДС. Работает в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3504,6 +3568,7 @@ const content: Record<string, Content> = {
   "markdown-preview": mdPreviewContent,
   "image-to-base64": imgBase64Content,
   "sql-formatter": sqlFormatterContent,
+  "webp-converter": webpConverterContent,
   "wifi-qr-code": wifiQrContent,
   "margin-vat": marginVatContent,
   "marketplace-payout": mpPayoutContent,
@@ -3511,6 +3576,7 @@ const content: Record<string, Content> = {
   "marketplace-commissions": mpCommContent,
   "marketplace-taxes": mpTaxContent,
   "schet-faktura": schetFakturaContent,
+  upd: updContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
