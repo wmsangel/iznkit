@@ -4,7 +4,7 @@
 
 Двуязычный (EN+RU) хаб микро-инструментов: калькуляторы, конвертеры, генераторы
 PDF-документов. Монетизация — реклама + контекстные партнёрки; рост — органика.
-Витрина (HTML поверх этого файла): https://claude.ai/artifact/P1M9RNDoboLWMo9gFLu6HP
+Витрина (HTML): https://claude.ai/artifact/P1M9RNDoboLWMo9gFLu6HP — исходник в репо `research/roadmap.html` (правим его и публикуем на тот же URL).
 
 ## Очередь
 

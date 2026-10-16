@@ -1,0 +1,162 @@
+<title>iznkit — дорожная карта</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Графит: холодный нейтраль, IBM Plex, один акцент под сайт.
+   Светлая + тёмная тема. Одна читаемая колонка ≤860px. */
+:root{
+  --bg:#fbfbfc; --surface:#f4f5f8; --surface2:#eceef3;
+  --ink:#1b1e26; --muted:#6a6f7d; --line:#e6e8ee; --line2:#d6d9e2;
+  --accent:#3a7a6a; --accent-soft:color-mix(in srgb,var(--accent) 10%,transparent);
+  --good:#3f8f63; --warn:#9c7620; --bad:#b5494a;
+  --font-display:'IBM Plex Mono',ui-monospace,monospace;
+  --font-body:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#14161b; --surface:#1b1e25; --surface2:#222630;
+  --ink:#e7e9ef; --muted:#959bab; --line:#282c35; --line2:#353a45;
+  --accent:#79c3b1;
+  --good:#6bbd8e; --warn:#d7ab5c; --bad:#e08383; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#14161b; --surface:#1b1e25; --surface2:#222630;
+  --ink:#e7e9ef; --muted:#959bab; --line:#282c35; --line2:#353a45;
+  --accent:#79c3b1;
+  --good:#6bbd8e; --warn:#d7ab5c; --bad:#e08383; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);
+  font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+.kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);font-weight:500}
+h1{margin:10px 0 0;font-family:var(--font-display);font-weight:600;
+  font-size:clamp(32px,6vw,46px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);font-size:16px;max-width:62ch;margin:10px 0 0}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:32px 0 40px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.tile .n{font-family:var(--font-mono);font-weight:600;font-size:27px;line-height:1;letter-spacing:-.02em}
+.tile .n.accent{color:var(--accent)}
+.tile .c{display:block;margin-top:8px;font-size:13px;color:var(--muted);line-height:1.35}
+section{margin-bottom:38px}
+.s-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;
+  padding-bottom:9px;border-bottom:1px solid var(--line)}
+.s-head h2{margin:0;font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.s-head .count{font-family:var(--font-mono);font-size:13px;color:var(--muted)}
+.q{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:14px 4px;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:none}
+.q .idx{font-family:var(--font-mono);font-weight:600;font-size:15px;color:var(--accent);padding-top:2px}
+.q .t{font-weight:600;font-size:17px}
+.q .d{color:var(--muted);font-size:15.5px;margin-top:3px}
+.q .tag{display:inline-block;margin-top:8px;font-family:var(--font-mono);font-size:11px;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--accent);
+  background:var(--accent-soft);padding:3px 8px;border-radius:6px}
+.q .who{display:inline-block;margin-top:8px;margin-left:6px;font-family:var(--font-mono);font-size:11px;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line2);padding:3px 8px;border-radius:6px}
+.done,.ideas{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.done li,.ideas li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:16.5px}
+.done .mk{color:var(--good);font-weight:700;font-family:var(--font-mono)}
+.ideas .bx{width:15px;height:15px;border:1.5px solid var(--line2);border-radius:4px;margin-top:5px}
+.note{color:var(--muted);font-size:14.5px}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:15.5px;min-width:380px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}
+th{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--surface)}
+.st{font-family:var(--font-mono);font-size:12px;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.st.on{color:var(--good);background:color-mix(in srgb,var(--good) 14%,transparent)}
+.st.wait{color:var(--warn);background:color-mix(in srgb,var(--warn) 16%,transparent)}
+.st.soon{color:var(--muted);background:var(--surface2)}
+td.num{font-family:var(--font-mono);text-align:right}
+footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media(max-width:620px){body{font-size:17px}.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="kicker">Дорожная карта · обновлено 16.10.2026</span>
+    <h1>iznkit.com</h1>
+    <p class="sub">Двуязычный хаб микро-инструментов: калькуляторы, конвертеры, генераторы PDF-документов. 62 инструмента, 20 гайдов. Сессии растут (15 за 7 дней), клики из поиска пока копятся — барьер №1 прежний: трафик.</p>
+  </header>
+
+  <div class="tiles">
+    <div class="tile"><span class="n">15</span><span class="c">визитов · GA4, 7 дней</span></div>
+    <div class="tile"><span class="n">138<span style="color:var(--muted)">/196</span></span><span class="c">страниц в индексе</span></div>
+    <div class="tile"><span class="n accent">5</span><span class="c">задач в очереди</span></div>
+    <div class="tile"><span class="n">0</span><span class="c">кликов из поиска · 7 дней</span></div>
+  </div>
+
+  <section>
+    <div class="s-head"><h2>Очередь</h2><span class="count">по приоритету · 5 · метка исполнителя</span></div>
+    <div class="q"><span class="idx">01</span><div>
+      <div class="t">Расширить dev-инструменты (v2)</div>
+      <div class="d">chmod-калькулятор, XML formatter, minify/beautify, cron-builder, палитра/оттенки — тираж 6-файлового паттерна.</div>
+      <span class="tag">контент</span><span class="who">→cursor</span></div></div>
+    <div class="q"><span class="idx">02</span><div>
+      <div class="t">Добить RU-закрывающие документы</div>
+      <div class="d">ТОРГ-12, акт сверки, ГОСТ-QR оплаты на инвойсе, экспорт в Word/Excel. Переиспользуют PDF-пайплайн.</div>
+      <span class="tag">контент</span><span class="who">→сам</span></div></div>
+    <div class="q"><span class="idx">03</span><div>
+      <div class="t">Дособрать инструментацию §F</div>
+      <div class="d">tool_use:calculate на ~10 оставшихся калькуляторах, outbound на /projects, cta_click гайд→инструмент. По образцу.</div>
+      <span class="tag">инфра</span><span class="who">→cursor</span></div></div>
+    <div class="q"><span class="idx">04</span><div>
+      <div class="t">Калькуляторы длинного хвоста</div>
+      <div class="d">Стройка/быт/здоровье точечно, темы из GSC-спроса.</div>
+      <span class="tag">контент</span><span class="who">→гибрид</span></div></div>
+    <div class="q"><span class="idx">05</span><div>
+      <div class="t">Подключить AdSense</div>
+      <div class="d">Код готов (pub-5535516142831006), гейт — трафик. Подать, когда монитор скажет «трафик дорос».</div>
+      <span class="tag">деньги</span><span class="who">→сам</span></div></div>
+  </section>
+
+  <section>
+    <div class="s-head"><h2>Сделано</h2><span class="count">за 2 недели</span></div>
+    <ul class="done">
+      <li><span class="mk">✓</span><span>Генератор УПД — форма ФНС ММВ-20-3/96@, статусы 1/2, графы 1–11 + передаточные блоки, бесплатный PDF <span class="note">· 16.10</span></span></li>
+      <li><span class="mk">✓</span><span>WebP-конвертер / сжатие — WebP/JPEG/PNG, слайдер качества, живой размер; client-side canvas <span class="note">· 16.10</span></span></li>
+      <li><span class="mk">✓</span><span>Зафиксировал lastmod в sitemap — стабильная константа вместо времени билда (churn устранён) <span class="note">· 16.10</span></span></li>
+      <li><span class="mk">✓</span><span>События приведены к сетевому соглашению (item + custom dimensions в GA4) <span class="note">· 15.10</span></span></li>
+      <li><span class="mk">✓</span><span>Связал гайды — блок «Связанные» (NDA, dev, freelance, маркетплейс) <span class="note">· 14.10</span></span></li>
+      <li><span class="mk">✓</span><span>Выжал NDA-кластер — сравнительная таблица mutual↔unilateral + мета/FAQ <span class="note">· 14.10</span></span></li>
+      <li><span class="mk">✓</span><span>Amazon Associates (iznkit-20) — книги на EN-гайдах <span class="note">· 14.10</span></span></li>
+      <li><span class="mk">✓</span><span>Wondershare PDFelement (Admitad 30%) в кластер pdf-tools; подал WPS Office <span class="note">· 13.10</span></span></li>
+      <li><span class="mk">✓</span><span>Генератор счёта-фактуры — форма 1137, НДС по строкам, режим ИП <span class="note">· 08.10</span></span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="s-head"><h2>Идеи</h2><span class="count">припарковано · не в работе</span></div>
+    <ul class="ideas">
+      <li><span class="bx"></span><span>Переезд на Cloudflare Pages/Workers <span class="note">— ⛔ гейт: ~16 PDF-роутов на @react-pdf (Node-runtime), нужен пилот</span></span></li>
+      <li><span class="bx"></span><span>UX: избранное/пиннинг + PWA «на домашний экран» <span class="note">— после роста трафика</span></span></li>
+      <li><span class="bx"></span><span>Аффилиат-вектор: бух-SaaS, аналитика маркетплейсов, банки для ИП <span class="note">— ждёт прямых программ</span></span></li>
+      <li><span class="bx"></span><span>NDA-пресет «для питча игры издателю» <span class="note">— ниша из Bing, по запросу</span></span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="s-head"><h2>Реклама и офферы</h2><span class="count">монетизация</span></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Канал</th><th>Статус</th><th class="num">Доход / мес</th></tr></thead>
+      <tbody>
+        <tr><td>Google AdSense</td><td><span class="st wait">рано</span></td><td class="num">—</td></tr>
+        <tr><td>Партнёрки Mitgo/Admitad <span class="note">(NordPass, AdGuard, NordVPN, PureVPN, ProHoster, Envato, Wondershare)</span></td><td><span class="st on">активна</span></td><td class="num">—</td></tr>
+        <tr><td>Партнёрки Indoleads <span class="note">(Coursera, AbeBooks; WPS Office — заявка)</span></td><td><span class="st on">активна</span></td><td class="num">—</td></tr>
+        <tr><td>Amazon Associates <span class="note">(iznkit-20, книги на EN-гайдах)</span></td><td><span class="st on">активна</span></td><td class="num">—</td></tr>
+        <tr><td>1Password / Proton Pass</td><td><span class="st wait">ждёт</span></td><td class="num">—</td></tr>
+        <tr><td>Ezoic</td><td><span class="st soon">нет</span></td><td class="num">—</td></tr>
+        <tr><td>Финансы/ИП <span class="note">(прямые программы)</span></td><td><span class="st soon">нет</span></td><td class="num">—</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note" style="margin-top:12px">Сетевая перелинковка: наши сайты — do-follow, партнёрки — nofollow (sponsored). Полный документ по монетизации — в памяти проекта (affiliate-audit).</p>
+  </section>
+
+  <footer>Витрина iznkit.com. Обновляется вместе с планом (research/PLAN.md). Приватная страница.</footer>
+</div>
