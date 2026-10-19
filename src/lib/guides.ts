@@ -165,7 +165,7 @@ const ndaGuide: Guide = {
       description:
         "Mutual (two-way) vs unilateral (one-way) NDA — the real differences, when to use each, mNDA vs NDA, and a free generator to make one in a minute.",
       intro:
-        "An NDA (non-disclosure agreement) is a contract that keeps shared information confidential. The first decision is direction: unilateral (one-way) or mutual. Here is how to choose, what a solid NDA includes, and how to generate a signature-ready one free.",
+        "An NDA (non-disclosure agreement) is a contract that keeps shared information confidential. The first decision is direction: unilateral (one-way) or mutual. Here is how to choose, what a solid NDA includes, and how to make a signature-ready one in a minute with our [free NDA generator](tools/nda).",
       sections: [
         {
           h: "Unilateral (one-way) NDA",
@@ -251,7 +251,7 @@ const ndaGuide: Guide = {
       description:
         "Взаимное (двустороннее) и одностороннее NDA — в чём разница, когда какое нужно, mNDA и NDA, и бесплатный генератор, чтобы сделать документ за минуту.",
       intro:
-        "NDA (соглашение о неразглашении) — это договор, который сохраняет переданную информацию конфиденциальной. Первый выбор — направление: одностороннее или взаимное. Ниже — как выбрать, что должно быть в хорошем NDA и как сгенерировать готовый к подписи документ бесплатно.",
+        "NDA (соглашение о неразглашении) — это договор, который сохраняет переданную информацию конфиденциальной. Первый выбор — направление: одностороннее или взаимное. Ниже — как выбрать, что должно быть в хорошем NDA и как за минуту сделать готовый к подписи документ в нашем [бесплатном генераторе NDA](tools/nda).",
       sections: [
         {
           h: "Одностороннее NDA",
@@ -1781,7 +1781,7 @@ const unilateralNdaGuide: Guide = {
       description:
         "A unilateral (one-way) NDA explained — what it is, how it works, when to use one, whether it's enforceable, and how to create one free.",
       intro:
-        "A unilateral NDA — also called a one-way NDA — is a confidentiality agreement where one side shares secret information and the other side promises to protect it. Only one party discloses. Here's exactly what that means, when to use one, and how to generate a signature-ready one free.",
+        "A unilateral NDA — also called a one-way NDA — is a confidentiality agreement where one side shares secret information and the other side promises to protect it. Only one party discloses. Here's exactly what that means, when to use one, and how to [create a one-way NDA free](tools/nda).",
       sections: [
         {
           h: "What a unilateral NDA is",
@@ -1843,7 +1843,7 @@ const unilateralNdaGuide: Guide = {
       description:
         "Одностороннее NDA простыми словами — что это, как работает, когда применять, имеет ли силу и как создать бесплатно.",
       intro:
-        "Одностороннее NDA (соглашение о неразглашении) — договор, где одна сторона раскрывает конфиденциальную информацию, а другая обязуется её защищать. Раскрывает только одна сторона. Ниже — что это значит, когда применять и как сгенерировать готовый к подписи документ бесплатно.",
+        "Одностороннее NDA (соглашение о неразглашении) — договор, где одна сторона раскрывает конфиденциальную информацию, а другая обязуется её защищать. Раскрывает только одна сторона. Ниже — что это значит, когда применять и как [создать одностороннее NDA бесплатно](tools/nda).",
       sections: [
         {
           h: "Что такое одностороннее NDA",
@@ -1913,7 +1913,7 @@ const mutualNdaGuide: Guide = {
       description:
         "A mutual (bilateral) NDA explained — what it is, when both sides share, how it differs from a one-way NDA, and how to create one free.",
       intro:
-        "A mutual NDA — also called a bilateral or two-way NDA — is a confidentiality agreement where both parties share secret information and both promise to protect it. The obligations run both ways. Here's what that means, when you need one, and how to generate a signature-ready one free.",
+        "A mutual NDA — also called a bilateral or two-way NDA — is a confidentiality agreement where both parties share secret information and both promise to protect it. The obligations run both ways. Here's what that means, when you need one, and how to [create a mutual NDA free](tools/nda).",
       sections: [
         {
           h: "What a mutual NDA is",
@@ -1975,7 +1975,7 @@ const mutualNdaGuide: Guide = {
       description:
         "Взаимное (двустороннее) NDA простыми словами — что это, когда обе стороны раскрывают, чем отличается от одностороннего и как создать бесплатно.",
       intro:
-        "Взаимное NDA — также двустороннее — договор, где обе стороны раскрывают конфиденциальную информацию и обе обязуются её защищать. Обязательства в обе стороны. Ниже — что это значит, когда нужно и как сгенерировать готовый к подписи документ бесплатно.",
+        "Взаимное NDA — также двустороннее — договор, где обе стороны раскрывают конфиденциальную информацию и обе обязуются её защищать. Обязательства в обе стороны. Ниже — что это значит, когда нужно и как [создать взаимное NDA бесплатно](tools/nda).",
       sections: [
         {
           h: "Что такое взаимное NDA",

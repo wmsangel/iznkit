@@ -1,7 +1,49 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 import type { GuideBody } from "@/lib/guides";
 import { AUTHOR } from "@/lib/author";
+
+/**
+ * Render a guide string with inline `[label](path)` links. Internal paths are
+ * written without the locale prefix (e.g. `tools/nda`) and get `/{locale}/`
+ * prepended; anything starting with http is an external do-follow link. Lets
+ * guide bodies carry contextual in-content links (editorial anchors to our own
+ * tools and to sister sites in the network) instead of only a boilerplate CTA.
+ */
+const INLINE_LINK = /\[([^\]]+)\]\(([^)]+)\)/g;
+function renderInline(text: string, locale: Locale): ReactNode {
+  INLINE_LINK.lastIndex = 0;
+  if (!INLINE_LINK.test(text)) return text;
+  INLINE_LINK.lastIndex = 0;
+  const parts: ReactNode[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = INLINE_LINK.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    const [, label, href] = m;
+    if (/^https?:\/\//.test(href)) {
+      parts.push(
+        <a key={m.index} href={href} rel="noopener" className="text-[var(--accent)] hover:underline">
+          {label}
+        </a>,
+      );
+    } else {
+      parts.push(
+        <Link
+          key={m.index}
+          href={`/${locale}/${href.replace(/^\//, "")}`}
+          className="text-[var(--accent)] hover:underline"
+        >
+          {label}
+        </Link>,
+      );
+    }
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
+}
 
 export function GuideArticle({
   body,
@@ -22,7 +64,7 @@ export function GuideArticle({
 }) {
   return (
     <article className="max-w-2xl">
-      <p className="mt-6 text-lg text-[var(--muted)] leading-relaxed">{body.intro}</p>
+      <p className="mt-6 text-lg text-[var(--muted)] leading-relaxed">{renderInline(body.intro, locale)}</p>
 
       {/* Inline CTA to the tool this guide is about */}
       <Link
@@ -41,12 +83,12 @@ export function GuideArticle({
                 Array.isArray(para) ? (
                   <ul key={i} className="list-disc pl-5 space-y-1.5 text-[var(--muted)]">
                     {para.map((li) => (
-                      <li key={li}>{li}</li>
+                      <li key={li}>{renderInline(li, locale)}</li>
                     ))}
                   </ul>
                 ) : (
                   <p key={i} className="text-[var(--muted)]">
-                    {para}
+                    {renderInline(para, locale)}
                   </p>
                 ),
               )}
