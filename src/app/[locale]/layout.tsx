@@ -130,12 +130,15 @@ gtag('config', '${GA_ID}');`}
             <YandexMetrika />
           </>
         ) : null}
-        {/* Cloudflare Web Analytics — маячок без кук и без согласия; сайт идёт мимо прокси, поэтому вставляется руками */}
-        <Script
-          id="cf-beacon"
-          strategy="afterInteractive"
+        {/* Cloudflare Web Analytics — маячок без кук и без согласия; сайт идёт мимо
+            прокси, поэтому вставляется руками. Не через next/script: с afterInteractive
+            Next сериализует конфиг в RSC-поток и реального <script data-cf-beacon> в HTML
+            нет — RUM не стартует. Канонический серверный тег гарантирует атрибут в HTML. */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script
+          defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon={'{"token": "655ace7d1c49465fb93410161f8a38a8"}'}
+          data-cf-beacon='{"token": "655ace7d1c49465fb93410161f8a38a8"}'
         />
       </body>
     </html>
