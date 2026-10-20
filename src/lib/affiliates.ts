@@ -128,6 +128,16 @@ export const AFFILIATES: Record<string, Offer[]> = {
         ru: "Безлимит шаблонов, шрифтов, фото, видео и музыки — одна подписка.",
       },
     },
+    {
+      name: "WPS Office",
+      // LIVE affiliate link (Indoleads, CPS 30% + CPI, source=iznkit). First-time
+      // subscriptions only; traffic from IN/JP/CN is prohibited by the offer.
+      url: "https://z03o.xyz/6ad7745b5a953",
+      blurb: {
+        en: "Free office suite with ready-made Writer, Spreadsheet and Presentation templates.",
+        ru: "Бесплатный офисный пакет с готовыми шаблонами документов, таблиц и презентаций.",
+      },
+    },
   ],
   "pdf-tools": [
     {
@@ -137,6 +147,16 @@ export const AFFILIATES: Record<string, Offer[]> = {
       blurb: {
         en: "Edit, convert, fill and sign PDFs on any device — a lighter alternative to Acrobat.",
         ru: "Редактируйте, конвертируйте, заполняйте и подписывайте PDF на любом устройстве — лёгкая замена Acrobat.",
+      },
+    },
+    {
+      name: "WPS Office",
+      // LIVE affiliate link (Indoleads, CPS 30% + CPI, source=iznkit). First-time
+      // subscriptions only; traffic from IN/JP/CN is prohibited by the offer.
+      url: "https://z03o.xyz/6ad7745b5a953",
+      blurb: {
+        en: "Free office suite — open, edit and convert Word, Excel, PowerPoint and PDF on any device.",
+        ru: "Бесплатный офисный пакет — открывайте, редактируйте и конвертируйте Word, Excel, PowerPoint и PDF на любом устройстве.",
       },
     },
   ],
