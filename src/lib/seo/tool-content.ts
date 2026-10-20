@@ -242,6 +242,14 @@ const nda: Content = {
         q: "Does it work under Russian law?",
         a: "You can set any governing law or jurisdiction, and the whole document (including Cyrillic) renders correctly in Russian.",
       },
+      {
+        q: "Is this NDA generator free to use?",
+        a: "Yes — create and download as many non-disclosure agreements as you need at no cost, with no account and no sign-up. It's a genuinely free NDA generator, not a trial.",
+      },
+      {
+        q: "Can I create an NDA online without registering?",
+        a: "Yes. This online NDA maker builds a signature-ready agreement from your details — fill the form, preview for free and download. Nothing to install and no registration needed.",
+      },
     ],
     useCases: [
       "Freelancers and contractors before sharing work or code",
@@ -284,6 +292,14 @@ const nda: Content = {
       {
         q: "Подойдёт ли под российское право?",
         a: "Вы можете указать любое применимое право и юрисдикцию, а весь документ (включая кириллицу) корректно отображается на русском.",
+      },
+      {
+        q: "Генератор NDA бесплатный?",
+        a: "Да — создавайте и скачивайте сколько угодно соглашений о неразглашении бесплатно, без аккаунта и регистрации. Это по-настоящему бесплатный генератор NDA, а не пробный период.",
+      },
+      {
+        q: "Можно ли создать NDA онлайн без регистрации?",
+        a: "Да. Этот онлайн-конструктор NDA собирает готовый к подписи документ по вашим данным — заполните форму, посмотрите превью бесплатно и скачайте. Ничего ставить не нужно, регистрация не требуется.",
       },
     ],
     useCases: [
