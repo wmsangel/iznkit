@@ -14,6 +14,7 @@ export function TrackedLink({
   event,
   params,
   external,
+  nofollow,
   className,
   children,
 }: {
@@ -21,13 +22,22 @@ export function TrackedLink({
   event: string;
   params?: Record<string, unknown>;
   external?: boolean;
+  /** Add rel="nofollow" — for repeated sitewide blocks (footer/network lists),
+   * per the network policy that only single in-text contextual links stay do-follow. */
+  nofollow?: boolean;
   className?: string;
   children: ReactNode;
 }) {
   const onClick = () => track(event, params);
   if (external) {
     return (
-      <a href={href} onClick={onClick} target="_blank" rel="noopener" className={className}>
+      <a
+        href={href}
+        onClick={onClick}
+        target="_blank"
+        rel={nofollow ? "nofollow noopener" : "noopener"}
+        className={className}
+      >
         {children}
       </a>
     );

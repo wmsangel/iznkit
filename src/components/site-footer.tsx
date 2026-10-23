@@ -79,6 +79,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 key={p.url}
                 href={p.url}
                 external
+                nofollow
                 event="outbound_click"
                 params={{ to: p.name, where: "footer" }}
                 className="group flex items-baseline gap-2 text-sm"

@@ -57,7 +57,7 @@ export default async function ProjectsPage({
             key={p.url}
             href={p.url}
             target="_blank"
-            rel="noopener"
+            rel="nofollow noopener"
             className="card card-hover rounded-xl p-5 flex flex-col group"
           >
             <div className="flex items-center justify-between gap-2">
