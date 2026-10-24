@@ -3563,6 +3563,39 @@ const torg12Content: Content = {
   },
 };
 
+const aktSverkiContent: Content = {
+  en: {
+    intro:
+      "Create an акт сверки взаимных расчётов (reconciliation statement) between you and a counterparty for a period, and download a ready PDF. There is no official form — it's drawn up in free form — so this generator renders the common two-sided ledger: your side filled from your records (opening balance, operations as debit/credit, turnover and closing balance), and a blank column for the counterparty to complete and return. The balance and the 'debt in favour of' line are worked out for you. Everything runs in your browser. Free, no sign-up.",
+    benefits: ["Two-sided ledger — your side filled, their side blank to return", "Opening balance, turnover and closing balance computed", "Automatic 'debt in favour of' wording", "Any period and contract reference", "Signature and stamp blocks for both parties", "Free PDF — no sign-up"],
+    steps: ["Enter both parties and the period (and contract, if any).", "Set the opening balance and who it favours.", "Add operations as debit (their debt grows) and credit (their payments).", "Download the акт сверки PDF to print, sign and send."],
+    faq: [
+      { q: "What is an акт сверки?", a: "It's a reconciliation statement of mutual settlements between two counterparties for a period. Each side lists its ledger; where the closing balances agree, the parties confirm the debt (or its absence) with signatures and stamps." },
+      { q: "Is there an official form?", a: "No. The акт сверки is drawn up in free form — there is no unified template. This generator uses the common two-column layout (your data vs the counterparty's), which is widely accepted." },
+      { q: "What do debit and credit mean here?", a: "From your side, debit increases what the counterparty owes you (your shipments / sales), and credit reduces it (their payments). Closing balance = opening + debit − credit; a positive result means the counterparty owes you." },
+      { q: "Does the counterparty fill anything in?", a: "Yes — the right-hand 'по данным [counterparty]' columns are left blank in the PDF for them to complete from their own records, then both sides sign if the balances match." },
+      { q: "Is my data uploaded?", a: "The data is sent once to render the PDF and is not stored. Your draft is kept only in your browser's local storage." },
+    ],
+    useCases: ["Reconciling mutual settlements at period end", "Confirming or disputing a counterparty's balance", "Supporting debt collection or write-off", "A template to fill, sign and stamp by hand"],
+    metaExtra: "Free акт сверки generator — a Russian reconciliation statement of mutual settlements as a PDF, two-sided ledger with opening/closing balance. Runs in your browser.",
+  },
+  ru: {
+    intro:
+      "Составьте акт сверки взаимных расчётов с контрагентом за период и скачайте готовый PDF. Унифицированной формы нет — акт составляется в произвольной форме, поэтому генератор формирует привычную двустороннюю таблицу: ваша сторона заполняется по вашему учёту (сальдо на начало, операции дебет/кредит, обороты и сальдо на конец), а правая колонка остаётся пустой — её заполняет и возвращает контрагент. Сальдо и строка «задолженность в пользу…» считаются автоматически. Всё работает в браузере. Бесплатно, без регистрации.",
+    benefits: ["Двусторонняя таблица — ваша сторона заполнена, сторона контрагента пустая", "Сальдо на начало, обороты и сальдо на конец считаются сами", "Автоматическая строка «задолженность в пользу…»", "Любой период и ссылка на договор", "Блоки подписей и печатей для обеих сторон", "Бесплатный PDF — без регистрации"],
+    steps: ["Укажите обе стороны и период (и договор, если есть).", "Задайте сальдо на начало и в чью оно пользу.", "Добавьте операции: дебет (долг контрагента растёт) и кредит (их оплаты).", "Скачайте акт сверки в PDF — распечатать, подписать и отправить."],
+    faq: [
+      { q: "Что такое акт сверки?", a: "Это документ сверки взаимных расчётов между двумя контрагентами за период. Каждая сторона приводит свой учёт; если конечные сальдо совпадают, стороны подтверждают задолженность (или её отсутствие) подписями и печатями." },
+      { q: "Есть ли официальная форма?", a: "Нет. Акт сверки составляется в произвольной форме — унифицированного бланка не существует. Генератор использует распространённую двухколоночную таблицу (ваши данные и данные контрагента), которая широко принимается." },
+      { q: "Что здесь дебет и кредит?", a: "С вашей стороны дебет увеличивает долг контрагента перед вами (ваши отгрузки/реализация), кредит — уменьшает (их оплаты). Сальдо на конец = начало + дебет − кредит; положительный результат означает, что контрагент должен вам." },
+      { q: "Контрагент что-то заполняет?", a: "Да — правые колонки «по данным [контрагента]» в PDF оставлены пустыми: он заполняет их по своему учёту, и при совпадении сальдо обе стороны подписывают акт." },
+      { q: "Мои данные загружаются?", a: "Данные отправляются один раз для формирования PDF и не сохраняются. Черновик хранится только в локальном хранилище браузера." },
+    ],
+    useCases: ["Сверка взаимных расчётов на конец периода", "Подтверждение или оспаривание сальдо контрагента", "Основание для взыскания или списания долга", "Шаблон для заполнения, подписи и печати"],
+    metaExtra: "Бесплатный генератор акта сверки — акт сверки взаимных расчётов в PDF, двусторонняя таблица с сальдо на начало и конец. Работает в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3627,6 +3660,7 @@ const content: Record<string, Content> = {
   "schet-faktura": schetFakturaContent,
   upd: updContent,
   torg12: torg12Content,
+  "akt-sverki": aktSverkiContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {

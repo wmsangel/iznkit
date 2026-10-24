@@ -92,6 +92,17 @@ export const sections: SectionDef[] = [
         },
       },
       {
+        slug: "akt-sverki",
+        status: "live",
+        priceCents: 0,
+        affiliate: "pdf-tools",
+        title: { en: "Акт сверки (reconciliation statement)", ru: "Генератор акта сверки" },
+        blurb: {
+          en: "A Russian reconciliation statement PDF — mutual settlements for a period.",
+          ru: "Акт сверки взаимных расчётов в PDF — за период, по договору.",
+        },
+      },
+      {
         slug: "quote",
         status: "live",
         priceCents: 500,
