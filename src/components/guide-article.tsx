@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 import type { GuideBody } from "@/lib/guides";
 import { AUTHOR } from "@/lib/author";
+import { TrackedLink } from "@/components/tracked-link";
 
 /**
  * Render a guide string with inline `[label](path)` links. Internal paths are
@@ -50,6 +51,8 @@ export function GuideArticle({
   locale,
   toolHref,
   toolTitle,
+  guideSlug,
+  toolSlug,
   faqLabel,
   related = [],
   relatedLabel,
@@ -58,6 +61,8 @@ export function GuideArticle({
   locale: Locale;
   toolHref: string;
   toolTitle: string;
+  guideSlug: string;
+  toolSlug: string;
   faqLabel: string;
   related?: { href: string; title: string }[];
   relatedLabel?: string;
@@ -67,12 +72,14 @@ export function GuideArticle({
       <p className="mt-6 text-lg text-[var(--muted)] leading-relaxed">{renderInline(body.intro, locale)}</p>
 
       {/* Inline CTA to the tool this guide is about */}
-      <Link
+      <TrackedLink
         href={toolHref}
+        event="cta_click"
+        params={{ from: guideSlug, to: toolSlug, placement: "guide" }}
         className="btn-primary mt-6 inline-flex rounded-lg px-5 py-2.5 text-sm font-medium"
       >
         {body.cta} →
-      </Link>
+      </TrackedLink>
 
       <div className="mt-10 space-y-8">
         {body.sections.map((s) => (

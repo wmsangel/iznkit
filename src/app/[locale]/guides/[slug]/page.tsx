@@ -129,6 +129,8 @@ export default async function GuidePage({
           locale={locale}
           toolHref={toolHref}
           toolTitle={toolTitle}
+          guideSlug={slug}
+          toolSlug={guide.toolSlug}
           faqLabel={dict.content.faq}
           related={getRelatedGuides(slug, locale).map((r) => ({
             href: `/${locale}/guides/${r.slug}`,

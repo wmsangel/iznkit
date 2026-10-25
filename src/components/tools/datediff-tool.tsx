@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { useToolUsed } from "@/lib/tools/use-tool-used";
 import { useHydrateFromUrl } from "@/lib/tools/share";
 import { ShareLink } from "./share-link";
 
@@ -33,6 +34,7 @@ function n1(n: number): string {
 
 export function DateDiffTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).dateDiff;
+  const markUsed = useToolUsed("date-difference");
 
   const [from, setFrom] = useState("2026-01-01");
   const [to, setTo] = useState("2026-12-31");
@@ -63,7 +65,7 @@ export function DateDiffTool({ locale }: { locale: Locale }) {
   );
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8">
+    <div onInput={markUsed} className="grid lg:grid-cols-2 gap-8">
       <div className="grid grid-cols-2 gap-3 self-start">
         <div>
           <label className={labelCls}>{t.from}</label>

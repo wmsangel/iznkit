@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { PROJECTS } from "@/lib/projects";
+import { TrackedLink } from "@/components/tracked-link";
 
 const COPY = {
   en: {
@@ -53,11 +54,13 @@ export default async function ProjectsPage({
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((p) => (
-          <a
+          <TrackedLink
             key={p.url}
             href={p.url}
-            target="_blank"
-            rel="nofollow noopener"
+            external
+            nofollow
+            event="outbound_click"
+            params={{ to: p.name, where: "projects" }}
             className="card card-hover rounded-xl p-5 flex flex-col group"
           >
             <div className="flex items-center justify-between gap-2">
@@ -68,7 +71,7 @@ export default async function ProjectsPage({
             </div>
             <p className="mt-1.5 text-sm text-[var(--muted)] flex-1">{p.tagline[locale]}</p>
             <span className="mt-4 text-sm font-medium text-[var(--accent)]">{c.visit} ↗</span>
-          </a>
+          </TrackedLink>
         ))}
       </div>
     </div>
