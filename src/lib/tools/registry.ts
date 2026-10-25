@@ -627,6 +627,61 @@ export const sections: SectionDef[] = [
           ru: "Конвертация картинок в WebP, JPEG или PNG и сжатие файла — в браузере.",
         },
       },
+      {
+        slug: "chmod-calculator",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "chmod calculator", ru: "Калькулятор chmod (права доступа)" },
+        blurb: {
+          en: "Build Unix file permissions — octal, symbolic and a ready chmod command.",
+          ru: "Соберите права Unix — восьмеричный и символьный вид и готовая команда chmod.",
+        },
+      },
+      {
+        slug: "xml-formatter",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "XML formatter", ru: "Форматтер XML" },
+        blurb: {
+          en: "Beautify or minify XML and catch parse errors in your browser.",
+          ru: "Форматируйте или минифицируйте XML и ловите ошибки разбора в браузере.",
+        },
+      },
+      {
+        slug: "minify-beautify",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Minify & beautify (HTML/CSS/JS)", ru: "Минификация и форматирование (HTML/CSS/JS)" },
+        blurb: {
+          en: "Beautify or minify HTML, CSS and JavaScript — locally, with size stats.",
+          ru: "Форматируйте или минифицируйте HTML, CSS и JavaScript — локально, со статистикой размера.",
+        },
+      },
+      {
+        slug: "cron-builder",
+        status: "live",
+        priceCents: 0,
+        affiliate: "developer-tools",
+        title: { en: "Cron expression builder", ru: "Конструктор cron-выражений" },
+        blurb: {
+          en: "Build a cron schedule from presets or fields, with a plain-language summary.",
+          ru: "Соберите cron из пресетов или полей — с описанием простыми словами.",
+        },
+      },
+      {
+        slug: "color-palette",
+        status: "live",
+        priceCents: 0,
+        affiliate: "creative-assets",
+        title: { en: "Color palette & shades generator", ru: "Палитра и оттенки цвета" },
+        blurb: {
+          en: "Generate tints, shades and color harmonies from any base color.",
+          ru: "Генерируйте оттенки светлее/темнее и гармонии из любого базового цвета.",
+        },
+      },
     ],
   },
   {

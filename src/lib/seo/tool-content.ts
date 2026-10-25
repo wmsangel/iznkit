@@ -3596,6 +3596,291 @@ const aktSverkiContent: Content = {
   },
 };
 
+const chmodCalculatorContent: Content = {
+  en: {
+    intro:
+      "Build Unix file permissions visually — tick read, write and execute for owner, group and others, and get the octal mode (like 755), the symbolic string (rwxr-xr-x) and a ready `chmod` command. Enter an octal value to update the checkboxes the other way. Optional setuid, setgid and sticky bits cover the fourth digit. Everything runs in your browser. Free, no sign-up.",
+    benefits: [
+      "Owner / group / others × read / write / execute",
+      "Octal and symbolic output together",
+      "Bidirectional: type 755 to sync checkboxes",
+      "Optional setuid, setgid and sticky bits",
+      "Copy octal, symbolic or the full chmod command",
+      "Runs locally — nothing uploaded",
+    ],
+    steps: [
+      "Toggle permissions for owner, group and others.",
+      "Optionally enable special bits.",
+      "Copy the octal mode, symbolic string or chmod command.",
+      "Or type an octal value to drive the checkboxes.",
+    ],
+    faq: [
+      { q: "What does chmod 755 mean?", a: "Owner can read, write and execute (7); group and others can read and execute (5). In symbolic form that is rwxr-xr-x — common for executable scripts and directories." },
+      { q: "What is the symbolic form?", a: "Nine characters in three groups of rwx (or -): owner, group, others. Special bits may replace x with s/S (setuid/setgid) or t/T (sticky)." },
+      { q: "When do I need setuid / setgid / sticky?", a: "Rarely for everyday files. setuid/setgid change effective user/group on execute; sticky on directories (like /tmp) restricts who can delete files. Enable them only when you know you need them." },
+      { q: "Is this the same as ACL permissions?", a: "No — this calculator covers classic Unix mode bits only, not POSIX ACLs or macOS/Windows ACLs." },
+      { q: "Is my data uploaded?", a: "No. Permission math runs entirely in your browser." },
+    ],
+    useCases: ["Setting script and directory permissions", "Checking what a mode number means", "Writing chmod commands for deploy docs", "Teaching Unix permissions"],
+    metaExtra: "Free chmod calculator — octal and symbolic Unix permissions, setuid/setgid/sticky, ready chmod command. Runs in your browser.",
+  },
+  ru: {
+    intro:
+      "Соберите права доступа Unix наглядно — отметьте чтение, запись и выполнение для владельца, группы и остальных и получите восьмеричный режим (например 755), символьную строку (rwxr-xr-x) и готовую команду chmod. Введите восьмеричное число — чекбоксы обновятся. Опционально — setuid, setgid и sticky (четвёртая цифра). Всё в браузере. Бесплатно, без регистрации.",
+    benefits: [
+      "Владелец / группа / остальные × чтение / запись / выполнение",
+      "Восьмеричный и символьный вывод сразу",
+      "Двунаправленно: ввод 755 синхронизирует чекбоксы",
+      "Опциональные setuid, setgid и sticky",
+      "Копирование числа, символьной записи или команды",
+      "Локально — ничего не загружается",
+    ],
+    steps: [
+      "Отметьте права для владельца, группы и остальных.",
+      "При необходимости включите спецбиты.",
+      "Скопируйте восьмеричный режим, символьную строку или команду chmod.",
+      "Или введите восьмеричное значение, чтобы обновить чекбоксы.",
+    ],
+    faq: [
+      { q: "Что значит chmod 755?", a: "Владелец — чтение, запись и выполнение (7); группа и остальные — чтение и выполнение (5). В символьном виде это rwxr-xr-x — типично для исполняемых скриптов и каталогов." },
+      { q: "Что такое символьная запись?", a: "Девять символов тремя группами rwx (или -): владелец, группа, остальные. Спецбиты могут заменить x на s/S (setuid/setgid) или t/T (sticky)." },
+      { q: "Когда нужны setuid / setgid / sticky?", a: "Редко для обычных файлов. setuid/setgid меняют эффективного пользователя/группу при запуске; sticky на каталогах (как /tmp) ограничивает удаление. Включайте только когда понимаете зачем." },
+      { q: "Это то же, что ACL?", a: "Нет — калькулятор покрывает только классические биты режима Unix, не POSIX ACL и не ACL macOS/Windows." },
+      { q: "Данные куда-то уходят?", a: "Нет. Расчёт прав идёт полностью в браузере." },
+    ],
+    useCases: ["Права на скрипты и каталоги", "Понять, что означает режим", "Команды chmod для документации деплоя", "Обучение правам Unix"],
+    metaExtra: "Бесплатный калькулятор chmod — восьмеричные и символьные права Unix, setuid/setgid/sticky, готовая команда chmod. В браузере.",
+  },
+};
+
+const xmlFormatterContent: Content = {
+  en: {
+    intro:
+      "Format messy XML or compress it to a single line — validate with the browser's DOMParser and see human-readable parse errors when something is wrong. Choose 2-space, 4-space or tab indentation for beautify. No upload: parsing and serialisation stay on your device. Free, no sign-up.",
+    benefits: [
+      "Beautify with 2 / 4 spaces or tabs",
+      "Minify by stripping inter-tag whitespace",
+      "DOMParser validation with clear errors",
+      "No dependencies — pure browser XML",
+      "One-click copy of the result",
+      "Runs locally — nothing uploaded",
+    ],
+    steps: [
+      "Paste your XML into the input.",
+      "Pick an indent size if you plan to beautify.",
+      "Click Beautify or Minify.",
+      "Copy the result or fix any reported parse error.",
+    ],
+    faq: [
+      { q: "Does this validate against an XSD?", a: "No — it checks well-formedness via DOMParser (application/xml). Schema validation is out of scope." },
+      { q: "What does minify do?", a: "It removes insignificant whitespace between tags while keeping element structure and text content." },
+      { q: "Why did I get a parser error?", a: "The markup is not well-formed — common causes are unclosed tags, mismatched names, or illegal characters in text. The message points at what the browser rejected." },
+      { q: "Are namespaces preserved?", a: "Yes — attributes and tag names are serialised as the parser saw them, including prefixed names." },
+      { q: "Is my XML uploaded?", a: "No. Everything runs in your browser." },
+    ],
+    useCases: ["Cleaning API or config XML", "Debugging malformed payloads", "Preparing readable samples for docs", "Shrinking XML before embedding"],
+    metaExtra: "Free XML formatter — beautify or minify XML in your browser, with DOMParser validation and clear parse errors.",
+  },
+  ru: {
+    intro:
+      "Приведите запутанный XML в порядок или сожмите в одну строку — проверка через DOMParser браузера, при ошибке — понятное сообщение. Для форматирования выберите отступ 2/4 пробела или tab. Без загрузки: разбор и сериализация на устройстве. Бесплатно, без регистрации.",
+    benefits: [
+      "Форматирование с отступом 2 / 4 или tab",
+      "Минификация без лишних пробелов между тегами",
+      "Валидация DOMParser с понятными ошибками",
+      "Без зависимостей — чистый браузерный XML",
+      "Копирование результата в один клик",
+      "Локально — ничего не загружается",
+    ],
+    steps: [
+      "Вставьте XML во входное поле.",
+      "Выберите размер отступа для форматирования.",
+      "Нажмите «Форматировать» или «Минифицировать».",
+      "Скопируйте результат или исправьте ошибку разбора.",
+    ],
+    faq: [
+      { q: "Это проверка по XSD?", a: "Нет — проверяется корректность разметки через DOMParser (application/xml). Схемы не поддерживаются." },
+      { q: "Что делает минификация?", a: "Убирает незначимые пробелы между тегами, сохраняя структуру элементов и текст." },
+      { q: "Почему ошибка парсера?", a: "Разметка некорректна — часто незакрытые теги, несовпадение имён или недопустимые символы. Сообщение показывает, что отклонил браузер." },
+      { q: "Пространства имён сохраняются?", a: "Да — атрибуты и имена тегов сериализуются так, как их увидел парсер, включая префиксы." },
+      { q: "XML куда-то уходит?", a: "Нет. Всё выполняется в браузере." },
+    ],
+    useCases: ["Чистка XML из API и конфигов", "Отладка битых payload", "Читаемые примеры для документации", "Сжатие XML перед встраиванием"],
+    metaExtra: "Бесплатный форматтер XML — beautify или minify в браузере, валидация DOMParser и понятные ошибки разбора.",
+  },
+};
+
+const minifyBeautifyContent: Content = {
+  en: {
+    intro:
+      "Beautify or minify HTML, CSS and JavaScript in one place. Formatting uses js-beautify; CSS/HTML minify is a conservative strip of comments and extra whitespace; JS minify uses Terser. Heavy parsers load only when you run the tool, so the page stays light. See byte size before and after. Everything stays in your browser. Free, no sign-up.",
+    benefits: [
+      "HTML, CSS and JS in one tool",
+      "Beautify via js-beautify",
+      "Conservative CSS/HTML minify",
+      "JS minify with Terser",
+      "Dynamic import — libraries load on demand",
+      "Size before / after with percent change",
+    ],
+    steps: [
+      "Pick the language and beautify or minify.",
+      "Paste your code.",
+      "Click Run and wait for the result.",
+      "Copy the output and check the size stats.",
+    ],
+    faq: [
+      { q: "Will minify break my HTML?", a: "The HTML/CSS minify is conservative (comments and excess whitespace). It does not rewrite markup structure; always spot-check critical templates." },
+      { q: "Does JS minify understand modern syntax?", a: "Terser handles contemporary ECMAScript. Unusual or incomplete snippets may fail — the error message will say so." },
+      { q: "Why is the first run slower?", a: "js-beautify and Terser are loaded dynamically on first use so they do not bloat the initial page bundle." },
+      { q: "Is my code uploaded?", a: "No. Processing happens entirely in your browser." },
+      { q: "Can I choose indent size?", a: "Beautify uses a 2-space indent by default — enough for readable output without extra controls." },
+    ],
+    useCases: ["Cleaning pasted frontend snippets", "Preparing demos and gists", "Shrinking inline CSS/JS", "Quick format before code review"],
+    metaExtra: "Free HTML/CSS/JS beautifier and minifier — js-beautify and Terser in your browser, with before/after size stats.",
+  },
+  ru: {
+    intro:
+      "Форматируйте или минифицируйте HTML, CSS и JavaScript в одном месте. Форматирование — js-beautify; минификация CSS/HTML — консервативное удаление комментариев и лишних пробелов; JS — через Terser. Тяжёлые парсеры подгружаются только при запуске. Смотрите размер до и после. Всё в браузере. Бесплатно, без регистрации.",
+    benefits: [
+      "HTML, CSS и JS в одном инструменте",
+      "Форматирование через js-beautify",
+      "Консервативная минификация CSS/HTML",
+      "Минификация JS через Terser",
+      "Динамический импорт — библиотеки по требованию",
+      "Размер до / после с процентом изменения",
+    ],
+    steps: [
+      "Выберите язык и режим (форматировать / минифицировать).",
+      "Вставьте код.",
+      "Нажмите «Выполнить» и дождитесь результата.",
+      "Скопируйте вывод и посмотрите статистику размера.",
+    ],
+    faq: [
+      { q: "Минификация сломает HTML?", a: "Для HTML/CSS минификация консервативная (комментарии и лишние пробелы). Структуру разметки она не переписывает — критичные шаблоны лучше проверить глазами." },
+      { q: "JS minify понимает современный синтаксис?", a: "Terser умеет современный ECMAScript. Необычные или незавершённые фрагменты могут дать ошибку — сообщение об этом скажет." },
+      { q: "Почему первый запуск медленнее?", a: "js-beautify и Terser подгружаются динамически при первом использовании, чтобы не раздувать начальный бандл страницы." },
+      { q: "Код куда-то уходит?", a: "Нет. Обработка полностью в браузере." },
+      { q: "Можно выбрать размер отступа?", a: "Форматирование по умолчанию с отступом в 2 пробела — достаточно для читаемого результата без лишних настроек." },
+    ],
+    useCases: ["Чистка вставленных фронтенд-фрагментов", "Подготовка демо и gist", "Сжатие inline CSS/JS", "Быстрый формат перед ревью"],
+    metaExtra: "Бесплатный beautify/minify HTML, CSS и JS — js-beautify и Terser в браузере, со статистикой размера до и после.",
+  },
+};
+
+const cronBuilderContent: Content = {
+  en: {
+    intro:
+      "Build a standard 5-field cron expression from presets — every minute, every hour, daily at HH:MM, weekly on a weekday, monthly on a day — or edit the five fields yourself. See a plain-language description and the next run times, then copy the expression. Uses the same parser as our cron expression parser. Free, no sign-up.",
+    benefits: [
+      "Presets for common schedules",
+      "Custom minute / hour / day / month / weekday fields",
+      "Human-readable schedule summary",
+      "Next five run times preview",
+      "One-click copy of the cron string",
+      "Shares logic with the cron parser tool",
+    ],
+    steps: [
+      "Pick a preset or switch to Custom.",
+      "Adjust time, weekday or day-of-month as needed.",
+      "Read the description and upcoming runs.",
+      "Copy the cron expression into your crontab or scheduler.",
+    ],
+    faq: [
+      { q: "Which cron dialect is this?", a: "Standard 5-field cron (minute hour day-of-month month day-of-week). It does not cover seconds fields or systemd OnCalendar." },
+      { q: "How is this different from the cron parser?", a: "The parser explains an expression you already have; the builder helps you create one from presets and fields. Both reuse the same description and next-run logic." },
+      { q: "Are times local or UTC?", a: "Next runs are shown in your local timezone — the same clock your browser uses." },
+      { q: "Can I use names like MON or JAN?", a: "In Custom mode you can enter numeric fields or names the shared parser accepts (e.g. mon, jan)." },
+      { q: "Is anything uploaded?", a: "No. Building and previewing run entirely in your browser." },
+    ],
+    useCases: ["Writing crontab entries", "CI and backup schedules", "Explaining a schedule to teammates", "Quick daily / weekly job templates"],
+    metaExtra: "Free cron expression builder — presets and five fields, plain-language summary and next runs. Runs in your browser.",
+  },
+  ru: {
+    intro:
+      "Соберите стандартное cron-выражение из 5 полей по пресетам — каждую минуту, каждый час, ежедневно в HH:MM, еженедельно по дню, ежемесячно числа N — или отредактируйте пять полей сами. Смотрите описание простыми словами и ближайшие запуски, затем скопируйте выражение. Тот же парсер, что у инструмента разбора cron. Бесплатно, без регистрации.",
+    benefits: [
+      "Пресеты для типичных расписаний",
+      "Свои поля минута / час / день / месяц / день недели",
+      "Понятное текстовое описание",
+      "Превью ближайших пяти запусков",
+      "Копирование cron-строки в один клик",
+      "Общая логика с инструментом разбора cron",
+    ],
+    steps: [
+      "Выберите пресет или режим «Свой вариант».",
+      "При необходимости поправьте время, день недели или число месяца.",
+      "Прочитайте описание и ближайшие запуски.",
+      "Скопируйте выражение в crontab или планировщик.",
+    ],
+    faq: [
+      { q: "Какой диалект cron?", a: "Стандартные 5 полей (минута час день-месяца месяц день-недели). Без поля секунд и без systemd OnCalendar." },
+      { q: "Чем отличается от разбора cron?", a: "Парсер объясняет уже готовое выражение; конструктор помогает создать его из пресетов и полей. Описание и ближайшие запуски считаются одной логикой." },
+      { q: "Время локальное или UTC?", a: "Ближайшие запуски показываются в вашем локальном часовом поясе — том же, что использует браузер." },
+      { q: "Можно ли писать MON или JAN?", a: "В режиме «Свой вариант» можно вводить числа или имена, которые принимает общий парсер (например mon, jan)." },
+      { q: "Что-то загружается?", a: "Нет. Сборка и превью полностью в браузере." },
+    ],
+    useCases: ["Записи в crontab", "Расписания CI и бэкапов", "Объяснить расписание команде", "Шаблоны ежедневных / еженедельных задач"],
+    metaExtra: "Бесплатный конструктор cron — пресеты и пять полей, описание простыми словами и ближайшие запуски. В браузере.",
+  },
+};
+
+const colorPaletteContent: Content = {
+  en: {
+    intro:
+      "Generate a color palette from any base color — tints (lighter), shades (darker), plus complementary, analogous and triad harmonies. Click any swatch to copy its hex. Pure HSL math in your browser; nothing is uploaded. Built for “color palette generator”, “color shades” and “tints and shades” searches alongside our color converter. Free, no sign-up.",
+    benefits: [
+      "Tints and shades in stepped scales",
+      "Complementary, analogous and triad harmonies",
+      "Hex on every swatch — click to copy",
+      "Accepts hex, rgb, hsl or CSS color names",
+      "Color picker plus text input",
+      "Local HSL math — no dependencies",
+    ],
+    steps: [
+      "Enter or pick a base color.",
+      "Browse tints, shades and harmony rows.",
+      "Click a swatch to copy its hex.",
+      "Paste into CSS, Figma or design tokens.",
+    ],
+    faq: [
+      { q: "What is a tint vs a shade?", a: "A tint mixes the color toward white (higher lightness); a shade mixes toward black (lower lightness). Both keep the same hue and saturation in this tool." },
+      { q: "How is complementary calculated?", a: "Complementary is the hue 180° opposite on the HSL wheel; analogous uses ±30°; triad uses 0° / 120° / 240°." },
+      { q: "How is this different from the color converter?", a: "The converter shows HEX/RGB/HSL for one color. This page builds a palette of related colors for design systems and UI themes." },
+      { q: "Are the results accessible contrast pairs?", a: "No — this generates related hues and lightness steps. Check contrast separately for text on backgrounds." },
+      { q: "Is my color uploaded?", a: "No. All conversions run in your browser." },
+    ],
+    useCases: ["UI theme starter palettes", "Brand tint/shade scales", "Quick harmony exploration", "Copying hex into design tokens"],
+    metaExtra: "Free color palette generator — tints, shades, complementary, analogous and triad harmonies. Copy hex swatches in your browser.",
+  },
+  ru: {
+    intro:
+      "Сгенерируйте палитру из любого базового цвета — оттенки светлее (tints) и темнее (shades), плюс комплементарная, аналоговые и триадная гармонии. Клик по свотчу копирует hex. Чистая HSL-математика в браузере; ничего не загружается. Рядом с нашим конвертером цветов — под запросы «color palette generator», «color shades», «tints and shades». Бесплатно, без регистрации.",
+    benefits: [
+      "Светлее и темнее ступенями",
+      "Комплементарная, аналоговые и триадная гармонии",
+      "Hex на каждом свотче — клик копирует",
+      "Принимает hex, rgb, hsl и CSS-имена",
+      "Пипетка и текстовый ввод",
+      "Локальная HSL-математика — без зависимостей",
+    ],
+    steps: [
+      "Введите или выберите базовый цвет.",
+      "Просмотрите ряды оттенков и гармоний.",
+      "Кликните свотч, чтобы скопировать hex.",
+      "Вставьте в CSS, Figma или токены дизайна.",
+    ],
+    faq: [
+      { q: "Чем tint отличается от shade?", a: "Tint смешивает цвет к белому (выше lightness); shade — к чёрному (ниже lightness). Оттенок (hue) и насыщенность в этом инструменте сохраняются." },
+      { q: "Как считается комплементарная?", a: "Комплементарная — hue на 180° напротив на HSL-круге; аналоговые — ±30°; триада — 0° / 120° / 240°." },
+      { q: "Чем отличается от конвертера цветов?", a: "Конвертер показывает HEX/RGB/HSL одного цвета. Эта страница строит палитру родственных цветов для дизайн-систем и UI-тем." },
+      { q: "Это пары с доступным контрастом?", a: "Нет — здесь родственные оттенки и ступени яркости. Контраст текста на фоне проверяйте отдельно." },
+      { q: "Цвет куда-то уходит?", a: "Нет. Все преобразования в браузере." },
+    ],
+    useCases: ["Стартовые палитры UI-тем", "Шкалы оттенков бренда", "Быстрый разбор гармоний", "Копирование hex в токены дизайна"],
+    metaExtra: "Бесплатный генератор палитры — оттенки светлее/темнее, комплементарная, аналоговые и триада. Копируйте hex-свотчи в браузере.",
+  },
+};
+
 const content: Record<string, Content> = {
   invoice,
   "rental-yield": rentalYield,
@@ -3661,6 +3946,11 @@ const content: Record<string, Content> = {
   upd: updContent,
   torg12: torg12Content,
   "akt-sverki": aktSverkiContent,
+  "chmod-calculator": chmodCalculatorContent,
+  "xml-formatter": xmlFormatterContent,
+  "minify-beautify": minifyBeautifyContent,
+  "cron-builder": cronBuilderContent,
+  "color-palette": colorPaletteContent,
 };
 
 export function getToolContent(slug: string, locale: Locale): ToolContent | null {
