@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { useToolUsed } from "@/lib/tools/use-tool-used";
 import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
 import { ShareLink } from "./share-link";
 
@@ -11,6 +12,7 @@ const units = (n: number) => (Number.isFinite(n) ? Math.ceil(n).toLocaleString("
 
 export function BreakEvenTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).breakEven;
+  const markUsed = useToolUsed("break-even-calculator");
 
   const [fixed, setFixed] = useState(5000);
   const [price, setPrice] = useState(25);
@@ -76,7 +78,7 @@ export function BreakEvenTool({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8">
+    <div onInput={markUsed} className="grid lg:grid-cols-2 gap-8">
       <div className="space-y-4 self-start">
         <div>
           <label className={labelCls}>{t.fixed}</label>

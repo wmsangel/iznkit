@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { useToolUsed } from "@/lib/tools/use-tool-used";
 import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
 import { ShareLink } from "./share-link";
 
@@ -13,6 +14,7 @@ const r0 = (n: number) => (Number.isFinite(n) ? Math.round(n).toLocaleString("en
 
 export function AspectRatioTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).aspectRatio;
+  const markUsed = useToolUsed("aspect-ratio-calculator");
 
   const [rw, setRw] = useState(16);
   const [rh, setRh] = useState(9);
@@ -37,7 +39,7 @@ export function AspectRatioTool({ locale }: { locale: Locale }) {
   const labelCls = "block text-xs font-medium text-[var(--muted)] mb-1";
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8">
+    <div onInput={markUsed} className="grid lg:grid-cols-2 gap-8">
       <div className="space-y-4 self-start">
         <div className="grid grid-cols-2 gap-3">
           <div>

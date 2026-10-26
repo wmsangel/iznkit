@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { useToolUsed } from "@/lib/tools/use-tool-used";
 import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
 import { ShareLink } from "./share-link";
 
@@ -13,6 +14,7 @@ function fmt(n: number): string {
 
 export function CompoundTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).compound;
+  const markUsed = useToolUsed("compound-interest");
 
   const [principal, setPrincipal] = useState(10000);
   const [rate, setRate] = useState(7);
@@ -86,7 +88,7 @@ export function CompoundTool({ locale }: { locale: Locale }) {
     }`;
 
   return (
-    <div className="space-y-10">
+    <div onInput={markUsed} className="space-y-10">
     <div className="grid lg:grid-cols-2 gap-8">
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-3">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { useToolUsed } from "@/lib/tools/use-tool-used";
 import { useHydrateFromUrl, numParam } from "@/lib/tools/share";
 import { ShareLink } from "./share-link";
 
@@ -13,6 +14,7 @@ function fmt(n: number): string {
 
 export function VatTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).vat;
+  const markUsed = useToolUsed("vat-calculator");
 
   const [amount, setAmount] = useState(1000);
   const [rate, setRate] = useState(20);
@@ -49,7 +51,7 @@ export function VatTool({ locale }: { locale: Locale }) {
     }`;
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8">
+    <div onInput={markUsed} className="grid lg:grid-cols-2 gap-8">
       <div className="space-y-5">
         <div className="flex gap-2">
           <button type="button" className={tabCls(mode === "add")} onClick={() => setMode("add")}>

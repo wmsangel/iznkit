@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { useToolUsed } from "@/lib/tools/use-tool-used";
 import { useHydrateFromUrl } from "@/lib/tools/share";
 import { ShareLink } from "./share-link";
 
@@ -28,6 +29,7 @@ const n0 = (n: number) => (Number.isFinite(n) ? Math.round(n).toLocaleString("en
 
 export function AgeTool({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).age;
+  const markUsed = useToolUsed("age-calculator");
 
   const [dob, setDob] = useState("2000-01-01");
   // "today" is only known on the client — keep it out of the first render to
@@ -70,7 +72,7 @@ export function AgeTool({ locale }: { locale: Locale }) {
   );
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8">
+    <div onInput={markUsed} className="grid lg:grid-cols-2 gap-8">
       <div className="self-start">
         <label className={labelCls}>{t.birthDate}</label>
         <input
