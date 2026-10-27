@@ -1,3 +1,5 @@
+**ВЫПОЛНЕНО, 26.10.2026 — fc7cd0f** (Cursor ea8fa3e, приёмка+мердж). Повторно не прогонять.
+
 # Cursor: добавить 5 dev-инструментов (v2) в iznkit
 
 Добавь в проект iznkit (Next.js 16 App Router, React 19, Tailwind 4, TypeScript,

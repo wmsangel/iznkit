@@ -1,3 +1,5 @@
+**ВЫПОЛНЕНО, 26.10.2026 — fc7cd0f** (Cursor b71a20b, приёмка+мердж). Повторно не прогонять.
+
 # Cursor: дособрать инструментацию §F в iznkit
 
 Проект iznkit (Next.js 16 App Router, React 19, TypeScript, двуязычный EN+RU).
