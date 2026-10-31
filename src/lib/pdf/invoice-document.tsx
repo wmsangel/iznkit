@@ -30,6 +30,8 @@ export interface InvoiceLabels {
   tax: string;
   total: string;
   notes: string;
+  payQrTitle: string;
+  payQrNote: string;
 }
 
 const ACCENT = "#4f46e5";
@@ -123,6 +125,12 @@ const s = StyleSheet.create({
   notes: { marginTop: 30, paddingTop: 12, borderTopWidth: 1, borderColor: LINE },
   notesLabel: { color: MUTED, fontSize: 9, textTransform: "uppercase", marginBottom: 4 },
   notesText: { color: INK, lineHeight: 1.5 },
+  qrBlock: { marginTop: 24, paddingTop: 12, borderTopWidth: 1, borderColor: LINE, flexDirection: "row", gap: 14 },
+  qrImg: { width: 92, height: 92 },
+  qrInfo: { flex: 1 },
+  qrTitle: { fontWeight: "bold", fontSize: 10, marginBottom: 4 },
+  qrLine: { color: INK, fontSize: 8.5, lineHeight: 1.45 },
+  qrNote: { color: MUTED, fontSize: 7.5, marginTop: 5, lineHeight: 1.4 },
   footer: {
     position: "absolute",
     bottom: 24,
@@ -153,9 +161,11 @@ export interface InvoiceDocProps {
   labels: InvoiceLabels;
   brand: string;
   watermark?: boolean;
+  /** Data-URL PNG of the ГОСТ Р 56042-2014 payment QR, when requisites are set. */
+  paymentQr?: string;
 }
 
-export function InvoiceDocument({ data, labels, brand, watermark }: InvoiceDocProps) {
+export function InvoiceDocument({ data, labels, brand, watermark, paymentQr }: InvoiceDocProps) {
   const totals = computeTotals(data);
   const cur = data.currency;
   const tpl = getTemplate(data.template);
@@ -265,6 +275,28 @@ export function InvoiceDocument({ data, labels, brand, watermark }: InvoiceDocPr
           <View style={s.notes}>
             <Text style={s.notesLabel}>{labels.notes}</Text>
             <Text style={s.notesText}>{data.notes}</Text>
+          </View>
+        ) : null}
+
+        {paymentQr ? (
+          <View style={s.qrBlock} wrap={false}>
+            <Image style={s.qrImg} src={paymentQr} />
+            <View style={s.qrInfo}>
+              <Text style={s.qrTitle}>{labels.payQrTitle}</Text>
+              <Text style={s.qrLine}>{data.payeeName}</Text>
+              <Text style={s.qrLine}>р/с {data.payeeAcc} · БИК {data.payeeBic}</Text>
+              <Text style={s.qrLine}>
+                {data.payeeBankName}
+                {data.payeeCorrAcc ? ` · к/с ${data.payeeCorrAcc}` : ""}
+              </Text>
+              {data.payeeInn ? (
+                <Text style={s.qrLine}>
+                  ИНН {data.payeeInn}
+                  {data.payeeKpp ? ` · КПП ${data.payeeKpp}` : ""}
+                </Text>
+              ) : null}
+              <Text style={s.qrNote}>{labels.payQrNote}</Text>
+            </View>
           </View>
         ) : null}
 

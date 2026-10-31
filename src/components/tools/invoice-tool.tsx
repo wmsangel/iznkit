@@ -380,6 +380,52 @@ export function InvoiceTool({ locale }: { locale: Locale }) {
             onChange={(e) => set("notes", e.target.value)}
           />
         </div>
+
+        {/* Optional RU payment QR (ГОСТ Р 56042-2014) */}
+        <details className="rounded-xl border border-[var(--border)] px-4 py-3">
+          <summary className="cursor-pointer text-sm font-medium">{t.payQrSection}</summary>
+          <p className="mt-2 text-xs text-[var(--muted)]">{t.payQrHint}</p>
+          <div className="mt-3 grid gap-3">
+            <div>
+              <label className={labelCls}>{t.payeeName}</label>
+              <input className={inputCls} value={data.payeeName} onChange={(e) => set("payeeName", e.target.value)} />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className={labelCls}>{t.payeeAcc}</label>
+                <input className={inputCls} inputMode="numeric" value={data.payeeAcc} onChange={(e) => set("payeeAcc", e.target.value)} />
+              </div>
+              <div>
+                <label className={labelCls}>{t.payeeBic}</label>
+                <input className={inputCls} inputMode="numeric" value={data.payeeBic} onChange={(e) => set("payeeBic", e.target.value)} />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className={labelCls}>{t.payeeBankName}</label>
+                <input className={inputCls} value={data.payeeBankName} onChange={(e) => set("payeeBankName", e.target.value)} />
+              </div>
+              <div>
+                <label className={labelCls}>{t.payeeCorrAcc}</label>
+                <input className={inputCls} inputMode="numeric" value={data.payeeCorrAcc} onChange={(e) => set("payeeCorrAcc", e.target.value)} />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className={labelCls}>{t.payeeInn}</label>
+                <input className={inputCls} inputMode="numeric" value={data.payeeInn} onChange={(e) => set("payeeInn", e.target.value)} />
+              </div>
+              <div>
+                <label className={labelCls}>{t.payeeKpp}</label>
+                <input className={inputCls} inputMode="numeric" value={data.payeeKpp} onChange={(e) => set("payeeKpp", e.target.value)} />
+              </div>
+            </div>
+            <div>
+              <label className={labelCls}>{t.payPurpose}</label>
+              <input className={inputCls} placeholder={t.payPurposePlaceholder} value={data.payPurpose} onChange={(e) => set("payPurpose", e.target.value)} />
+            </div>
+          </div>
+        </details>
       </div>
 
       {/* ---------- Preview + actions ---------- */}

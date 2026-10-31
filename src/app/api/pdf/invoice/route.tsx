@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import QRCode from "qrcode";
 import { renderToBuffer } from "@react-pdf/renderer";
 import { asciiSlug } from "@/lib/format";
 import { ensureFonts } from "@/lib/pdf/fonts";
@@ -6,7 +7,7 @@ import { InvoiceDocument, type InvoiceLabels } from "@/lib/pdf/invoice-document"
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
-import type { InvoiceData } from "@/lib/tools/invoice/model";
+import { computeTotals, gostQrPayload, type InvoiceData } from "@/lib/tools/invoice/model";
 
 export const runtime = "nodejs";
 
@@ -42,7 +43,16 @@ export async function POST(req: NextRequest) {
     tax: dict.invoice.tax,
     total: dict.invoice.total,
     notes: dict.invoice.notes,
+    payQrTitle: dict.invoice.payQrTitle,
+    payQrNote: dict.invoice.payQrNote,
   };
+
+  // ГОСТ Р 56042-2014 payment QR — only when the RU requisites are filled.
+  let paymentQr: string | undefined;
+  const payload = gostQrPayload(body.data, computeTotals(body.data).total);
+  if (payload) {
+    paymentQr = await QRCode.toDataURL(payload, { errorCorrectionLevel: "M", margin: 1, width: 240 });
+  }
 
   ensureFonts();
   const buffer = await renderToBuffer(
@@ -51,6 +61,7 @@ export async function POST(req: NextRequest) {
       labels={labels}
       brand={dict.brand.name}
       watermark={!unlocked}
+      paymentQr={paymentQr}
     />,
   );
 

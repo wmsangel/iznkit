@@ -60,6 +60,10 @@ const invoice: Content = {
         q: "Does it work in Russian?",
         a: "Yes. The whole tool and the generated PDF are fully bilingual (English and Russian), including Cyrillic text and the ruble symbol.",
       },
+      {
+        q: "Can it add a payment QR code?",
+        a: "Yes — open the 'Payment QR (Russia)' section and fill the recipient's bank requisites (account, bank, BIC, corr. account, ИНН/КПП). The PDF then shows a ruble payment QR in the ГОСТ Р 56042-2014 format (ST00012) that the payer scans in their banking app; the amount is taken from the invoice total.",
+      },
     ],
     useCases: [
       "Freelancers and contractors billing clients per project or per hour",
@@ -106,6 +110,10 @@ const invoice: Content = {
       {
         q: "Работает ли на русском?",
         a: "Да. Весь инструмент и итоговый PDF полностью двуязычные (русский и английский), включая кириллицу и символ рубля.",
+      },
+      {
+        q: "Можно ли добавить QR для оплаты?",
+        a: "Да — раскройте блок «QR для оплаты (РФ)» и заполните банковские реквизиты получателя (расчётный счёт, банк, БИК, корр. счёт, ИНН/КПП). В PDF появится рублёвый платёжный QR по ГОСТ Р 56042-2014 (формат ST00012), который плательщик сканирует в банковском приложении; сумма берётся из итога счёта.",
       },
     ],
     useCases: [
