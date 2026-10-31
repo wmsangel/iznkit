@@ -33,21 +33,26 @@ export function privacyDoc(locale: Locale): LegalDoc {
         {
           h: "Файлы cookie и аналитика",
           p: [
-            "Мы используем Google Analytics, чтобы понимать обобщённую статистику посещений (какие страницы смотрят, примерный регион, тип устройства). Google Analytics устанавливает файлы cookie и обрабатывает данные в агрегированном виде.",
-            "Эти данные не позволяют идентифицировать вас лично и используются только для улучшения сайта.",
+            "Мы используем следующие сервисы аналитики:",
+            [
+              "Google Analytics 4 (GA4) — обобщённая статистика посещений (какие страницы смотрят, примерный регион, тип устройства). Устанавливает файлы cookie (_ga, _ga_*). Работает в режиме согласия Google (Consent Mode v2): для посетителей из ЕЭЗ, Великобритании и Швейцарии хранение аналитики по умолчанию отключено и cookie не ставятся, пока вы не согласитесь в баннере.",
+              "Яндекс.Метрика (счётчик 113481986) с включённым Вебвизором (запись сессий, карты кликов и скроллинга). Устанавливает файлы cookie (_ym_uid, _ym_d, _ym_isad и другие _ym_*). Загружается только после вашего явного согласия в баннере — без согласия (в том числе в ЕЭЗ, Великобритании и Швейцарии) она не запускается вовсе.",
+              "Cloudflare Web Analytics — агрегированная статистика посещаемости без файлов cookie и без сбора персональных данных; согласие не требуется.",
+            ],
+            "Эти данные не позволяют идентифицировать вас лично и используются только для улучшения сайта. Аналитика работает только на основном сайте iznkit.com.",
           ],
         },
         {
-          h: "Реклама (в будущем)",
+          h: "Реклама",
           p: [
-            "Мы планируем показывать рекламу через Google AdSense и других сторонних поставщиков. Сторонние поставщики, включая Google, используют файлы cookie для показа объявлений на основе ваших прошлых посещений этого и других сайтов.",
-            "Использование Google рекламных cookie позволяет ему и его партнёрам показывать объявления на основе ваших посещений. Вы можете отключить персонализированную рекламу в настройках Google (adssettings.google.com), а сторонние cookie — на www.aboutads.info/choices.",
+            "На сайте присутствует загрузчик Google AdSense. Рекламные блоки пока не размещены, поэтому объявления не показываются, но сам загрузчик уже подключён. Сторонние поставщики, включая Google, могут использовать файлы cookie для показа объявлений на основе ваших прошлых посещений этого и других сайтов.",
+            "По умолчанию хранение рекламных данных отключено (ad_storage = denied): персонализированные рекламные cookie не устанавливаются, пока вы не согласитесь в баннере. Отключить персонализированную рекламу можно в настройках Google (adssettings.google.com), а сторонние cookie — на www.aboutads.info/choices.",
           ],
         },
         {
-          h: "Согласие (ЕЭЗ и Великобритания)",
+          h: "Согласие (ЕЭЗ, Великобритания, Швейцария)",
           p: [
-            "Для посетителей из Европейской экономической зоны и Великобритании мы запрашиваем согласие до установки необязательных (аналитических и рекламных) cookie. Вы можете принять или отклонить их в баннере согласия; отказ не влияет на работу инструментов.",
+            "Для посетителей из Европейской экономической зоны, Великобритании и Швейцарии необязательные (аналитические и рекламные) cookie по умолчанию отключены до вашего согласия. Вы можете принять или отклонить их в баннере согласия; отказ не влияет на работу инструментов. Яндекс.Метрика в любом регионе запускается только после явного согласия.",
           ],
         },
         {
@@ -98,21 +103,26 @@ export function privacyDoc(locale: Locale): LegalDoc {
       {
         h: "Cookies and analytics",
         p: [
-          "We use Google Analytics to understand aggregate traffic (which pages are viewed, approximate region, device type). Google Analytics sets cookies and processes data in aggregate.",
-          "This data does not identify you personally and is used only to improve the site.",
+          "We use the following analytics services:",
+          [
+            "Google Analytics 4 (GA4) — aggregate traffic (which pages are viewed, approximate region, device type). It sets cookies (_ga, _ga_*). It runs under Google Consent Mode v2: for visitors in the EEA, the UK and Switzerland, analytics storage defaults to denied and no cookies are set until you opt in via the banner.",
+            "Yandex Metrika (counter 113481986) with Webvisor enabled (session recording, click and scroll maps). It sets cookies (_ym_uid, _ym_d, _ym_isad and other _ym_*). It loads only after you explicitly consent in the banner — without consent (including in the EEA, the UK and Switzerland) it does not start at all.",
+            "Cloudflare Web Analytics — aggregate traffic statistics with no cookies and no personal data; no consent required.",
+          ],
+          "This data does not identify you personally and is used only to improve the site. Analytics only runs on the main site iznkit.com.",
         ],
       },
       {
-        h: "Advertising (planned)",
+        h: "Advertising",
         p: [
-          "We plan to display ads served by Google AdSense and other third-party vendors. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this and other websites.",
-          "Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our site and/or other sites on the Internet. You may opt out of personalized advertising by visiting Google Ads Settings (adssettings.google.com), or opt out of third-party cookies at www.aboutads.info/choices.",
+          "The Google AdSense loader is present on the site. No ad units are placed yet, so no ads are shown, but the loader itself is already included. Third-party vendors, including Google, may use cookies to serve ads based on your prior visits to this and other websites.",
+          "Ad storage defaults to denied (ad_storage = denied): personalized advertising cookies are not set until you opt in via the banner. You may opt out of personalized advertising at Google Ads Settings (adssettings.google.com), or opt out of third-party cookies at www.aboutads.info/choices.",
         ],
       },
       {
-        h: "Consent (EEA and UK)",
+        h: "Consent (EEA, UK, Switzerland)",
         p: [
-          "For visitors in the European Economic Area and the UK, we ask for consent before non-essential (analytics and advertising) cookies are set. You can accept or decline in the consent banner; declining does not affect the tools.",
+          "For visitors in the European Economic Area, the UK and Switzerland, non-essential (analytics and advertising) cookies default to off until you consent. You can accept or decline in the consent banner; declining does not affect the tools. Yandex Metrika, in any region, starts only after explicit consent.",
         ],
       },
       {

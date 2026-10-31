@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ConsentBanner } from "@/components/consent-banner";
 import { SupportFab } from "@/components/support-fab";
-import { YandexMetrika } from "@/components/yandex-metrika";
+import { Analytics } from "@/components/analytics";
 import { SITE_URL } from "@/lib/seo/site";
-import { ADSENSE_CLIENT } from "@/lib/ads";
 import "../globals.css";
-
-/** Google Analytics 4 measurement id. */
-const GA_ID = "G-PE4C500X45";
 
 const sans = Inter({
   variable: "--font-geist-sans",
@@ -95,41 +90,10 @@ export default async function LocaleLayout({
         <SiteFooter locale={locale} />
         <ConsentBanner locale={locale} />
         <SupportFab locale={locale} />
-        {process.env.NODE_ENV === "production" ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-window.gtag = gtag;
-gtag('consent', 'default', {
-  ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'granted'
-});
-gtag('consent', 'default', {
-  region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
-  ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied', wait_for_update:500
-});
-try{var _c=localStorage.getItem('iznkit:consent');if(_c==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}else if(_c==='denied'){gtag('consent','update',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});}}catch(e){}
-gtag('js', new Date());
-gtag('config', '${GA_ID}');`}
-            </Script>
-            {/* Google AdSense loader. Site-wide and crawlable for review; no ad
-                units are placed yet, so nothing empty renders during moderation.
-                Personalized ads still respect Consent Mode set above. */}
-            <Script
-              id="adsbygoogle-init"
-              strategy="afterInteractive"
-              async
-              crossOrigin="anonymous"
-              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
-            />
-            {/* Yandex Metrika — RU analytics; consent-gated (loads unless declined). */}
-            <YandexMetrika />
-          </>
-        ) : null}
+        {/* GA4 + AdSense + Yandex Metrika — only in a production build AND only on
+            the canonical host iznkit.com (the Analytics component checks hostname,
+            so preview/mirror aliases like *.vercel.app never start analytics). */}
+        {process.env.NODE_ENV === "production" ? <Analytics /> : null}
         {/* Cloudflare Web Analytics — маячок без кук и без согласия; сайт идёт мимо
             прокси, поэтому вставляется руками. Не через next/script: с afterInteractive
             Next сериализует конфиг в RSC-поток и реального <script data-cf-beacon> в HTML

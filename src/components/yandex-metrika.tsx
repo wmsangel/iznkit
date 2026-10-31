@@ -14,10 +14,14 @@ declare global {
 
 let loaded = false;
 
+/** Canonical production host — Metrika must never start on mirror/preview aliases. */
+const PROD_HOST = "iznkit.com";
+
 /**
- * Yandex Metrika counter — client-side, production only, consent-gated: it
- * starts unless the visitor has declined (matching how GA tracks by default),
- * and starts on a later "granted" choice. Webvisor/clickmap on.
+ * Yandex Metrika counter (+ Webvisor) — client-side, opt-in: it starts ONLY
+ * after the visitor explicitly accepts in the consent banner, and never before,
+ * so EEA/UK/CH visitors who don't opt in are never tracked. It also sets _ym_*
+ * cookies, which is why it stays behind consent. Loads only on the prod host.
  */
 function loadMetrika() {
   if (loaded || window.ym) return;
@@ -47,11 +51,12 @@ function loadMetrika() {
 
 export function YandexMetrika() {
   useEffect(() => {
+    if (window.location.hostname !== PROD_HOST) return;
     const allowed = () => {
       try {
-        return localStorage.getItem("iznkit:consent") !== "denied";
+        return localStorage.getItem("iznkit:consent") === "granted";
       } catch {
-        return true;
+        return false;
       }
     };
     if (allowed()) loadMetrika();
