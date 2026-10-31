@@ -196,6 +196,7 @@ const en = {
     payPurposePlaceholder: "e.g. Payment for invoice № 0001",
     payQrTitle: "Pay by QR (ГОСТ Р 56042-2014)",
     payQrNote: "Scan in your banking app to pay. Requisites follow ГОСТ Р 56042-2014 (format ST00012).",
+    downloadWord: "Download Word (.docx)",
   },
   rental: {
     title: "Rental yield calculator",
@@ -1843,6 +1844,7 @@ const ru: Dictionary = {
     payPurposePlaceholder: "напр. Оплата по счёту № 0001",
     payQrTitle: "Оплата по QR (ГОСТ Р 56042-2014)",
     payQrNote: "Отсканируйте в банковском приложении для оплаты. Реквизиты по ГОСТ Р 56042-2014 (формат ST00012).",
+    downloadWord: "Скачать Word (.docx)",
   },
   rental: {
     title: "Калькулятор доходности аренды",

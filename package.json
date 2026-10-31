@@ -12,6 +12,7 @@
     "@expo-google-fonts/noto-sans": "^0.4.2",
     "@react-pdf/renderer": "^4.5.1",
     "@types/js-yaml": "^4.0.9",
+    "docx": "^9.5.1",
     "js-beautify": "^2.0.3",
     "js-yaml": "^5.4.2",
     "marked": "^18.0.14",

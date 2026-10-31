@@ -130,6 +130,32 @@ export function InvoiceTool({ locale }: { locale: Locale }) {
     }
   }
 
+  async function onDownloadWord() {
+    setState("working");
+    try {
+      const { buildInvoiceDocx } = await import("@/lib/docx/invoice-docx");
+      const labels = {
+        docTitle: t.docTitle, number: t.number, date: t.date, dueDate: t.dueDate,
+        from: t.from, billedTo: t.billedTo, itemDesc: t.itemDesc, qty: t.qty,
+        price: t.price, amount: t.amount, subtotal: t.subtotal, tax: t.tax,
+        total: t.total, notes: t.notes,
+      };
+      const blob = await buildInvoiceDocx(data, labels, dict.brand.name);
+      track("tool_use", { tool: "invoice", action: "download_word" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `invoice-${data.number || "draft"}.docx`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      setState("idle");
+    } catch {
+      setState("error");
+    }
+  }
+
   async function onUnlock() {
     setState("working");
     try {
@@ -569,6 +595,14 @@ export function InvoiceTool({ locale }: { locale: Locale }) {
           onUnlock={onUnlock}
           locale={locale}
         />
+        <button
+          type="button"
+          onClick={onDownloadWord}
+          disabled={state === "working"}
+          className="w-full rounded-lg border border-[var(--border)] px-4 py-2.5 text-sm font-medium hover:border-[var(--accent)] disabled:opacity-60"
+        >
+          {t.downloadWord}
+        </button>
       </div>
     </div>
   );
