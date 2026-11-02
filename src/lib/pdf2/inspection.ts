@@ -77,18 +77,19 @@ export async function buildInspectionPdf(
     void STATUS_COLOR;
   }
 
-  if (data.photos.length) {
+  const photos = data.photos ?? [];
+  if (photos.length) {
     d.moveDown(12);
     d.text(labels.photos, { size: 9, bold: true, color: MUTED });
     d.moveDown(6);
     const gap = 10;
     const cellW = (d.contentW - gap) / 2;
     const imgH = 140;
-    for (let i = 0; i < data.photos.length; i += 2) {
+    for (let i = 0; i < photos.length; i += 2) {
       d.ensure(imgH + 24);
       const top = d.y;
       for (let j = 0; j < 2; j++) {
-        const p = data.photos[i + j];
+        const p = photos[i + j];
         if (!p) continue;
         const x = d.margin + j * (cellW + gap);
         try {

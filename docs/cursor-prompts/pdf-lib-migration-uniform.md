@@ -1,3 +1,5 @@
+**ВЫПОЛНЕНО, 02.11.2026 — 29b9ecf** (приёмка: все 13 на workerd HTTP 200/%PDF, кириллица и математика верны; поправлен inspection — `data.photos ?? []`). Повторно не прогонять.
+
 # Cursor: переписать 13 PDF-документов с @react-pdf на pdf-lib (ветка cf-migration)
 
 **ВАЖНО: работай в ветке `cf-migration`, НЕ в `main`.** (`git checkout cf-migration`.)

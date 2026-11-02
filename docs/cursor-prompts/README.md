@@ -6,4 +6,4 @@
 |---|---|---|
 | `dev-tools-v2.md` | ВЫПОЛНЕНО, 2026-10-26 — fc7cd0f | 5 клиентских dev-инструментов |
 | `instrumentation-f.md` | ВЫПОЛНЕНО, 2026-10-26 — fc7cd0f | инструментация §F |
-| `pdf-lib-migration-uniform.md` | НОВЫЙ, 2026-11-02 | переписать 13 однотипных PDF-документов с @react-pdf на pdf-lib (ветка cf-migration) |
+| `pdf-lib-migration-uniform.md` | ВЫПОЛНЕНО, 2026-11-02 — 29b9ecf | переписать 13 однотипных PDF-документов с @react-pdf на pdf-lib (ветка cf-migration) |
