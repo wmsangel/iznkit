@@ -1,9 +1,7 @@
 import { NextRequest } from "next/server";
 import QRCode from "qrcode";
-import { renderToBuffer } from "@react-pdf/renderer";
 import { asciiSlug } from "@/lib/format";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { InvoiceDocument, type InvoiceLabels } from "@/lib/pdf/invoice-document";
+import { buildInvoicePdf, type InvoicePdfLabels } from "@/lib/pdf2/invoice";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -28,7 +26,7 @@ export async function POST(req: NextRequest) {
   const dict = getDictionary(locale);
   const unlocked = verifyUnlock(body.unlockToken, SKU);
 
-  const labels: InvoiceLabels = {
+  const labels: InvoicePdfLabels = {
     docTitle: dict.invoice.docTitle,
     number: dict.invoice.number,
     date: dict.invoice.date,
@@ -47,26 +45,18 @@ export async function POST(req: NextRequest) {
     payQrNote: dict.invoice.payQrNote,
   };
 
-  // ГОСТ Р 56042-2014 payment QR — only when the RU requisites are filled.
-  let paymentQr: string | undefined;
+  // ГОСТ Р 56042-2014 payment QR (PNG bytes) — only when the RU requisites are filled.
+  let qrPng: Uint8Array | undefined;
   const payload = gostQrPayload(body.data, computeTotals(body.data).total);
   if (payload) {
-    paymentQr = await QRCode.toDataURL(payload, { errorCorrectionLevel: "M", margin: 1, width: 240 });
+    const buf = await QRCode.toBuffer(payload, { errorCorrectionLevel: "M", margin: 1, width: 240 });
+    qrPng = new Uint8Array(buf);
   }
 
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <InvoiceDocument
-      data={body.data}
-      labels={labels}
-      brand={dict.brand.name}
-      watermark={!unlocked}
-      paymentQr={paymentQr}
-    />,
-  );
+  const bytes = await buildInvoicePdf(body.data, labels, dict.brand.name, { watermark: !unlocked, qrPng });
 
   const filename = `invoice-${asciiSlug(body.data.number)}${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
