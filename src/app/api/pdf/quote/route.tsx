@@ -1,8 +1,6 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
 import { asciiSlug } from "@/lib/format";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { QuoteDocument, type QuoteLabels } from "@/lib/pdf/quote-document";
+import { buildQuotePdf, type QuoteLabels } from "@/lib/pdf2/quote";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -45,18 +43,10 @@ export async function POST(req: NextRequest) {
     notes: t.notes,
   };
 
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <QuoteDocument
-      data={body.data}
-      labels={labels}
-      brand={dict.brand.name}
-      watermark={!unlocked}
-    />,
-  );
+  const bytes = await buildQuotePdf(body.data, labels, dict.brand.name, { watermark: !unlocked });
 
   const filename = `quote-${asciiSlug(body.data.number)}${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

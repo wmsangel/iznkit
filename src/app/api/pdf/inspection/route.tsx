@@ -1,11 +1,6 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
 import { asciiSlug } from "@/lib/format";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import {
-  InspectionDocument,
-  type InspectionLabels,
-} from "@/lib/pdf/inspection-document";
+import { buildInspectionPdf, type InspectionLabels } from "@/lib/pdf2/inspection";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -49,18 +44,10 @@ export async function POST(req: NextRequest) {
     statusNa: t.statusNa,
   };
 
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <InspectionDocument
-      data={body.data}
-      labels={labels}
-      brand={dict.brand.name}
-      watermark={!unlocked}
-    />,
-  );
+  const bytes = await buildInspectionPdf(body.data, labels, dict.brand.name, { watermark: !unlocked });
 
   const filename = `inspection-${asciiSlug(body.data.number)}${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

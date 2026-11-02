@@ -1,8 +1,6 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
 import { asciiSlug } from "@/lib/format";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { CertDocument, type CertLabels } from "@/lib/pdf/cert-document";
+import { buildCertPdf, type CertLabels } from "@/lib/pdf2/cert";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -31,12 +29,9 @@ export async function POST(req: NextRequest) {
     from: t.from,
     valid: t.valid,
   };
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <CertDocument data={body.data} labels={labels} brand={dict.brand.name} watermark={!unlocked} />,
-  );
+  const bytes = await buildCertPdf(body.data, labels, dict.brand.name, { watermark: !unlocked });
   const filename = `gift-certificate-${asciiSlug(body.data.code)}${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

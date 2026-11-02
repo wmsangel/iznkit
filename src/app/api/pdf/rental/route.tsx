@@ -1,7 +1,5 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { RentalDocument, type RentalLabels } from "@/lib/pdf/rental-document";
+import { buildRentalPdf, type RentalLabels } from "@/lib/pdf2/rental";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -52,18 +50,10 @@ export async function POST(req: NextRequest) {
     na: t.na,
   };
 
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <RentalDocument
-      data={body.data}
-      labels={labels}
-      brand={dict.brand.name}
-      watermark={!unlocked}
-    />,
-  );
+  const bytes = await buildRentalPdf(body.data, labels, dict.brand.name, { watermark: !unlocked });
 
   const filename = `rental-yield${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

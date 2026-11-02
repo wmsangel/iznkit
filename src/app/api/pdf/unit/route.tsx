@@ -1,7 +1,5 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { UnitDocument, type UnitLabels } from "@/lib/pdf/unit-document";
+import { buildUnitPdf, type UnitLabels } from "@/lib/pdf2/unit";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -47,12 +45,9 @@ export async function POST(req: NextRequest) {
     breakEvenPrice: t.breakEvenPrice,
     disclaimer: t.disclaimer,
   };
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <UnitDocument data={body.data} labels={labels} brand={dict.brand.name} watermark={!unlocked} />,
-  );
+  const bytes = await buildUnitPdf(body.data, labels, dict.brand.name, { watermark: !unlocked });
   const filename = `unit-economics${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

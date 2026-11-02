@@ -1,7 +1,5 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { TaxDocument, type TaxLabels } from "@/lib/pdf/tax-document";
+import { buildTaxPdf, type TaxLabels } from "@/lib/pdf2/tax";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -44,18 +42,10 @@ export async function POST(req: NextRequest) {
     disclaimer: t.disclaimer,
   };
 
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <TaxDocument
-      data={body.data}
-      labels={labels}
-      brand={dict.brand.name}
-      watermark={!unlocked}
-    />,
-  );
+  const bytes = await buildTaxPdf(body.data, labels, dict.brand.name, { watermark: !unlocked });
 
   const filename = `freelance-tax${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

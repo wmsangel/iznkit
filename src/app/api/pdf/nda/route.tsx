@@ -1,7 +1,5 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { NdaDocument, type NdaLabels } from "@/lib/pdf/nda-document";
+import { buildNdaPdf, type NdaLabels } from "@/lib/pdf2/nda";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -36,19 +34,10 @@ export async function POST(req: NextRequest) {
     disclaimer: t.disclaimer,
   };
 
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <NdaDocument
-      data={body.data}
-      resolved={resolved}
-      labels={labels}
-      brand={dict.brand.name}
-      watermark={!unlocked}
-    />,
-  );
+  const bytes = await buildNdaPdf(body.data, resolved, labels, dict.brand.name, { watermark: !unlocked });
 
   const filename = `nda${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

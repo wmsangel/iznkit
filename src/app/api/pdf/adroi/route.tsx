@@ -1,7 +1,5 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { AdRoiDocument, type AdRoiLabels } from "@/lib/pdf/adroi-document";
+import { buildAdRoiPdf, type AdRoiLabels } from "@/lib/pdf2/adroi";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -39,12 +37,9 @@ export async function POST(req: NextRequest) {
     breakEvenRoas: t.breakEvenRoas,
     disclaimer: t.disclaimer,
   };
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <AdRoiDocument data={body.data} labels={labels} brand={dict.brand.name} watermark={!unlocked} />,
-  );
+  const bytes = await buildAdRoiPdf(body.data, labels, dict.brand.name, { watermark: !unlocked });
   const filename = `ad-roi${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

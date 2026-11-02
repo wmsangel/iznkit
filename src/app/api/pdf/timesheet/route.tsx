@@ -1,7 +1,5 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { TimesheetDocument, type TimesheetLabels } from "@/lib/pdf/timesheet-document";
+import { buildTimesheetPdf, type TimesheetLabels } from "@/lib/pdf2/timesheet";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import { verifyUnlock } from "@/lib/payments/provider";
@@ -37,12 +35,9 @@ export async function POST(req: NextRequest) {
     hourlyRate: t.hourlyRate,
     signature: t.signature,
   };
-  ensureFonts();
-  const buffer = await renderToBuffer(
-    <TimesheetDocument data={body.data} labels={labels} brand={dict.brand.name} watermark={!unlocked} />,
-  );
+  const bytes = await buildTimesheetPdf(body.data, labels, dict.brand.name, { watermark: !unlocked });
   const filename = `timesheet${unlocked ? "" : "-preview"}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
