@@ -118,8 +118,17 @@ TXT SPF (`v=spf1 include:_spf.mx.cloudflare.net ~all`). Затем `wrangler` п
 www 200. Живые PDF-роуты (schet-faktura, invoice band, nda) — HTTP 200, `%PDF`, рендер кириллицы верный
 (qlmanage). Миграция работает end-to-end на Cloudflare.
 
-## Шаг 5 — осталось
-- **Always Use HTTPS — ЕЩЁ НЕ включён** (проверено: `http://iznkit.com/en` отдаёт 200 без редиректа на HTTPS;
-  HSTS защищает только повторных посетителей). Включить: SSL/TLS → Edge Certificates → Always Use HTTPS. По плану — диспетчер.
-- `vercel git disconnect` — после того как прод на CF устоится (через время / после включения HTTPS).
-- Остаточная проверка: аналитика (гейт хоста iznkit.com), каноникалы, sitemap, Search Console (адрес тот же).
+## Шаг 5 — ✅ ЗАВЕРШЕНО (05.11.2026)
+- **Always Use HTTPS** включён диспетчером (через API). Проверено: `http://iznkit.com/en` → 301, https → 200.
+- **www → apex**: www отдавал дубль (200). Добавлен host-редирект в `next.config.ts` `redirects()` (выполняется
+  в Worker через OpenNext, покрывает все пути — middleware `src/proxy.ts` их пропускает ради Edge Requests).
+  Проверено: `www/ru/tools/invoice?x=1` → 308 → `iznkit.com/ru/tools/invoice?x=1` (путь+query целы). Коммит 3c054f0.
+- **`vercel git disconnect`** — выполнен через дашборд Vercel (Chrome; CLI блокнул автомод): iznkit → Settings →
+  Git → Remove Connection. Проект и последний деплой Vercel сохранены (откат через DNS возможен). Пуш в main
+  больше не триггерит сборку Vercel.
+- **cf-migration смёрджена в main** (fast-forward, запушено). Дальнейший деплой — локальный: `npm run cf:deploy`
+  (сначала `NEXT_PUBLIC_SITE_URL=https://iznkit.com npm run cf:build`). Vercel-автодеплоя больше нет.
+- privacy: строки про Vercel-хостинг нет (только донат-копи «домен, хостинг», без провайдера) — править нечего.
+
+**Переезд iznkit.com на Cloudflare завершён.** Прод живой на CF, PDF-роуты рендерят кириллицу, www→apex,
+HTTPS форсится, Vercel отключён.
