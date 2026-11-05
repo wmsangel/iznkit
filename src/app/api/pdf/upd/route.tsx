@@ -1,8 +1,6 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
 import { asciiSlug } from "@/lib/format";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { UpdDocument } from "@/lib/pdf/upd-document";
+import { buildUpdPdf } from "@/lib/pdf2/upd";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import type { UpdData } from "@/lib/tools/upd/model";
@@ -23,11 +21,10 @@ export async function POST(req: NextRequest) {
   const locale = body.locale && isLocale(body.locale) ? body.locale : defaultLocale;
   const dict = getDictionary(locale);
 
-  ensureFonts();
-  const buffer = await renderToBuffer(<UpdDocument data={body.data} brand={dict.brand.name} />);
+  const bytes = await buildUpdPdf(body.data, dict.brand.name);
 
   const filename = `upd-${asciiSlug(body.data.number || "draft")}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",

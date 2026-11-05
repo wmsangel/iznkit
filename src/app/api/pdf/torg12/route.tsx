@@ -1,8 +1,6 @@
 import { NextRequest } from "next/server";
-import { renderToBuffer } from "@react-pdf/renderer";
 import { asciiSlug } from "@/lib/format";
-import { ensureFonts } from "@/lib/pdf/fonts";
-import { Torg12Document } from "@/lib/pdf/torg12-document";
+import { buildTorg12Pdf } from "@/lib/pdf2/torg12";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, defaultLocale } from "@/lib/i18n/config";
 import type { Torg12Data } from "@/lib/tools/torg12/model";
@@ -23,11 +21,10 @@ export async function POST(req: NextRequest) {
   const locale = body.locale && isLocale(body.locale) ? body.locale : defaultLocale;
   const dict = getDictionary(locale);
 
-  ensureFonts();
-  const buffer = await renderToBuffer(<Torg12Document data={body.data} brand={dict.brand.name} />);
+  const bytes = await buildTorg12Pdf(body.data, dict.brand.name);
 
   const filename = `torg12-${asciiSlug(body.data.number || "draft")}.pdf`;
-  return new Response(new Uint8Array(buffer), {
+  return new Response(new Uint8Array(bytes), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
