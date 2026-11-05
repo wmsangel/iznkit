@@ -8,6 +8,12 @@
   "preview_urls": false,
   "compatibility_date": "2025-03-25",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  // Production custom domains — CF manages the proxied DNS record for each and
+  // routes it to this Worker (replaces the old Vercel apex/www records on cutover).
+  "routes": [
+    { "pattern": "iznkit.com", "custom_domain": true },
+    { "pattern": "www.iznkit.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
