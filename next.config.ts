@@ -18,6 +18,21 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  // Canonical host: redirect the www apex to the bare domain, preserving path and
+  // query (Next forwards the query string automatically). Runs in the Worker via
+  // OpenNext, so it covers every path — unlike the locale middleware (src/proxy.ts),
+  // whose matcher skips already-localized paths to save Edge Requests. Without this,
+  // www.iznkit.com serves a duplicate of the site.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.iznkit.com" }],
+        destination: "https://iznkit.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
