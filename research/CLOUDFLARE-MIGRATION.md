@@ -104,14 +104,22 @@ yoga-WASM всплывает при вызове роута.)
 - **DNS-зону прочитать не удалось**: OAuth-токен wrangler имеет `zone (read)`, но не `dns_records:read` → 403.
   Зона `iznkit.com` на CF, статус active (id `c9e84cb0cce5335882bbe02c8979b2ec`). Список записей — в дашборде.
 
-### DNS-переключение (cutover) — делает владелец / с его «да»
-Меняем ТОЛЬКО две записи: apex `iznkit.com` и `www` (сейчас → Vercel). **НЕ трогать по типам:**
-MX (почта), TXT SPF (`v=spf1…`), DKIM (`*._domainkey`), DMARC (`_dmarc`), любые verification-записи
-(Google и т.п.), CAA. Путь: Workers & Pages → **iznkit** → Settings → Domains & Routes → Add → Custom Domain →
-`iznkit.com` (CF заменит конфликтующую Vercel-запись на проксированную к воркеру), затем так же `www.iznkit.com`.
-Либо я делаю это через wrangler `routes: [{pattern, custom_domain:true}]` + редеплой (атомарно, почта/верификации не трогаются).
+### DNS-переключение (cutover) — ✅ ВЫПОЛНЕНО 05.11.2026
+Через Chrome (сессия владельца) в дашборде CF удалены ДВЕ Vercel-записи:
+`iznkit.com` CNAME и `www.iznkit.com` CNAME (обе → `15ed08420f316545.vercel-dns-017.com`).
+**Почта не тронута** — остались 3× MX (route1/2/3.mx.cloudflare.net), TXT DKIM (`cf2024-1._domainkey`),
+TXT SPF (`v=spf1 include:_spf.mx.cloudflare.net ~all`). Затем `wrangler` привязал custom domains:
+`routes: [{pattern:"iznkit.com",custom_domain:true},{pattern:"www.iznkit.com",custom_domain:true}]` →
+**Deployed triggers: iznkit.com (custom domain), www.iznkit.com (custom domain)**. Version `97babcda`.
+(API-путь к custom domain сначала падал с `code 100117 — hostname already has externally managed DNS records`:
+токен wrangler имеет только `zone (read)`, удалить записи через API нельзя — поэтому удалял вручную в дашборде.)
 
-## Шаг 5 — после переключения
-- Диспетчер включает **Always Use HTTPS** (настройка зоны).
-- Через время — `vercel git disconnect`.
-- Проверка на реальном домене: PDF-роуты, аналитика (гейт хоста), каноникалы, Search Console (адрес тот же).
+**Проверка на проде (https://iznkit.com):** `server: cloudflare`, HTTP/2 200, HSTS; apex `/`→308→`/en`;
+www 200. Живые PDF-роуты (schet-faktura, invoice band, nda) — HTTP 200, `%PDF`, рендер кириллицы верный
+(qlmanage). Миграция работает end-to-end на Cloudflare.
+
+## Шаг 5 — осталось
+- **Always Use HTTPS — ЕЩЁ НЕ включён** (проверено: `http://iznkit.com/en` отдаёт 200 без редиректа на HTTPS;
+  HSTS защищает только повторных посетителей). Включить: SSL/TLS → Edge Certificates → Always Use HTTPS. По плану — диспетчер.
+- `vercel git disconnect` — после того как прод на CF устоится (через время / после включения HTTPS).
+- Остаточная проверка: аналитика (гейт хоста iznkit.com), каноникалы, sitemap, Search Console (адрес тот же).
