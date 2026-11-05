@@ -1,8 +1,19 @@
 # Переезд iznkit.com с Vercel на Cloudflare Workers
 
-**Статус на 02.11.2026: ЗАБЛОКИРОВАН @react-pdf; путь выбран (pdf-lib) и технически подтверждён; переезд НЕ завершён.**
-Ветка `cf-migration` (локально, не запушена). OpenNext-сборка работает, статика на workerd отдаёт 200,
-но 18 PDF-роутов на `@react-pdf` не заводятся. Домен не тронут, прод на Vercel.
+**Статус на 05.11.2026: все 18 PDF-роутов переписаны на pdf-lib и РЕНДЕРЯТСЯ ВЕРНО на workerd;
+3 шаблона счёта восстановлены; критический баг шрифтов исправлен. Остаётся: полная A/B-сверка с
+продом, `public/_headers` + `.env.production.local`, деплой воркера и переключение DNS. Домен не тронут,
+прод на Vercel.** Ветка `cf-migration` (запушена, бэкап на GitHub).
+
+## ⚠️ Критический баг шрифтов (найден и исправлен 05.11) — ОБЯЗАТЕЛЬНО к сведению
+Рантайм-сабсеттинг fontkit (`embedFont(bytes, {subset:true})`) **портит таблицу glyf и молча теряет
+большинство кириллических глифов**: PDF-ы отдают `pdftotext` корректный текст (через ToUnicode), но в
+реальных вьюерах (CoreGraphics/Preview/Chrome, poppler) текст рендерится ПУСТЫМ. Затрагивало ВСЕ 18
+документов. Приёмка 13 Cursor-документов это пропустила, потому что проверяла только `pdftotext`, а не
+визуальный рендер. **Урок: PDF проверять рендером в PNG (`qlmanage -t` / `pdftoppm`), не только pdftotext.**
+Фикс: NotoSans **пресаб­сечен офлайн** (`pyftsubset` → Cyrillic+Latin+пунктуация+₽/№/«»/—, 630 КБ→54 КБ
+каждый) и встраивается ЦЕЛИКОМ (`subset:false` в `src/lib/pdf2/fonts.ts`). PDF ~68–73 КБ, рендер верный.
+Регенерация шрифтов: `pyftsubset public/fonts/NotoSans-{Regular,Bold}.ttf --unicodes=... → base64 → fonts-data.ts`.
 
 ## Главный блокер: @react-pdf на Workers не едет (в отличие от izntools)
 izntools/calc-tools/worldtime переехали легко — у них **нет @react-pdf**. У iznkit — 18 PDF-роутов
@@ -39,14 +50,17 @@ yoga-WASM всплывает при вызове роута.)
 - Сборка: `source ~/.nvm/nvm.sh && nvm use 22 && NEXT_PUBLIC_SITE_URL=https://iznkit.com npm run cf:build`;
   локальный прогон: `npx wrangler dev` на `.open-next/worker.js`.
 
-## План переписывания PDF (следующие сессии)
-1. **Фундамент pdf-lib** (`src/lib/pdf2/`): хелперы — встраивание шрифтов (Regular/Bold), перенос строк по ширине,
-   таблицы (колонки/границы/выравнивание), деньги/формат, QR (pdf-lib `drawImage` из PNG, qrcode даёт PNG-байты).
-   Это заменяет декларативную раскладку @react-pdf на императивную.
-2. **По одному документу** переписывать `src/lib/pdf/*-document.tsx` (@react-pdf) → `src/lib/pdf2/*.ts` (pdf-lib),
-   роут `src/app/api/pdf/*/route.tsx` переключать на новый билдер. Сверять PDF с текущим прод-выводом (Node) и
-   прогонять на workerd. Часть — тиражом (Cursor) после 2–3 образцов.
-3. Когда ВСЕ 18 роутов отдают валидный PDF на workerd — продолжить переезд (ниже).
+## Переписывание PDF — ✅ ЗАВЕРШЕНО (все 18 роутов на pdf-lib)
+Фундамент `src/lib/pdf2/`: `layout.ts` (класс `Doc` — страница/перенос/таблицы/поля/QR/футер),
+`grid.ts` (`drawGrid` — официальные формы: шапка+номера граф+строки+границы+слияние ячеек),
+`fonts.ts`+`fonts-data.ts` (пресаб­сет NotoSans, subset:false — см. баг выше).
+- **invoice** (3 шаблона split/band/minimal + акцент по `template`, ГОСТ-QR, watermark PREVIEW),
+  **akt-sverki**, + **13 Cursor-документов** (adroi/cert/delivery/hourly/inspection/nda/po/quote/receipt/
+  rental/tax/timesheet/unit).
+- **3 легальные grid-формы**: `schet-faktura`, `upd` (статус+передаточная часть), `torg12` (15 граф) — через `drawGrid`.
+- Все роуты `src/app/api/pdf/*/route.tsx` переключены со `@react-pdf`/`renderToBuffer` на новый билдер
+  (`new Response(new Uint8Array(bytes), …)`). `grep -rl @react-pdf src/app/api/pdf` — пусто.
+- Старые `src/lib/pdf/*-document.tsx` оставлены на месте (роуты на них не ссылаются), удалять не обязательно.
 
 ## Инвентаризация Vercel-специфики iznkit (чистая)
 - Нет `vercel.json`, нет `@vercel/*`, нет middleware-файла, нет Supabase/auth (аккаунтов нет).
@@ -67,8 +81,16 @@ yoga-WASM всплывает при вызове роута.)
 - После недели — `vercel git disconnect`.
 - Проверка: аналитика с гейтом, каноникалы, sitemap, Search Console (адрес тот же).
 
-## Follow-up: 3 шаблона счёта (решение владельца 02.11)
-При первом переписывании invoice на pdf-lib 3 дизайн-шаблона (classic/band/minimal) временно сведены
-в один. Владелец кнопками выбрал **вернуть все 3** — это user-visible функция, регрессию до переключения
-DNS не допускаем. Восстановить в `src/lib/pdf2/invoice.ts` (акцент-цвет + стиль шапки по `template`),
-по образцу `src/lib/pdf/invoice-templates*`/`getTemplate`. Делает владелец/я, не Cursor.
+## Follow-up: 3 шаблона счёта — ✅ ВОССТАНОВЛЕНО (05.11)
+3 стиля шапки восстановлены в `src/lib/pdf2/invoice.ts`: `split` (classic/amber — акцент-заголовок слева,
+мета справа), `band` (modern/rose/royal — цветная плашка во всю ширину, белый заголовок+мета),
+`minimal` (ink-заголовок + тонкая акцент-линия). Акцент берётся из `getTemplate(data.template).accent`.
+Визуально проверены все 3 на workerd (qlmanage).
+
+## Следующий шаг: A/B-сверка с продом + окружение (шаг 3)
+- Прогнать ВСЕ 18 роутов на workerd и визуально (PNG) сверить с текущим прод-выводом iznkit.com —
+  особенно 13 Cursor-документов (их рендер раньше не смотрели из-за бага шрифтов).
+- `.env.production.local` с прод-значениями (`NEXT_PUBLIC_SITE_URL=https://iznkit.com` и т.п.) —
+  чтобы в бандл не попал localhost.
+- `public/_headers` — security-заголовки (повторить `headers()` из next.config, они на `public/` на CF не доходят)
+  + кэш статики + HSTS (пропадает после Vercel).
