@@ -105,16 +105,17 @@ export async function buildUpdPdf(data: UpdData, brand: string): Promise<Uint8Ar
 
   drawGrid(d, cols, rows, { fontSize: 7.5 });
 
-  // Transfer (primary-document) part.
+  // Transfer (primary-document) part. Wider labelW — these labels are long.
   d.moveDown(10);
-  fl("Основание передачи (сдачи) / получения (приёмки)", data.basis);
-  if (data.transport) fl("Данные о транспортировке и грузе", data.transport);
+  const flw = (label: string, value: string) => d.field(label, value, { labelW: 260, size: 8 });
+  flw("Основание передачи (сдачи) / получения (приёмки)", data.basis);
+  if (data.transport) flw("Данные о транспортировке и грузе", data.transport);
   d.moveDown(10);
 
   const colW = (d.contentW - 30) / 2;
   const tField = (x: number, label: string, value: string, y: number): number => {
     d.page.drawText(label, { x, y: y - 7, size: 6.5, font: d.reg, color: MUTED });
-    const vx = x + 100;
+    const vx = x + 150;
     d.page.drawText(value || " ", { x: vx, y: y - 7, size: 7.5, font: d.bold, color: INK });
     d.page.drawLine({ start: { x: vx, y: y - 10 }, end: { x: x + colW - 6, y: y - 10 }, thickness: 0.5, color: INK });
     return y - 18;

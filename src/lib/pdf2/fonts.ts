@@ -12,13 +12,16 @@ function b64ToBytes(b64: string): Uint8Array {
 
 /**
  * Embed the Cyrillic-capable Noto Sans (regular + bold) into a pdf-lib document.
- * Fonts are inlined from base64 because Workers has no filesystem; `subset: true`
- * keeps only the glyphs actually used, so output stays small. Replaces the old
- * @react-pdf Font.register(process.cwd()/public/fonts) path, which relied on fs.
+ * Fonts are inlined from base64 because Workers has no filesystem; they are already
+ * pre-subset offline (pyftsubset → Cyrillic + Latin + punctuation + ₽/№/«»/—, ~54 KB
+ * each), so each is small enough to embed WHOLE. Runtime `subset: true` is deliberately
+ * OFF: fontkit's runtime subsetter corrupts the glyf table and silently drops most
+ * glyphs (text extracts fine via ToUnicode, but renders blank in viewers). Replaces the
+ * old @react-pdf Font.register(process.cwd()/public/fonts) path, which relied on fs.
  */
 export async function embedDocFonts(doc: PDFDocument): Promise<{ reg: PDFFont; bold: PDFFont }> {
   doc.registerFontkit(fontkit);
-  const reg = await doc.embedFont(b64ToBytes(NOTO_REGULAR_B64), { subset: true });
-  const bold = await doc.embedFont(b64ToBytes(NOTO_BOLD_B64), { subset: true });
+  const reg = await doc.embedFont(b64ToBytes(NOTO_REGULAR_B64), { subset: false });
+  const bold = await doc.embedFont(b64ToBytes(NOTO_BOLD_B64), { subset: false });
   return { reg, bold };
 }

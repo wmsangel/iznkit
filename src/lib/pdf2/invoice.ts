@@ -1,6 +1,14 @@
-import { rgb, degrees } from "pdf-lib";
+import { rgb, degrees, type RGB } from "pdf-lib";
 import { Doc, INK, MUTED, money } from "./layout";
 import { computeTotals, lineAmount, type InvoiceData } from "@/lib/tools/invoice/model";
+import { getTemplate } from "@/lib/tools/invoice/templates";
+
+/** #rrggbb → pdf-lib RGB. */
+function hexRgb(hex: string): RGB {
+  const n = hex.replace("#", "");
+  return rgb(parseInt(n.slice(0, 2), 16) / 255, parseInt(n.slice(2, 4), 16) / 255, parseInt(n.slice(4, 6), 16) / 255);
+}
+const WHITE = rgb(1, 1, 1);
 
 /** Labels needed to render the invoice (same shape the route already builds). */
 export interface InvoicePdfLabels {
@@ -22,8 +30,6 @@ export interface InvoicePdfLabels {
   payQrNote: string;
 }
 
-const ACCENT = rgb(0.227, 0.478, 0.416); // #3a7a6a
-
 function dataUrlToBytes(dataUrl: string): { bytes: Uint8Array; mime: string } | null {
   const m = /^data:([^;]+);base64,([\s\S]*)$/.exec(dataUrl);
   if (!m) return null;
@@ -34,9 +40,9 @@ function dataUrlToBytes(dataUrl: string): { bytes: Uint8Array; mime: string } | 
 }
 
 /**
- * Build the invoice PDF with pdf-lib (Workers-compatible). One clean layout —
- * the @react-pdf template variants (classic/band/minimal) collapse to this for
- * now; content parity is kept. `qrPng` is the ГОСТ Р 56042-2014 payment QR as
+ * Build the invoice PDF with pdf-lib (Workers-compatible). Honours the template's
+ * accent color and the three header styles (split / band / minimal), matching the
+ * previous @react-pdf document. `qrPng` is the ГОСТ Р 56042-2014 payment QR as
  * PNG bytes, drawn when the RU requisites are set.
  */
 export async function buildInvoicePdf(
@@ -49,6 +55,8 @@ export async function buildInvoicePdf(
   const cur = data.currency;
   const totals = computeTotals(data);
   const qrPng = opts.qrPng;
+  const tpl = getTemplate(data.template);
+  const ACCENT = hexRgb(tpl.accent);
 
   // Preview watermark (shown until the PDF is unlocked), drawn behind content.
   if (opts.watermark) {
@@ -65,28 +73,73 @@ export async function buildInvoicePdf(
     });
   }
 
-  // Logo (optional data URL) top-right.
+  // Decode logo once (may be drawn in dark or on the band).
+  let logoImg: Awaited<ReturnType<typeof d.doc.embedPng>> | null = null;
   if (data.logo) {
     try {
       const parsed = dataUrlToBytes(data.logo);
-      if (parsed) {
-        const img = /png/i.test(parsed.mime) ? await d.doc.embedPng(parsed.bytes) : await d.doc.embedJpg(parsed.bytes);
-        const maxW = 150;
-        const scale = Math.min(maxW / img.width, 54 / img.height, 1);
-        d.page.drawImage(img, { x: d.right - img.width * scale, y: d.y - img.height * scale, width: img.width * scale, height: img.height * scale });
-      }
+      if (parsed) logoImg = /png/i.test(parsed.mime) ? await d.doc.embedPng(parsed.bytes) : await d.doc.embedJpg(parsed.bytes);
     } catch {
       /* ignore bad logo */
     }
   }
+  const drawLogo = (x: number, topY: number, rightAlign = false): number => {
+    if (!logoImg) return topY;
+    const scale = Math.min(150 / logoImg.width, 54 / logoImg.height, 1);
+    const w = logoImg.width * scale;
+    const h = logoImg.height * scale;
+    d.page.drawImage(logoImg, { x: rightAlign ? x - w : x, y: topY - h, width: w, height: h });
+    return topY - h - 8;
+  };
 
-  d.text(labels.docTitle, { size: 26, bold: true, color: ACCENT });
-  d.moveDown(6);
-  d.text(
-    `${labels.number}: ${data.number || "—"}     ${labels.date}: ${data.date || "—"}     ${labels.dueDate}: ${data.dueDate || "—"}`,
-    { size: 9.5, color: MUTED },
-  );
-  d.moveDown(10);
+  // Right-aligned meta column (number / date / due), light on band.
+  const drawMeta = (rightX: number, topY: number, light: boolean): number => {
+    const labelColor = light ? rgb(1, 1, 1) : MUTED;
+    const labelOpacity = light ? 0.78 : 1;
+    const valueColor = light ? WHITE : INK;
+    let yy = topY;
+    const pair = (label: string, value: string) => {
+      const lw = d.reg.widthOfTextAtSize(label, 9);
+      d.page.drawText(label, { x: rightX - lw, y: yy - 9, size: 9, font: d.reg, color: labelColor, opacity: labelOpacity });
+      yy -= 11;
+      const v = value || "—";
+      const vw = d.bold.widthOfTextAtSize(v, 10);
+      d.page.drawText(v, { x: rightX - vw, y: yy - 10, size: 10, font: d.bold, color: valueColor });
+      yy -= 16;
+    };
+    pair(labels.number, data.number);
+    pair(labels.date, data.date);
+    pair(labels.dueDate, data.dueDate);
+    return yy;
+  };
+
+  if (tpl.header === "band") {
+    // Full-bleed accent band across the top.
+    const bandTop = d.H;
+    const bandBottom = d.H - 128;
+    d.page.drawRectangle({ x: 0, y: bandBottom, width: d.W, height: bandTop - bandBottom, color: ACCENT });
+    const innerTop = d.H - 34;
+    let ly = innerTop;
+    if (logoImg) ly = drawLogo(d.margin, innerTop);
+    d.page.drawText(labels.docTitle, { x: d.margin, y: ly - 26, size: 26, font: d.bold, color: WHITE });
+    drawMeta(d.right, innerTop, true);
+    d.y = bandBottom - 24;
+  } else {
+    const topY = d.y;
+    let ly = topY;
+    if (logoImg) ly = drawLogo(d.margin, topY);
+    const titleColor = tpl.header === "minimal" ? INK : ACCENT;
+    d.page.drawText(labels.docTitle, { x: d.margin, y: ly - 26, size: 26, font: d.bold, color: titleColor });
+    const metaBottom = drawMeta(d.right, topY, false);
+    d.y = Math.min(ly - 26 - 8, metaBottom);
+    if (tpl.header === "minimal") {
+      d.moveDown(10);
+      d.page.drawRectangle({ x: d.margin, y: d.y, width: d.contentW, height: 2, color: ACCENT });
+      d.moveDown(6);
+    } else {
+      d.moveDown(12);
+    }
+  }
 
   // Parties — two columns.
   const colW = (d.contentW - 24) / 2;
