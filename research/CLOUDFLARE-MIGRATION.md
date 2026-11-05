@@ -87,10 +87,31 @@ yoga-WASM всплывает при вызове роута.)
 `minimal` (ink-заголовок + тонкая акцент-линия). Акцент берётся из `getTemplate(data.template).accent`.
 Визуально проверены все 3 на workerd (qlmanage).
 
-## Следующий шаг: A/B-сверка с продом + окружение (шаг 3)
-- Прогнать ВСЕ 18 роутов на workerd и визуально (PNG) сверить с текущим прод-выводом iznkit.com —
-  особенно 13 Cursor-документов (их рендер раньше не смотрели из-за бага шрифтов).
-- `.env.production.local` с прод-значениями (`NEXT_PUBLIC_SITE_URL=https://iznkit.com` и т.п.) —
-  чтобы в бандл не попал localhost.
-- `public/_headers` — security-заголовки (повторить `headers()` из next.config, они на `public/` на CF не доходят)
-  + кэш статики + HSTS (пропадает после Vercel).
+## Шаг 3 — ✅ ГОТОВО (A/B + окружение)
+- Все 18 PDF-роутов прогнаны на workerd и визуально проверены (PNG, qlmanage): кириллица, ₽, вёрстка,
+  цвета, badge'ы, QR — верно. Ключевые страницы 200, i18n-редиректы, canonical/sitemap/robots → iznkit.com.
+- `.env.production.local` (gitignored) — `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_ADSENSE_ID`; localhost в бандл не течёт
+  (SITE_URL и так с фолбэком на iznkit.com). `UNLOCK_SECRET` — НЕ в .env (рантайм-секрет через wrangler).
+- `public/_headers` — immutable-кэш для `/_next/static/*`, `/fonts/*`, `*.svg` + security-заголовки на статику.
+  Проверено на workerd: шрифт получает `max-age=31536000, immutable` + HSTS/nosniff; сам `_headers` не отдаётся.
+- **HSTS не пропадает на CF** — `headers()` из next.config доходят до всех Worker-роутов (HTML-страниц). Опасение из
+  прежней доки не подтвердилось.
+
+## Шаг 4 — деплой воркера ✅ СДЕЛАНО (05.11), DNS — за владельцем
+- `npm run cf:deploy` → **Success, «No deploy targets for iznkit»** = воркер создан БЕЗ домена/маршрута
+  (`workers_dev:false`, custom domain не привязан). Version `5c7e53ca`. Трафик/прод на Vercel не затронуты.
+- `UNLOCK_SECRET` установлен как Worker secret (`wrangler secret put`), копия в gitignored `.env.production.local`.
+- **DNS-зону прочитать не удалось**: OAuth-токен wrangler имеет `zone (read)`, но не `dns_records:read` → 403.
+  Зона `iznkit.com` на CF, статус active (id `c9e84cb0cce5335882bbe02c8979b2ec`). Список записей — в дашборде.
+
+### DNS-переключение (cutover) — делает владелец / с его «да»
+Меняем ТОЛЬКО две записи: apex `iznkit.com` и `www` (сейчас → Vercel). **НЕ трогать по типам:**
+MX (почта), TXT SPF (`v=spf1…`), DKIM (`*._domainkey`), DMARC (`_dmarc`), любые verification-записи
+(Google и т.п.), CAA. Путь: Workers & Pages → **iznkit** → Settings → Domains & Routes → Add → Custom Domain →
+`iznkit.com` (CF заменит конфликтующую Vercel-запись на проксированную к воркеру), затем так же `www.iznkit.com`.
+Либо я делаю это через wrangler `routes: [{pattern, custom_domain:true}]` + редеплой (атомарно, почта/верификации не трогаются).
+
+## Шаг 5 — после переключения
+- Диспетчер включает **Always Use HTTPS** (настройка зоны).
+- Через время — `vercel git disconnect`.
+- Проверка на реальном домене: PDF-роуты, аналитика (гейт хоста), каноникалы, Search Console (адрес тот же).
