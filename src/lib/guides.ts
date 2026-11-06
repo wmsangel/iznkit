@@ -2541,9 +2541,9 @@ const marginVatGuide: Guide = {
     en: {
       title: "Is margin calculated with or without VAT?",
       description:
-        "Margin is calculated on prices without VAT. Why VAT is not your money, when the gross shortcut still works, and where mixing gross and net inflates your margin.",
+        "Margin is calculated without VAT — the tax isn't yours to keep. When the gross shortcut matches, when it inflates your margin by points that aren't real, plus a calculator that strips VAT and shows margin, markup and profit.",
       intro:
-        "Short answer: without VAT. Margin measures what your business keeps, and VAT is not yours to keep — you collect it from the customer on the government's behalf and pass it on, minus the VAT you already paid your suppliers. So the honest margin is always worked out on net, ex-VAT figures. The interesting part is when calculating on gross prices gives you the same answer anyway, and when it quietly tells you a flattering lie.",
+        "Short answer: without VAT (work out yours in the [margin-with-VAT calculator](tools/margin-vat)). Margin measures what your business keeps, and VAT is not yours to keep — you collect it from the customer on the government's behalf and pass it on, minus the VAT you already paid your suppliers. So the honest margin is always worked out on net, ex-VAT figures. The interesting part is when calculating on gross prices gives you the same answer anyway, and when it quietly tells you a flattering lie.",
       sections: [
         {
           h: "Why VAT stays out of margin",
@@ -2629,9 +2629,9 @@ const marginVatGuide: Guide = {
     ru: {
       title: "Маржа считается с НДС или без НДС?",
       description:
-        "Маржу считают без НДС. Почему налог — не ваши деньги, когда расчёт «с НДС» случайно совпадает, и где смешение цен с НДС и без него завышает маржу.",
+        "Маржа считается без НДС — налог не ваш. Когда расчёт «с НДС» случайно даёт тот же ответ, а когда завышает маржу на проценты, которых нет. Плюс калькулятор, который сам выделяет НДС и считает маржу, наценку и прибыль.",
       intro:
-        "Короткий ответ: без НДС. Маржа показывает, что остаётся бизнесу, а НДС вам не принадлежит — вы собираете его с покупателя для государства и перечисляете дальше за вычетом налога, который уже заплатили поставщику. Поэтому честная маржа всегда считается на цифрах без НДС. Интересно другое: когда расчёт по ценам с НДС даёт тот же ответ, а когда тихо и приятно врёт.",
+        "Короткий ответ: без НДС (посчитать свою можно сразу в [калькуляторе маржи с НДС](tools/margin-vat)). Маржа показывает, что остаётся бизнесу, а НДС вам не принадлежит — вы собираете его с покупателя для государства и перечисляете дальше за вычетом налога, который уже заплатили поставщику. Поэтому честная маржа всегда считается на цифрах без НДС. Интересно другое: когда расчёт по ценам с НДС даёт тот же ответ, а когда тихо и приятно врёт.",
       sections: [
         {
           h: "Почему НДС не входит в маржу",
