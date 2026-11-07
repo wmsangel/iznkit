@@ -1330,6 +1330,7 @@ const compoundGuide: Guide = {
           h: "Time is the biggest lever",
           p: [
             "Because growth compounds, years matter more than almost anything else. Starting earlier — even with smaller amounts — usually beats starting later with more, thanks to the extra compounding periods working in your favour.",
+            "A quick way to feel how fast time works is the Rule of 72: divide 72 by the annual rate and you get the rough number of years for your money to double — at 6% that's about 12 years, at 9% about eight. A [Rule of 72 calculator](https://calclumen.com/en/rule-of-72-calculator) turns the shortcut into exact figures.",
           ],
         },
         {
@@ -2374,7 +2375,7 @@ const hourlyRateGuide: Guide = {
           p: [
             "The most common mistake is converting an employed salary straight into an hourly number. If you earned 60,000 a year, 40 hours a week looks like roughly 29 an hour, and that feels like a fair starting point. It isn't close.",
             "An employer was paying for a lot of things that never showed on your payslip: payroll taxes, paid holiday, sick days, equipment, software, the accountant, the office, and all the hours you spent in meetings and training that nobody billed a client for. As a freelancer you pay every one of those out of your rate, and you only get paid for the hours you invoice.",
-            "In practice a freelance rate that matches an employed salary lands two to three times higher than the naive hourly conversion. That is not greed — it is the same money with the hidden costs made visible.",
+            "In practice a freelance rate that matches an employed salary lands two to three times higher than the naive hourly conversion. That is not greed — it is the same money with the hidden costs made visible. To sanity-check the other direction — what a given hourly rate adds up to as an annual salary — an [hourly to salary calculator](https://calclumen.com/en/hourly-to-salary-calculator) does the conversion in a second.",
           ],
         },
         {
