@@ -2922,8 +2922,175 @@ const marketplaceTaxGuide: Guide = {
   },
 };
 
+const inspectionReportGuide: Guide = {
+  slug: "how-to-write-a-property-inspection-report",
+  toolSlug: "inspection-report",
+  updated: "2026-11-08",
+  content: {
+    en: {
+      title: "How to write a property inspection report (move-in / move-out)",
+      description:
+        "A property inspection report records a rental's condition room by room, with photos and dates, so the deposit is split fairly. What to include, how to word defects, and a free template.",
+      intro:
+        "A property inspection report is the dated record of what a rental looked like at a specific moment — usually when a tenant moves in and again when they leave. Its whole job is to settle one question later: which damage was already there, and which happened on this tenancy. Do it well and a deposit dispute takes five minutes; skip it and it becomes one person's word against another's. You can fill one out as you walk the property in our [inspection report generator](tools/inspection-report), but the method below matters more than the form.",
+      sections: [
+        {
+          h: "Why the dated record is the point",
+          p: [
+            "Deposits are withheld for damage beyond fair wear and tear. Without a move-in baseline, a landlord cannot prove a stain or a crack is new, and a tenant cannot prove it was already there. The report is that baseline: a condition snapshot both sides sign and date, so the move-out comparison is factual rather than a memory contest.",
+            "That is why the two inspections are a pair. A move-in report alone records the start; the move-out report measures the change against it. Keep the same structure for both so the comparison is line for line.",
+          ],
+        },
+        {
+          h: "What to include, room by room",
+          p: [
+            "Go room by room and record the condition of every surface and fixture, not just the obvious ones. A reader who never saw the property should be able to picture it from the report.",
+            [
+              "Walls, ceilings, floors and skirting — marks, cracks, stains, scuffs",
+              "Doors, windows, locks and keys handed over",
+              "Kitchen and bathroom fittings, taps, seals, appliances (and whether they work)",
+              "Heating, smoke and CO alarms (tested), fuse board",
+              "Furniture and white goods in a furnished let, with make and condition",
+              "Meter readings (gas, electric, water) with the date — these settle the final bills, not just the deposit",
+            ],
+            "For each item note the condition in plain words and, wherever there is a defect, attach a photo. \"Good / fair / poor\" on its own is an opinion; \"2 cm chip, bottom-left of the oven door\" with a picture is a fact.",
+          ],
+        },
+        {
+          h: "Move-in vs move-out: the same form, used twice",
+          p: [
+            "At move-in, the tenant should check the report against the property and flag anything missing before signing — once signed, it is the agreed starting condition. At move-out, walk the same list and record only what changed, separating genuine damage from fair wear and tear (faded paint and lightly worn carpet after years of normal use are wear; a burn, a hole or a missing door are damage).",
+          ],
+        },
+        {
+          h: "How to word a defect so it holds up",
+          p: [
+            "Describe, locate, measure, date — and photograph. \"Scratch\" is weak; \"8 cm scratch on the left worktop, near the sink, photo 4, 14 Jan\" is strong. Avoid blame and adjectives (\"filthy\", \"destroyed\"); state the observable condition and let the photo carry the weight. Objective wording is what makes a report persuasive to a deposit scheme or a small-claims adjudicator.",
+          ],
+        },
+        {
+          h: "Photos, timestamps and signatures",
+          p: [
+            "Photos are the backbone of the report. Take wide shots of each room plus close-ups of every defect, and keep the original files — their embedded timestamps prove when the shot was taken. Number the photos and reference them in the text so each one maps to a line.",
+            "Finish with the date, the property address, who inspected, and space for both signatures. A report both parties signed at move-in is near-unarguable later; one side's unsigned notes are not. Share a copy with the tenant the same day, so there is a single agreed version rather than two.",
+          ],
+        },
+      ],
+      table: {
+        title: "Move-in vs move-out report",
+        headers: ["", "Move-in", "Move-out"],
+        rows: [
+          ["Purpose", "Agree the starting condition", "Measure the change against move-in"],
+          ["Who checks", "Tenant verifies before signing", "Landlord/agent, ideally with tenant present"],
+          ["Focus", "Every item, full baseline", "Only what changed; wear vs damage"],
+          ["Meters", "Opening readings", "Closing readings for final bills"],
+        ],
+      },
+      faq: [
+        {
+          q: "Is a property inspection report legally required?",
+          a: "It is rarely required by law, but deposit-protection schemes and small-claims adjudicators treat a dated, signed, photographed report as the main evidence. Without one, the party trying to withhold or recover a deposit usually loses by default.",
+        },
+        {
+          q: "What's the difference between fair wear and tear and damage?",
+          a: "Wear and tear is the gradual, expected decline from normal living — faded paint, lightly worn carpet, small scuffs over years. Damage is beyond that: burns, holes, breakages, stains or anything caused by neglect or misuse. Only damage can fairly be charged to a deposit.",
+        },
+        {
+          q: "Do both parties have to sign it?",
+          a: "Signatures make it far stronger, because a signed move-in report is an agreed fact rather than one side's claim. If the tenant can't sign in person, send it the same day and ask them to confirm or flag issues in writing within a set window.",
+        },
+        {
+          q: "How many photos should I take?",
+          a: "Enough that someone who never saw the property could picture every room: a wide shot of each space plus a close-up of each defect. Keep the originals — their timestamps are part of the evidence.",
+        },
+      ],
+      cta: "Create an inspection report free",
+    },
+    ru: {
+      title: "Акт осмотра помещения: как составить (приём-передача)",
+      description:
+        "Акт осмотра фиксирует состояние помещения по комнатам, с фото и датой, чтобы залог делился честно. Что включить, как формулировать дефекты, и бесплатный шаблон.",
+      intro:
+        "Акт осмотра — это датированная фиксация того, как выглядело помещение в конкретный момент: обычно при заселении и при выезде. Его задача — потом ответить на один вопрос: что из повреждений было до этого жильца, а что появилось при нём. Сделано хорошо — спор о залоге решается за пять минут; пропущено — остаётся слово против слова. Заполнить акт можно прямо при обходе в нашем [генераторе акта осмотра](tools/inspection-report), но важнее сам метод ниже.",
+      sections: [
+        {
+          h: "Зачем нужна именно датированная фиксация",
+          p: [
+            "Залог удерживают за ущерб сверх естественного износа. Без исходного состояния арендодатель не докажет, что пятно или трещина новые, а арендатор — что они были и раньше. Акт и есть это исходное состояние: снимок, который обе стороны подписали и датировали, чтобы сравнение при выезде было фактом, а не состязанием памяти.",
+            "Поэтому два осмотра — это пара. Акт при заселении фиксирует старт; акт при выезде измеряет изменение относительно него. Держите одинаковую структуру — тогда сравнение идёт строка в строку.",
+          ],
+        },
+        {
+          h: "Что включить, по комнатам",
+          p: [
+            "Идите по комнатам и фиксируйте состояние каждой поверхности и элемента, а не только очевидных. По акту человек, не видевший помещение, должен его представить.",
+            [
+              "Стены, потолки, полы, плинтусы — следы, трещины, пятна, потёртости",
+              "Двери, окна, замки и переданные ключи",
+              "Сантехника и кухня: краны, уплотнители, техника (и работает ли)",
+              "Отопление, датчики дыма и CO (проверены), щиток",
+              "Мебель и бытовая техника при меблированной сдаче — модель и состояние",
+              "Показания счётчиков (газ, свет, вода) с датой — они закрывают финальные счета, не только залог",
+            ],
+            "По каждому пункту — состояние простыми словами, и при любом дефекте фото. «Хорошо / удовлетворительно / плохо» — это мнение; «скол 2 см в левом нижнем углу дверцы духовки» с фото — факт.",
+          ],
+        },
+        {
+          h: "Заселение и выезд: одна форма, дважды",
+          p: [
+            "При заселении арендатор сверяет акт с помещением и отмечает упущенное до подписи — после подписи это согласованное исходное состояние. При выезде проходите тот же список и фиксируете только изменения, отделяя реальный ущерб от естественного износа (выцветшая краска и слегка протёртый ковёр за годы обычной жизни — износ; прожог, дыра или снятая дверь — ущерб).",
+          ],
+        },
+        {
+          h: "Как сформулировать дефект, чтобы он «держался»",
+          p: [
+            "Опишите, локализуйте, измерьте, датируйте — и сфотографируйте. «Царапина» — слабо; «царапина 8 см на левой столешнице у мойки, фото 4, 14.01» — сильно. Без оценок и обвинений («грязно», «убито») — только наблюдаемое состояние, вес несёт фото. Объективная формулировка и делает акт убедительным для депозитной схемы или суда.",
+          ],
+        },
+        {
+          h: "Фото, отметки времени и подписи",
+          p: [
+            "Фото — основа акта. Снимайте каждую комнату общим планом плюс крупно каждый дефект, и храните оригиналы — их метки времени доказывают момент съёмки. Нумеруйте фото и ссылайтесь на них в тексте, чтобы каждое соответствовало строке.",
+            "В конце — дата, адрес, кто осматривал, и место для двух подписей. Акт, подписанный обеими сторонами при заселении, потом почти неоспорим; односторонние неподписанные заметки — нет. Отдайте копию арендатору в тот же день, чтобы была одна согласованная версия, а не две.",
+          ],
+        },
+      ],
+      table: {
+        title: "Акт при заселении и при выезде",
+        headers: ["", "Заселение", "Выезд"],
+        rows: [
+          ["Цель", "Согласовать исходное состояние", "Измерить изменение относительно заселения"],
+          ["Кто сверяет", "Арендатор до подписи", "Арендодатель/агент, лучше при арендаторе"],
+          ["Фокус", "Все пункты, полный базис", "Только изменения; износ или ущерб"],
+          ["Счётчики", "Начальные показания", "Конечные показания для финальных счетов"],
+        ],
+      },
+      faq: [
+        {
+          q: "Акт осмотра обязателен по закону?",
+          a: "Закон его требует редко, но для споров о залоге именно датированный, подписанный акт с фото — главное доказательство. Без него сторона, удерживающая или возвращающая залог, обычно проигрывает по умолчанию.",
+        },
+        {
+          q: "Чем естественный износ отличается от ущерба?",
+          a: "Износ — постепенное, ожидаемое старение от обычной жизни: выцветшая краска, слегка протёртый ковёр, мелкие потёртости за годы. Ущерб сверх этого: прожоги, дыры, поломки, пятна, последствия небрежности. На залог справедливо относить только ущерб.",
+        },
+        {
+          q: "Обязательно ли подписывать обеим сторонам?",
+          a: "Подписи делают акт намного сильнее: подписанный при заселении акт — согласованный факт, а не заявление одной стороны. Если арендатор не может подписать лично, отправьте акт в тот же день и попросите письменно подтвердить или возразить в оговорённый срок.",
+        },
+        {
+          q: "Сколько делать фото?",
+          a: "Столько, чтобы по ним можно было представить каждую комнату: общий план помещения плюс крупный план каждого дефекта. Храните оригиналы — их метки времени часть доказательства.",
+        },
+      ],
+      cta: "Составить акт осмотра бесплатно",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
+  inspectionReportGuide,
   ndaGuide,
   unilateralNdaGuide,
   mutualNdaGuide,
@@ -2969,6 +3136,7 @@ const RELATED: Record<string, string[]> = {
   "how-to-write-a-quote": ["how-to-make-an-invoice", "how-to-set-your-hourly-rate", "freelance-tax-explained"],
   "freelance-tax-explained": ["how-to-set-your-hourly-rate", "how-to-make-an-invoice", "marketplace-seller-taxes-usn-ausn-npd-2026"],
   "how-to-set-your-hourly-rate": ["freelance-tax-explained", "how-to-write-a-quote", "how-to-make-an-invoice"],
+  "how-to-write-a-property-inspection-report": ["how-to-calculate-rental-yield", "how-to-make-an-invoice", "how-to-write-a-quote"],
   // Dev cluster
   "what-is-a-jwt": ["what-is-hashing", "what-is-a-cron-expression"],
   "what-is-hashing": ["what-is-a-jwt", "what-is-a-cron-expression"],
