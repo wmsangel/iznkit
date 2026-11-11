@@ -9,7 +9,15 @@ import { GUIDES, getGuide, getRelatedGuides } from "@/lib/guides";
 import { getTool } from "@/lib/tools/registry";
 import { GuideArticle } from "@/components/guide-article";
 import { AmazonBooks } from "@/components/amazon-books";
+import { SponsoredAds } from "@/components/sponsored-ads";
 import { AUTHOR } from "@/lib/author";
+
+// EN document/contract guides carrying the Indoleads AI Ads pilot block.
+// Maps the guide slug to its fixed ad-query page id (see src/lib/ads/indoleads.ts).
+const SPONSORED_PAGE: Record<string, string> = {
+  "one-way-vs-mutual-nda": "nda-guide",
+  "how-to-make-an-invoice": "invoice-guide",
+};
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => GUIDES.map((g) => ({ locale, slug: g.slug })));
@@ -139,6 +147,9 @@ export default async function GuidePage({
           relatedLabel={locale === "ru" ? "Связанные гайды" : "Related guides"}
         />
         {locale === "en" ? <AmazonBooks guideSlug={slug} /> : null}
+        {locale === "en" && SPONSORED_PAGE[slug] ? (
+          <SponsoredAds page={SPONSORED_PAGE[slug]} />
+        ) : null}
       </div>
     </div>
   );

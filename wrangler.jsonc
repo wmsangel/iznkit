@@ -18,6 +18,13 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  // Rate-limiter + daily-cap counter for the Indoleads AI Ads pilot (server-side
+  // proxy at /api/sponsored). Holds only per-day/per-minute request counts — no
+  // ad content, no PII. The API key is a Worker secret (INDOLEADS_AI_ADS_KEY),
+  // set via `wrangler secret put`, never in this file or the repo.
+  "kv_namespaces": [
+    { "binding": "INDOLEADS_ADS", "id": "98c0bad5433f496884b777949b214508" }
+  ],
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",

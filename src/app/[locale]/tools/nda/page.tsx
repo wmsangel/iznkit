@@ -5,6 +5,7 @@ import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { NdaTool } from "@/components/tools/nda-tool";
 import { ToolContent } from "@/components/tool-content";
+import { SponsoredAds } from "@/components/sponsored-ads";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { getToolContent } from "@/lib/seo/tool-content";
 import { getTool } from "@/lib/tools/registry";
@@ -57,6 +58,7 @@ export default async function NdaPage({
           priceCents={entry.tool.priceCents}
         />
       ) : null}
+      {locale === "en" ? <SponsoredAds page="nda-tool" /> : null}
     </div>
   );
 }
