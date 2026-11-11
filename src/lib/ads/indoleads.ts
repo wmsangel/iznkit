@@ -171,9 +171,11 @@ export async function fetchSponsored(page: string, country: string): Promise<Spo
   } catch {
     env = undefined;
   }
-  // Key comes from the build-time prod env (.env.production.local, like
-  // UNLOCK_SECRET) or, if later set as a real Worker secret, from the binding.
-  const key = process.env.INDOLEADS_AI_ADS_KEY ?? env?.INDOLEADS_AI_ADS_KEY;
+  // A real Worker secret (binding) WINS over the build-time env, so the owner can
+  // cut the production key over with a single `wrangler secret put` — no code
+  // redeploy, no .env edit — and it immediately overrides the sandbox fallback.
+  // Fallback: the build-time sandbox key in .env.production.local (like UNLOCK_SECRET).
+  const key = env?.INDOLEADS_AI_ADS_KEY ?? process.env.INDOLEADS_AI_ADS_KEY;
   const kv = env?.INDOLEADS_ADS as KvStore | undefined;
   if (!key || !kv) return [];
 
