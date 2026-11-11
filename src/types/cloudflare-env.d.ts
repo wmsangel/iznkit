@@ -9,5 +9,7 @@ declare global {
     INDOLEADS_ADS?: KVNamespace;
     /** Indoleads AI Ads API key (Worker secret, server-side only). */
     INDOLEADS_AI_ADS_KEY?: string;
+    /** Gate: cards are served only when this is exactly "production". */
+    INDOLEADS_MODE?: string;
   }
 }

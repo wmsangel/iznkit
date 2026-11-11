@@ -171,6 +171,13 @@ export async function fetchSponsored(page: string, country: string): Promise<Spo
   } catch {
     env = undefined;
   }
+
+  // Hard gate: show cards only in production mode. The sandbox key's card URLs go
+  // to an Indoleads "Sandbox click — no tracking" stub, so they must never reach a
+  // real reader. Without INDOLEADS_MODE=production the block renders nothing. The
+  // code + limiter stay wired so cutover is just setting the key and this flag.
+  const mode = env?.INDOLEADS_MODE ?? process.env.INDOLEADS_MODE;
+  if (mode !== "production") return [];
   // A real Worker secret (binding) WINS over the build-time env, so the owner can
   // cut the production key over with a single `wrangler secret put` — no code
   // redeploy, no .env edit — and it immediately overrides the sandbox fallback.
