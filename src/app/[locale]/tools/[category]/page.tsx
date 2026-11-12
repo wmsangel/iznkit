@@ -12,6 +12,54 @@ function getSection(id: string): SectionDef | undefined {
   return sections.find((s) => s.id === id);
 }
 
+/** Trim to `max` chars without cutting a word, dropping trailing separators. */
+function clampWords(s: string, max: number): string {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  const base = lastSpace > max - 24 ? cut.slice(0, lastSpace) : cut;
+  return base.replace(/[\s,;:—-]+$/u, "");
+}
+
+/**
+ * Build a 120–155 char meta description for a category page. The visible blurb
+ * is short (good as an H1 subtitle) but too thin for search snippets, so here we
+ * enrich it with the category's live tool names until it fills the budget. Keeps
+ * each category's description unique and over Bing's "too short" threshold.
+ */
+function categoryDescription(
+  blurb: string,
+  title: string,
+  live: string[],
+  locale: Locale,
+): string {
+  const b = blurb.trim().replace(/\s+/g, " ").replace(/\.$/, "");
+  const lead =
+    locale === "en"
+      ? `Free ${title.toLowerCase()} tools on iznkit`
+      : `Бесплатные инструменты iznkit (${title.toLowerCase()})`;
+  const tail =
+    locale === "en"
+      ? "No sign-up, right in your browser."
+      : "Без регистрации, прямо в браузере.";
+  const names: string[] = [];
+  for (const n of live) {
+    const candidate = `${b}. ${lead} — ${[...names, n].join(", ")}. ${tail}`;
+    if (candidate.length > 155) break;
+    names.push(n);
+  }
+  let desc = names.length
+    ? `${b}. ${lead} — ${names.join(", ")}. ${tail}`
+    : `${b}. ${lead}. ${tail}`;
+  if (desc.length < 120) {
+    desc +=
+      locale === "en"
+        ? " Fast, private, and completely free."
+        : " Быстро, приватно и полностью бесплатно.";
+  }
+  return clampWords(desc, 155);
+}
+
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     sections.map((s) => ({ locale, category: s.id })),
@@ -27,11 +75,14 @@ export async function generateMetadata({
   if (!isLocale(locale)) return {};
   const section = getSection(category);
   if (!section) return {};
+  const live = section.tools
+    .filter((t) => t.status === "live")
+    .map((t) => t.title[locale]);
   return pageMetadata({
     locale,
     path: `tools/${category}`,
     title: section.title[locale],
-    description: section.blurb[locale],
+    description: categoryDescription(section.blurb[locale], section.title[locale], live, locale),
   });
 }
 
