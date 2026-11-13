@@ -2542,7 +2542,7 @@ const marginVatGuide: Guide = {
     en: {
       title: "Is margin calculated with or without VAT?",
       description:
-        "Margin is calculated without VAT — the tax isn't yours to keep. When the gross shortcut matches, when it inflates your margin by points that aren't real, plus a calculator that strips VAT and shows margin, markup and profit.",
+        "Margin is calculated without VAT, not with it. See when the gross shortcut is safe, when it fakes points of margin, plus a free VAT-stripping calculator.",
       intro:
         "Short answer: without VAT (work out yours in the [margin-with-VAT calculator](tools/margin-vat)). Margin measures what your business keeps, and VAT is not yours to keep — you collect it from the customer on the government's behalf and pass it on, minus the VAT you already paid your suppliers. So the honest margin is always worked out on net, ex-VAT figures. The interesting part is when calculating on gross prices gives you the same answer anyway, and when it quietly tells you a flattering lie.",
       sections: [
@@ -2930,7 +2930,7 @@ const inspectionReportGuide: Guide = {
     en: {
       title: "How to write a property inspection report (move-in / move-out)",
       description:
-        "A property inspection report records a rental's condition room by room, with photos and dates, so the deposit is split fairly. What to include, how to word defects, and a free template.",
+        "Record a rental's condition room by room, with photos and dates, so the deposit is split fairly. What to include, how to word defects, and a free template.",
       intro:
         "A property inspection report is the dated record of what a rental looked like at a specific moment — usually when a tenant moves in and again when they leave. Its whole job is to settle one question later: which damage was already there, and which happened on this tenancy. Do it well and a deposit dispute takes five minutes; skip it and it becomes one person's word against another's. You can fill one out as you walk the property in our [inspection report generator](tools/inspection-report), but the method below matters more than the form.",
       sections: [
