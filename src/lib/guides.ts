@@ -2625,6 +2625,16 @@ const marginVatGuide: Guide = {
           a: "Both use the same profit, but margin divides it by the selling price and markup divides it by the cost. A 100% markup is a 50% margin. Margin can never reach 100%; markup can be any size.",
         },
       ],
+      table: {
+        title: "The gross-price shortcut: when it's right, when it lies",
+        headers: ["Situation", "Gross shortcut", "Real margin", "Takeaway"],
+        rows: [
+          ["Both sides carry VAT, same rate", "Matches the %", "Same %", "Percentage is right; money profit is overstated by the VAT you owe"],
+          ["Sell with VAT, buy from a non-VAT supplier", "Inflated", "~10 points lower", "Shortcut lies — compute on net figures"],
+          ["Different VAT rates in and out", "Breaks", "Different", "Convert each side at its own rate, then compare"],
+          ["You are not VAT-registered", "n/a", "Net price, full cost incl. VAT", "Supplier VAT is simply part of your cost"],
+        ],
+      },
       cta: "Calculate margin with VAT",
     },
     ru: {
@@ -2713,6 +2723,16 @@ const marginVatGuide: Guide = {
           a: "Прибыль одна и та же, но маржа делит её на цену продажи, а наценка — на себестоимость. Наценка 100% — это маржа 50%. Маржа не может достичь 100%, наценка может быть любой.",
         },
       ],
+      table: {
+        title: "Упрощённый расчёт по ценам с НДС: когда верно, когда врёт",
+        headers: ["Ситуация", "Расчёт «с НДС»", "Реальная маржа", "Вывод"],
+        rows: [
+          ["Обе стороны с НДС, одна ставка", "Совпадает по %", "Тот же %", "Процент верен, но прибыль в ₽ завышена на НДС к уплате"],
+          ["Продажа с НДС, закупка у поставщика без НДС", "Завышает", "Ниже на ~9–10 пунктов", "Расчёт «с НДС» врёт — считайте на суммах без НДС"],
+          ["Разные ставки на входе и выходе", "Ломается", "Другая", "Переведите каждую сторону по своей ставке"],
+          ["Вы на УСН без НДС", "н/д", "Цена без НДС, закупка с НДС в себестоимости", "НДС поставщика — просто часть себестоимости"],
+        ],
+      },
       cta: "Рассчитать маржу с НДС",
     },
   },
