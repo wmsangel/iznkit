@@ -3108,8 +3108,193 @@ const inspectionReportGuide: Guide = {
   },
 };
 
+const purchaseOrderGuide: Guide = {
+  slug: "how-to-write-a-purchase-order",
+  toolSlug: "purchase-order",
+  updated: "2026-11-16",
+  content: {
+    en: {
+      title: "How to write a purchase order (with a free template)",
+      description:
+        "A purchase order is the buyer's offer to buy, with items, quantities and prices. What to put on one, how PO numbers work, PO vs invoice, and a free generator.",
+      intro:
+        "A purchase order (PO) is the document a buyer sends a supplier to order goods or services: it lists exactly what, how many, at what price, and on what terms. Once the supplier accepts it, the PO becomes a binding contract — which is why a clear, numbered PO prevents the disputes that loose email orders cause. Here is what belongs on one and how the flow works; you can fill one out in the [purchase order generator](tools/purchase-order).",
+      sections: [
+        {
+          h: "What a purchase order is for",
+          p: [
+            "A PO turns a verbal or email agreement into a record both sides can point to. The buyer commits to buy named items at agreed prices; the supplier knows exactly what to ship and how to invoice it. For the buyer's accounting it is the control document: every invoice that arrives is checked against its PO before it is paid (the \"three-way match\" of PO, delivery note and invoice).",
+            "Small businesses often skip POs and order by email, then argue later about quantity, price or delivery date. A one-page PO with a number removes that ambiguity for the cost of a minute.",
+          ],
+        },
+        {
+          h: "What to put on a purchase order",
+          p: [
+            "A complete PO carries the parties, a unique number, the line items, the money, and the terms:",
+            [
+              "Buyer and supplier — names, addresses, contacts",
+              "PO number and date (see numbering below)",
+              "Line items — description, SKU, quantity, unit price, line total",
+              "Subtotal, tax/VAT, shipping, grand total",
+              "Delivery address and required-by date",
+              "Payment terms (e.g. net 30) and any reference",
+            ],
+            "Keep descriptions specific enough that the supplier cannot substitute a different item: model numbers, sizes and units matter more than a pretty layout.",
+          ],
+        },
+        {
+          h: "Purchase order vs invoice",
+          p: [
+            "They look similar but move in opposite directions. The buyer issues the purchase order first, to order; the supplier issues the invoice afterwards, to ask for payment for what was delivered. The PO says \"please supply these\"; the invoice says \"you received these, now pay\".",
+            "That is why the PO number is quoted on the later invoice and delivery note — it ties the three documents together so accounts payable can match them and pay with confidence.",
+          ],
+        },
+        {
+          h: "How purchase order numbering works",
+          p: [
+            "Every PO needs a unique number so it can be referenced on invoices, delivery notes and in your books. A simple running sequence works — PO-2026-001, PO-2026-002 — optionally with a supplier or department code. The two rules that matter: never reuse a number, and never leave gaps you cannot explain, because auditors read gaps as missing documents.",
+            "Pick a format and keep it. Switching numbering styles mid-year makes reconciliation harder than any benefit a cleverer scheme brings.",
+          ],
+        },
+        {
+          h: "The purchase order workflow",
+          p: [
+            "A PO moves through a short life: the buyer raises and approves it, sends it to the supplier, the supplier accepts (at which point it is binding), the goods arrive with a delivery note, and finally the invoice is matched to the PO and paid.",
+            "Keep the accepted version — a PDF is enough for a small business. If quantities or prices change later, issue a revised PO or a change note rather than editing the original, so the trail stays intact.",
+          ],
+        },
+        {
+          h: "How to use the generator",
+          p: [
+            "Enter the buyer and supplier, add line items with quantities and unit prices, and set the tax rate and terms; the generator totals it and produces a clean PDF with your PO number. Reuse the same supplier details next time instead of retyping them.",
+          ],
+        },
+      ],
+      table: {
+        title: "Purchase order fields at a glance",
+        headers: ["Field", "What it is", "Why it matters"],
+        rows: [
+          ["PO number", "Unique reference for this order", "Ties the invoice and delivery note back to the order"],
+          ["Line items", "Description, SKU, qty, unit price", "Defines exactly what the supplier must ship"],
+          ["Delivery date", "When goods are required by", "Sets the supplier's obligation and your planning"],
+          ["Payment terms", "e.g. net 30", "When the later invoice becomes due"],
+          ["Grand total", "Subtotal + tax + shipping", "The amount the matched invoice must agree with"],
+        ],
+      },
+      faq: [
+        {
+          q: "Is a purchase order legally binding?",
+          a: "It becomes binding once the supplier accepts it — by confirming, shipping, or starting work. On its own, before acceptance, it is an offer to buy, not yet a contract.",
+        },
+        {
+          q: "What is the difference between a purchase order and an invoice?",
+          a: "The buyer sends the purchase order first to order goods; the supplier sends the invoice afterwards to request payment. The invoice quotes the PO number so the two can be matched.",
+        },
+        {
+          q: "Do I need a purchase order as a small business?",
+          a: "Not legally, but a numbered PO prevents disputes over quantity, price and delivery, and gives your bookkeeping a document to match incoming invoices against. For anything beyond a trivial order it pays for itself.",
+        },
+        {
+          q: "How should I number purchase orders?",
+          a: "Use a simple running sequence such as PO-2026-001, optionally with a supplier or department code. Never reuse a number and avoid unexplained gaps.",
+        },
+      ],
+      cta: "Create a purchase order",
+    },
+    ru: {
+      title: "Как составить заказ поставщику (с бесплатным шаблоном)",
+      description:
+        "Заказ поставщику (PO) — предложение покупателя купить: позиции, количества, цены, условия. Что в нём указать, как нумеровать, чем отличается от счёта, и генератор.",
+      intro:
+        "Заказ поставщику (purchase order, PO) — документ, которым покупатель заказывает у поставщика товары или услуги: что именно, сколько, по какой цене и на каких условиях. Как только поставщик его принимает, заказ становится обязывающим — поэтому аккуратный заказ с номером снимает споры, которые порождают заказы «на словах» или письмом. Ниже — что в нём должно быть и как устроен процесс; заполнить можно в [генераторе заказа поставщику](tools/purchase-order).",
+      sections: [
+        {
+          h: "Зачем нужен заказ поставщику",
+          p: [
+            "Заказ превращает устную договорённость или переписку в документ, на который можно сослаться обеим сторонам. Покупатель фиксирует, что берёт названные позиции по согласованным ценам; поставщик точно знает, что отгрузить и как выставить счёт. Для учёта покупателя это контрольный документ: каждый пришедший счёт сверяется со своим заказом перед оплатой (сверка «заказ — накладная — счёт»).",
+            "Малый бизнес часто обходится без заказа и шлёт заявку письмом, а потом спорит о количестве, цене или сроке. Одностраничный заказ с номером убирает эту неопределённость за минуту.",
+          ],
+        },
+        {
+          h: "Что указать в заказе поставщику",
+          p: [
+            "Полный заказ содержит стороны, уникальный номер, позиции, суммы и условия:",
+            [
+              "Покупатель и поставщик — названия, адреса, контакты",
+              "Номер и дата заказа (о нумерации ниже)",
+              "Позиции — наименование, артикул, количество, цена, сумма строки",
+              "Итого, НДС/налог, доставка, общий итог",
+              "Адрес доставки и требуемый срок",
+              "Условия оплаты (например, 30 дней) и ссылка/основание",
+            ],
+            "Описания должны быть достаточно точными, чтобы поставщик не подменил позицию: модель, размер и единицы важнее красивой вёрстки.",
+          ],
+        },
+        {
+          h: "Заказ поставщику и счёт — в чём разница",
+          p: [
+            "Выглядят похоже, но движутся навстречу. Покупатель выставляет заказ первым — чтобы заказать; поставщик выставляет счёт потом — чтобы получить оплату за поставленное. Заказ говорит «поставьте вот это», счёт — «вы это получили, оплатите».",
+            "Поэтому номер заказа указывают в последующем счёте и накладной — он связывает три документа, и бухгалтерия может их сверить и оплатить без сомнений.",
+          ],
+        },
+        {
+          h: "Как нумеровать заказы",
+          p: [
+            "Каждому заказу нужен уникальный номер, чтобы ссылаться на него в счетах, накладных и учёте. Подходит простая сквозная нумерация — ЗАКАЗ-2026-001, ЗАКАЗ-2026-002 — при желании с кодом поставщика или отдела. Два правила: номер не переиспользовать и не оставлять необъяснимых пропусков — пропуск аудитор читает как потерянный документ.",
+            "Выберите формат и держитесь его. Смена схемы нумерации в середине года усложняет сверку сильнее, чем помогает любая «умная» система.",
+          ],
+        },
+        {
+          h: "Процесс работы с заказом",
+          p: [
+            "Заказ проходит короткий путь: покупатель создаёт и утверждает его, отправляет поставщику, поставщик принимает (с этого момента заказ обязывающий), товар приходит с накладной, и в конце счёт сверяется с заказом и оплачивается.",
+            "Храните принятую версию — для малого бизнеса достаточно PDF. Если количества или цены потом меняются, выпускайте изменённый заказ или уведомление об изменении, а не правьте оригинал, чтобы цепочка осталась целой.",
+          ],
+        },
+        {
+          h: "Как пользоваться генератором",
+          p: [
+            "Введите покупателя и поставщика, добавьте позиции с количеством и ценой, задайте ставку налога и условия; генератор посчитает итог и выдаст аккуратный PDF с вашим номером заказа. В следующий раз переиспользуйте данные поставщика, а не вводите заново.",
+          ],
+        },
+      ],
+      table: {
+        title: "Поля заказа поставщику — коротко",
+        headers: ["Поле", "Что это", "Зачем"],
+        rows: [
+          ["Номер заказа", "Уникальная ссылка на этот заказ", "Связывает счёт и накладную с заказом"],
+          ["Позиции", "Наименование, артикул, кол-во, цена", "Точно определяют, что обязан отгрузить поставщик"],
+          ["Срок доставки", "К какой дате нужен товар", "Задаёт обязанность поставщика и ваше планирование"],
+          ["Условия оплаты", "например, 30 дней", "Когда наступает срок по будущему счёту"],
+          ["Общий итог", "Итого + налог + доставка", "Сумма, с которой должен совпасть сверяемый счёт"],
+        ],
+      },
+      faq: [
+        {
+          q: "Заказ поставщику обязывает юридически?",
+          a: "Он становится обязывающим, когда поставщик его принимает — подтверждением, отгрузкой или началом работ. Сам по себе, до принятия, это предложение купить, ещё не договор.",
+        },
+        {
+          q: "Чем заказ поставщику отличается от счёта?",
+          a: "Покупатель сначала шлёт заказ, чтобы заказать товар; поставщик потом выставляет счёт, чтобы получить оплату. В счёте указывают номер заказа, чтобы их сверить.",
+        },
+        {
+          q: "Нужен ли заказ поставщику малому бизнесу?",
+          a: "По закону нет, но заказ с номером снимает споры о количестве, цене и сроке и даёт бухгалтерии документ для сверки с входящими счетами. На любом заказе сложнее пустячного он себя окупает.",
+        },
+        {
+          q: "Как нумеровать заказы поставщику?",
+          a: "Используйте простую сквозную нумерацию вроде ЗАКАЗ-2026-001, при желании с кодом поставщика или отдела. Номер не переиспользуйте и не оставляйте необъяснимых пропусков.",
+        },
+      ],
+      cta: "Создать заказ поставщику",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
+  purchaseOrderGuide,
   inspectionReportGuide,
   ndaGuide,
   unilateralNdaGuide,
@@ -3157,6 +3342,7 @@ const RELATED: Record<string, string[]> = {
   "freelance-tax-explained": ["how-to-set-your-hourly-rate", "how-to-make-an-invoice", "marketplace-seller-taxes-usn-ausn-npd-2026"],
   "how-to-set-your-hourly-rate": ["freelance-tax-explained", "how-to-write-a-quote", "how-to-make-an-invoice"],
   "how-to-write-a-property-inspection-report": ["how-to-calculate-rental-yield", "how-to-make-an-invoice", "how-to-write-a-quote"],
+  "how-to-write-a-purchase-order": ["how-to-make-an-invoice", "how-to-write-a-quote", "how-to-write-a-property-inspection-report"],
   // Dev cluster
   "what-is-a-jwt": ["what-is-hashing", "what-is-a-cron-expression"],
   "what-is-hashing": ["what-is-a-jwt", "what-is-a-cron-expression"],
