@@ -488,7 +488,7 @@ const freelanceTaxGuide: Guide = {
         {
           h: "Set money aside as you earn",
           p: [
-            "Because tax isn't withheld, move a percentage of every payment into a separate account the moment it arrives. Estimating your rate up front tells you exactly how much to hold back so there's no nasty surprise at tax time.",
+            "Because tax isn't withheld, move a percentage of every payment into a separate account the moment it arrives. Estimating your rate up front tells you exactly how much to hold back so there's no nasty surprise at tax time. In the US that holdback is formalised as quarterly estimated payments on Form 1040-ES — a [quarterly estimated tax calculator](https://calclumen.com/en/quarterly-estimated-tax-calculator) sizes each one and shows the due dates.",
             "Some of what you set aside can also work for you: a tax-advantaged retirement account such as a Traditional IRA lets you defer tax on part of your income while it grows — a [Traditional IRA calculator](https://calclumen.com/en/traditional-ira-calculator) shows the deduction and long-term balance.",
           ],
         },
