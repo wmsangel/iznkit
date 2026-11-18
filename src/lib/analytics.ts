@@ -98,4 +98,13 @@ export function track(event: string, params?: Record<string, unknown>): void {
   if (typeof window === "undefined") return;
   const n = normalize(event, params ?? {});
   window.gtag?.("event", n.event, n.params);
+  // Cookieless network beacon (izn-beacon) — same event in both places. The queue
+  // branch is required: tool_opened fires at hydration, before b.js loads, and
+  // without the queue it is lost (README, izntools 17.11).
+  const w = window as unknown as {
+    iznTrack?: (event: string, params?: Record<string, unknown>) => void;
+    iznTrackQ?: unknown[][];
+  };
+  if (w.iznTrack) w.iznTrack(n.event, n.params);
+  else (w.iznTrackQ = w.iznTrackQ || []).push([n.event, n.params]);
 }

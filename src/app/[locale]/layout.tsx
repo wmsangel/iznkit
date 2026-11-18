@@ -85,6 +85,14 @@ export default async function LocaleLayout({
               "(function(){try{var t=localStorage.getItem('iznkit:theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();",
           }}
         />
+        {/* izn-beacon queue stub — must run before b.js so tool_opened (fired at
+            hydration) is queued, not lost. See beacon README. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.iznTrack=window.iznTrack||function(){(window.iznTrackQ=window.iznTrackQ||[]).push(arguments)};",
+          }}
+        />
         <SiteHeader locale={locale} />
         <main className="flex-1">{children}</main>
         <SiteFooter locale={locale} />
@@ -104,6 +112,12 @@ export default async function LocaleLayout({
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "655ace7d1c49465fb93410161f8a38a8"}'
         />
+        {/* izn-beacon — cookieless network event beacon (b.izntools.com, owner
+            17.11). Raw server <script> like the CF beacon above: next/script
+            afterInteractive serializes into the RSC stream and no real tag lands
+            in the HTML. Sends only from network hosts (localhost/preview → 403). */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script defer src="https://b.izntools.com/b.js" />
       </body>
     </html>
   );
