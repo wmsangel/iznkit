@@ -95,7 +95,20 @@ export function SiteFooter({ locale }: { locale: Locale }) {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-xs text-[var(--muted)]">
-          <span>© {new Date().getFullYear()} iznkit</span>
+          <span>
+            © {new Date().getFullYear()} iznkit ·{" "}
+            {locale === "ru" ? "Сделано студией" : "Made by"}{" "}
+            <TrackedLink
+              href="https://izagorodnyi.dev"
+              external
+              nofollow
+              event="outbound_click"
+              params={{ host: "izagorodnyi.dev" }}
+              className="hover:text-[var(--foreground)] transition-colors"
+            >
+              izagorodnyi.dev
+            </TrackedLink>
+          </span>
           <nav className="flex flex-wrap gap-x-4 gap-y-2">
             {infoLinks.map((l) => (
               <Link key={l.href} href={l.href} className="hover:text-[var(--foreground)] transition-colors">

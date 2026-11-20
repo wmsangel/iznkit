@@ -1,7 +1,7 @@
 "use client";
 
 import type { Locale } from "@/lib/i18n/config";
-import type { Offer } from "@/lib/affiliates";
+import { affiliateHref, type Offer } from "@/lib/affiliates";
 import { track } from "@/lib/analytics";
 
 /** Deterministic brand hue (0–360) from the offer name, so each partner keeps a
@@ -35,7 +35,7 @@ export function AffiliateCard({
   const h = hue(offer.name);
   return (
     <a
-      href={offer.url}
+      href={affiliateHref(offer.url, tool)}
       target="_blank"
       rel="sponsored noopener"
       onClick={() =>

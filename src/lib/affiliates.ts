@@ -161,3 +161,33 @@ export function offersFor(category?: string): Offer[] {
   if (!category) return [];
   return AFFILIATES[category] ?? [];
 }
+
+/**
+ * Per-network sub-id so the shared network reports can tell which page earned a
+ * click (accounts are shared across the network — without a tag the report can't
+ * attribute the click to a site/page). The value is the tool slug of the page.
+ * Param name per network (dispatcher 16.11): Indoleads p1, Admitad/Mitgo subid,
+ * own cross-promo src. Unknown hosts (placeholders) are left untouched.
+ */
+const SUBID_RULES: { hosts: string[]; param: string; prefix?: string }[] = [
+  { hosts: ["z02o.xyz", "z03o.xyz", "thevospad.com", "trackerpro.org"], param: "p1" }, // Indoleads
+  {
+    hosts: ["rkdro.com", "dhwnh.com", "qwpeg.com", "plrvq.com", "ntzgd.com", "xcdus.com", "kjuzv.com"],
+    param: "subid",
+  }, // Admitad / Mitgo (Takeads)
+  { hosts: ["foldoutkit.com"], param: "src", prefix: "iznkit-" }, // own cross-promo
+];
+
+/** Append the page-slug sub-id to a partner URL based on its network. */
+export function affiliateHref(url: string, tool?: string): string {
+  if (!tool) return url;
+  try {
+    const u = new URL(url);
+    const rule = SUBID_RULES.find((r) => r.hosts.some((h) => u.hostname.endsWith(h)));
+    if (!rule || u.searchParams.has(rule.param)) return url;
+    u.searchParams.set(rule.param, `${rule.prefix ?? ""}${tool}`);
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
