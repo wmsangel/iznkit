@@ -3292,9 +3292,178 @@ const purchaseOrderGuide: Guide = {
   },
 };
 
+const ndaForContractorsGuide: Guide = {
+  slug: "nda-for-contractors",
+  toolSlug: "nda",
+  updated: "2026-11-23",
+  content: {
+    en: {
+      title: "NDA for contractors and freelancers (free template)",
+      description:
+        "When a freelancer or contractor needs an NDA, what it should cover (work product, client data, IP), one-way vs mutual, and a free generator to make one in a minute.",
+      intro:
+        "A contractor or freelancer NDA is a short confidentiality agreement signed before work starts, so a client can share briefs, data, code or customer lists without it leaking. It protects the client's secrets and reassures them enough to hand over what you need to do the job. Here is when you need one, what belongs in it for contract work, and how to make a signature-ready one in the [NDA generator](tools/nda).",
+      sections: [
+        {
+          h: "When a contractor needs an NDA",
+          p: [
+            "Any time a client gives you something they would not want public: unreleased product plans, customer or financial data, source code, designs, or a strategy deck. For many clients the NDA is a gate — they will not send the brief until it is signed, so having a clean template ready wins you the work faster.",
+            "As the freelancer you may also want confidentiality the other way: your rates, your process, or your own tools. That is when a mutual NDA fits (below).",
+          ],
+        },
+        {
+          h: "One-way or mutual for contract work",
+          p: [
+            "If only the client shares secrets and you just receive them, a one-way (unilateral) NDA is enough — it binds you, the contractor, to keep their information confidential. If both sides exchange sensitive information — you show your methods, they show their data — use a mutual NDA so the duty runs both ways.",
+            "Most freelance engagements start one-way (the client protecting their side). Upgrade to mutual only when you genuinely have your own confidential material to protect; a mutual NDA you do not need just adds negotiation.",
+          ],
+        },
+        {
+          h: "What a contractor NDA should cover",
+          p: [
+            "Beyond the standard confidentiality clause, contract work has a few specifics worth naming:",
+            [
+              "The parties and the project it covers",
+              "What counts as confidential (and the usual carve-outs: already public, already known, independently developed)",
+              "That confidential info is used only for the engagement, not reused for other clients",
+              "Who owns the work product and any IP you create (often assigned to the client on payment)",
+              "Return or deletion of materials when the project ends",
+              "How long the duty lasts after the work finishes (commonly 1–3 years)",
+            ],
+            "Keep it proportionate: a one-page NDA that a client signs beats a ten-page one their lawyer sits on for a week.",
+          ],
+        },
+        {
+          h: "How the NDA fits with your contract",
+          p: [
+            "The NDA covers confidentiality; it is not the whole deal. Scope, price, deadlines and IP assignment live in the services agreement, statement of work or quote. Sign the NDA first so you can discuss the brief freely, then the contract once the scope is clear.",
+            "If your main contract already has a strong confidentiality clause, a separate NDA may be redundant — but a standalone NDA is useful at the pitch stage, before any contract exists.",
+          ],
+        },
+        {
+          h: "How to use the generator",
+          p: [
+            "Pick one-way or mutual, fill in the two parties and the purpose, set how long the confidentiality lasts, and the generator produces a clean, signature-ready PDF. Reuse it for the next client by changing the names.",
+          ],
+        },
+      ],
+      table: {
+        title: "One-way vs mutual NDA for a freelancer",
+        headers: ["", "One-way (unilateral)", "Mutual"],
+        rows: [
+          ["Who is bound", "Only you (the contractor)", "Both sides"],
+          ["Use when", "Only the client shares secrets", "Both exchange sensitive info"],
+          ["Typical case", "You receive a brief, data or code", "You also reveal your own methods/tools"],
+          ["Negotiation", "Faster — client's standard form", "A little more back-and-forth"],
+        ],
+      },
+      faq: [
+        {
+          q: "Do freelancers need an NDA?",
+          a: "Not always, but many clients require one before sharing a brief or data. Having a clean template ready removes a blocker and signals you handle confidential work professionally.",
+        },
+        {
+          q: "One-way or mutual NDA for contract work?",
+          a: "One-way if only the client shares confidential information (it binds you to keep it secret). Mutual if both sides exchange sensitive material, so the duty runs both ways.",
+        },
+        {
+          q: "Does an NDA transfer ownership of my work?",
+          a: "No — an NDA is about confidentiality. Who owns the work product and IP is set in your services agreement or statement of work, usually assigned to the client on payment.",
+        },
+        {
+          q: "How long should a contractor NDA last?",
+          a: "The confidentiality duty commonly runs 1–3 years after the engagement ends. Match it to how long the information stays sensitive rather than picking an arbitrary long term.",
+        },
+      ],
+      cta: "Create an NDA",
+    },
+    ru: {
+      title: "NDA для подрядчика и фрилансера (бесплатный шаблон)",
+      description:
+        "Когда фрилансеру или подрядчику нужен NDA, что в нём прописать (результат работ, данные клиента, ИС), одностороннее или взаимное, и генератор, чтобы сделать за минуту.",
+      intro:
+        "NDA для подрядчика или фрилансера — короткое соглашение о конфиденциальности, которое подписывают до старта работ, чтобы клиент мог передать бриф, данные, код или списки клиентов без утечки. Оно защищает секреты клиента и даёт ему спокойно отдать то, что нужно для работы. Ниже — когда он нужен, что в нём прописать для подряда и как сделать готовый к подписи документ в [генераторе NDA](tools/nda).",
+      sections: [
+        {
+          h: "Когда подрядчику нужен NDA",
+          p: [
+            "Всякий раз, когда клиент передаёт то, что не хотел бы делать публичным: планы по продукту, клиентские или финансовые данные, исходный код, дизайны, стратегию. Для многих клиентов NDA — это шлюз: бриф не пришлют, пока он не подписан, поэтому готовый шаблон помогает быстрее получить заказ.",
+            "Как фрилансеру вам может понадобиться конфиденциальность и в обратную сторону: ваши ставки, процессы, собственные наработки. Тогда подходит взаимный NDA (ниже).",
+          ],
+        },
+        {
+          h: "Одностороннее или взаимное для подряда",
+          p: [
+            "Если секреты передаёт только клиент, а вы их получаете, достаточно одностороннего NDA — он обязывает хранить конфиденциальность вас, подрядчика. Если чувствительной информацией обмениваются обе стороны — вы показываете методы, клиент показывает данные — берите взаимный NDA, чтобы обязанность была обоюдной.",
+            "Большинство фриланс-заказов начинаются с одностороннего (клиент защищает свою сторону). Переходите к взаимному, только когда у вас действительно есть что защищать; ненужный взаимный NDA лишь добавляет переговоров.",
+          ],
+        },
+        {
+          h: "Что прописать в NDA подрядчика",
+          p: [
+            "Помимо стандартного пункта о конфиденциальности, у подряда есть своя специфика:",
+            [
+              "Стороны и проект, которого касается",
+              "Что считается конфиденциальным (и исключения: уже публичное, уже известное, разработанное независимо)",
+              "Что информация используется только для этого заказа, а не для других клиентов",
+              "Кому принадлежит результат работ и созданная ИС (часто переходит клиенту после оплаты)",
+              "Возврат или удаление материалов по завершении проекта",
+              "Срок действия обязанности после окончания работ (обычно 1–3 года)",
+            ],
+            "Держите соразмерно: одностраничный NDA, который клиент подписывает, лучше десятистраничного, над которым его юрист сидит неделю.",
+          ],
+        },
+        {
+          h: "Как NDA сочетается с договором",
+          p: [
+            "NDA покрывает конфиденциальность, но это не вся сделка. Объём, цена, сроки и передача прав — в договоре услуг, техзадании или КП. Сначала подпишите NDA, чтобы свободно обсудить бриф, потом договор, когда объём ясен.",
+            "Если в основном договоре уже есть сильный пункт о конфиденциальности, отдельный NDA может быть лишним — но отдельный NDA полезен на этапе питча, когда договора ещё нет.",
+          ],
+        },
+        {
+          h: "Как пользоваться генератором",
+          p: [
+            "Выберите одностороннее или взаимное, впишите две стороны и цель, задайте срок конфиденциальности — генератор выдаст аккуратный готовый к подписи PDF. Для следующего клиента переиспользуйте, поменяв имена.",
+          ],
+        },
+      ],
+      table: {
+        title: "Одностороннее и взаимное NDA для фрилансера",
+        headers: ["", "Одностороннее", "Взаимное"],
+        rows: [
+          ["Кого обязывает", "Только вас (подрядчика)", "Обе стороны"],
+          ["Когда брать", "Секреты передаёт только клиент", "Чувствительным обмениваются обе"],
+          ["Типичный случай", "Вы получаете бриф, данные, код", "Вы тоже раскрываете свои методы"],
+          ["Переговоры", "Быстрее — стандартная форма клиента", "Чуть больше согласований"],
+        ],
+      },
+      faq: [
+        {
+          q: "Нужен ли фрилансеру NDA?",
+          a: "Не всегда, но многие клиенты требуют его до передачи брифа или данных. Готовый шаблон снимает барьер и показывает, что вы профессионально работаете с конфиденциальным.",
+        },
+        {
+          q: "Одностороннее или взаимное NDA для подряда?",
+          a: "Одностороннее — если конфиденциальное передаёт только клиент (обязывает хранить тайну вас). Взаимное — если чувствительным обмениваются обе стороны, тогда обязанность обоюдна.",
+        },
+        {
+          q: "Передаёт ли NDA права на мою работу?",
+          a: "Нет — NDA про конфиденциальность. Кому принадлежит результат и ИС, определяет договор услуг или техзадание, обычно права переходят клиенту после оплаты.",
+        },
+        {
+          q: "На какой срок заключать NDA подрядчика?",
+          a: "Обязанность хранить тайну обычно действует 1–3 года после окончания работ. Привяжите срок к тому, как долго информация остаётся чувствительной, а не берите произвольно большой.",
+        },
+      ],
+      cta: "Создать NDA",
+    },
+  },
+};
+
 export const GUIDES: Guide[] = [
   invoiceGuide,
   purchaseOrderGuide,
+  ndaForContractorsGuide,
   inspectionReportGuide,
   ndaGuide,
   unilateralNdaGuide,
@@ -3333,7 +3502,8 @@ export function getGuideForTool(toolSlug: string): Guide | undefined {
  */
 const RELATED: Record<string, string[]> = {
   // NDA cluster
-  "one-way-vs-mutual-nda": ["what-is-a-unilateral-nda", "what-is-a-mutual-nda"],
+  "one-way-vs-mutual-nda": ["what-is-a-unilateral-nda", "what-is-a-mutual-nda", "nda-for-contractors"],
+  "nda-for-contractors": ["one-way-vs-mutual-nda", "how-to-write-a-quote", "how-to-write-a-purchase-order"],
   "what-is-a-unilateral-nda": ["one-way-vs-mutual-nda", "what-is-a-mutual-nda"],
   "what-is-a-mutual-nda": ["one-way-vs-mutual-nda", "what-is-a-unilateral-nda"],
   // Freelance / documents cluster
