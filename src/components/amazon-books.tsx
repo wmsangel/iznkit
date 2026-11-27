@@ -1,13 +1,11 @@
-"use client";
-
-import { track } from "@/lib/analytics";
-import { amazonSearch, booksForGuide } from "@/lib/amazon";
+import { booksForGuide } from "@/lib/amazon";
 
 /**
  * "Recommended reading" — Amazon Associates book links for a guide. EN only (the page
  * gates on locale). No prices, no images (Amazon policy pre-PA-API); links are to an
- * Amazon search for the title, carry the Associates tag and rel="sponsored", and sit
- * above the required disclosure.
+ * Amazon search for the title, carry rel="sponsored", and sit above the required
+ * disclosure. The anchor holds no Amazon URL: `href="#"` + `data-go="amazon"` + the
+ * search text; /go adds the Associates tag and per-page ascsubtag server-side.
  */
 export function AmazonBooks({ guideSlug }: { guideSlug: string }) {
   const books = booksForGuide(guideSlug);
@@ -20,10 +18,15 @@ export function AmazonBooks({ guideSlug }: { guideSlug: string }) {
         {books.map((b) => (
           <li key={b.title}>
             <a
-              href={amazonSearch(b.query)}
+              href="#"
+              data-go="amazon"
+              data-go-q={b.query}
+              data-go-s={guideSlug}
+              data-aff-item={b.title}
+              data-aff-network="amazon"
+              data-aff-placement={`guide:${guideSlug}`}
               target="_blank"
               rel="sponsored noopener"
-              onClick={() => track("amazon_click", { guide: guideSlug, book: b.title })}
               className="group flex h-full flex-col rounded-xl border border-[var(--border)] bg-[var(--card)] p-4 transition-colors hover:border-[var(--accent)]"
             >
               <span className="font-medium leading-snug group-hover:text-[var(--accent)] transition-colors">

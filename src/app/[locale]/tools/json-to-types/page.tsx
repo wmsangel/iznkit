@@ -44,6 +44,7 @@ export default async function JsonToTypesPage({ params }: { params: Promise<{ lo
           : "Need more browser utilities for text, encoding and conversion? "}
         <TrackedLink
           external
+          nofollow
           href="https://izntools.com/"
           event="outbound_click"
           params={{ to: "izntools", where: "json-to-types" }}

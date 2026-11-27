@@ -44,6 +44,7 @@ export default async function JsonCsvPage({ params }: { params: Promise<{ locale
           : "Working from a scanned document or an image? First "}
         <TrackedLink
           external
+          nofollow
           href="https://ocrsnip.com/"
           event="outbound_click"
           params={{ to: "OCRSnip", where: "json-to-csv" }}

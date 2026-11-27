@@ -3,7 +3,6 @@ import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { sections } from "@/lib/tools/registry";
 import { DONATE } from "@/lib/donate";
-import { PROJECTS } from "@/lib/projects";
 import { TrackedLink } from "@/components/tracked-link";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -64,31 +63,6 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                   ))}
                 </ul>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* More from us — sister projects */}
-        <div className="mt-12 pt-8 border-t border-[var(--border)]">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[var(--foreground)] mb-4">
-            {dict.nav.more}
-          </div>
-          <div className="grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-            {PROJECTS.map((p) => (
-              <TrackedLink
-                key={p.url}
-                href={p.url}
-                external
-                nofollow
-                event="outbound_click"
-                params={{ to: p.name, where: "footer" }}
-                className="group flex items-baseline gap-2 text-sm"
-              >
-                <span className="font-medium group-hover:text-[var(--accent)] transition-colors">
-                  {p.name}
-                </span>
-                <span className="text-[var(--muted)] truncate">— {p.tagline[locale]}</span>
-              </TrackedLink>
             ))}
           </div>
         </div>

@@ -5,8 +5,9 @@ import { AffiliateCard } from "@/components/affiliate-card";
 
 /**
  * Contextual "You may like" partner block. Renders nothing unless the tool's
- * affiliate category has offers. Cards link with rel="sponsored", fire a GA4
- * affiliate_click event, and point to the Affiliate Disclosure page.
+ * affiliate category has offers. Cards link with rel="sponsored" through our own /go redirect (no partner
+ * URL in the HTML — see affiliate-card.tsx), fire an affiliate_click event on a
+ * real press, and point to the Affiliate Disclosure page.
  */
 export function AffiliateSlot({
   locale,
@@ -43,11 +44,10 @@ export function AffiliateSlot({
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {offers.map((o) => (
           <AffiliateCard
-            key={o.url}
+            key={o.id}
             offer={o}
             locale={locale}
-            slot={category}
-            tool={tool}
+            place={tool ?? category}
             visit={visit}
             sponsored={sponsored}
           />

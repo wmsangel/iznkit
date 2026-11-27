@@ -44,6 +44,7 @@ export default async function CompoundPage({ params }: { params: Promise<{ local
           : "Need other everyday calculators — finance, DIY or health? "}
         <TrackedLink
           external
+          nofollow
           href="https://calclumen.com/en"
           event="outbound_click"
           params={{ to: "Calclumen", where: "compound-interest" }}

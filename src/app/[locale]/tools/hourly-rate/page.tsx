@@ -55,6 +55,7 @@ export default async function HourlyPage({
           : "Pricing for a client in another city, or planning a move? "}
         <TrackedLink
           external
+          nofollow
           href="https://costtrek.com/"
           event="outbound_click"
           params={{ to: "CostTrek", where: "hourly-rate" }}

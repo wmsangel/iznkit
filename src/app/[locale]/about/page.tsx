@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { CONTACT_EMAIL } from "@/lib/seo/site";
+import { NetworkStrip } from "@/components/network-strip";
 
 const COPY = {
   en: {
@@ -81,6 +82,7 @@ export default async function AboutPage({
           </a>
         </div>
       </div>
+      <NetworkStrip locale={locale} where="about" />
     </div>
   );
 }

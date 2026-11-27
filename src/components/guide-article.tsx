@@ -4,6 +4,7 @@ import type { Locale } from "@/lib/i18n/config";
 import type { GuideBody } from "@/lib/guides";
 import { AUTHOR } from "@/lib/author";
 import { TrackedLink } from "@/components/tracked-link";
+import { isNetworkUrl } from "@/lib/network";
 
 /**
  * Render a guide string with inline `[label](path)` links. Internal paths are
@@ -25,7 +26,12 @@ function renderInline(text: string, locale: Locale): ReactNode {
     const [, label, href] = m;
     if (/^https?:\/\//.test(href)) {
       parts.push(
-        <a key={m.index} href={href} rel="noopener" className="text-[var(--accent)] hover:underline">
+        <a
+          key={m.index}
+          href={href}
+          rel={isNetworkUrl(href) ? "nofollow noopener" : "noopener"}
+          className="text-[var(--accent)] hover:underline"
+        >
           {label}
         </a>,
       );

@@ -46,6 +46,7 @@ function normalize(event: string, p: Params): { event: string; params: Params } 
       set("item", p.partner ?? p.item);
       set("placement", p.slot ?? p.placement);
       set("platform", p.platform);
+      set("network", p.network);
       return { event: "affiliate_click", params: out };
     case "amazon_click":
       set("item", p.book);

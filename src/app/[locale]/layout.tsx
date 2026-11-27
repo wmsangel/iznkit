@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { ConsentBanner } from "@/components/consent-banner";
 import { SupportFab } from "@/components/support-fab";
 import { Analytics } from "@/components/analytics";
+import { GoClickTracker } from "@/components/go-click-tracker";
 import { SITE_URL } from "@/lib/seo/site";
 import "../globals.css";
 
@@ -98,6 +99,9 @@ export default async function LocaleLayout({
         <SiteFooter locale={locale} />
         <ConsentBanner locale={locale} />
         <SupportFab locale={locale} />
+        {/* Arms affiliate links (a[data-go]) on a real press and counts the click —
+            the HTML carries no partner or /go URL (variant B', see gotoken.ts). */}
+        <GoClickTracker />
         {/* GA4 + AdSense + Yandex Metrika — only in a production build AND only on
             the canonical host iznkit.com (the Analytics component checks hostname,
             so preview/mirror aliases like *.vercel.app never start analytics). */}

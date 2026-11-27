@@ -11,6 +11,7 @@ import { ToolsExplorer } from "@/components/home/tools-explorer";
 import { TEMPLATES, type InvoiceTemplate } from "@/lib/tools/invoice/templates";
 import { DONATE } from "@/lib/donate";
 import { GUIDES } from "@/lib/guides";
+import { NetworkStrip } from "@/components/network-strip";
 import { SITE_URL, SITE_NAME, CONTACT_EMAIL } from "@/lib/seo/site";
 
 export async function generateMetadata({
@@ -288,6 +289,7 @@ export default async function HomePage({
           </div>
         </div>
       </section>
+      <NetworkStrip locale={locale} where="home" />
     </div>
   );
 }

@@ -1,8 +1,5 @@
-"use client";
-
 import type { Locale } from "@/lib/i18n/config";
-import { affiliateHref, type Offer } from "@/lib/affiliates";
-import { track } from "@/lib/analytics";
+import type { PublicOffer } from "@/lib/affiliates";
 
 /** Deterministic brand hue (0–360) from the offer name, so each partner keeps a
  *  stable accent colour without storing one per offer. */
@@ -13,34 +10,38 @@ function hue(name: string): number {
 }
 
 /**
- * One clickable partner card. Client component so the click fires a GA4
- * `affiliate_click` event (slot + partner + tool) — the signal that lets us
- * measure which placements actually earn. GA4 attaches page_location itself.
+ * One clickable partner card. A server component: the anchor carries NO partner
+ * URL and no /go URL — only `href="#"` and `data-go="<offer id>"`. The delegated
+ * GoClickTracker writes a tokenized /go URL on a real press and fires the
+ * `affiliate_click` event (item / network / placement from the data-aff-*
+ * attributes below). See src/lib/affiliates/gotoken.ts for why.
+ *
+ * `place` is the page slug used as the network sub-id (`iznkit-<place>`).
  */
 export function AffiliateCard({
   offer,
   locale,
-  slot,
-  tool,
+  place,
   visit,
   sponsored,
 }: {
-  offer: Offer;
+  offer: PublicOffer;
   locale: Locale;
-  slot?: string;
-  tool?: string;
+  place?: string;
   visit: string;
   sponsored: string;
 }) {
   const h = hue(offer.name);
   return (
     <a
-      href={affiliateHref(offer.url, tool)}
+      href="#"
+      data-go={offer.id}
+      data-go-s={place ?? ""}
+      data-aff-item={offer.name}
+      data-aff-network={offer.net}
+      data-aff-placement={place ?? ""}
       target="_blank"
       rel="sponsored noopener"
-      onClick={() =>
-        track("affiliate_click", { slot: slot ?? "", partner: offer.name, tool: tool ?? "" })
-      }
       className="group relative flex flex-col rounded-xl border border-[var(--border)] bg-[var(--card)] p-4 transition-all hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-[0_10px_30px_-16px_rgba(0,0,0,0.4)]"
     >
       <span className="absolute right-3 top-3 text-[9px] uppercase tracking-wider text-[var(--muted)] opacity-70">

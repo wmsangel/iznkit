@@ -28,6 +28,6 @@ export const config = {
   matcher: [
     // Note: metadata routes with no file extension (apple-icon) must be excluded
     // explicitly — the `.*\..*` rule only skips paths that contain a dot.
-    "/((?!en$|ru$|en/|ru/|api|apple-icon|_next/static|_next/image|favicon.ico|fonts|.*\\..*).*)",
+    "/((?!en$|ru$|en/|ru/|api|go/|apple-icon|_next/static|_next/image|favicon.ico|fonts|.*\\..*).*)",
   ],
 };

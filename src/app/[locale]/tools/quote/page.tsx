@@ -53,6 +53,7 @@ export default async function QuotePage({
           : "Pricing a quote? Make sure it leaves the margin you want — run the numbers in a "}
         <TrackedLink
           external
+          nofollow
           href="https://calclumen.com/en/margin-markup-calculator"
           event="outbound_click"
           params={{ to: "CalcLumen", where: "quote" }}
