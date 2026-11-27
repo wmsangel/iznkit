@@ -3300,7 +3300,7 @@ const ndaForContractorsGuide: Guide = {
     en: {
       title: "NDA for contractors and freelancers (free template)",
       description:
-        "When a freelancer or contractor needs an NDA, what it should cover (work product, client data, IP), one-way vs mutual, and a free generator to make one in a minute.",
+        "When a freelancer or contractor needs an NDA, what it should cover (work product, client data, IP), one-way vs mutual, plus a free generator.",
       intro:
         "A contractor or freelancer NDA is a short confidentiality agreement signed before work starts, so a client can share briefs, data, code or customer lists without it leaking. It protects the client's secrets and reassures them enough to hand over what you need to do the job. Here is when you need one, what belongs in it for contract work, and how to make a signature-ready one in the [NDA generator](tools/nda).",
       sections: [
@@ -3380,7 +3380,7 @@ const ndaForContractorsGuide: Guide = {
     ru: {
       title: "NDA для подрядчика и фрилансера (бесплатный шаблон)",
       description:
-        "Когда фрилансеру или подрядчику нужен NDA, что в нём прописать (результат работ, данные клиента, ИС), одностороннее или взаимное, и генератор, чтобы сделать за минуту.",
+        "Когда фрилансеру или подрядчику нужен NDA, что в нём прописать (результат работ, данные клиента, ИС), одностороннее или взаимное, плюс генератор.",
       intro:
         "NDA для подрядчика или фрилансера — короткое соглашение о конфиденциальности, которое подписывают до старта работ, чтобы клиент мог передать бриф, данные, код или списки клиентов без утечки. Оно защищает секреты клиента и даёт ему спокойно отдать то, что нужно для работы. Ниже — когда он нужен, что в нём прописать для подряда и как сделать готовый к подписи документ в [генераторе NDA](tools/nda).",
       sections: [
